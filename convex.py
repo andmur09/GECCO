@@ -94,7 +94,7 @@ def getStandardForm(PSTN):
             cov_X[rvar_i][rvar_i] = incoming.sigma**2
         else:
             raise AttributeError("Not an uncontrollable constraint since no incoming pstc")
-    
+
     # Performs transformation of X into eta where eta = psi X such that eta is a p dimensional random variable
     mu_eta = psi @ mu_X
     cov_eta = psi @ cov_X @ psi.transpose()
@@ -105,20 +105,19 @@ def getStandardForm(PSTN):
         D[i, i] = 1/sqrt(cov_eta[i, i])
     R = D @ cov_eta @ D.transpose()
     T_l, T_u = D @ T_l, D @ T_u
-    q_l, q_u = D @ (q_l - mu_eta), D @ (q_u - mu_eta)    
+    q_l, q_u = D @ (q_l - mu_eta), D @ (q_u - mu_eta)
     mu_xi = np.zeros((p))
     cov_xi = R
     return A, vars, b, c, T_l, T_u, q_l, q_u, mu_xi, cov_xi
 
-
 def Initialise(A, vars, b, T_l, T_u, q_l, q_u):
     m = gp.Model("initialisation")
     x = m.addMVar(len(vars), vtype=GRB.CONTINUOUS, name="vars")
-    t_l = m.addMVar(1, name="t_l")
-    t_u = m.addMVar(1, name="t_u")
+    t_l = m.addMVar(1, lb=-float(inf), name="t_l")
+    t_u = m.addMVar(1, lb=-float(inf), name="t_u")
     p = T_l.shape[0]
-    z_l = m.addMVar(p, name = "zl")
-    z_u = m.addMVar(p, name = "zu")
+    z_l = m.addMVar(p, lb=-float(inf), name = "zl")
+    z_u = m.addMVar(p, lb=-float(inf), name = "zu")
     m.addConstr(A @ x <= b)
     m.addConstr(z_l == np.ones((p, 1)) @ t_l)
     m.addConstr(z_u == np.ones((p, 1)) @ t_u)
@@ -128,24 +127,36 @@ def Initialise(A, vars, b, T_l, T_u, q_l, q_u):
     m.setObjective(t_u - t_l, GRB.MAXIMIZE)
     m.update()
     m.optimize()
+    if m.status == GRB.OPTIMAL:
+        print('\n objective: ', m.objVal)
+        print('\n Vars:')
+        for v in m.getVars():
+            print("Variable {}: ".format(v.varName) + str(v.x))
     z_l = z_l.x
     z_u = z_u.x
     return (m, (z_l, z_u))
 
-def masterProblem(A, vars, b, c, T_l, T_u, q_l, q_u, z, phi, pi):
-    k = len(z)
-    m = gp.model("iteration_" + str(k))
+def masterProblem(A, vars, b, c, T_l, T_u, q_l, q_u, z_l, z_u, phi, pi):
+    k = np.shape(z_l)[1]
+    p = len(q_l)
+    m = gp.Model("iteration_" + str(k))
     x = m.addMVar(len(vars), name="vars")
     lam = m.addMVar(k, name="lambda")
     m.addConstr(A @ x <= b)
-    m.addConstr(lam @ z <= T_u @ x + q_u)
-    m.addConstr(lam @ z >= T_l @ x + q_l)
+    for i in range(p):
+        m.addConstr(T_l[i,:]@x + q_l[i] <= z_l[i, :]@lam)
+        m.addConstr(T_u[i,:]@x + q_u[i] >= z_u[i, :]@lam)
     m.addConstr(phi @ lam <= pi)
     m.addConstr(x[0] == 0)
     m.addConstr(lam.sum() == 1)
     m.setObjective(c @ x, GRB.MINIMIZE)
     m.update
     m.optimize()
+    if m.status == GRB.OPTIMAL:
+        print('\n objective: ', m.objVal)
+        print('\n Vars:')
+        for v in m.getVars():
+            print("Variable {}: ".format(v.varName) + str(v.x))
 
 def columnGeneration(v, u):
     pass
@@ -153,13 +164,17 @@ def columnGeneration(v, u):
 def JCCP(PSTN, alpha, epsilon):
     pi = -log(1-alpha)
     matrices = getStandardForm(PSTN)
-    k = 0
-    z = []
+    k = 1
+    m = []
     A, vars, b, c, T_l, T_u, q_l, q_u, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7], matrices[8], matrices[9]
-    m, zk = Initialise(A, vars, b, T_l, T_u, q_l, q_u)
-    if rectangular(zk[0], zk[1], mu, cov) >= 1 - alpha:
-        z.append(zk)
-        Obj_m, s, v, u = masterProblem(m, z)
+    res = Initialise(A, vars, b, T_l, T_u, q_l, q_u)
+    m, zk = res[0], res[1]
+    F = rectangular(zk[0], zk[1], mu, cov)[0]
+    if F >= 1 - alpha:
+        z_l = np.c_[zk[0]]
+        z_u = np.c_[zk[1]]
+        phi = np.c_[-log(F)]
+        Obj_m, s, v, u = masterProblem(A, vars, b, c, T_l, T_u, q_l, q_u, z_l, z_u, phi, pi)
         Obj_d, z_d = columnGeneration(v, u)
         while Obj_d > epsilon:
             k += 1
