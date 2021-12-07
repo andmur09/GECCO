@@ -1,0 +1,35 @@
+Number of literals: 30
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (capacity truck-1) are preferable
+Have identified that bigger values of (capacity truck-2) are preferable
+Have identified that bigger values of (fuel-left truck-1) are preferable
+Have identified that bigger values of (fuel-left truck-2) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+94% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 8.000
+b (7.000 | 33.000)b (6.000 | 331.006)b (5.000 | 332.007)b (4.000 | 430.007)b (3.000 | 430.007)b (2.000 | 430.007)b (1.000 | 526.008);;;; Solution Found
+; States evaluated: 426
+; Cost: 527.009
+; Time 0.18
+0.000: (drive truck-2 city-2-loc-2 city-2-loc-3)  [33.000]
+0.000: (drive truck-1 city-2-loc-1 city-2-loc-3)  [34.000]
+33.001: (drive truck-2 city-2-loc-3 city-1-loc-1)  [98.000]
+34.001: (drive truck-1 city-2-loc-3 city-1-loc-1)  [98.000]
+131.002: (drive truck-2 city-1-loc-1 city-2-loc-3)  [98.000]
+132.002: (drive truck-1 city-1-loc-1 city-1-loc-3)  [15.000]
+147.003: (drive truck-1 city-1-loc-3 city-1-loc-2)  [35.000]
+182.004: (pick-up truck-1 city-1-loc-2 package-1)  [1.000]
+183.004: (drive truck-1 city-1-loc-2 city-1-loc-3)  [35.000]
+218.005: (drive truck-1 city-1-loc-3 city-1-loc-1)  [15.000]
+229.003: (drive truck-2 city-2-loc-3 city-1-loc-1)  [98.000]
+233.006: (drive truck-1 city-1-loc-1 city-2-loc-3)  [98.000]
+327.004: (drive truck-2 city-1-loc-1 city-1-loc-3)  [15.000]
+331.007: (drop truck-1 city-2-loc-3 package-1)  [1.000]
+332.007: (drive truck-1 city-2-loc-3 city-1-loc-1)  [98.000]
+342.005: (drive truck-2 city-1-loc-3 city-1-loc-2)  [35.000]
+377.006: (pick-up truck-2 city-1-loc-2 package-2)  [1.000]
+378.006: (drive truck-2 city-1-loc-2 city-1-loc-3)  [35.000]
+413.007: (drive truck-2 city-1-loc-3 city-1-loc-1)  [15.000]
+428.008: (drive truck-2 city-1-loc-1 city-2-loc-3)  [98.000]
+526.009: (drop truck-2 city-2-loc-3 package-2)  [1.000]

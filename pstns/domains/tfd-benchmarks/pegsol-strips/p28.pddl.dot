@@ -1,0 +1,254 @@
+digraph plan {
+0[ label="plan_start",style=filled,fillcolor=black,fontcolor=white];
+1[ label="jump_start
+(pos-2-3,pos-1-3,pos-0-3)"];
+2[ label="jump_end
+(pos-2-3,pos-1-3,pos-0-3)"];
+3[ label="jump_start
+(pos-2-0,pos-2-1,pos-2-2)"];
+4[ label="jump_end
+(pos-2-0,pos-2-1,pos-2-2)"];
+5[ label="jump_start
+(pos-3-2,pos-3-1,pos-3-0)"];
+6[ label="jump_end
+(pos-3-2,pos-3-1,pos-3-0)"];
+7[ label="jump_start
+(pos-6-2,pos-5-2,pos-4-2)"];
+8[ label="jump_end
+(pos-6-2,pos-5-2,pos-4-2)"];
+9[ label="jump_start
+(pos-4-6,pos-4-5,pos-4-4)"];
+10[ label="jump_end
+(pos-4-6,pos-4-5,pos-4-4)"];
+11[ label="jump_start
+(pos-0-4,pos-1-4,pos-2-4)"];
+12[ label="jump_end
+(pos-0-4,pos-1-4,pos-2-4)"];
+13[ label="jump_start
+(pos-4-3,pos-4-4,pos-4-5)"];
+14[ label="jump_end
+(pos-4-3,pos-4-4,pos-4-5)"];
+15[ label="jump_start
+(pos-1-2,pos-2-2,pos-3-2)"];
+16[ label="jump_end
+(pos-1-2,pos-2-2,pos-3-2)"];
+17[ label="jump_start
+(pos-0-2,pos-0-3,pos-0-4)"];
+18[ label="jump_end
+(pos-0-2,pos-0-3,pos-0-4)"];
+19[ label="jump_start
+(pos-3-4,pos-2-4,pos-1-4)"];
+20[ label="jump_end
+(pos-3-4,pos-2-4,pos-1-4)"];
+21[ label="jump_start
+(pos-3-2,pos-4-2,pos-5-2)"];
+22[ label="jump_end
+(pos-3-2,pos-4-2,pos-5-2)"];
+23[ label="jump_start
+(pos-6-4,pos-5-4,pos-4-4)"];
+24[ label="jump_end
+(pos-6-4,pos-5-4,pos-4-4)"];
+25[ label="jump_start
+(pos-0-4,pos-1-4,pos-2-4)"];
+26[ label="jump_end
+(pos-0-4,pos-1-4,pos-2-4)"];
+27[ label="jump_start
+(pos-4-5,pos-4-4,pos-4-3)"];
+28[ label="jump_end
+(pos-4-5,pos-4-4,pos-4-3)"];
+29[ label="jump_start
+(pos-4-0,pos-4-1,pos-4-2)"];
+30[ label="jump_end
+(pos-4-0,pos-4-1,pos-4-2)"];
+31[ label="jump_start
+(pos-5-2,pos-4-2,pos-3-2)"];
+32[ label="jump_end
+(pos-5-2,pos-4-2,pos-3-2)"];
+33[ label="jump_start
+(pos-3-3,pos-3-2,pos-3-1)"];
+34[ label="jump_end
+(pos-3-3,pos-3-2,pos-3-1)"];
+35[ label="jump_start
+(pos-5-3,pos-4-3,pos-3-3)"];
+36[ label="jump_end
+(pos-5-3,pos-4-3,pos-3-3)"];
+37[ label="jump_start
+(pos-3-0,pos-3-1,pos-3-2)"];
+38[ label="jump_end
+(pos-3-0,pos-3-1,pos-3-2)"];
+39[ label="jump_start
+(pos-3-2,pos-3-3,pos-3-4)"];
+40[ label="jump_end
+(pos-3-2,pos-3-3,pos-3-4)"];
+41[ label="jump_start
+(pos-3-4,pos-2-4,pos-1-4)"];
+42[ label="jump_end
+(pos-3-4,pos-2-4,pos-1-4)"];
+43[ label="jump_start
+(pos-2-6,pos-2-5,pos-2-4)"];
+44[ label="jump_end
+(pos-2-6,pos-2-5,pos-2-4)"];
+45[ label="jump_start
+(pos-1-4,pos-2-4,pos-3-4)"];
+46[ label="jump_end
+(pos-1-4,pos-2-4,pos-3-4)"];
+47[ label="jump_start
+(pos-3-5,pos-3-4,pos-3-3)"];
+48[ label="jump_end
+(pos-3-5,pos-3-4,pos-3-3)"];
+"0" -> "1" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"0" -> "3" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"0" -> "5" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"0" -> "7" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"0" -> "9" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"0" -> "11" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"1" -> "2" [ label="[1, 1]" , penwidth=2, color="black"]
+"0" -> "2" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"3" -> "4" [ label="[1, 1]" , penwidth=2, color="black"]
+"0" -> "4" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "6" [ label="[1, 1]" , penwidth=2, color="black"]
+"0" -> "6" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "8" [ label="[1, 1]" , penwidth=2, color="black"]
+"0" -> "8" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"9" -> "10" [ label="[1, 1]" , penwidth=2, color="black"]
+"0" -> "10" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"11" -> "12" [ label="[1, 1]" , penwidth=2, color="black"]
+"0" -> "12" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"10" -> "13" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"4" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"6" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"2" -> "17" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"12" -> "17" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"12" -> "19" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"13" -> "14" [ label="[1, 1]" , penwidth=2, color="black"]
+"9" -> "14" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"15" -> "16" [ label="[1, 1]" , penwidth=2, color="black"]
+"5" -> "16" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"3" -> "16" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"17" -> "18" [ label="[1, 1]" , penwidth=2, color="black"]
+"11" -> "18" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"1" -> "18" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"19" -> "20" [ label="[1, 1]" , penwidth=2, color="black"]
+"11" -> "20" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"16" -> "21" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"8" -> "21" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "21" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"14" -> "23" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"9" -> "23" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"18" -> "25" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"20" -> "25" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"11" -> "25" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"21" -> "22" [ label="[1, 1]" , penwidth=2, color="black"]
+"15" -> "22" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "22" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"23" -> "24" [ label="[1, 1]" , penwidth=2, color="black"]
+"13" -> "24" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"25" -> "26" [ label="[1, 1]" , penwidth=2, color="black"]
+"19" -> "26" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"17" -> "26" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"14" -> "27" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"24" -> "27" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"13" -> "27" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"10" -> "27" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"9" -> "27" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"22" -> "29" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "29" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"27" -> "28" [ label="[1, 1]" , penwidth=2, color="black"]
+"23" -> "28" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"13" -> "28" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"9" -> "28" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"29" -> "30" [ label="[1, 1]" , penwidth=2, color="black"]
+"21" -> "30" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"22" -> "31" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"30" -> "31" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"21" -> "31" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"15" -> "31" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"8" -> "31" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"6" -> "31" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "31" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"31" -> "32" [ label="[1, 1]" , penwidth=2, color="black"]
+"29" -> "32" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"21" -> "32" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "32" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "32" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"32" -> "33" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"6" -> "33" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"21" -> "33" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"16" -> "33" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "33" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"33" -> "34" [ label="[1, 1]" , penwidth=2, color="black"]
+"31" -> "34" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"15" -> "34" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "34" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"28" -> "35" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"34" -> "35" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"13" -> "35" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"6" -> "37" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"34" -> "37" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"31" -> "37" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"22" -> "37" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"15" -> "37" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "37" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"35" -> "36" [ label="[1, 1]" , penwidth=2, color="black"]
+"33" -> "36" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"27" -> "36" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"37" -> "38" [ label="[1, 1]" , penwidth=2, color="black"]
+"33" -> "38" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"21" -> "38" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "38" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"38" -> "39" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"36" -> "39" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"20" -> "39" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"33" -> "39" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"32" -> "39" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"21" -> "39" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"16" -> "39" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "39" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"39" -> "40" [ label="[1, 1]" , penwidth=2, color="black"]
+"37" -> "40" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"35" -> "40" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"31" -> "40" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"19" -> "40" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"15" -> "40" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"40" -> "41" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"26" -> "41" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"19" -> "41" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"12" -> "41" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"41" -> "42" [ label="[1, 1]" , penwidth=2, color="black"]
+"39" -> "42" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"25" -> "42" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"11" -> "42" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"42" -> "43" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"25" -> "43" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"20" -> "43" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"11" -> "43" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"43" -> "44" [ label="[1, 1]" , penwidth=2, color="black"]
+"41" -> "44" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"19" -> "44" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"42" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"44" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"41" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"39" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"26" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"25" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"20" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"19" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"12" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"11" -> "45" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"45" -> "46" [ label="[1, 1]" , penwidth=2, color="black"]
+"43" -> "46" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"41" -> "46" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"25" -> "46" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"19" -> "46" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"11" -> "46" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"46" -> "47" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"40" -> "47" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"41" -> "47" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"35" -> "47" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"34" -> "47" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"19" -> "47" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"47" -> "48" [ label="[1, 1]" , penwidth=2, color="black"]
+"45" -> "48" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"39" -> "48" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"33" -> "48" [ label="[0.001, inf]" , penwidth=2, color="black"]
+}

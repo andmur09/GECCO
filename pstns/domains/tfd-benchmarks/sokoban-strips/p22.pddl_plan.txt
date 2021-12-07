@@ -1,0 +1,529 @@
+Number of literals: 441
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+Pruning (move player-01 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-02 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-03 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-04 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-05 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-06 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-07 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-08 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-09 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-10 pos-7-6 pos-7-7 dir-down) - never appeared in initial RPG
+Pruning (move player-01 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-02 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-03 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-04 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-05 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-06 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-07 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-08 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-09 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-10 pos-7-7 pos-7-8 dir-down) - never appeared in initial RPG
+Pruning (move player-01 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-02 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-03 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-04 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-05 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-06 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-07 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-08 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-09 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-10 pos-8-1 pos-8-2 dir-down) - never appeared in initial RPG
+Pruning (move player-01 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-02 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-03 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-04 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-05 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-06 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-07 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-08 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-09 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-10 pos-8-6 pos-8-7 dir-down) - never appeared in initial RPG
+Pruning (move player-01 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-02 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-03 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-04 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-05 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-06 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-07 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-08 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-09 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-10 pos-8-7 pos-8-8 dir-down) - never appeared in initial RPG
+Pruning (move player-01 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-02 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-03 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-04 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-05 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-06 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-07 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-08 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-09 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-10 pos-8-6 pos-7-6 dir-left) - never appeared in initial RPG
+Pruning (move player-01 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-02 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-03 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-04 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-05 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-06 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-07 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-08 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-09 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-10 pos-8-7 pos-7-7 dir-left) - never appeared in initial RPG
+Pruning (move player-01 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-02 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-03 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-04 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-05 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-06 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-07 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-08 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-09 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-10 pos-8-8 pos-7-8 dir-left) - never appeared in initial RPG
+Pruning (move player-01 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-02 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-03 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-04 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-05 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-06 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-07 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-08 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-09 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-10 pos-7-6 pos-8-6 dir-right) - never appeared in initial RPG
+Pruning (move player-01 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-02 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-03 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-04 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-05 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-06 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-07 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-08 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-09 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-10 pos-7-7 pos-8-7 dir-right) - never appeared in initial RPG
+Pruning (move player-01 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-02 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-03 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-04 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-05 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-06 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-07 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-08 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-09 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-10 pos-7-8 pos-8-8 dir-right) - never appeared in initial RPG
+Pruning (move player-01 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-02 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-03 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-04 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-05 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-06 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-07 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-08 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-09 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-10 pos-7-7 pos-7-6 dir-up) - never appeared in initial RPG
+Pruning (move player-01 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-02 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-03 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-04 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-05 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-06 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-07 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-08 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-09 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-10 pos-7-8 pos-7-7 dir-up) - never appeared in initial RPG
+Pruning (move player-01 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-02 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-03 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-04 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-05 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-06 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-07 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-08 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-09 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-10 pos-8-2 pos-8-1 dir-up) - never appeared in initial RPG
+Pruning (move player-01 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-02 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-03 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-04 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-05 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-06 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-07 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-08 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-09 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-10 pos-8-7 pos-8-6 dir-up) - never appeared in initial RPG
+Pruning (move player-01 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-02 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-03 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-04 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-05 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-06 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-07 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-08 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-09 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (move player-10 pos-8-8 pos-8-7 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-2-5 pos-2-6 pos-2-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-2 pos-4-3 pos-4-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-3 pos-4-4 pos-4-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-4 pos-4-5 pos-4-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-5 pos-4-6 pos-4-7 dir-down) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-5-6 pos-4-6 pos-3-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-01 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-04 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-05 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-6-4 pos-5-4 pos-4-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-01 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-04 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-05 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-7-4 pos-6-4 pos-5-4 dir-left) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-2-6 pos-3-6 pos-4-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-3-6 pos-4-6 pos-5-6 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-01 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-04 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-05 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-4 pos-5-4 pos-6-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-01 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-04 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-05 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-5-4 pos-6-4 pos-7-4 dir-right) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-4 pos-4-3 pos-4-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-5 pos-4-4 pos-4-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-6 pos-4-5 pos-4-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-05 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-06 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-07 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-08 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-09 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-nongoal player-10 stone-06 pos-4-7 pos-4-6 pos-4-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-05 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-06 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-07 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-08 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-09 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-10 stone-06 pos-2-2 pos-2-3 pos-2-4 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-05 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-06 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-07 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-08 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-09 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-10 stone-06 pos-2-3 pos-2-4 pos-2-5 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-05 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-06 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-07 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-08 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-09 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-10 stone-06 pos-2-4 pos-2-5 pos-2-6 dir-down) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-05 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-06 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-07 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-08 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-09 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-10 stone-06 pos-4-6 pos-3-6 pos-2-6 dir-left) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-05 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-06 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-07 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-08 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-09 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-10 stone-06 pos-2-4 pos-2-3 pos-2-2 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-05 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-06 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-07 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-08 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-09 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-10 stone-06 pos-2-5 pos-2-4 pos-2-3 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-05 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-06 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-07 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-08 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-09 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-10 stone-06 pos-2-6 pos-2-5 pos-2-4 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-05 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-06 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-07 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-08 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-09 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+Pruning (push-to-goal player-10 stone-06 pos-2-7 pos-2-6 pos-2-5 dir-up) - never appeared in initial RPG
+All the ground actions in this problem are compression-safe
+Initial heuristic = 50.000
+b (49.000 | 1.000)b (48.000 | 2.001)b (47.000 | 3.002)b (46.000 | 4.003)b (41.000 | 5.004)b (39.000 | 7.006)b (38.000 | 8.007)b (34.000 | 9.008)b (33.000 | 11.010)b (32.000 | 11.010)b (27.000 | 13.012)b (26.000 | 16.015)b (25.000 | 16.015)b (24.000 | 19.018)b (23.000 | 19.018)b (22.000 | 26.025)b (21.000 | 29.028)b (20.000 | 32.031)b (18.000 | 32.031)b (17.000 | 34.033)b (16.000 | 34.033)b (14.000 | 39.038)b (13.000 | 40.039)b (12.000 | 43.042)b (11.000 | 46.045)
+Resorting to best-first search
+b (49.000 | 1.000)b (48.000 | 2.001)b (47.000 | 1.000)b (45.000 | 2.001)b (44.000 | 3.002)b (44.000 | 2.001)b (43.000 | 3.002)b (39.000 | 4.003)b (37.000 | 8.007)b (36.000 | 13.012)b (34.000 | 9.008)b (33.000 | 11.010)b (32.000 | 11.010)b (30.000 | 11.010)b (29.000 | 12.011)b (27.000 | 13.012)b (26.000 | 17.016)b (25.000 | 18.017)b (25.000 | 17.016)b (24.000 | 18.017)b (23.000 | 21.020)b (23.000 | 20.019)b (22.000 | 24.023)b (21.000 | 26.025)b (21.000 | 24.023)

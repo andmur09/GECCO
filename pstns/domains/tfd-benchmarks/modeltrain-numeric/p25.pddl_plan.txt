@@ -1,0 +1,20 @@
+Warnings encountered when parsing Domain/Problem File
+
+Errors: 0, warnings: 8
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 110: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 111: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 143: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 144: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 172: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 173: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 201: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 202: Warning: Undeclared requirement :duration-inequalities 
+Number of literals: 613
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 46.000
+b (45.000 | 10.000)b (44.000 | 11.001)b (43.000 | 19.002)b (42.000 | 20.003)b (41.000 | 20.003)b (38.000 | 20.003)b (37.000 | 20.003)b (36.000 | 20.003)b (35.000 | 20.003)b (34.000 | 20.003)b (33.000 | 30.004)b (32.000 | 30.004)b (30.000 | 60.003)b (29.000 | 70.004)b (28.000 | 70.004)b (27.000 | 71.004)b (26.000 | 98.005)b (25.000 | 99.006)b (24.000 | 99.006)b (23.000 | 99.006)b (22.000 | 99.006)b (21.000 | 117.009)b (18.000 | 123.011)b (17.000 | 123.011)b (15.000 | 231.016)b (14.000 | 231.016)b (13.000 | 231.016)b (12.000 | 231.016)b (11.000 | 231.016)b (9.000 | 241.019)b (8.000 | 251.020)b (7.000 | 253.020)b (6.000 | 318.020)
+Resorting to best-first search
+b (45.000 | 10.000)b (43.000 | 10.000)b (42.000 | 10.000)b (41.000 | 10.000)b (40.000 | 11.001)b (40.000 | 10.000)b (39.000 | 11.001)b (39.000 | 10.000)b (38.000 | 11.001)b (37.000 | 19.002)b (37.000 | 11.001)b (36.000 | 19.002)b (35.000 | 20.003)b (34.000 | 20.003)b (33.000 | 30.004)b (32.000 | 31.004)b (31.000 | 31.004)

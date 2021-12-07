@@ -1,0 +1,18 @@
+Warnings encountered when parsing Domain/Problem File
+
+Errors: 0, warnings: 8
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 110: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 111: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 143: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 144: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 172: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 173: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 201: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 202: Warning: Undeclared requirement :duration-inequalities 
+Number of literals: 509
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 80.000
+b (79.000 | 10.000)b (78.000 | 11.001)b (77.000 | 57.002)b (76.000 | 58.003)b (75.000 | 58.003)b (74.000 | 58.003)b (73.000 | 58.003)b (70.000 | 58.003)b (69.000 | 58.003)b (67.000 | 58.003)b (66.000 | 58.003)b (64.000 | 58.003)b (63.000 | 62.004)b (62.000 | 63.005)

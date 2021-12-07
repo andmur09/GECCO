@@ -1,0 +1,33 @@
+Number of literals: 101
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (board-size b0) are preferable
+Have identified that bigger values of (board-size b1) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+96% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 32.000
+b (25.000 | 30.000)b (24.000 | 30.000)b (23.000 | 30.000)b (22.000 | 44.001)b (21.000 | 51.002)b (19.000 | 60.001)b (18.000 | 60.001)b (17.000 | 70.002)b (16.000 | 80.003)b (15.000 | 80.003)b (14.000 | 90.002)b (13.000 | 90.002)b (11.000 | 90.002)b (10.000 | 90.004)b (9.000 | 90.004)b (8.000 | 107.003)b (7.000 | 131.004)b (6.000 | 167.005)b (5.000 | 167.005)b (4.000 | 167.005)b (2.000 | 167.005)b (1.000 | 206.006);;;; Solution Found
+; States evaluated: 64
+; Cost: 216.007
+; Time 0.06
+0.000: (do-saw b1 p0 saw0 mahogany rough)  [30.000]
+0.000: (load-highspeed-saw b0 highspeed-saw0)  [30.000]
+30.001: (do-plane p0 planer0 rough natural untreated)  [14.000]
+30.001: (do-saw b1 p3 saw0 mahogany rough)  [30.000]
+30.001: (cut-board b0 p1 highspeed-saw0 teak rough)  [10.000]
+40.002: (cut-board b0 p5 highspeed-saw0 teak rough)  [10.000]
+44.002: (do-spray-varnish p0 spray-varnisher0 black smooth)  [7.000]
+44.002: (do-plane p1 planer0 rough natural untreated)  [16.000]
+60.002: (do-glaze p3 glazer0 black)  [10.000]
+60.002: (do-saw b1 p2 saw0 mahogany rough)  [30.000]
+60.003: (do-spray-varnish p1 spray-varnisher0 black smooth)  [8.000]
+70.003: (do-plane p3 planer0 rough black glazed)  [10.000]
+70.003: (do-glaze p5 glazer0 black)  [11.000]
+80.004: (do-glaze p3 glazer1 red)  [10.000]
+90.003: (do-glaze p2 glazer0 black)  [17.000]
+90.003: (do-saw b1 p4 saw0 mahogany rough)  [30.000]
+107.004: (do-plane p2 planer0 rough black glazed)  [24.000]
+131.005: (do-grind p2 grinder0 smooth natural untreated untreated)  [36.000]
+131.005: (do-plane p4 planer0 rough natural untreated)  [26.000]
+167.006: (do-grind p4 grinder0 smooth natural untreated untreated)  [39.000]
+206.007: (do-immersion-varnish p4 immersion-varnisher0 black verysmooth)  [10.000]

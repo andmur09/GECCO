@@ -1,0 +1,11 @@
+Number of literals: 574
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that smaller values of (passengers fast0) are preferable
+Have identified that smaller values of (passengers fast1) are preferable
+Have identified that smaller values of (passengers slow0-0) are preferable
+Have identified that smaller values of (passengers slow1-0) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 97.000
+b (93.000 | 28.000)b (92.000 | 29.001)b (91.000 | 29.002)b (90.000 | 29.003)b (85.000 | 29.003)b (83.000 | 29.003)b (82.000 | 29.003)b (81.000 | 29.003)b (80.000 | 29.003)b (79.000 | 33.001)b (78.000 | 33.001)b (77.000 | 34.002)b (76.000 | 62.002)b (75.000 | 62.002)b (74.000 | 62.002)b (73.000 | 73.003)b (72.000 | 73.003)b (71.000 | 73.003)b (69.000 | 93.004)b (63.000 | 93.004)b (62.000 | 94.004)b (61.000 | 94.004)b (60.000 | 107.004)b (59.000 | 107.004)b (58.000 | 107.004)b (57.000 | 130.005)b (56.000 | 145.006)

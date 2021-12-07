@@ -1,0 +1,20 @@
+Warnings encountered when parsing Domain/Problem File
+
+Errors: 0, warnings: 3
+/home/andmur09/Dev/PSTN/pstns/domains/tiny/p02.pddl_problem.pddl: line: 14: Warning: Undeclared requirement :timed-initial-literals 
+/home/andmur09/Dev/PSTN/pstns/domains/tiny/p02.pddl_problem.pddl: line: 15: Warning: Undeclared requirement :timed-initial-literals 
+/home/andmur09/Dev/PSTN/pstns/domains/tiny/p02.pddl_problem.pddl: line: 19: Warning: Undeclared requirement :timed-initial-literals 
+Number of literals: 11
+Constructing lookup tables:
+Post filtering unreachable actions: 
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 2.000
+
+Resorting to best-first search
+b (1.000 | 12.360);;;; Solution Found
+; States evaluated: 8
+; Cost: 42.360
+; Time 0.00
+7.360: (host-token t01 p01)  [5.000]
+37.360: (host-token t02 p02)  [5.000]

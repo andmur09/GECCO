@@ -1,0 +1,15 @@
+Number of literals: 358
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (capacity truck-1) are preferable
+Have identified that bigger values of (capacity truck-2) are preferable
+Have identified that bigger values of (capacity truck-3) are preferable
+Have identified that bigger values of (fuel-left truck-1) are preferable
+Have identified that bigger values of (fuel-left truck-2) are preferable
+Have identified that bigger values of (fuel-left truck-3) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+99% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 51.000
+b (42.000 | 19.000)b (38.000 | 49.001)b (36.000 | 49.001)b (34.000 | 73.002)b (33.000 | 82.003)b (32.000 | 123.005)b (31.000 | 144.006)b (30.000 | 160.007)b (29.000 | 161.008)b (28.000 | 161.008)b (27.000 | 161.008)b (26.000 | 167.008)b (25.000 | 168.009)b (24.000 | 194.009)b (23.000 | 212.010)b (22.000 | 219.009)b (21.000 | 220.010)b (20.000 | 220.010)b (19.000 | 255.012)b (18.000 | 256.013)b (17.000 | 274.014)b (16.000 | 296.014)b (15.000 | 296.014)b (14.000 | 322.017)b (13.000 | 347.018)b (12.000 | 366.020)
+Resorting to best-first search
+b (42.000 | 19.000)b (40.000 | 24.000)b (40.000 | 22.000)b (38.000 | 42.001)b (36.000 | 67.002)

@@ -1,0 +1,111 @@
+Number of literals: 118
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+Pruning (move player-01 pos-01-05 pos-02-04 dir-northeast) - never appeared in initial RPG
+Pruning (move player-02 pos-01-05 pos-02-04 dir-northeast) - never appeared in initial RPG
+Pruning (move player-03 pos-01-05 pos-02-04 dir-northeast) - never appeared in initial RPG
+Pruning (move player-04 pos-01-05 pos-02-04 dir-northeast) - never appeared in initial RPG
+Pruning (move player-01 pos-02-04 pos-01-03 dir-northwest) - never appeared in initial RPG
+Pruning (move player-02 pos-02-04 pos-01-03 dir-northwest) - never appeared in initial RPG
+Pruning (move player-03 pos-02-04 pos-01-03 dir-northwest) - never appeared in initial RPG
+Pruning (move player-04 pos-02-04 pos-01-03 dir-northwest) - never appeared in initial RPG
+Pruning (move player-01 pos-02-06 pos-01-05 dir-northwest) - never appeared in initial RPG
+Pruning (move player-02 pos-02-06 pos-01-05 dir-northwest) - never appeared in initial RPG
+Pruning (move player-03 pos-02-06 pos-01-05 dir-northwest) - never appeared in initial RPG
+Pruning (move player-04 pos-02-06 pos-01-05 dir-northwest) - never appeared in initial RPG
+Pruning (move player-01 pos-01-03 pos-02-04 dir-southeast) - never appeared in initial RPG
+Pruning (move player-02 pos-01-03 pos-02-04 dir-southeast) - never appeared in initial RPG
+Pruning (move player-03 pos-01-03 pos-02-04 dir-southeast) - never appeared in initial RPG
+Pruning (move player-04 pos-01-03 pos-02-04 dir-southeast) - never appeared in initial RPG
+Pruning (move player-01 pos-01-05 pos-02-06 dir-southeast) - never appeared in initial RPG
+Pruning (move player-02 pos-01-05 pos-02-06 dir-southeast) - never appeared in initial RPG
+Pruning (move player-03 pos-01-05 pos-02-06 dir-southeast) - never appeared in initial RPG
+Pruning (move player-04 pos-01-05 pos-02-06 dir-southeast) - never appeared in initial RPG
+Pruning (move player-01 pos-02-04 pos-01-05 dir-southwest) - never appeared in initial RPG
+Pruning (move player-02 pos-02-04 pos-01-05 dir-southwest) - never appeared in initial RPG
+Pruning (move player-03 pos-02-04 pos-01-05 dir-southwest) - never appeared in initial RPG
+Pruning (move player-04 pos-02-04 pos-01-05 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-05-03 pos-07-03 pos-09-03 dir-east) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-05-03 pos-07-03 pos-09-03 dir-east) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-05-03 pos-07-03 pos-09-03 dir-east) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-05-03 pos-07-03 pos-09-03 dir-east) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-05-05 pos-06-04 pos-07-03 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-05-05 pos-06-04 pos-07-03 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-05-05 pos-06-04 pos-07-03 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-05-05 pos-06-04 pos-07-03 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-07-05 pos-08-04 pos-09-03 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-07-05 pos-08-04 pos-09-03 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-07-05 pos-08-04 pos-09-03 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-07-05 pos-08-04 pos-09-03 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-07-05 pos-06-04 pos-05-03 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-07-05 pos-06-04 pos-05-03 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-07-05 pos-06-04 pos-05-03 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-07-05 pos-06-04 pos-05-03 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-09-05 pos-08-04 pos-07-03 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-09-05 pos-08-04 pos-07-03 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-09-05 pos-08-04 pos-07-03 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-09-05 pos-08-04 pos-07-03 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-04-02 pos-05-03 pos-06-04 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-04-02 pos-05-03 pos-06-04 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-04-02 pos-05-03 pos-06-04 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-04-02 pos-05-03 pos-06-04 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-05-03 pos-06-04 pos-07-05 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-05-03 pos-06-04 pos-07-05 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-05-03 pos-06-04 pos-07-05 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-05-03 pos-06-04 pos-07-05 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-09-03 pos-08-04 pos-07-05 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-09-03 pos-08-04 pos-07-05 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-09-03 pos-08-04 pos-07-05 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-09-03 pos-08-04 pos-07-05 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-10-02 pos-09-03 pos-08-04 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-10-02 pos-09-03 pos-08-04 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-10-02 pos-09-03 pos-08-04 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-10-02 pos-09-03 pos-08-04 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-nongoal player-01 stone-04 pos-09-03 pos-07-03 pos-05-03 dir-west) - never appeared in initial RPG
+Pruning (push-to-nongoal player-02 stone-04 pos-09-03 pos-07-03 pos-05-03 dir-west) - never appeared in initial RPG
+Pruning (push-to-nongoal player-03 stone-04 pos-09-03 pos-07-03 pos-05-03 dir-west) - never appeared in initial RPG
+Pruning (push-to-nongoal player-04 stone-04 pos-09-03 pos-07-03 pos-05-03 dir-west) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-04 pos-08-04 pos-09-03 pos-10-02 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-04 pos-08-04 pos-09-03 pos-10-02 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-04 pos-08-04 pos-09-03 pos-10-02 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-04 pos-08-04 pos-09-03 pos-10-02 dir-northeast) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-04 pos-06-04 pos-05-03 pos-04-02 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-04 pos-06-04 pos-05-03 pos-04-02 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-04 pos-06-04 pos-05-03 pos-04-02 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-04 pos-06-04 pos-05-03 pos-04-02 dir-northwest) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-04 pos-07-03 pos-08-04 pos-09-05 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-04 pos-07-03 pos-08-04 pos-09-05 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-04 pos-07-03 pos-08-04 pos-09-05 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-04 pos-07-03 pos-08-04 pos-09-05 dir-southeast) - never appeared in initial RPG
+Pruning (push-to-goal player-01 stone-04 pos-07-03 pos-06-04 pos-05-05 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-goal player-02 stone-04 pos-07-03 pos-06-04 pos-05-05 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-goal player-03 stone-04 pos-07-03 pos-06-04 pos-05-05 dir-southwest) - never appeared in initial RPG
+Pruning (push-to-goal player-04 stone-04 pos-07-03 pos-06-04 pos-05-05 dir-southwest) - never appeared in initial RPG
+All the ground actions in this problem are compression-safe
+Initial heuristic = 11.000
+b (10.000 | 1.000)b (8.000 | 2.001)b (7.000 | 4.003)b (6.000 | 7.006)b (5.000 | 8.007)b (4.000 | 9.008)b (3.000 | 9.008)
+Resorting to best-first search
+b (10.000 | 1.000)b (9.000 | 1.000)b (8.000 | 3.002)b (8.000 | 2.001)b (7.000 | 6.005)b (6.000 | 7.006)b (5.000 | 8.007)b (4.000 | 9.008)b (4.000 | 8.007)b (3.000 | 9.008)b (2.000 | 12.011)b (1.000 | 13.012);;;; Solution Found
+; States evaluated: 336
+; Cost: 14.013
+; Time 0.18
+0.000: (push-to-nongoal player-02 stone-03 pos-10-02 pos-09-03 pos-08-04 dir-southwest)  [1.000]
+0.000: (move player-03 pos-05-05 pos-06-04 dir-northeast)  [1.000]
+1.001: (move player-02 pos-09-03 pos-10-02 dir-northeast)  [1.000]
+1.001: (push-to-goal player-04 stone-04 pos-09-05 pos-07-05 pos-05-05 dir-west)  [1.000]
+2.002: (move player-04 pos-07-05 pos-09-05 dir-east)  [1.000]
+3.003: (move player-03 pos-06-04 pos-07-05 dir-southeast)  [1.000]
+4.004: (push-to-nongoal player-01 stone-01 pos-04-02 pos-05-03 pos-06-04 dir-southeast)  [1.000]
+5.005: (push-to-nongoal player-01 stone-02 pos-05-03 pos-07-03 pos-09-03 dir-east)  [1.000]
+6.006: (push-to-nongoal player-03 stone-01 pos-07-05 pos-06-04 pos-05-03 dir-northwest)  [1.000]
+7.007: (move player-04 pos-09-05 pos-07-05 dir-west)  [1.000]
+7.007: (push-to-goal player-03 stone-01 pos-06-04 pos-05-03 pos-04-02 dir-northwest)  [1.000]
+8.008: (push-to-goal player-01 stone-03 pos-07-03 pos-08-04 pos-09-05 dir-southeast)  [1.000]
+8.008: (move player-03 pos-05-03 pos-06-04 dir-southeast)  [1.000]
+9.009: (move player-01 pos-08-04 pos-07-03 dir-northwest)  [1.000]
+10.010: (move player-01 pos-07-03 pos-05-03 dir-west)  [1.000]
+10.010: (push-to-nongoal player-02 stone-02 pos-10-02 pos-09-03 pos-08-04 dir-southwest)  [1.000]
+11.011: (move player-02 pos-09-03 pos-07-03 dir-west)  [1.000]
+12.012: (push-to-nongoal player-04 stone-02 pos-07-05 pos-08-04 pos-09-03 dir-northeast)  [1.000]
+13.013: (push-to-goal player-04 stone-02 pos-08-04 pos-09-03 pos-10-02 dir-northeast)  [1.000]

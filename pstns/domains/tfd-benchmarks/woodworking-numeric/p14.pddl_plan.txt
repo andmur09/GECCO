@@ -1,0 +1,61 @@
+Number of literals: 106
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (board-size b0) are preferable
+Have identified that bigger values of (board-size b1) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+Pruning (do-plane p3 planer0 rough black colourfragments) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough black colourfragments) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough green colourfragments) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough green colourfragments) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough natural colourfragments) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough natural colourfragments) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough white colourfragments) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough white colourfragments) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough black glazed) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough black glazed) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough green glazed) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough green glazed) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough natural glazed) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough natural glazed) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough white glazed) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough white glazed) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough black untreated) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough black untreated) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough green untreated) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough green untreated) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough natural untreated) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough natural untreated) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough white untreated) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough white untreated) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough black varnished) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough black varnished) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough green varnished) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough green varnished) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough natural varnished) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough natural varnished) - never appeared in initial RPG
+Pruning (do-plane p3 planer0 rough white varnished) - never appeared in initial RPG
+Pruning (do-plane p4 planer0 rough white varnished) - never appeared in initial RPG
+Pruning (cut-board b1 p3 highspeed-saw0 oak rough) - never appeared in initial RPG
+Pruning (cut-board b1 p4 highspeed-saw0 oak rough) - never appeared in initial RPG
+Pruning (do-saw b1 p3 saw0 oak rough) - never appeared in initial RPG
+Pruning (do-saw b1 p4 saw0 oak rough) - never appeared in initial RPG
+98% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 23.000
+b (22.000 | 22.000)b (21.000 | 32.001)b (11.000 | 32.001)b (10.000 | 32.001)b (9.000 | 40.001)b (8.000 | 46.002)b (7.000 | 50.002)b (6.000 | 55.003)b (5.000 | 60.003)b (4.000 | 70.004)b (3.000 | 70.004)b (2.000 | 80.005)b (1.000 | 80.005);;;; Solution Found
+; States evaluated: 15
+; Cost: 80.005
+; Time 0.02
+0.000: (do-plane p5 planer0 verysmooth red colourfragments)  [22.000]
+0.000: (do-saw b1 p0 saw0 oak rough)  [30.000]
+0.000: (load-highspeed-saw b0 highspeed-saw0)  [30.000]
+22.001: (do-immersion-varnish p5 immersion-varnisher1 green smooth)  [10.000]
+30.001: (cut-board b0 p1 highspeed-saw0 cherry smooth)  [10.000]
+30.001: (do-glaze p0 glazer0 green)  [10.000]
+40.002: (do-spray-varnish p1 spray-varnisher0 white smooth)  [6.000]
+40.002: (cut-board b0 p2 highspeed-saw0 cherry smooth)  [10.000]
+50.003: (do-spray-varnish p2 spray-varnisher0 black smooth)  [5.000]
+50.003: (cut-board b0 p3 highspeed-saw0 cherry smooth)  [10.000]
+60.004: (do-immersion-varnish p3 immersion-varnisher0 black smooth)  [10.000]
+60.004: (cut-board b0 p4 highspeed-saw0 cherry smooth)  [10.000]
+70.005: (do-immersion-varnish p4 immersion-varnisher0 black smooth)  [10.000]

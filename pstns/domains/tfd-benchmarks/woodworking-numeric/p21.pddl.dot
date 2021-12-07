@@ -1,0 +1,73 @@
+digraph plan {
+0[ label="plan_start",style=filled,fillcolor=black,fontcolor=white];
+1[ label="do-saw_start
+(b0,p0,saw0,cherry,smooth)"];
+2[ label="do-saw_end
+(b0,p0,saw0,cherry,smooth)"];
+3[ label="do-glaze_start
+(p0,glazer0,white)"];
+4[ label="do-glaze_end
+(p0,glazer0,white)"];
+5[ label="do-saw_start
+(b0,p1,saw0,cherry,smooth)"];
+6[ label="do-saw_end
+(b0,p1,saw0,cherry,smooth)"];
+7[ label="do-grind_start
+(p0,grinder0,smooth,white,glazed,untreated)"];
+8[ label="do-grind_end
+(p0,grinder0,smooth,white,glazed,untreated)"];
+9[ label="do-immersion-varnish_start
+(p1,immersion-varnisher0,natural,smooth)"];
+10[ label="do-immersion-varnish_end
+(p1,immersion-varnisher0,natural,smooth)"];
+11[ label="do-saw_start
+(b0,p2,saw0,cherry,smooth)"];
+12[ label="do-saw_end
+(b0,p2,saw0,cherry,smooth)"];
+13[ label="do-glaze_start
+(p2,glazer0,white)"];
+14[ label="do-glaze_end
+(p2,glazer0,white)"];
+15[ label="do-glaze_start
+(p0,glazer0,white)"];
+16[ label="do-glaze_end
+(p0,glazer0,white)"];
+"0" -> "1" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"1" -> "2" [ label="[30, 30]" , penwidth=2, color="black"]
+"2" -> "3" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"2" -> "5" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"1" -> "5" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"3" -> "4" [ label="[10, 10]" , penwidth=2, color="black"]
+"4" -> "7" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"2" -> "7" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"3" -> "7" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "8" [ label="[15, 15]" , penwidth=2, color="black"]
+"3" -> "8" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "6" [ label="[30, 30]" , penwidth=2, color="black"]
+"1" -> "6" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"6" -> "9" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"6" -> "11" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "11" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"2" -> "11" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"1" -> "11" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"9" -> "10" [ label="[10, 10]" , penwidth=2, color="black"]
+"11" -> "12" [ label="[30, 30]" , penwidth=2, color="black"]
+"5" -> "12" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"1" -> "12" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"4" -> "13" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"12" -> "13" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"3" -> "13" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"13" -> "14" [ label="[11, 11]" , penwidth=2, color="black"]
+"3" -> "14" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"14" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"8" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"13" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"4" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"3" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"2" -> "15" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"15" -> "16" [ label="[10, 10]" , penwidth=2, color="black"]
+"13" -> "16" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "16" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"3" -> "16" [ label="[0.001, inf]" , penwidth=2, color="black"]
+}

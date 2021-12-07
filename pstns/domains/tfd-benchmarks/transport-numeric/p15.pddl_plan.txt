@@ -1,0 +1,13 @@
+Number of literals: 371
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (capacity truck-1) are preferable
+Have identified that bigger values of (capacity truck-2) are preferable
+Have identified that bigger values of (capacity truck-3) are preferable
+Have identified that bigger values of (fuel-left truck-1) are preferable
+Have identified that bigger values of (fuel-left truck-2) are preferable
+Have identified that bigger values of (fuel-left truck-3) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+99% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 39.000
+b (38.000 | 21.000)

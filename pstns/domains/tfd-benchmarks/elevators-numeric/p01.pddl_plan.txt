@@ -1,0 +1,41 @@
+Number of literals: 72
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that smaller values of (passengers fast0) are preferable
+Have identified that smaller values of (passengers fast1) are preferable
+Have identified that smaller values of (passengers slow0-0) are preferable
+Have identified that smaller values of (passengers slow1-0) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 17.000
+b (16.000 | 13.001)b (15.000 | 25.001)b (14.000 | 26.001)b (13.000 | 26.001)b (12.000 | 26.001)b (11.000 | 27.001)b (10.000 | 28.001)b (9.000 | 29.001)b (8.000 | 59.002)b (7.000 | 70.002)b (6.000 | 71.002)b (5.000 | 71.002)b (4.000 | 80.002)b (3.000 | 81.002)b (2.000 | 82.003)b (1.000 | 94.003);;;; Solution Found
+; States evaluated: 173
+; Cost: 95.003
+; Time 0.08
+0.000: (move-down-slow slow0-0 f4 f3)  [12.000]
+0.000: (move-down-fast fast1 f6 f0)  [15.000]
+0.000: (move-down-fast fast0 f8 f0)  [17.000]
+0.000: (move-up-slow slow1-0 f4 f7)  [28.000]
+12.001: (board p0 slow0-0 f3)  [1.000]
+13.001: (move-up-slow slow0-0 f3 f4)  [12.000]
+15.001: (board p3 fast1 f0)  [1.000]
+16.001: (move-up-fast fast1 f0 f2)  [11.000]
+17.001: (move-up-fast fast0 f0 f4)  [13.000]
+25.001: (leave p0 slow0-0 f4)  [1.000]
+26.001: (move-down-slow slow0-0 f4 f1)  [28.000]
+27.001: (leave p3 fast1 f2)  [1.000]
+28.001: (board p2 slow1-0 f7)  [1.000]
+29.001: (move-down-slow slow1-0 f7 f4)  [28.000]
+54.001: (board p1 slow0-0 f1)  [1.000]
+55.001: (move-up-slow slow0-0 f1 f2)  [12.000]
+57.001: (leave p2 slow1-0 f4)  [1.000]
+58.002: (board p2 fast0 f4)  [1.000]
+59.002: (move-up-fast fast0 f4 f6)  [11.000]
+67.001: (leave p1 slow0-0 f2)  [1.000]
+68.002: (board p1 fast1 f2)  [1.000]
+69.002: (move-up-fast fast1 f2 f4)  [11.000]
+70.002: (leave p2 fast0 f6)  [1.000]
+80.002: (leave p1 fast1 f4)  [1.000]
+81.003: (board p1 slow1-0 f4)  [1.000]
+82.003: (move-up-slow slow1-0 f4 f5)  [12.000]
+94.003: (leave p1 slow1-0 f5)  [1.000]

@@ -1,0 +1,8 @@
+Number of literals: 64
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%] [110%] [120%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%] [110%] [120%]
+Have identified that smaller values of (stacks-in-use) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+66% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 64.000
+b (63.000 | 1.000)

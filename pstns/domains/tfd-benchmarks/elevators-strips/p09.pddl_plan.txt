@@ -1,0 +1,102 @@
+Warnings encountered when parsing Domain/Problem File
+
+Errors: 0, warnings: 34
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/domain.pddl: line: 27: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/domain.pddl: line: 33: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/domain.pddl: line: 39: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/domain.pddl: line: 45: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 112: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 113: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 114: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 115: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 116: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 117: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 118: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 119: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 120: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 121: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 122: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 123: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 124: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 125: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 126: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 127: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 128: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 129: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 130: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 131: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 133: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 134: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 135: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 136: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 137: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 138: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 139: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 140: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 141: Warning: Undeclared requirement :number-fluents 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/elevators-strips/p09.pddl_problem.pddl: line: 142: Warning: Undeclared requirement :number-fluents 
+Number of literals: 190
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 43.000
+b (42.000 | 12.000)b (41.000 | 32.001)b (37.000 | 32.001)b (36.000 | 32.001)b (35.000 | 32.001)b (34.000 | 45.001)b (33.000 | 58.001)b (32.000 | 71.001)b (30.000 | 84.001)b (29.000 | 97.001)b (28.000 | 109.002)b (27.000 | 110.002)b (26.000 | 111.003)b (25.000 | 123.003)b (24.000 | 124.003)b (23.000 | 124.003)b (21.000 | 124.003)b (20.000 | 124.003)b (19.000 | 124.003)b (18.000 | 124.003)b (17.000 | 124.003)b (16.000 | 124.003)b (15.000 | 124.003)b (14.000 | 124.003)b (12.000 | 124.003)b (11.000 | 124.003)b (10.000 | 124.003)b (9.000 | 124.003)b (8.000 | 124.003)b (7.000 | 124.003)b (5.000 | 124.003)b (4.000 | 124.003)b (3.000 | 124.003)b (2.000 | 125.004)b (1.000 | 137.004);;;; Solution Found
+; States evaluated: 763
+; Cost: 138.004
+; Time 0.74
+0.000: (move-up-slow slow1-0 n6 n7)  [12.000]
+0.000: (move-down-fast fast1 n8 n4)  [13.000]
+0.000: (board p7 slow0-0 n3 n0 n1)  [1.000]
+0.000: (move-up-fast fast0 n0 n4)  [13.000]
+1.000: (move-down-slow slow0-0 n3 n2)  [12.000]
+12.001: (move-down-slow slow1-0 n7 n5)  [20.000]
+13.000: (leave p7 slow0-0 n2 n1 n0)  [1.000]
+13.001: (board p8 fast1 n4 n0 n1)  [1.000]
+14.000: (move-up-slow slow0-0 n2 n3)  [12.000]
+14.001: (move-up-fast fast1 n4 n6)  [11.000]
+25.001: (leave p8 fast1 n6 n1 n0)  [1.000]
+26.001: (move-down-slow slow0-0 n3 n1)  [20.000]
+26.002: (board p0 fast1 n6 n0 n1)  [1.000]
+27.002: (move-down-fast fast1 n6 n2)  [13.000]
+32.001: (board p5 slow1-0 n5 n0 n1)  [1.000]
+33.001: (move-down-slow slow1-0 n5 n4)  [12.000]
+40.002: (board p10 fast1 n2 n1 n2)  [1.000]
+41.003: (leave p0 fast1 n2 n2 n1)  [1.000]
+42.004: (board p3 fast1 n2 n1 n2)  [1.000]
+43.004: (move-up-fast fast1 n2 n8)  [15.000]
+45.001: (leave p5 slow1-0 n4 n1 n0)  [1.000]
+46.001: (move-up-slow slow1-0 n4 n5)  [12.000]
+46.001: (board p4 slow0-0 n1 n0 n1)  [1.000]
+46.002: (board p5 fast0 n4 n0 n1)  [1.000]
+47.001: (move-up-slow slow0-0 n1 n2)  [12.000]
+47.002: (move-down-fast fast0 n4 n0)  [13.000]
+58.001: (board p6 slow1-0 n5 n0 n1)  [1.000]
+58.004: (leave p10 fast1 n8 n2 n1)  [1.000]
+59.001: (move-down-slow slow1-0 n5 n4)  [12.000]
+59.002: (move-up-slow slow0-0 n2 n3)  [12.000]
+59.004: (move-down-fast fast1 n8 n6)  [11.000]
+60.002: (leave p5 fast0 n0 n1 n0)  [1.000]
+61.003: (board p9 fast0 n0 n0 n1)  [1.000]
+62.003: (move-up-fast fast0 n0 n2)  [11.000]
+70.004: (leave p3 fast1 n6 n1 n0)  [1.000]
+71.001: (leave p6 slow1-0 n4 n1 n0)  [1.000]
+71.002: (leave p4 slow0-0 n3 n1 n0)  [1.000]
+72.001: (move-up-slow slow1-0 n4 n5)  [12.000]
+72.002: (move-up-slow slow0-0 n3 n4)  [12.000]
+73.003: (board p11 fast0 n2 n1 n2)  [1.000]
+74.004: (leave p9 fast0 n2 n2 n1)  [1.000]
+75.004: (move-down-fast fast0 n2 n0)  [11.000]
+84.001: (board p2 slow1-0 n5 n0 n1)  [1.000]
+84.003: (move-down-slow slow0-0 n4 n1)  [28.000]
+85.001: (move-up-slow slow1-0 n5 n6)  [12.000]
+86.004: (leave p11 fast0 n0 n1 n0)  [1.000]
+97.002: (move-up-slow slow1-0 n6 n7)  [12.000]
+109.002: (leave p2 slow1-0 n7 n1 n0)  [1.000]
+110.003: (board p1 slow1-0 n7 n0 n1)  [1.000]
+111.003: (move-down-slow slow1-0 n7 n6)  [12.000]
+112.004: (move-up-slow slow0-0 n1 n2)  [12.000]
+123.003: (leave p1 slow1-0 n6 n1 n0)  [1.000]
+124.004: (board p0 slow0-0 n2 n0 n1)  [1.000]
+125.004: (move-down-slow slow0-0 n2 n1)  [12.000]
+137.004: (leave p0 slow0-0 n1 n1 n0)  [1.000]

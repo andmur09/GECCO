@@ -1,0 +1,31 @@
+Number of literals: 77
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (board-size b0) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+97% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 17.000
+b (16.000 | 30.000)b (15.000 | 30.000)b (14.000 | 48.001)b (13.000 | 60.001)b (12.000 | 60.001)b (11.000 | 80.002)b (10.000 | 90.002)b (9.000 | 90.002)b (8.000 | 104.003)b (7.000 | 104.003)b (6.000 | 104.003)b (5.000 | 116.004)b (4.000 | 120.004)b (2.000 | 137.005)b (1.000 | 149.006);;;; Solution Found
+; States evaluated: 48
+; Cost: 267.009
+; Time 0.04
+0.000: (do-saw b0 p2 saw0 cherry rough)  [30.000]
+0.000: (do-plane p0 planer0 verysmooth black glazed)  [12.000]
+12.001: (do-spray-varnish p0 spray-varnisher0 green smooth)  [6.000]
+12.001: (do-plane p1 planer0 verysmooth black varnished)  [14.000]
+30.001: (do-glaze p2 glazer0 red)  [18.000]
+30.001: (do-saw b0 p3 saw0 cherry rough)  [30.000]
+60.002: (do-glaze p3 glazer0 red)  [20.000]
+60.002: (do-saw b0 p4 saw0 cherry rough)  [30.000]
+80.003: (do-plane p3 planer0 rough red glazed)  [30.000]
+90.003: (do-glaze p4 glazer0 red)  [14.000]
+104.004: (do-glaze p1 glazer0 natural)  [12.000]
+110.004: (do-immersion-varnish p3 immersion-varnisher0 red smooth)  [10.000]
+110.004: (do-plane p4 planer0 rough red glazed)  [18.000]
+116.005: (do-grind p1 grinder0 smooth natural glazed untreated)  [21.000]
+128.005: (do-spray-varnish p4 spray-varnisher0 red smooth)  [9.000]
+137.006: (do-glaze p1 glazer0 natural)  [12.000]
+137.006: (do-grind p3 grinder0 smooth red varnished colourfragments)  [45.000]
+182.007: (do-plane p3 planer0 verysmooth natural colourfragments)  [30.000]
+212.008: (do-grind p3 grinder0 smooth natural untreated untreated)  [45.000]
+257.009: (do-immersion-varnish p3 immersion-varnisher0 red verysmooth)  [10.000]

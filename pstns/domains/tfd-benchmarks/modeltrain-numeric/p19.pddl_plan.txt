@@ -1,0 +1,20 @@
+Warnings encountered when parsing Domain/Problem File
+
+Errors: 0, warnings: 8
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 110: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 111: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 143: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 144: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 172: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 173: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 201: Warning: Undeclared requirement :duration-inequalities 
+/home/michael/ros_melodic/rosplan/PSTN/domains/tfd-benchmarks/modeltrain-numeric/domain.pddl: line: 202: Warning: Undeclared requirement :duration-inequalities 
+Number of literals: 306
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 38.000
+b (37.000 | 10.000)b (36.000 | 10.000)b (35.000 | 11.001)b (34.000 | 54.002)b (33.000 | 55.003)b (32.000 | 55.003)b (31.000 | 55.003)b (30.000 | 55.003)b (29.000 | 55.003)b (28.000 | 55.003)b (27.000 | 55.003)
+Resorting to best-first search
+b (37.000 | 10.000)b (36.000 | 10.000)b (35.000 | 10.000)b (34.000 | 10.000)b (33.000 | 11.001)b (33.000 | 10.000)b (32.000 | 11.001)b (32.000 | 10.000)b (31.000 | 11.001)b (31.000 | 10.000)b (30.000 | 11.001)b (29.000 | 54.002)b (29.000 | 11.001)b (28.000 | 54.002)b (28.000 | 11.001)b (27.000 | 54.002)b (26.000 | 55.003)b (25.000 | 55.003)b (24.000 | 55.003)

@@ -1,0 +1,29 @@
+Number of literals: 1750
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (capacity truck-0) are preferable
+Have identified that bigger values of (capacity truck-1) are preferable
+Have identified that bigger values of (capacity truck-2) are preferable
+Have identified that bigger values of (capacity truck-3) are preferable
+Have identified that bigger values of (capacity ctruck-0-0) are preferable
+Have identified that bigger values of (capacity ctruck-1-0) are preferable
+Have identified that bigger values of (capacity ctruck-2-0) are preferable
+Have identified that bigger values of (capacity ctruck-3-0) are preferable
+Have identified that bigger values of (capacity ctruck-4-0) are preferable
+Have identified that bigger values of (capacity ctruck-5-0) are preferable
+Have identified that bigger values of (capacity ctruck-6-0) are preferable
+Have identified that bigger values of (fuel-left truck-0) are preferable
+Have identified that bigger values of (fuel-left truck-1) are preferable
+Have identified that bigger values of (fuel-left truck-2) are preferable
+Have identified that bigger values of (fuel-left truck-3) are preferable
+Have identified that bigger values of (fuel-left ctruck-0-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-1-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-2-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-3-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-4-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-5-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-6-0) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+99% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 193.000
+b (191.000 | 10.000)b (189.000 | 10.000)b (187.000 | 10.000)b (185.000 | 10.000)b (183.000 | 10.000)b (181.000 | 13.001)b (177.000 | 23.002)b (173.000 | 33.003)b (172.000 | 36.004)b (170.000 | 36.004)b (169.000 | 36.004)b (168.000 | 36.004)b (165.000 | 37.003)b (164.000 | 57.004)b (163.000 | 58.005)b (161.000 | 58.005)b (150.000 | 58.005)b (149.000 | 58.005)b (147.000 | 58.005)b (146.000 | 58.005)b (145.000 | 58.005)b (142.000 | 58.005)b (141.000 | 58.005)b (139.000 | 58.005)b (135.000 | 58.005)b (134.000 | 58.005)b (133.000 | 58.005)b (125.000 | 59.007)b (124.000 | 62.008)b (123.000 | 62.008)b (122.000 | 62.008)b (116.000 | 62.008)b (100.000 | 87.009)b (99.000 | 107.010)b (98.000 | 107.010)b (97.000 | 107.010)b (84.000 | 107.010)b (83.000 | 107.010)b (82.000 | 107.010)

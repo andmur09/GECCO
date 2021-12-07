@@ -1,0 +1,31 @@
+digraph plan {
+0[ label="plan_start",style=filled,fillcolor=black,fontcolor=white];
+1[ label="do-saw_start
+(b1,p0,saw0,oak,rough)"];
+2[ label="do-saw_end
+(b1,p0,saw0,oak,rough)"];
+3[ label="load-highspeed-saw_start
+(b0,highspeed-saw0)"];
+4[ label="load-highspeed-saw_end
+(b0,highspeed-saw0)"];
+5[ label="cut-board_start
+(b0,p2,highspeed-saw0,cherry,smooth)"];
+6[ label="cut-board_end
+(b0,p2,highspeed-saw0,cherry,smooth)"];
+7[ label="do-saw_start
+(b1,p1,saw0,oak,rough)"];
+8[ label="do-saw_end
+(b1,p1,saw0,oak,rough)"];
+"0" -> "1" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"0" -> "3" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"1" -> "2" [ label="[30, 30]" , penwidth=2, color="black"]
+"3" -> "4" [ label="[30, 30]" , penwidth=2, color="black"]
+"4" -> "5" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"3" -> "5" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"2" -> "7" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"1" -> "7" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"5" -> "6" [ label="[10, 10]" , penwidth=2, color="black"]
+"3" -> "6" [ label="[0.001, inf]" , penwidth=2, color="black"]
+"7" -> "8" [ label="[30, 30]" , penwidth=2, color="black"]
+"1" -> "8" [ label="[0.001, inf]" , penwidth=2, color="black"]
+}

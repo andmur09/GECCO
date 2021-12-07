@@ -1,0 +1,9 @@
+Number of literals: 490
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 33.000
+b (32.000 | 3.002)b (31.000 | 4.003)b (30.000 | 5.004)b (29.000 | 6.005)b (28.000 | 7.006)b (27.000 | 8.007)b (26.000 | 9.008)b (25.000 | 11.010)b (24.000 | 12.011)b (23.000 | 12.011)
+Resorting to best-first search
+b (32.000 | 3.002)b (31.000 | 4.003)b (30.000 | 6.005)b (29.000 | 7.006)b (28.000 | 7.006)b (27.000 | 9.008)b (26.000 | 12.011)b (25.000 | 13.012)b (25.000 | 10.009)b (24.000 | 10.009)b (23.000 | 16.015)b (22.000 | 16.015)b (21.000 | 16.015)b (20.000 | 16.015)b (19.000 | 18.017)b (18.000 | 21.020)b (17.000 | 24.023)

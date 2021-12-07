@@ -1,0 +1,13 @@
+digraph plan {
+0[ label="plan_start",style=filled,fillcolor=black,fontcolor=white];
+1[ label="host-token_start(t01,p01)"];
+2[ label="host-token_end(t01,p01)"];
+3[ label="available(p01)"];
+4[ label="deadline-open"];
+"0" -> "3" [ label="[0.388846, 0.388846]" , penwidth=2, color="black"]
+"3" -> "1" [ label="[0.01, inf]" , penwidth=2, color="black"]
+"2" -> "4" [ label="[-inf, 0]" , penwidth=2, color="black"]
+"0" -> "4" [ label="[10.3788, 10.3788]" , penwidth=2, color="black"]
+"1" -> "2" [ label="[5, 5]" , penwidth=2, color="black"]
+"0" -> "2" [ label="[0.01, inf]" , penwidth=2, color="black"]
+}

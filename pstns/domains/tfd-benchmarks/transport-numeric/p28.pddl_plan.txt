@@ -1,0 +1,27 @@
+Number of literals: 1106
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (capacity truck-0) are preferable
+Have identified that bigger values of (capacity truck-1) are preferable
+Have identified that bigger values of (capacity truck-2) are preferable
+Have identified that bigger values of (capacity truck-3) are preferable
+Have identified that bigger values of (capacity ctruck-0-0) are preferable
+Have identified that bigger values of (capacity ctruck-1-0) are preferable
+Have identified that bigger values of (capacity ctruck-2-0) are preferable
+Have identified that bigger values of (capacity ctruck-3-0) are preferable
+Have identified that bigger values of (capacity ctruck-4-0) are preferable
+Have identified that bigger values of (capacity ctruck-5-0) are preferable
+Have identified that bigger values of (fuel-left truck-0) are preferable
+Have identified that bigger values of (fuel-left truck-1) are preferable
+Have identified that bigger values of (fuel-left truck-2) are preferable
+Have identified that bigger values of (fuel-left truck-3) are preferable
+Have identified that bigger values of (fuel-left ctruck-0-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-1-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-2-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-3-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-4-0) are preferable
+Have identified that bigger values of (fuel-left ctruck-5-0) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+99% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 150.000
+b (148.000 | 10.000)b (146.000 | 10.000)b (144.000 | 10.000)b (142.000 | 10.000)b (140.000 | 10.000)b (132.000 | 30.001)b (131.000 | 50.002)b (130.000 | 50.002)b (125.000 | 50.002)b (123.000 | 50.002)b (122.000 | 55.002)b (120.000 | 55.002)b (107.000 | 55.002)b (106.000 | 56.004)b (105.000 | 56.004)b (100.000 | 56.004)b (99.000 | 56.004)b (98.000 | 56.004)b (97.000 | 56.004)b (96.000 | 56.004)b (94.000 | 56.004)b (93.000 | 56.004)b (88.000 | 56.004)b (87.000 | 56.004)b (85.000 | 56.004)b (84.000 | 56.004)b (83.000 | 56.004)b (73.000 | 57.006)b (72.000 | 58.007)b (71.000 | 69.007)b (68.000 | 69.007)b (64.000 | 78.005)b (63.000 | 81.006)

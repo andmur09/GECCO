@@ -1,0 +1,39 @@
+Number of literals: 172
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (board-size b0) are preferable
+Have identified that bigger values of (board-size b1) are preferable
+Have identified that bigger values of (board-size b2) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+Pruning (cut-board b0 p0 highspeed-saw0 teak smooth) - never appeared in initial RPG
+Pruning (cut-board b0 p4 highspeed-saw0 teak smooth) - never appeared in initial RPG
+Pruning (cut-board b0 p6 highspeed-saw0 teak smooth) - never appeared in initial RPG
+Pruning (do-saw b0 p0 saw0 teak smooth) - never appeared in initial RPG
+Pruning (do-saw b0 p4 saw0 teak smooth) - never appeared in initial RPG
+Pruning (do-saw b0 p6 saw0 teak smooth) - never appeared in initial RPG
+98% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 36.000
+b (35.000 | 16.000)b (34.000 | 24.001)b (18.000 | 30.000)b (16.000 | 30.000)b (15.000 | 40.001)b (14.000 | 40.001)b (13.000 | 49.001)b (12.000 | 60.001)b (11.000 | 60.001)b (10.000 | 78.002)b (9.000 | 78.002)b (8.000 | 78.002)b (7.000 | 78.002)b (6.000 | 90.002)b (5.000 | 90.002)b (4.000 | 120.003)b (3.000 | 120.003)b (2.000 | 120.003)b (1.000 | 120.003);;;; Solution Found
+; States evaluated: 91
+; Cost: 131.004
+; Time 0.20
+0.000: (do-plane p2 planer0 verysmooth green varnished)  [16.000]
+0.000: (do-saw b1 p0 saw0 mahogany rough)  [30.000]
+0.000: (load-highspeed-saw b2 highspeed-saw0)  [30.000]
+16.001: (do-spray-varnish p2 spray-varnisher1 black smooth)  [8.000]
+30.001: (cut-board b2 p1 highspeed-saw0 mahogany rough)  [10.000]
+30.001: (do-glaze p0 glazer1 mauve)  [19.000]
+30.001: (do-saw b1 p4 saw0 mahogany rough)  [30.000]
+40.002: (cut-board b2 p3 highspeed-saw0 mahogany rough)  [10.000]
+40.002: (do-plane p1 planer0 rough natural untreated)  [20.000]
+50.003: (do-glaze p3 glazer1 white)  [10.000]
+50.003: (cut-board b2 p8 highspeed-saw0 mahogany rough)  [10.000]
+60.002: (do-glaze p4 glazer0 blue)  [18.000]
+60.002: (do-saw b1 p6 saw0 mahogany rough)  [30.000]
+60.003: (do-immersion-varnish p1 immersion-varnisher0 white smooth)  [10.000]
+60.004: (do-glaze p8 glazer1 white)  [10.000]
+60.004: (cut-board b2 p5 highspeed-saw0 mahogany rough)  [10.000]
+70.005: (do-glaze p5 glazer1 black)  [15.000]
+90.003: (do-saw b1 p7 saw0 mahogany rough)  [30.000]
+90.003: (do-glaze p6 glazer1 green)  [20.000]
+120.004: (do-glaze p7 glazer1 white)  [11.000]

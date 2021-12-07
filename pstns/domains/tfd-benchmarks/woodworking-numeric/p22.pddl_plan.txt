@@ -1,0 +1,27 @@
+Number of literals: 72
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Have identified that bigger values of (board-size b0) are preferable
+Have identified that bigger values of (board-size b1) are preferable
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+95% of the ground temporal actions in this problem are compression-safe
+Initial heuristic = 15.000
+b (14.000 | 18.000)b (13.000 | 32.001)b (11.000 | 32.001)b (10.000 | 32.001)b (9.000 | 44.001)b (8.000 | 51.002)b (7.000 | 60.001)b (6.000 | 60.001)b (5.000 | 72.002)b (4.000 | 86.003)b (3.000 | 93.004)b (2.000 | 93.004)b (1.000 | 93.004);;;; Solution Found
+; States evaluated: 24
+; Cost: 156.008
+; Time 0.02
+0.000: (do-plane p3 planer0 rough red colourfragments)  [18.000]
+0.000: (do-saw b0 p0 saw0 mahogany rough)  [30.000]
+0.000: (do-saw b1 p2 saw1 oak rough)  [30.000]
+18.001: (do-glaze p3 glazer0 black)  [14.000]
+30.001: (do-plane p0 planer0 rough natural untreated)  [14.000]
+30.001: (do-saw b0 p1 saw0 mahogany rough)  [30.000]
+44.002: (do-spray-varnish p0 spray-varnisher0 white smooth)  [7.000]
+60.002: (do-glaze p1 glazer0 black)  [12.000]
+72.003: (do-plane p1 planer0 rough black glazed)  [14.000]
+72.003: (do-glaze p2 glazer0 black)  [17.000]
+86.004: (do-spray-varnish p1 spray-varnisher0 white smooth)  [7.000]
+93.005: (do-grind p1 grinder0 smooth white varnished colourfragments)  [21.000]
+114.006: (do-plane p1 planer0 verysmooth natural colourfragments)  [14.000]
+128.007: (do-grind p1 grinder0 smooth natural untreated untreated)  [21.000]
+149.008: (do-spray-varnish p1 spray-varnisher0 white verysmooth)  [7.000]

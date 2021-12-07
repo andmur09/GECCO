@@ -1,0 +1,44 @@
+Number of literals: 82
+Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [80%] [90%] [100%]
+[01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
+All the ground actions in this problem are compression-safe
+Initial heuristic = 34.000
+b (33.000 | 1440.000)b (32.000 | 1440.000)b (31.000 | 1440.000)b (30.000 | 1440.000)b (29.000 | 1440.000)b (28.000 | 1440.000)b (27.000 | 1440.000)b (26.000 | 1440.000)b (25.000 | 1440.000)b (24.000 | 1440.000)b (23.000 | 1440.000)b (22.000 | 1440.000)b (21.000 | 1440.000)b (20.000 | 1440.000)b (19.000 | 1440.000)b (18.000 | 1440.000)b (17.000 | 1440.000)b (16.000 | 1440.000)b (15.000 | 1440.000)b (14.000 | 1440.000)b (13.000 | 1440.000)b (12.000 | 1440.000)b (11.000 | 1875.019)b (10.000 | 1875.019)b (9.000 | 1875.019)b (8.000 | 1875.019)b (7.000 | 1875.019)b (6.000 | 1875.019)b (5.000 | 1875.019)b (4.000 | 1875.019)b (3.000 | 1875.019)b (2.000 | 1875.019)b (1.000 | 1875.019);;;; Solution Found
+; States evaluated: 49
+; Cost: 1875.019
+; Time 0.02
+0.000: (initialize_day d1 d2)  [1440.000]
+0.000: (post_sleep c1 d0 d1)  [195.000]
+0.000: (post_sleep c2 d0 d1)  [195.000]
+195.001: (have_meal c1 d1)  [60.000]
+255.002: (exercise c1 d1 e1)  [60.000]
+315.003: (sleep c1 d1)  [600.000]
+315.003: (exercise c2 d1 e1)  [60.000]
+375.004: (have_meal c2 d1)  [60.000]
+435.005: (change_filter spaceshipfilter c2 d1)  [60.000]
+495.006: (medical_conference mcs1 c2 d1)  [60.000]
+555.007: (medical_conference mcs2 c2 d1)  [60.000]
+615.008: (conduct_payload_activity pa1_1 c2)  [60.000]
+675.009: (conduct_payload_activity pa1_10 c2)  [60.000]
+675.009: (report_payload_activity_at_deadline pa1_1 c1 d1)  [1.000]
+735.010: (conduct_payload_activity pa1_11 c2)  [60.000]
+735.010: (report_payload_activity_at_deadline pa1_10 c1 d1)  [1.000]
+795.011: (conduct_payload_activity pa1_2 c2)  [60.000]
+795.011: (report_payload_activity_at_deadline pa1_11 c1 d1)  [1.000]
+855.012: (conduct_payload_activity pa1_3 c2)  [60.000]
+855.012: (report_payload_activity_at_deadline pa1_2 c1 d1)  [1.000]
+915.013: (conduct_payload_activity pa1_4 c2)  [60.000]
+915.013: (report_payload_activity_at_deadline pa1_3 c1 d1)  [1.000]
+975.014: (conduct_payload_activity pa1_5 c2)  [60.000]
+975.014: (report_payload_activity_at_deadline pa1_4 c1 d1)  [1.000]
+1035.015: (conduct_payload_activity pa1_6 c2)  [60.000]
+1035.015: (report_payload_activity_at_deadline pa1_5 c1 d1)  [1.000]
+1095.016: (conduct_payload_activity pa1_7 c2)  [60.000]
+1095.016: (report_payload_activity_at_deadline pa1_6 c1 d1)  [1.000]
+1155.017: (conduct_payload_activity pa1_8 c2)  [60.000]
+1155.017: (report_payload_activity_at_deadline pa1_7 c1 d1)  [1.000]
+1215.018: (conduct_payload_activity pa1_9 c2)  [60.000]
+1215.018: (report_payload_activity_at_deadline pa1_8 c1 d1)  [1.000]
+1275.019: (sleep c2 d1)  [600.000]
+1275.019: (report_payload_activity_at_deadline pa1_9 c1 d1)  [1.000]
