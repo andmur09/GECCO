@@ -110,7 +110,7 @@ def main():
     #         elevators.append(problem)
 
     for instance in woodworking:
-        instance.plot()
+        # instance.plot()
         mat = convex.JCCP(instance, 0.4, 0.01)
 
         # upper = instance.countUncontrollables()

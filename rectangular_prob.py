@@ -32,12 +32,13 @@ def gradient(mean, cov, z):
         bar_mean_u = mean + 1/cov[i, i] * (zu[i] - mean[i]) * cov[:, i]
         bar_cov = cov - 1/int(cov[i, i])  * col @ row
         bar_zl, bar_zu = np.delete(zl, i), np.delete(zu, i)
-        
+
         f_u = xi.pdf(zu[i])
         f_l = xi.pdf(zl[i])
 
-        bar_F_u = rectangular(bar_zl, bar_zu, bar_mean_u, bar_cov)
-        bar_F_l = rectangular(bar_zl, bar_zu, bar_mean_l, bar_cov)
+        bar_F_u = rectangular(bar_zl, bar_zu, bar_mean_u, bar_cov)[0]
+        bar_F_l = rectangular(bar_zl, bar_zu, bar_mean_l, bar_cov)[0]
+
 
         dzu.append(f_u * bar_F_u)
         dzl.append(-1* f_l * bar_F_l)

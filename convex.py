@@ -5,6 +5,7 @@ import sys
 import gurobipy as gp
 from gurobipy import GRB
 from math import sqrt, log
+from matplotlib import pyplot as plt
 
 np.seterr(divide='raise')
 np.set_printoptions(suppress=True)
@@ -111,7 +112,7 @@ def getStandardForm(PSTN):
     cov_xi = R
     return A, vars, b, c, T_l, T_u, q_l, q_u, mu_xi, cov_xi
 
-def Initialise(A, vars, b, T_l, T_u, q_l, q_u):
+def Initialise(A, vars, b, T_l, T_u, q_l, q_u, box = 3):
     m = gp.Model("initialisation")
     x = m.addMVar(len(vars), vtype=GRB.CONTINUOUS, name="vars")
     t_l = m.addMVar(1, lb=-float(inf), name="t_l")
@@ -124,6 +125,8 @@ def Initialise(A, vars, b, T_l, T_u, q_l, q_u):
     m.addConstr(z_u == np.ones((p, 1)) @ t_u)
     m.addConstr(z_u <= T_u @ x + q_u)
     m.addConstr(z_l >= T_l @ x + q_l)
+    m.addConstr(t_l >= -box)
+    m.addConstr(t_u <= box)
     m.addConstr(x[0] == 0)
     m.setObjective(t_u - t_l, GRB.MAXIMIZE)
     m.update()
@@ -167,70 +170,73 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi):
             v = constraints[i].getAttr("Pi")
     return (m, np.c_[np.array(u)], v)            
 
-def columnGeneration(z, v, u, mean, cov):
-    z = z[:, -1]
-    F = evaluateDual(z, v, u, mean, cov)
-    print(F)
-    pass
-
 def evaluateProb(z, mean, cov):
     size = int(np.shape(z)[0]/2)
     zl, zu = -1*z[:size], z[size:]
-    return rectangular(zl, zu, mean, cov)[0]
+    F = rectangular(zl, zu, mean, cov)
+    return F
+
+def evaluateGrad(z, mean, cov):
+    n = int(np.shape(mean)[0])
+    size = int(np.shape(z)[0]/2)
+    zl, zu = -1*z[:size], z[size:]
+    dzl, dzu = [], []
+    if n != np.shape(cov[0])[0] or n != np.shape(cov[1])[0] or n != np.shape(zl)[0]:
+        raise AttributeError("Dimension of arrays are not compatible")
+    for i in range(n):
+        bar_mean_l = np.delete(mean, i)
+        bar_mean_u = np.delete(mean, i)
+        bar_cov = np.delete(np.delete(cov, i, 0), i, 1)
+        bar_zl, bar_zu = np.delete(zl, i), np.delete(zu, i)
+
+        bar_F_u = rectangular(bar_zl, bar_zu, bar_mean_u, bar_cov)[0]
+        bar_F_l = rectangular(bar_zl, bar_zu, bar_mean_l, bar_cov)[0]
+        xi = norm(mean[i], cov[i, i])
+        fl = norm.pdf(zl[i])
+        fu = norm.pdf(zu[i])
+        dzu.append(fu * bar_F_u)
+        dzl.append(-fl * bar_F_l)
+    dzl = np.array(dzl)
+    dzu = np.array(dzu)
+    return np.vstack((np.c_[dzl], np.c_[dzu]))
 
 def evaluateDual(z, v, u, mean, cov):
-    F = evaluateProb(z, mean, cov)
+    F = evaluateProb(z, mean, cov)[0]
     phi = -log(F)
     return v * phi - np.transpose(u) @ z
 
 def evaluateGradientDual(z, v, u, mean, cov):
-    F = evaluateProb(z, mean, cov)
-    gradF = gradient(z, mean, cov)
-    return -v/F * gradF - u
+    F = evaluateProb(z, mean, cov)[0]
+    grad = evaluateGrad(z, mean, cov)
+    return -v/F * grad - u
 
-def gradient(z, mean, cov):
-    """
-    Description: Finds gradient vector of rectangular probability F(zl, zu) of 
-    multivariate normal distribution for given zl and zu
-
-    mean = n * 1 Numpy array of mean vector for random variable
-    cov = n * N Numpy array of Covariance Matrix for random variable
-    z = 2 * n Numpy array of upper and lower bounds for iteration k
-    """
-    n = int(np.shape(mu)[0])
-    size = int(np.shape(z)[0]/2)
-    zl, zu = -1*z[:size], z[size:]
-    dzl, dzu = [], []
-    xi = norm(mu, cov)
-
-    if n != np.shape(cov[0]) or n != np.shape(cov[1]) or n != np.shape([z]):
-        raise AttributeError("Dimension of arrays are not compatible")
-    for i in range(n):
-        col = cov[:, i].reshape(-1, 1)
-        row = cov[:, i].reshape(1, -1)
-
-        bar_mean_l =  mean + 1/cov[i, i] * (zl[i] - mean[i]) * cov[:,i]
-        bar_mean_u = mean + 1/cov[i, i] * (zu[i] - mean[i]) * cov[:, i]
-        bar_cov = cov - 1/int(cov[i, i])  * col @ row
-        bar_zl, bar_zu = np.delete(zl, i), np.delete(zu, i)
-        
-        f_u = xi.pdf(zu[i])
-        f_l = xi.pdf(zl[i])
-
-        bar_F_u = rectangular(bar_zl, bar_zu, bar_mean_u, bar_cov)
-        bar_F_l = rectangular(bar_zl, bar_zu, bar_mean_l, bar_cov)
-
-        dzu.append(f_u * bar_F_u)
-        dzl.append(-1* f_l * bar_F_l)
-        
-    dzl = np.array(dzl)
-    dzu = np.array(dzu)
-
-    return zip(dzl, dzu)
-
-def backtracking(z, mu, cov, grad, beta=0.8, alpha = 0.5):
+def backtracking(z, v, u, mean, cov, dual, grad, beta=0.8, alpha = 0.5):
     t = 1
-    f_x = rectangular(zk[0], zk[1], mu, cov)[0]
+    z_i = z - t * grad
+    while evaluateDual(z-t*grad, v, u, mean, cov) > dual - alpha * t * grad.transpose() @ grad:
+        t *= beta
+    return t
+
+def columnGeneration(z, v, u, mean, cov, iterations = 100):
+    count = []
+    f = []
+    i = 1
+    for i in range(iterations):
+        # print("\nIteration {}".format(i))
+        dual = evaluateDual(z, v, u, mean, cov)
+        f.append(dual[0][0])
+        # print("Function value = ", dual)
+        grad = evaluateGradientDual(z, v, u , mean, cov)
+        # print("Gradient Dualv= ", grad)
+        t = backtracking(z, v, u, mean, cov, dual, grad)
+        z = z - t * grad
+        count.append(i)
+        i += 1
+    # print(f)
+    # print(count)
+    plt.plot(count, f)
+    plt.savefig("grad.png", bbox_inches='tight')
+    return z
 
 def JCCP(PSTN, alpha, epsilon):
     pi = -log(1-alpha)
@@ -247,7 +253,7 @@ def JCCP(PSTN, alpha, epsilon):
         q = np.vstack((-np.c_[q_l], np.c_[q_u]))
         z = np.vstack((-np.c_[zk[0]], np.c_[zk[1]]))
         m_master_k, u_k, v_k = masterProblem(A, vars, b, c, T, q, z, phi, pi)
-        Obj_d, z_d = columnGeneration(z, v_k, u_k, mu, cov)
+        Obj_d, z_d = columnGeneration(np.c_[z[:, -1]], v_k, u_k, mu, cov)
         while Obj_d > epsilon:
             k += 1
             zk = z_d
