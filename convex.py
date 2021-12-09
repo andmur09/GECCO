@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.stats.mvn import mvnun as rectangular
+from scipy.stats import multivariate_normal as norm
 import sys
 import gurobipy as gp
 from gurobipy import GRB
@@ -136,17 +137,16 @@ def Initialise(A, vars, b, T_l, T_u, q_l, q_u):
     z_u = z_u.x
     return (m, (z_l, z_u))
 
-def masterProblem(A, vars, b, c, T_l, T_u, q_l, q_u, z_l, z_u, phi, pi):
-    k = np.shape(z_l)[1]
-    p = len(q_l)
+def masterProblem(A, vars, b, c, T, q, z, phi, pi):
+    k = np.shape(z)[1]
+    p = len(q)
     m = gp.Model("iteration_" + str(k))
     x = m.addMVar(len(vars), name="vars")
     lam = m.addMVar(k, name="lambda")
     m.addConstr(A @ x <= b)
     for i in range(p):
-        m.addConstr(T_l[i,:]@x + q_l[i] <= z_l[i, :]@lam)
-        m.addConstr(T_u[i,:]@x + q_u[i] >= z_u[i, :]@lam)
-    m.addConstr(phi @ lam <= pi)
+        m.addConstr(T[i,:]@x + q[i] >= z[i, :]@lam, name="z{}".format(i))
+    m.addConstr(phi @ lam <= pi, name="cc")
     m.addConstr(x[0] == 0)
     m.addConstr(lam.sum() == 1)
     m.setObjective(c @ x, GRB.MINIMIZE)
@@ -157,9 +157,80 @@ def masterProblem(A, vars, b, c, T_l, T_u, q_l, q_u, z_l, z_u, phi, pi):
         print('\n Vars:')
         for v in m.getVars():
             print("Variable {}: ".format(v.varName) + str(v.x))
+    constraints = m.getConstrs()
+    cnames = m.getAttr("ConstrName", constraints)
+    u = []
+    for i in range(len(cnames)):
+        if cnames[i][0] == "z":
+            u.append(constraints[i].getAttr("Pi"))
+        elif cnames[i] == "cc":
+            v = constraints[i].getAttr("Pi")
+    return (m, np.c_[np.array(u)], v)            
 
-def columnGeneration(v, u):
+def columnGeneration(z, v, u, mean, cov):
+    z = z[:, -1]
+    F = evaluateDual(z, v, u, mean, cov)
+    print(F)
     pass
+
+def evaluateProb(z, mean, cov):
+    size = int(np.shape(z)[0]/2)
+    zl, zu = -1*z[:size], z[size:]
+    return rectangular(zl, zu, mean, cov)[0]
+
+def evaluateDual(z, v, u, mean, cov):
+    F = evaluateProb(z, mean, cov)
+    phi = -log(F)
+    return v * phi - np.transpose(u) @ z
+
+def evaluateGradientDual(z, v, u, mean, cov):
+    F = evaluateProb(z, mean, cov)
+    gradF = gradient(z, mean, cov)
+    return -v/F * gradF - u
+
+def gradient(z, mean, cov):
+    """
+    Description: Finds gradient vector of rectangular probability F(zl, zu) of 
+    multivariate normal distribution for given zl and zu
+
+    mean = n * 1 Numpy array of mean vector for random variable
+    cov = n * N Numpy array of Covariance Matrix for random variable
+    z = 2 * n Numpy array of upper and lower bounds for iteration k
+    """
+    n = int(np.shape(mu)[0])
+    size = int(np.shape(z)[0]/2)
+    zl, zu = -1*z[:size], z[size:]
+    dzl, dzu = [], []
+    xi = norm(mu, cov)
+
+    if n != np.shape(cov[0]) or n != np.shape(cov[1]) or n != np.shape([z]):
+        raise AttributeError("Dimension of arrays are not compatible")
+    for i in range(n):
+        col = cov[:, i].reshape(-1, 1)
+        row = cov[:, i].reshape(1, -1)
+
+        bar_mean_l =  mean + 1/cov[i, i] * (zl[i] - mean[i]) * cov[:,i]
+        bar_mean_u = mean + 1/cov[i, i] * (zu[i] - mean[i]) * cov[:, i]
+        bar_cov = cov - 1/int(cov[i, i])  * col @ row
+        bar_zl, bar_zu = np.delete(zl, i), np.delete(zu, i)
+        
+        f_u = xi.pdf(zu[i])
+        f_l = xi.pdf(zl[i])
+
+        bar_F_u = rectangular(bar_zl, bar_zu, bar_mean_u, bar_cov)
+        bar_F_l = rectangular(bar_zl, bar_zu, bar_mean_l, bar_cov)
+
+        dzu.append(f_u * bar_F_u)
+        dzl.append(-1* f_l * bar_F_l)
+        
+    dzl = np.array(dzl)
+    dzu = np.array(dzu)
+
+    return zip(dzl, dzu)
+
+def backtracking(z, mu, cov, grad, beta=0.8, alpha = 0.5):
+    t = 1
+    f_x = rectangular(zk[0], zk[1], mu, cov)[0]
 
 def JCCP(PSTN, alpha, epsilon):
     pi = -log(1-alpha)
@@ -171,11 +242,12 @@ def JCCP(PSTN, alpha, epsilon):
     m, zk = res[0], res[1]
     F = rectangular(zk[0], zk[1], mu, cov)[0]
     if F >= 1 - alpha:
-        z_l = np.c_[zk[0]]
-        z_u = np.c_[zk[1]]
         phi = np.c_[-log(F)]
-        Obj_m, s, v, u = masterProblem(A, vars, b, c, T_l, T_u, q_l, q_u, z_l, z_u, phi, pi)
-        Obj_d, z_d = columnGeneration(v, u)
+        T = np.vstack((-T_l, T_u))
+        q = np.vstack((-np.c_[q_l], np.c_[q_u]))
+        z = np.vstack((-np.c_[zk[0]], np.c_[zk[1]]))
+        m_master_k, u_k, v_k = masterProblem(A, vars, b, c, T, q, z, phi, pi)
+        Obj_d, z_d = columnGeneration(z, v_k, u_k, mu, cov)
         while Obj_d > epsilon:
             k += 1
             zk = z_d
@@ -185,32 +257,3 @@ def JCCP(PSTN, alpha, epsilon):
         return (s, Obj_m)
     else:
         raise ValueError("No solution could be found with current risk budget. Try increasing allowable risk")
-
-def LPSolve(m, folder = None, log = False):
-    '''
-    Description:    Solves gurobi model and returns results
-    Input:          m - unsolved gurobi model
-                    output - boolean variable for additional information
-    Output:         m - gurobi model after optimisation
-    '''
-    if log == True:
-        m.write("{}/{}.mps".format(folder, m.ModelName))
-    print("\n")
-    m.optimize()
-    print(m.status)
-    if m.status == GRB.OPTIMAL:
-        print('\n objective: ', m.objVal)
-        print('\n Vars:')
-        if log == True:
-            m.write("{}/{}.sol".format(folder, m.ModelName))
-        for v in m.getVars():
-            print("Variable {}: ".format(v.varName) + str(v.x))
-        return m
-
-    elif m.status != GRB.OPTIMAL:
-        if log == True:
-            m.computeIIS()
-            m.write("{}/{}.ilp".format(folder, m.ModelName))
-        print('No solution')
-        print("\n")
-        return m
