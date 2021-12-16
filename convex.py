@@ -112,7 +112,7 @@ def getStandardForm(PSTN):
     cov_xi = R
     return A, vars, b, c, T_l, T_u, q_l, q_u, mu_xi, cov_xi
 
-def Initialise(A, vars, b, T_l, T_u, q_l, q_u, box = 3):
+def Initialise(A, vars, b, T_l, T_u, q_l, q_u, alpha, mu, cov, box = 3, epsilon = 0.1):
     m = gp.Model("initialisation")
     x = m.addMVar(len(vars), vtype=GRB.CONTINUOUS, name="vars")
     t_l = m.addMVar(1, lb=-float(inf), name="t_l")
@@ -135,31 +135,64 @@ def Initialise(A, vars, b, T_l, T_u, q_l, q_u, box = 3):
         print('\n objective: ', m.objVal)
         print('\n Vars:')
         for v in m.getVars():
-            print("Variable {}: ".format(v.varName) + str(v.x))
-    z_l = z_l.x
-    z_u = z_u.x
-    return (m, (z_l, z_u))
+            print("Variable {}: ".format(v.varName) + str(v.x)),
+    phi = []
+    zl = z_l.x
+    zu = z_u.x
+    F0 = rectangular(zl, zu, mu, cov)[0]
+    if F0 >= 1 - alpha:
+        phi.append(-log(F0))
+        z0 = np.vstack((-np.c_[zl], np.c_[zu]))
+        zli = np.copy(zl)
+        Fi = F0
+        Fs = [F0]
+        zlis = [zli[0]]
+        while Fi >= 1 - alpha:
+            zli[0] += epsilon
+            Fi = rectangular(zli, zu, mu,  cov)[0]
+            zlis.append(zli[0])
+            Fs.append(Fi)
+        F = Fs[-2]
+        frac = abs(zlis[-2])
+        z = np.copy(z0)
+        for i in range(len(z)):
+            znew = np.copy(z0)
+            znew[i] = frac
+            z = np.hstack((z, znew))
+            phi.append(-log(F))
+    else:
+        raise ValueError("No solution could be found with current risk budget. Try increasing allowable risk")
+    return (m, z, np.array(phi))
 
 def masterProblem(A, vars, b, c, T, q, z, phi, pi):
+    print("T", T)
+    print("vars", vars)
+    print("q", q)
+    print("z", z)
     k = np.shape(z)[1]
     p = len(q)
     m = gp.Model("iteration_" + str(k))
     x = m.addMVar(len(vars), name="vars")
+    print(vars)
+    print(c)
+    print()
     lam = m.addMVar(k, name="lambda")
     m.addConstr(A @ x <= b)
     for i in range(p):
         m.addConstr(T[i,:]@x + q[i] >= z[i, :]@lam, name="z{}".format(i))
-    m.addConstr(phi @ lam <= pi, name="cc")
+    m.addConstr(lam @ phi <= pi, name="cc")
     m.addConstr(x[0] == 0)
     m.addConstr(lam.sum() == 1)
     m.setObjective(c @ x, GRB.MINIMIZE)
     m.update
+    m.write("convex.lp")
     m.optimize()
     if m.status == GRB.OPTIMAL:
         print('\n objective: ', m.objVal)
         print('\n Vars:')
         for v in m.getVars():
             print("Variable {}: ".format(v.varName) + str(v.x))
+    m.write("convex.sol")
     constraints = m.getConstrs()
     cnames = m.getAttr("ConstrName", constraints)
     u = []
@@ -168,6 +201,7 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi):
             u.append(constraints[i].getAttr("Pi"))
         elif cnames[i] == "cc":
             v = constraints[i].getAttr("Pi")
+    print(v)
     return (m, np.c_[np.array(u)], v)            
 
 def evaluateProb(z, mean, cov):
@@ -208,12 +242,22 @@ def evaluateDual(z, v, u, mean, cov):
 def evaluateGradientDual(z, v, u, mean, cov):
     F = evaluateProb(z, mean, cov)[0]
     grad = evaluateGrad(z, mean, cov)
+    print("\nEvaluating Gradient")
+    print("z = ", z)
+    print("v = ", v)
+    print("u = ", u)
+    print("grad = ", grad)
+    print("gradDual = ", -v/F*grad - u)
+    print("\n")
     return -v/F * grad - u
 
 def backtracking(z, v, u, mean, cov, dual, grad, beta=0.8, alpha = 0.5):
     t = 1
     z_i = z - t * grad
+    print("LHS = ", evaluateDual(z-t*grad, v, u, mean, cov))
+    print("RHS = ", dual - alpha * t * grad.transpose() @ grad)
     while evaluateDual(z-t*grad, v, u, mean, cov) > dual - alpha * t * grad.transpose() @ grad:
+        print("condition satisfied")
         t *= beta
     return t
 
@@ -222,12 +266,12 @@ def columnGeneration(z, v, u, mean, cov, iterations = 100):
     f = []
     i = 1
     for i in range(iterations):
-        # print("\nIteration {}".format(i))
+        print("\nIteration {}".format(i))
         dual = evaluateDual(z, v, u, mean, cov)
         f.append(dual[0][0])
-        # print("Function value = ", dual)
+        print("Function value = ", dual)
         grad = evaluateGradientDual(z, v, u , mean, cov)
-        # print("Gradient Dualv= ", grad)
+        print("Gradient Dualv= ", grad)
         t = backtracking(z, v, u, mean, cov, dual, grad)
         z = z - t * grad
         count.append(i)
@@ -239,27 +283,25 @@ def columnGeneration(z, v, u, mean, cov, iterations = 100):
     return z
 
 def JCCP(PSTN, alpha, epsilon):
+    print(alpha)
     pi = -log(1-alpha)
+    print(log(0.95))
+    print(pi)
     matrices = getStandardForm(PSTN)
-    k = 1
     m = []
     A, vars, b, c, T_l, T_u, q_l, q_u, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7], matrices[8], matrices[9]
-    res = Initialise(A, vars, b, T_l, T_u, q_l, q_u)
-    m, zk = res[0], res[1]
-    F = rectangular(zk[0], zk[1], mu, cov)[0]
-    if F >= 1 - alpha:
-        phi = np.c_[-log(F)]
-        T = np.vstack((-T_l, T_u))
-        q = np.vstack((-np.c_[q_l], np.c_[q_u]))
-        z = np.vstack((-np.c_[zk[0]], np.c_[zk[1]]))
-        m_master_k, u_k, v_k = masterProblem(A, vars, b, c, T, q, z, phi, pi)
-        Obj_d, z_d = columnGeneration(np.c_[z[:, -1]], v_k, u_k, mu, cov)
-        while Obj_d > epsilon:
-            k += 1
-            zk = z_d
-            z.append(zk)
-            Obj_m, s, v, u = masterProblem(m, z)
-            Obj_d, z_d = columnGeneration(v, u)
-        return (s, Obj_m)
-    else:
-        raise ValueError("No solution could be found with current risk budget. Try increasing allowable risk")
+    res = Initialise(A, vars, b, T_l, T_u, q_l, q_u, alpha, mu, cov)
+    m, zk, phi = res[0], res[1], res[2]
+    T = np.vstack((-T_l, T_u))
+    q = np.vstack((-np.c_[q_l], np.c_[q_u]))
+    k = len(phi)
+    m_master_k, u_k, v_k = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
+    Obj_d, z_d = columnGeneration(np.c_[z[:, -1]], v_k, u_k, mu, cov)
+    while Obj_d > epsilon:
+        k += 1
+        zk = z_d
+        z.append(zk)
+        Obj_m, s, v, u = masterProblem(m, z)
+        Obj_d, z_d = columnGeneration(v, u)
+    return (s, Obj_m)
+

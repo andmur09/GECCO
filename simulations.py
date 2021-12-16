@@ -111,7 +111,7 @@ def main():
 
     for instance in woodworking:
         # instance.plot()
-        mat = convex.JCCP(instance, 0.4, 0.01)
+        mat = convex.JCCP(instance, 0.5, 0.1)
 
         # upper = instance.countUncontrollables()
         # result = epsilonConstraint(instance, "pstns/results/woodworking", upper, epsilon, log = True)
