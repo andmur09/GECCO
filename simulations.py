@@ -96,22 +96,23 @@ def main():
     woodworking_path = "pstns/problems/woodworking"
     woodworking_files = sorted(os.listdir(woodworking_path))
     woodworking = []
-    for i in range(1):
+    for i in range(len(woodworking_files)):
         with open(woodworking_path + "/" + woodworking_files[i], "rb") as f:
             problem = pkl.load(f)
             woodworking.append(problem)
-
+    
     # elevators_path = "pstns/problems/elevators"
-    # elevators_files = sorted(os.listdir(elevators_path))
+    # elevators_files = sorted(os.listdir(elevators_path))c
     # elevators = []
     # for i in range(1):
     #     with open(elevators_path + "/" + elevators_files[i], "rb") as f:
     #         problem = pkl.load(f)
     #         elevators.append(problem)
 
-    for instance in woodworking:
-        # instance.plot()
-        mat = convex.JCCP(instance, 0.5, 0.1)
+    for i in range(len(woodworking)):
+        if i == 0:
+            woodworking[i].plot()
+            mat = convex.JCCP(woodworking[i], 0.2, 0.1)
 
         # upper = instance.countUncontrollables()
         # result = epsilonConstraint(instance, "pstns/results/woodworking", upper, epsilon, log = True)

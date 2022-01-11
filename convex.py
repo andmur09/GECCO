@@ -1,3 +1,4 @@
+from re import T
 import numpy as np
 from scipy.stats.mvn import mvnun as rectangular
 from scipy.stats import multivariate_normal as norm
@@ -9,10 +10,16 @@ from matplotlib import pyplot as plt
 
 np.seterr(divide='raise')
 np.set_printoptions(suppress=True)
-np.set_printoptions(precision=3)
+np.set_printoptions(precision=4)
 np.set_printoptions(threshold=sys.maxsize)
 np.set_printoptions(linewidth=np.inf)
 inf = 10000
+
+def evaluateProb(z, mean, cov):
+    size = int(np.shape(z)[0]/2)
+    zl, zu = -1*z[:size], z[size:]
+    F = rectangular(zl, zu, mean, cov)
+    return F
 
 def getStandardForm(PSTN):
     '''
@@ -144,38 +151,22 @@ def Initialise(A, vars, b, T_l, T_u, q_l, q_u, alpha, mu, cov, box = 3, epsilon 
         phi.append(-log(F0))
         z0 = np.vstack((-np.c_[zl], np.c_[zu]))
         zli = np.copy(zl)
-        Fi = F0
-        Fs = [F0]
-        zlis = [zli[0]]
-        while Fi >= 1 - alpha:
-            zli[0] += epsilon
-            Fi = rectangular(zli, zu, mu,  cov)[0]
-            zlis.append(zli[0])
-            Fs.append(Fi)
-        F = Fs[-2]
-        frac = abs(zlis[-2])
         z = np.copy(z0)
         for i in range(len(z)):
             znew = np.copy(z0)
-            znew[i] = frac
+            znew[i] = 0
             z = np.hstack((z, znew))
-            phi.append(-log(F))
+            Fnew = evaluateProb(znew, mu, cov)[0]
+            phi.append(-log(Fnew))
     else:
         raise ValueError("No solution could be found with current risk budget. Try increasing allowable risk")
     return (m, z, np.array(phi))
 
 def masterProblem(A, vars, b, c, T, q, z, phi, pi):
-    print("T", T)
-    print("vars", vars)
-    print("q", q)
-    print("z", z)
     k = np.shape(z)[1]
     p = len(q)
     m = gp.Model("iteration_" + str(k))
     x = m.addMVar(len(vars), name="vars")
-    print(vars)
-    print(c)
-    print()
     lam = m.addMVar(k, name="lambda")
     m.addConstr(A @ x <= b)
     for i in range(p):
@@ -187,6 +178,7 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi):
     m.update
     m.write("convex.lp")
     m.optimize()
+
     if m.status == GRB.OPTIMAL:
         print('\n objective: ', m.objVal)
         print('\n Vars:')
@@ -195,20 +187,17 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi):
     m.write("convex.sol")
     constraints = m.getConstrs()
     cnames = m.getAttr("ConstrName", constraints)
+
     u = []
     for i in range(len(cnames)):
         if cnames[i][0] == "z":
             u.append(constraints[i].getAttr("Pi"))
         elif cnames[i] == "cc":
             v = constraints[i].getAttr("Pi")
-    print(v)
-    return (m, np.c_[np.array(u)], v)            
-
-def evaluateProb(z, mean, cov):
-    size = int(np.shape(z)[0]/2)
-    zl, zu = -1*z[:size], z[size:]
-    F = rectangular(zl, zu, mean, cov)
-    return F
+    lam_sol = np.array(lam.x)
+    print(lam_sol)
+    z_sol = np.array(sum([lam_sol[i]*z[:, i] for i in range(np.shape(z)[1])]))
+    return (m, np.c_[z_sol], np.c_[np.array(u)], v)            
 
 def evaluateGrad(z, mean, cov):
     n = int(np.shape(mean)[0])
@@ -236,24 +225,18 @@ def evaluateGrad(z, mean, cov):
 
 def evaluateDual(z, v, u, mean, cov):
     F = evaluateProb(z, mean, cov)[0]
+    print("F = ", F)
     phi = -log(F)
     return v * phi - np.transpose(u) @ z
 
 def evaluateGradientDual(z, v, u, mean, cov):
     F = evaluateProb(z, mean, cov)[0]
     grad = evaluateGrad(z, mean, cov)
-    print("\nEvaluating Gradient")
-    print("z = ", z)
-    print("v = ", v)
-    print("u = ", u)
-    print("grad = ", grad)
-    print("gradDual = ", -v/F*grad - u)
-    print("\n")
+    print("Gradient = ", grad)
     return -v/F * grad - u
 
 def backtracking(z, v, u, mean, cov, dual, grad, beta=0.8, alpha = 0.5):
     t = 1
-    z_i = z - t * grad
     print("LHS = ", evaluateDual(z-t*grad, v, u, mean, cov))
     print("RHS = ", dual - alpha * t * grad.transpose() @ grad)
     while evaluateDual(z-t*grad, v, u, mean, cov) > dual - alpha * t * grad.transpose() @ grad:
@@ -262,6 +245,9 @@ def backtracking(z, v, u, mean, cov, dual, grad, beta=0.8, alpha = 0.5):
     return t
 
 def columnGeneration(z, v, u, mean, cov, iterations = 100):
+    print("z = ", z)
+    print("u = ", u)
+    print("v = ", v)
     count = []
     f = []
     i = 1
@@ -274,6 +260,7 @@ def columnGeneration(z, v, u, mean, cov, iterations = 100):
         print("Gradient Dualv= ", grad)
         t = backtracking(z, v, u, mean, cov, dual, grad)
         z = z - t * grad
+        print("z = ", z)
         count.append(i)
         i += 1
     # print(f)
@@ -283,10 +270,7 @@ def columnGeneration(z, v, u, mean, cov, iterations = 100):
     return z
 
 def JCCP(PSTN, alpha, epsilon):
-    print(alpha)
     pi = -log(1-alpha)
-    print(log(0.95))
-    print(pi)
     matrices = getStandardForm(PSTN)
     m = []
     A, vars, b, c, T_l, T_u, q_l, q_u, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7], matrices[8], matrices[9]
@@ -295,8 +279,8 @@ def JCCP(PSTN, alpha, epsilon):
     T = np.vstack((-T_l, T_u))
     q = np.vstack((-np.c_[q_l], np.c_[q_u]))
     k = len(phi)
-    m_master_k, u_k, v_k = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
-    Obj_d, z_d = columnGeneration(np.c_[z[:, -1]], v_k, u_k, mu, cov)
+    m_master_k, z_m, u_k, v_k = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
+    Obj_d, z_d = columnGeneration(z_m, v_k, u_k, mu, cov)
     while Obj_d > epsilon:
         k += 1
         zk = z_d
@@ -304,4 +288,3 @@ def JCCP(PSTN, alpha, epsilon):
         Obj_m, s, v, u = masterProblem(m, z)
         Obj_d, z_d = columnGeneration(v, u)
     return (s, Obj_m)
-
