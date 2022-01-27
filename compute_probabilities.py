@@ -1,25 +1,31 @@
 
 from rpy2.robjects.packages import importr
 from rpy2 import robjects as ro
-from scipy.stats.mvn import mvnun as rectangular
 import numpy as np
-import time
-    # mvtnorm = importr('mvtnorm', lib_loc = "/home/andmur09/R/x86_64-pc-linux-gnu-library/4.1")
-    # upper = ro.IntVector((1, 1))
-    # mean = ro.IntVector((0, 0))
-    # cov = ro.r.matrix(ro.IntVector((1, 0, 0, 1)), nrow=2)
-    # beginr = time.time()
-    # print(mvtnorm.pmvnorm(upper=upper, mean=mean, sigma=cov))
-    # endr = time.time()
+from scipy.stats import multivariate_normal as norm
 
-
-
-def computeProbabilitySingular(z, mean, cov):
+def pmvnorm(z, mean, cov):
     mvtnorm = importr('mvtnorm', lib_loc = "/home/andmur09/R/x86_64-pc-linux-gnu-library/4.1")
     upper = ro.IntVector(z)
     mean = ro.IntVector(mean)
     cov = ro.r.matrix(ro.IntVector(cov.flatten('f')), nrow=np.shape(cov)[0])
-    result = mvtnorm.pmvnorm(upper=upper, mean=mean, sigma=cov)
+    result = mvtnorm.pmvnorm(upper=upper, mean=mean, corr=cov)
     return np.asarray(result)[0]
 
-print(computeProbabilitySingular(np.array([1, 1]), np.array([0, 0]), np.array([[1, 0], [0, 1]])))
+def grad(z, u, mean, cov):
+    n = int(np.shape(mean)[0])
+    dz = []
+    for i in range(n):
+        if u[i] == 0:
+            dz.append(0)
+        else:
+            bar_mean = np.delete(mean, i)
+            bar_cov = np.delete(np.delete(cov, i, 0), i, 1)
+            bar_z= np.delete(z, i)
+            bar_F = pmvnorm(bar_z, bar_mean, bar_cov)
+            f = norm(mean[i], cov[i, i]).pdf(z[i])
+            dz.append(f * bar_F)
+    return np.c_[np.array(dz)]
+
+#print("x")
+#print(np.array(2, 3))

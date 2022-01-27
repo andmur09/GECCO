@@ -1,0 +1,489 @@
+Academic license - for non-commercial use only - expires 2022-03-24
+Using license file /home/andmur09/gurobi.lic
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 34 rows, 17 columns and 74 nonzeros
+Model fingerprint: 0x38323d17
+Coefficient statistics:
+  Matrix range     [2e-01, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+04, 1e+04]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 27 rows and 11 columns
+Presolve time: 0.00s
+Presolved: 7 rows, 9 columns, 21 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.3316665e+03   3.127756e+03   0.000000e+00      0s
+       6    3.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 6 iterations and 0.00 seconds
+Optimal objective  3.000000000e+00
+
+ objective:  3.0
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 9952.001
+Variable vars[7]: 10000.002
+Variable vars[8]: 0.0
+Variable vars[9]: 9940.001
+Variable t_l[0]: 3.0
+Variable zl[0]: 3.0
+Variable zl[1]: 3.0
+Variable zl[2]: 3.0
+Variable zl[3]: 3.0
+Variable zl[4]: 3.0
+Variable zl[5]: 3.0
+
+Solving master problem with 7 approximation points
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 29 rows, 17 columns and 105 nonzeros
+Model fingerprint: 0x8b4fe6cb
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 17 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 16 columns, 73 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+       9    3.0347703e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 9 iterations and 0.00 seconds
+Optimal objective  3.034770328e+01
+
+ objective:  30.347703281354278
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 42.34770328135427
+Variable vars[7]: 90.34870328135428
+Variable vars[8]: 0.0
+Variable vars[9]: 30.347703281354278
+Variable lambda[0]: 0.6858724045196816
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.31412759548031843
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Phi_sol =  0.22314355131420968 Pi 0.2231435513142097
+v =  -25.968510736001342
+u =  [ 0. -6.  0.  0.  0. -6.]
+nu =  36.14040898932679
+mu =  [ 0. -1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.]
+
+Current z points are:  [[3. 0. 3. 3. 3. 3. 3.]
+ [3. 3. 0. 3. 3. 3. 3.]
+ [3. 3. 3. 0. 3. 3. 3.]
+ [3. 3. 3. 3. 0. 3. 3.]
+ [3. 3. 3. 3. 3. 0. 3.]
+ [3. 3. 3. 3. 3. 3. 0.]]
+Current objective is:  30.347703281354278
+
+Solving Column Generation
+z =  [[3.    ]
+ [1.2651]
+ [3.    ]
+ [3.    ]
+ [3.    ]
+ [2.0127]]
+Function value =  [[24.8283]]
+
+New approximation point found:  [[3.    ]
+ [1.2651]
+ [3.    ]
+ [3.    ]
+ [3.    ]
+ [2.0127]]
+Reduced cost is:  [[11.3122]]
+
+Solving master problem with 8 approximation points
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 29 rows, 18 columns and 113 nonzeros
+Model fingerprint: 0x228aad5a
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 17 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 17 columns, 81 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+       9    1.9587554e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 9 iterations and 0.00 seconds
+Optimal objective  1.958755370e+01
+
+ objective:  19.58755369878643
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 37.2224272075887
+Variable vars[7]: 79.58855369878643
+Variable vars[8]: 0.0
+Variable vars[9]: 19.58755369878643
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.04879726732399328
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.9512027326760067
+Phi_sol =  0.2231435513142097 Pi 0.2231435513142097
+v =  -3.335125372049674
+u =  [ 0. -6.  0.  0.  0. -6.]
+nu =  20.3297654183837
+mu =  [ 0. -1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.]
+
+Current z points are:  [[3.     0.     3.     3.     3.     3.     3.     3.    ]
+ [3.     3.     0.     3.     3.     3.     3.     1.2651]
+ [3.     3.     3.     0.     3.     3.     3.     3.    ]
+ [3.     3.     3.     3.     0.     3.     3.     3.    ]
+ [3.     3.     3.     3.     3.     0.     3.     3.    ]
+ [3.     3.     3.     3.     3.     3.     0.     2.0127]]
+Current objective is:  19.58755369878643
+
+Solving Column Generation
+z =  [[ 3.    ]
+ [-2.9831]
+ [ 3.    ]
+ [ 3.    ]
+ [ 3.    ]
+ [-2.609 ]]
+Function value =  [[-7.9103]]
+
+New approximation point found:  [[ 3.    ]
+ [-2.9831]
+ [ 3.    ]
+ [ 3.    ]
+ [ 3.    ]
+ [-2.609 ]]
+Reduced cost is:  [[28.2401]]
+
+Solving master problem with 9 approximation points
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 29 rows, 19 columns and 121 nonzeros
+Model fingerprint: 0x4dcc8d2b
+Coefficient statistics:
+  Matrix range     [5e-03, 8e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 17 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 18 columns, 89 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   3.078963e+00   0.000000e+00      0s
+      10    1.9495598e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 10 iterations and 0.00 seconds
+Optimal objective  1.949559808e+01
+
+ objective:  19.495598075734115
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 37.50983964551582
+Variable vars[7]: 79.49659807573411
+Variable vars[8]: 0.0
+Variable vars[9]: 19.495598075734115
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.9967437918380115
+Variable lambda[8]: 0.003256208161988461
+Phi_sol =  0.2231435513142099 Pi 0.2231435513142097
+v =  -7.105522430132985
+u =  [ 0. -6.  0.  0.  0. -6.]
+nu =  21.079149584736754
+mu =  [ 0. -1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.]
+
+Current z points are:  [[ 3.      0.      3.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      0.      3.      3.      3.      3.      1.2651 -2.9831]
+ [ 3.      3.      3.      0.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      0.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      3.      0.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      3.      3.      0.      2.0127 -2.609 ]]
+Current objective is:  19.495598075734115
+
+Solving Column Generation
+z =  [[ 3.    ]
+ [-1.032 ]
+ [ 3.    ]
+ [ 3.    ]
+ [ 3.    ]
+ [-0.8401]]
+Function value =  [[6.8542]]
+
+New approximation point found:  [[ 3.    ]
+ [-1.032 ]
+ [ 3.    ]
+ [ 3.    ]
+ [ 3.    ]
+ [-0.8401]]
+Reduced cost is:  [[14.225]]
+
+Solving master problem with 10 approximation points
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 29 rows, 20 columns and 129 nonzeros
+Model fingerprint: 0xed0e7baa
+Coefficient statistics:
+  Matrix range     [5e-03, 8e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 17 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 19 columns, 97 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   3.078963e+00   0.000000e+00      0s
+      11    1.9347758e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 11 iterations and 0.00 seconds
+Optimal objective  1.934775809e+01
+
+ objective:  19.347758088868467
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 37.44959474865726
+Variable vars[7]: 79.34875808886846
+Variable vars[8]: 0.0
+Variable vars[9]: 19.347758088868467
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.9896070078388771
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.010392992161122883
+Phi_sol =  0.22314355131421 Pi 0.2231435513142097
+v =  -13.167309986378644
+u =  [ 0. -6.  0.  0.  0. -6.]
+nu =  22.283958400484057
+mu =  [ 0. -1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.]
+
+Current z points are:  [[ 3.      0.      3.      3.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      0.      3.      3.      3.      3.      1.2651 -2.9831 -1.032 ]
+ [ 3.      3.      3.      0.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      0.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      3.      0.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      3.      3.      0.      2.0127 -2.609  -0.8401]]
+Current objective is:  19.347758088868467
+
+Solving Column Generation
+z =  [[ 3.    ]
+ [-0.3508]
+ [ 3.    ]
+ [ 3.    ]
+ [ 3.    ]
+ [-0.642 ]]
+Function value =  [[12.3685]]
+
+New approximation point found:  [[ 3.    ]
+ [-0.3508]
+ [ 3.    ]
+ [ 3.    ]
+ [ 3.    ]
+ [-0.642 ]]
+Reduced cost is:  [[9.9155]]
+
+Solving master problem with 11 approximation points
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 29 rows, 21 columns and 137 nonzeros
+Model fingerprint: 0x6876a527
+Coefficient statistics:
+  Matrix range     [5e-03, 8e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 17 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 20 columns, 105 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   3.078963e+00   0.000000e+00      0s
+      11    1.9145044e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 11 iterations and 0.00 seconds
+Optimal objective  1.914504367e+01
+
+ objective:  19.145043667021064
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 37.394621380410584
+Variable vars[7]: 79.14604366702106
+Variable vars[8]: 0.0
+Variable vars[9]: 19.145043667021064
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.9795557953858924
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.0
+Variable lambda[10]: 0.020444204614107564
+Phi_sol =  0.22314355131420965 Pi 0.2231435513142097
+v =  -21.479078580778484
+u =  [ 0. -6.  0.  0.  0. -6.]
+nu =  23.93596154049293
+mu =  [ 0. -1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.]
+
+Current z points are:  [[ 3.      0.      3.      3.      3.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      0.      3.      3.      3.      3.      1.2651 -2.9831 -1.032  -0.3508]
+ [ 3.      3.      3.      0.      3.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      0.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      3.      0.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      3.      3.      0.      2.0127 -2.609  -0.8401 -0.642 ]]
+Current objective is:  19.145043667021064
+
+Solving Column Generation
+z =  [[3.    ]
+ [1.0256]
+ [3.    ]
+ [3.    ]
+ [3.    ]
+ [1.2026]]
+Function value =  [[20.859]]
+
+New approximation point found:  [[3.    ]
+ [1.0256]
+ [3.    ]
+ [3.    ]
+ [3.    ]
+ [1.2026]]
+Reduced cost is:  [[3.0769]]
+
+Solving master problem with 12 approximation points
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 29 rows, 22 columns and 145 nonzeros
+Model fingerprint: 0x0822292d
+Coefficient statistics:
+  Matrix range     [5e-03, 8e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 17 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 21 columns, 113 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   3.078963e+00   0.000000e+00      0s
+      10    1.8644639e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 10 iterations and 0.00 seconds
+Optimal objective  1.864463931e+01
+
+ objective:  18.644639307154215
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 37.3590555824352
+Variable vars[7]: 78.64563930715421
+Variable vars[8]: 0.0
+Variable vars[9]: 18.644639307154215
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.8373690407910501
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.0
+Variable lambda[10]: 0.0
+Variable lambda[11]: 0.16263095920894988
+Phi_sol =  0.2231435513142097 Pi 0.2231435513142097
+v =  -41.99683555601901
+u =  [ 0. -6.  0.  0.  0. -6.]
+nu =  28.013962337083157
+mu =  [ 0. -1.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0. -1.  0.  0.  0.]
+
+Current z points are:  [[ 3.      0.      3.      3.      3.      3.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      0.      3.      3.      3.      3.      1.2651 -2.9831 -1.032  -0.3508  1.0256]
+ [ 3.      3.      3.      0.      3.      3.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      0.      3.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      3.      0.      3.      3.      3.      3.      3.      3.    ]
+ [ 3.      3.      3.      3.      3.      3.      0.      2.0127 -2.609  -0.8401 -0.642   1.2026]]
+Current objective is:  18.644639307154215
+
+Solving Column Generation
+z =  [[3.    ]
+ [2.3378]
+ [3.    ]
+ [3.    ]
+ [3.    ]
+ [1.0263]]
+Function value =  [[28.5317]]
+
+New approximation point found:  [[3.    ]
+ [2.3378]
+ [3.    ]
+ [3.    ]
+ [3.    ]
+ [1.0263]]
+Reduced cost is:  [[-0.5177]]

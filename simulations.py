@@ -14,6 +14,8 @@ import os
 import numpy as np
 import sys
 import convex
+
+
 inf = 10000
 
 gurobi_status = {1: "Loaded", 2: "Optimal", 3: "Infeasible", 4: "Inf or unb", 5: "Unbounded", 6: "Cutoff", 7: "Iteration Limit", 8: "Node Limit", 9: "Time Limit", 10: "Solution Limit", 11: "Interrupted", 12: "Numeric", 13: "Suboptimal", 14: "In Progress", 15: "User Obj Limit"}
@@ -44,7 +46,7 @@ def solve(PSTN, folder, log = False, budget = inf):
             return m
         m.remove(m.getConstrByName("risk_bound"))
         cost = m.addVar(vtype=GRB.CONTINUOUS, name = "Cost")
-        m.addConstr(cost == m.objVal)
+        m.addConstr(cost == m.objVal) 
         m.addConstr(gp.quicksum([v for v in m.getVars() if v.varName[-2:] in ["Ru", "Rl"]]) == cost, 'cost')
         m.setObjective(m.getVarByName("Risk"))
         m.update()

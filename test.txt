@@ -1,0 +1,126 @@
+Academic license - for non-commercial use only - expires 2022-03-21
+Using license file /home/andmur09/gurobi.lic
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 34 rows, 17 columns and 74 nonzeros
+Model fingerprint: 0x38323d17
+Coefficient statistics:
+  Matrix range     [2e-01, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+04, 1e+04]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 27 rows and 11 columns
+Presolve time: 0.00s
+Presolved: 7 rows, 9 columns, 21 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.3316665e+03   3.127756e+03   0.000000e+00      0s
+       6    3.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 6 iterations and 0.00 seconds
+Optimal objective  3.000000000e+00
+
+ objective:  3.0
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 9952.001
+Variable vars[7]: 10000.002
+Variable vars[8]: 0.0
+Variable vars[9]: 9940.001
+Variable t_l[0]: 3.0
+Variable zl[0]: 3.0
+Variable zl[1]: 3.0
+Variable zl[2]: 3.0
+Variable zl[3]: 3.0
+Variable zl[4]: 3.0
+Variable zl[5]: 3.0
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 29 rows, 17 columns and 105 nonzeros
+Model fingerprint: 0x8b4fe6cb
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 17 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 16 columns, 73 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+       9    3.0347703e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 9 iterations and 0.00 seconds
+Optimal objective  3.034770328e+01
+
+ objective:  30.347703281354278
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 42.34770328135427
+Variable vars[7]: 90.34870328135428
+Variable vars[8]: 0.0
+Variable vars[9]: 30.347703281354278
+Variable lambda[0]: 0.6858724045196816
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.31412759548031843
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+v =  -25.968510736001342
+Reduced cose =  [[11.3122]]
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 29 rows, 18 columns and 113 nonzeros
+Model fingerprint: 0x228aad5a
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 17 rows and 4 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 17 columns, 81 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+       9    1.9587554e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 9 iterations and 0.00 seconds
+Optimal objective  1.958755370e+01
+
+ objective:  19.58755369878643
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 0.001
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 37.2224272075887
+Variable vars[7]: 79.58855369878643
+Variable vars[8]: 0.0
+Variable vars[9]: 19.58755369878643
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.04879726732399328
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.9512027326760067
+v =  -3.335125372049674
