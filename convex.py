@@ -14,7 +14,7 @@ import additional_functions as fn
 
 np.seterr(divide='raise')
 np.set_printoptions(suppress=True)
-np.set_printoptions(precision=4)
+np.set_printoptions(precision=8)
 np.set_printoptions(threshold=sys.maxsize)
 np.set_printoptions(linewidth=np.inf)
 inf = 10000
@@ -154,6 +154,7 @@ def Initialise(A, vars, b, T, q, alpha, mu, cov, box = 3, epsilon = 0.1):
         raise ValueError("No solution could be found with current risk budget. Try increasing allowable risk")
     return (m, z, np.array(phi))
 
+
 def masterProblem(A, vars, b, c, T, q, z, phi, pi, epsilon = 0.0001):
     k = np.shape(z)[1]
     p = len(q)
@@ -181,13 +182,14 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi, epsilon = 0.0001):
     # Queries Gurobi to get values of dual variables
     constraints = m.getConstrs()
     cnames = m.getAttr("ConstrName", constraints)
-    cbasis = m.getAttr("CBasis", constraints)
 
     u = []
     mu = []
+    cb = []
     for i in range(len(cnames)):
         if cnames[i][0] == "z":
             u.append(constraints[i].getAttr("Pi"))
+            cb.append(constraints[i].getAttr("CBasis"))
         elif cnames[i] == "cc":
             v = constraints[i].getAttr("Pi")
         elif cnames[i] == "sum_lam":
@@ -196,6 +198,7 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi, epsilon = 0.0001):
             mu.append(constraints[i].getAttr("Pi"))
     mu = np.array(mu)
     u = np.array(u)
+    cb = np.array(cb)
 
     # Gets values for variables lambda and x
     lam_sol = np.array(lam.x)
@@ -209,36 +212,62 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi, epsilon = 0.0001):
     print("u = ", u)
     print("nu = ", nu)
     print("mu = ", mu)
-    return (m, np.c_[z_sol], np.c_[np.array(u)], v, nu)
+    return (m, np.c_[z_sol], np.c_[np.array(u)], v, nu, cb)
 
-def backtracking(z, v, u, mean, cov, dual, grad, beta=0.8, alpha = 0.5):
+def backtracking(z, v, u, mean, cov, dual, grad, beta=0.8, alpha = 0.3):
     t = 1
     try:
         fn.dual(u, v, z-t*grad, mean, cov)
     except ValueError:
         t *= beta
+    print("\nBACKTRACKING BEGINS HERE")
+    print("LHS = ", fn.dual(u, v, z-t*grad, mean, cov), "RHS = ", dual - alpha * t * grad.transpose() @ grad, "t = ", t)
     while fn.dual(u, v, z-t*grad, mean, cov) > dual - alpha * t * grad.transpose() @ grad:
         t *= beta
+        print("LHS = ", fn.dual(u, v, z-t*grad, mean, cov), "RHS = ", dual - alpha * t * grad.transpose() @ grad, "t = ", t)
+    print("BACKTRACKING ENDS HERE")
     return t
 
-def columnGeneration(z, v, u, mean, cov, iterations = 1):
-    grad = fn.gradDual(u, v, z, mean, cov)
-    for i in range(iterations):
-        dual = fn.dual(u, v, z, mean, cov)
-        grad = fn.gradDual(u, v, z, mean, cov)
-        t = backtracking(z, v, u, mean, cov, dual, grad)
+def columnGeneration(z, v, u, nu, cb, mean, cov, iterations = 100, epsilon = 0.000000001):
+    its = [i for i in range(iterations+1)]
+    zs = [z]
+    dual = fn.dual(u, v, z, mean, cov)
+    grad = fn.gradDual(u, v, z, cb, mean, cov)
+    print("\nITERATION NUMBER: 0")
+    print("z = ", z)
+    print("Prob = ", prob.pmvnorm(z, mean, cov))
+    print("Grad = ", grad)
+    print("Function value = ", dual)
+    Fs = [dual]
+    for i in range(1,iterations+1):
+        if grad.transpose() @ grad < epsilon or - dual + nu > 0:
+            #print("Reduced cost = ", -dual + nu)
+            #print("Point found with positive reduced cost")
+            return z
+        #t = backtracking(z, v, u, mean, cov, dual, grad)
+        #print("t = ", t)
+        t = 0.1
+        #print("\nt = ", t)
         z = z - t * grad
-        
+        dual = fn.dual(u, v, z, mean, cov)
+        grad = fn.gradDual(u, v, z, cb, mean, cov)
+        zs.append(z)
+        Fs.append(dual)
+        print("\nITERATION NUMBER: {}".format(i))
         print("z = ", z)
-        print("Function value = ", fn.dual(u, v, z, mean, cov))
-    # print(f)
-    # print(count)
-   # plt.plot(count, f)
-    #plt.savefig("grad.png", bbox_inches='tight')
+        print("Prob = ", prob.pmvnorm(z, mean, cov))
+        print("Grad = ", grad)
+        print("Function value = ", dual)
+    Fs = [n[0][0] for n in Fs]
+    plt.figure()
+    plt.plot(its, Fs)
+    plt.xlabel("Iteration")
+    plt.ylabel("Function Value")
+    plt.savefig("grad.png", bbox_inches='tight')
     return z
 
 def JCCP(PSTN, alpha, epsilon):
-    #sys.stdout = open("log.txt", "w")
+    sys.stdout = open("log.txt", "w")
     ks = []
     objs = []
     pi = -log(1-alpha)
@@ -249,13 +278,15 @@ def JCCP(PSTN, alpha, epsilon):
     m, zk, phi = res[0], res[1], res[2]
     k = len(phi)
     print("\nSolving master problem with {} approximation points".format(k))
-    m_master_k, z_m, u_k, v_k, nu_k = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
+    m_master_k, z_m, u_k, v_k, nu_k, cb = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
+    print(cb)
     ks.append(k)
     objs.append(m_master_k.objVal)
     print("\nCurrent z points are: ", zk)
     print("Current objective is: ", m_master_k.objVal)
     print("\nSolving Column Generation")
-    z_d = columnGeneration(z_m, v_k, u_k, mu, cov)
+    z_d = columnGeneration(z_m, v_k, u_k, nu_k, cb, mu, cov)
+    print("-log(F(z)) = ", -log(prob.pmvnorm(z_d, mu, cov)), "pi = ", pi)
     print("\nNew approximation point found: ", z_d)
     print("Reduced cost is: ", fn.reducedCost(u_k, v_k, nu_k, z_d, mu, cov))
     while fn.reducedCost(u_k, v_k, nu_k, z_d, mu, cov) > epsilon:
@@ -264,16 +295,31 @@ def JCCP(PSTN, alpha, epsilon):
         phi_k = -log(prob.pmvnorm(z_d, mu, cov))
         phi = np.append(phi, phi_k)
         print("\nSolving master problem with {} approximation points".format(k))
-        m_master_k, z_m, u_k, v_k, nu_k = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
+        m_master_k, z_m, u_k, v_k, nu_k, cb = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
         ks.append(k)
         objs.append(m_master_k.objVal)
         print("\nCurrent z points are: ", zk)
         print("Current objective is: ", m_master_k.objVal)
         print("\nSolving Column Generation")
-        z_d = columnGeneration(z_m, v_k, u_k, mu, cov)
+        z_d = columnGeneration(z_m, v_k, u_k, nu_k, cb, mu, cov)
         print("\nNew approximation point found: ", z_d)
         print("Reduced cost is: ", fn.reducedCost(u_k, v_k, nu_k, z_d, mu, cov))
-    #sys.stdout.close()
+    z_d = np.array([[3], [1.30662583], [3], [3], [3], [1.07092105]])
+    print("Gradient is: ", fn.gradDual(u_k, v_k, z_d, cb, mu, cov))
+    print("Reduced cost is: ", fn.reducedCost(u_k, v_k, nu_k, z_d, mu, cov))
+    k += 1
+    zk = np.hstack((zk, z_d))
+    phi_k = -log(prob.pmvnorm(z_d, mu, cov))
+    phi = np.append(phi, phi_k)
+    z_d = np.array([[3],[2.00714409],[3],[3],[3],[1.07420522]])
+    k += 1
+    zk = np.hstack((zk, z_d))
+    print("z = ", zk)
+    phi_k = -log(prob.pmvnorm(z_d, mu, cov))
+    phi = np.append(phi, phi_k)
+    print("\nSolving master problem with {} approximation points".format(k))
+    m_master_k, z_m, u_k, v_k, nu_k, cb = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
+    sys.stdout.close()
     #plt.plot(ks, objs)
     #plt.savefig('objectrive.png')
     return None
