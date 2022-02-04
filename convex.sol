@@ -1,15 +1,15 @@
-# Solution for model iteration_28
-# Objective value = 1.7745309389466279e+01
+# Solution for model iteration_12
+# Objective value = 1.5132228027431118e+01
 vars[0] 0
 vars[1] 0.001
 vars[2] 0.001
 vars[3] 30.001
 vars[4] 3.0002000000000002e+01
 vars[5] 40.002
-vars[6] 3.6599585816637841e+01
-vars[7] 7.7746309389466276e+01
+vars[6] 37.5740785273044
+vars[7] 7.5133228027431116e+01
 vars[8] 0
-vars[9] 1.7745309389466279e+01
+vars[9] 1.5132228027431118e+01
 lambda[0] 0
 lambda[1] 0
 lambda[2] 0
@@ -20,21 +20,5 @@ lambda[6] 0
 lambda[7] 0
 lambda[8] 0
 lambda[9] 0
-lambda[10] 0
-lambda[11] 0
-lambda[12] 0
-lambda[13] 0
-lambda[14] 0
-lambda[15] 0
-lambda[16] 0
-lambda[17] 0
-lambda[18] 0
-lambda[19] 0
-lambda[20] 0
-lambda[21] 0
-lambda[22] 0
-lambda[23] 8.3736904079105012e-01
-lambda[24] 0
-lambda[25] 0
-lambda[26] 1.6263095920894988e-01
-lambda[27] 0
+lambda[10] 0.756230970148596
+lambda[11] 2.4376902985140403e-01
