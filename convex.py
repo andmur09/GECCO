@@ -140,7 +140,7 @@ def Initialise(A, vars, b, T, q, alpha, mu, cov, box = 3, epsilon = 0.1):
         for v in m.getVars():
             print("Variable {}: ".format(v.varName) + str(v.x)),
     z_ = np.array(z.x)
-    F0 = prob.pmvnorm(z_, mu, cov)
+    F0 = norm(mu, cov, allow_singular=True).cdf(z_)
     phi = []
     if F0 >= 1 - alpha:
         phi.append(-log(F0))
@@ -149,7 +149,7 @@ def Initialise(A, vars, b, T, q, alpha, mu, cov, box = 3, epsilon = 0.1):
             znew = np.copy(z_)
             znew[i] = 0
             z = np.hstack((z, np.c_[znew]))
-            Fnew = prob.pmvnorm(znew, mu, cov)
+            Fnew = norm(mu, cov, allow_singular=True).cdf(znew)
             phi.append(-log(Fnew))
     else:
         raise ValueError("No solution could be found with current risk budget. Try increasing allowable risk")
@@ -215,46 +215,17 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi, epsilon = 0.0001):
     print("mu = ", mu)
     return (m, np.c_[z_sol], np.c_[np.array(u)], v, nu, cb)
 
-def backtracking(z, v, u, mean, cov, dual, grad, beta=0.8, alpha = 0.3):
-    t = 1
-    ts = []
-    LHS = []
-    RHS = []
-    try:
-        fn.dual(z-t*grad, u, v, mean, cov)
-    except ValueError:
-        t *= beta
-    print("\nBACKTRACKING BEGINS HERE")
-    print("LHS = ", fn.dual(z-t*grad, u, v, mean, cov), "RHS = ", dual - alpha * t * grad.transpose() @ grad, "t = ", t)
-    ts.append(t)
-    LHS.append(fn.dual(z-t*grad, u, v, mean, cov))
-    RHS.append(dual - alpha * t * grad.transpose() @ grad)
-    while fn.dual(z-t*grad, u, v, mean, cov) > dual - alpha * t * grad.transpose() @ grad:
-        t *= beta
-        print("LHS = ", fn.dual(z-t*grad, u, v, mean, cov), "RHS = ", dual - alpha * t * grad.transpose() @ grad, "t = ", t)
-        ts.append(t)
-        LHS.append(fn.dual(z-t*grad, u, v, mean, cov))
-        RHS.append(dual - alpha * t * grad.transpose() @ grad)
-    #plt.figure()
-    plt.plot(t, LHS)
-    plt.plot(t, RHS)
-    #plt.xlabel("Iteration")
-    #plt.ylabel("Function Value")
-    plt.savefig("backtracking.png", bbox_inches='tight')
-    print("BACKTRACKING ENDS HERE")
-    return t
-
-def columnGeneration(z, v, u, nu, cb, mean, cov, iterations = 1, epsilon = 0.000000001):
+def columnGeneration(z, v, u, nu, cb, mean, cov, iterations = 100, epsilon = 0.01):
     def dualf(z):
-        return -np.dot(u, z) - v * -log(prob.pmvnorm(np.c_[z], mean, cov))
+        return -np.dot(u, z) - v * -log(norm(mean, cov, allow_singular=True).cdf(z))
 
     def gradf(z):
-        return fn.flatten(v/prob.pmvnorm(np.c_[z], mean, cov)* prob.grad(np.c_[z], cb, mean, cov)) - u
+        return fn.flatten(v/norm(mean, cov, allow_singular=True).cdf(z) * prob.grad(np.c_[z], cb, mean, cov)) - u
 
     def reducedCost(z):
-        return np.dot(u, z) + v *  -log(prob.pmvnorm(np.c_[z], mean, cov)) + nu
+        return np.dot(u, z) + v *  -log(norm(mean, cov, allow_singular=True).cdf(z)) + nu
 
-    def backtracking(z, beta=0.8, alpha = 0.3):
+    def backtracking(z, grad, beta=0.8, alpha = 0.5):
         t = 1
         try:
             dualf(z-t*grad)
@@ -277,7 +248,7 @@ def columnGeneration(z, v, u, nu, cb, mean, cov, iterations = 1, epsilon = 0.000
 
     print("\nITERATION NUMBER: 0")
     print("z = ", z)
-    print("Prob = ", prob.pmvnorm(z, mean, cov))
+    print("Prob = ", norm(mean, cov, allow_singular=True).cdf(z))
     print("Grad = ", grad)
     print("Function value = ", dual)
     print("Reduced cost = ", reducedCost(z))
@@ -285,43 +256,8 @@ def columnGeneration(z, v, u, nu, cb, mean, cov, iterations = 1, epsilon = 0.000
     print("-grad^T grad is = ", np.dot(grad, direction))
     Fs = [dual]
     for i in range(1,iterations+1):
-        #ts = np.linspace(0.01, 1, 100)
-        #fs = []
-        #zs = []
-        #for t in ts:
-           # print("\nt = ", t)
-            #print("F = ", dualf(z-t*grad))
-          #  print("z = ", z-t*grad)
-          #  print("Prob = ", prob.pmvnorm(z-t*grad, mean, cov))
-          #  fs.append(dualf(z-t*grad))
-           # zs.append(z-t*grad)
-      #  print("ts = ", ts)
-      #  print("fs = ", fs)
-       # print("zs = ", zs)
-       # plt.figure()
-      #  plt.plot(ts, fs)
-       # plt.xlabel("t")
-       # plt.ylabel("Function")
-        #plt.ylabel("Function Value")
-       # plt.savefig("backtracking.png", bbox_inches='tight')
-        #break
-        t = backtracking(z)
-        #print("t = ", t)
-        #t = 0.1
-        #print("\nt = ", t)
-        #alpha = 1
-        #while True:
-         #   try:
-             #   dualf(z+alpha*direction)
-                #break
-           # except ValueError:
-                #alpha *= 0.9
-        #print("max alpha = ", alpha)
-        #result = line_search(dualf, gradf, z, direction, amax = alpha)
-
-        #print("Line search result  = ", result)
-        #t = result[0]
-        z = z + t * direction
+        t = backtracking(z, grad)
+        z = z - t * grad
         dual = dualf(z)
         grad = gradf(z)
         direction = -grad
@@ -329,22 +265,14 @@ def columnGeneration(z, v, u, nu, cb, mean, cov, iterations = 1, epsilon = 0.000
         Fs.append(dual)
         print("\nITERATION NUMBER: {}".format(i))
         print("z = ", z)
-        print("Prob = ", prob.pmvnorm(z, mean, cov))
+        print("Prob = ", norm(mean, cov, allow_singular=True).cdf(z))
         print("Grad = ", grad)
         print("Function value = ", dual)
         print("Reduced cost = ", reducedCost(z))
         print("Direction is = ", -grad)
         print("-grad^T grad is = ", -grad.transpose() @ grad)
-        if grad.transpose() @ grad < epsilon or - dual + nu > 0:
-            #print("Reduced cost = ", -dual + nu)
-            #print("Point found with positive reduced cost")
+        if grad.transpose() @ grad < epsilon:
             return np.c_[z]
-    #Fs = [n[0][0] for n in Fs]
-    #plt.figure()
-    #plt.plot(its, Fs)
-    #plt.xlabel("Iteration")
-    #plt.ylabel("Function Value")
-    #plt.savefig("grad.png", bbox_inches='tight')
     return np.c_[z]
 
 def JCCP(PSTN, alpha, epsilon):
@@ -367,13 +295,16 @@ def JCCP(PSTN, alpha, epsilon):
     print("Current objective is: ", m_master_k.objVal)
     print("\nSolving Column Generation")
     z_d = columnGeneration(z_m, v_k, u_k, nu_k, cb, mu, cov)
-    print("-log(F(z)) = ", -log(prob.pmvnorm(z_d, mu, cov)), "pi = ", pi)
+    rho = fn.reducedCost(z_d, u_k, v_k, nu_k, mu, cov)
+    print("-log(F(z)) = ", -log(norm(mu, cov, allow_singular=True).cdf(fn.flatten(z_d))), "pi = ", pi)
     print("\nNew approximation point found: ", z_d)
-    print("Reduced cost is: ", fn.reducedCost(z_d, u_k, v_k, nu_k, mu, cov))
-    while fn.reducedCost(z_d, u_k, v_k, nu_k, mu, cov) > epsilon:
+    print("Reduced cost is: ", rho)
+    UB = m_master_k.objVal
+    LB = m_master_k.objVal - rho
+    while (UB - LB)/LB > epsilon and rho >= 0:
         k += 1
         zk = np.hstack((zk, z_d))
-        phi_k = -log(prob.pmvnorm(z_d, mu, cov))
+        phi_k = -log(norm(mu, cov, allow_singular=True).cdf(fn.flatten(z_d)))
         phi = np.append(phi, phi_k)
         print("\nSolving master problem with {} approximation points".format(k))
         m_master_k, z_m, u_k, v_k, nu_k, cb = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
@@ -383,24 +314,17 @@ def JCCP(PSTN, alpha, epsilon):
         print("Current objective is: ", m_master_k.objVal)
         print("\nSolving Column Generation")
         z_d = columnGeneration(z_m, v_k, u_k, nu_k, cb, mu, cov)
+        rho = fn.reducedCost(z_d, u_k, v_k, nu_k, mu, cov)
         print("\nNew approximation point found: ", z_d)
-        print("Reduced cost is: ", fn.reducedCost(z_d, u_k, v_k, nu_k, mu, cov))
-    #z_d = np.array([[3], [1.30662583], [3], [3], [3], [1.07092105]])
-    #print("Gradient is: ", fn.gradDual(z_d, u_k, v_k, cb, mu, cov))
-    #print("Reduced cost is: ", fn.reducedCost(z_d, u_k, v_k, nu_k, mu, cov))
-    #k += 1
-    #zk = np.hstack((zk, z_d))
-    #phi_k = -log(prob.pmvnorm(z_d, mu, cov))
-    #phi = np.append(phi, phi_k)
-    #z_d = np.array([[3],[2.00714409],[3],[3],[3],[1.07420522]])
-    #k += 1
-    #zk = np.hstack((zk, z_d))
-    #print("z = ", zk)
-    #phi_k = -log(prob.pmvnorm(z_d, mu, cov))
-    #phi = np.append(phi, phi_k)
-    #print("\nSolving master problem with {} approximation points".format(k))
-    #m_master_k, z_m, u_k, v_k, nu_k, cb = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
+        print("Reduced cost is: ", rho)
+        UB = m_master_k.objVal
+        LB_k = m_master_k.objVal - rho
+        LB = max(LB, LB_k)
+    print("\nFinal Solution Found: ")
+    print("Optimal gap is: ", (UB - LB)/LB*100)
+    print('Objective: ', m_master_k.objVal)
+    print('Vars:')
+    for v in m_master_k.getVars():
+        print("Variable {}: ".format(v.varName) + str(v.x))
     sys.stdout.close()
-    #plt.plot(ks, objs)
-    #plt.savefig('objectrive.png')
     return None
