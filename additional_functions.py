@@ -1,9 +1,36 @@
-import compute_probabilities as prob
 import numpy as np
+from rpy2.robjects.packages import importr
+from rpy2 import robjects as ro
+import numpy as np
+from scipy.stats import multivariate_normal as norm
 from math import sqrt, log
-
-def reducedCost(z, u, v, nu, mu, cov):
-    return np.transpose(u)@z + v *  -log(prob.pmvnorm(z, mu, cov)) + nu
+from sqlalchemy import true
 
 def flatten(column_vector):
-        return np.transpose(column_vector).flatten()
+    return np.transpose(column_vector).flatten()
+
+def pmvnorm(z, mean, cov):
+    mvtnorm = importr('mvtnorm', lib_loc = "/home/andmur09/R/x86_64-pc-linux-gnu-library/4.1")
+    upper = ro.FloatVector(z)
+    mean = ro.FloatVector(mean)
+    cov = ro.r.matrix(ro.FloatVector(cov.flatten('f')), nrow=np.shape(cov)[0])
+    result = mvtnorm.pmvnorm(upper=upper, mean=mean, sigma=cov)
+    return np.asarray(result)[0]
+
+def prob(z, mean, cov):
+    return norm(mean, cov, allow_singular=True).cdf(z)
+
+def grad(z, cb, mean, cov):
+    n = int(np.shape(mean)[0])
+    dz = []
+    for i in range(n):
+        if cb[i] != -1:
+            dz.append(0)
+        else:
+            bar_mean = np.delete(mean, i)
+            bar_cov = np.delete(np.delete(cov, i, 0), i, 1)
+            bar_z= np.delete(z, i)
+            bar_F = norm(bar_mean, bar_cov, allow_singular=True).cdf(bar_z)
+            f = norm(mean[i], sqrt(cov[i, i])).pdf(z[i])
+            dz.append(f * bar_F)
+    return np.c_[np.array(dz)]

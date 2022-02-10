@@ -1,17 +1,17 @@
-from os import getrandom
-from re import T
+#from os import getrandom
+#from re import T
 import numpy as np
-from scipy.stats.mvn import mvnun as rectangular
+#from scipy.stats.mvn import mvnun as rectangular
 from scipy.stats import multivariate_normal as norm
 import sys
 import gurobipy as gp
 from gurobipy import GRB
 from math import sqrt, log
-from matplotlib import pyplot as plt
 import compute_probabilities as prob
 import numpy as np
 import additional_functions as fn
-from scipy.optimize import line_search
+from JCCP_class import JCCP
+#from scipy.optimize import line_search
 
 np.seterr(divide='raise')
 np.set_printoptions(suppress=True)
@@ -22,14 +22,23 @@ inf = 10000
 
 def getStandardForm(PSTN):
     '''
-    Description:    Makes matrices in the form Ax <= b and c^Tx representing the PSTN, which are used as input to the optimisation solver. For strong controllability Linear program.
-    Input:          PSTN - Instance of PSTN to be solved
-                    name - name to call model
-                    pres - number of points for which to partition the function for probabilistic constraints (if pres = 50, then LHS of mode partitioned at 50 points, and RHS of mode partitioned at 50 points)
-                    folder - folder to save Gurobi files to if log=True
-                    log - if true writes Gurobi files to file
-                    weight - weight to apply to relaxation cost terms in objective
-    Output:         m - A Gurobi model containing all variables, constraints and objectives
+    Description:    Makes matrices in the standard form of a Joint Chance Constrained Optimisation problem:
+
+                    min     c^Tx
+
+                    S.t.    A*vars <= b
+                            P(xi <= T*vars + q ) >= 1 - alpha
+                            xi = N(mu, cov)
+    
+    Input:          PSTN:   Instance of PSTN to be solved
+    Output:         A:      m x n matrix of coefficients
+                    vars:   n dimensional decision vector
+                    b:      m dimensional vector of RHS values
+                    c:      n dimensional vector of objective coefficients
+                    T:      p x n matrix of coefficients
+                    q:      p dimensional vector of RHS values
+                    mu_xi:  p dimensional mean vector of xi
+                    cov_xi: p x p dimensional correlation matrix of xi
     '''
     vars = PSTN.getProblemVariables()
     rvars = PSTN.getRandomVariables()
@@ -63,7 +72,7 @@ def getStandardForm(PSTN):
             A[ub, ru_i], c[ru_i] = -1, 1
             A[lb, rl_i], c[rl_i] = -1, 1
     
-    # Gets matrices for bilateral joint chance constraint P(T_l + q_l <= Psi omega <= T_u + q_u) >= 1 - alpha
+    # Gets matrices for joint chance constraint P(Psi omega <= T * vars + q) >= 1 - alpha
     for i in range(len(cu)):
         ub = 2 * i
         lb = ub + 1
@@ -119,60 +128,101 @@ def getStandardForm(PSTN):
     mu_xi = np.zeros((p))
     cov_xi = R
     return A, vars, b, c, T, q, mu_xi, cov_xi
+    
+def Initialise(JCCP, box = 3):
+    '''
+    Description:    Finds an initial feasible point such that the joint chance constraint is satisfied. Solves the following problem:
 
-def Initialise(A, vars, b, T, q, alpha, mu, cov, box = 3, epsilon = 0.1):
+                    max     t
+
+                    S.t.    A*vars <= b
+                            z <= T*vars + q
+                            z = 1 t
+                            t <= box
+
+                    And checks to see whether the point z satisfies the chance constraint P(xi <= z) >= 1 - alpha.
+    
+    Input:          JCCP:   Instance of JCCP class
+                    box:    no of standard deviations outside which should be neglected
+    Output:         m:      An instance of the Gurobi model class
+    '''
+    # Sets up and solves Gurobi opimisation problem
     m = gp.Model("initialisation")
-    x = m.addMVar(len(vars), vtype=GRB.CONTINUOUS, name="vars")
+    x = m.addMVar(len(JCCP.vars), vtype=GRB.CONTINUOUS, name="vars")
     t = m.addMVar(1, lb=-float(inf), name="t_l")
-    p = T.shape[0]
+    p = JCCP.T.shape[0]
     z = m.addMVar(p, lb=-float(inf), name = "zl")
-    m.addConstr(A @ x <= b)
+    m.addConstr(JCCP.A @ x <= JCCP.b)
     m.addConstr(z == np.ones((p, 1)) @ t)
-    m.addConstr(z <= T @ x + q)
+    m.addConstr(z <= JCCP.T @ x + JCCP.q)
     m.addConstr(t <= box)
     m.addConstr(x[0] == 0)
     m.setObjective(t, GRB.MAXIMIZE)
     m.update()
     m.optimize()
+    # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
     if m.status == GRB.OPTIMAL:
         print('\n objective: ', m.objVal)
         print('\n Vars:')
         for v in m.getVars():
-            print("Variable {}: ".format(v.varName) + str(v.x)),
+            print("Variable {}: ".format(v.varName) + str(v.x))
     z_ = np.array(z.x)
-    F0 = norm(mu, cov, allow_singular=True).cdf(z_)
+
+    # Checks to see whether solution to z satisfies the chance constraint
+    F0 = fn.prob(z_, JCCP.mean, JCCP.cov)
     phi = []
-    if F0 >= 1 - alpha:
+    # If chance constraint is satisfies adds p approximation points z^i = (z_1 = t,..,z_i = 0,..,z_p = t) for i = 1,2,..,p
+    if F0 >= 1 - JCCP.alpha:
         phi.append(-log(F0))
         z = np.c_[z_]
         for i in range(len(z_)):
             znew = np.copy(z_)
             znew[i] = 0
             z = np.hstack((z, np.c_[znew]))
-            Fnew = norm(mu, cov, allow_singular=True).cdf(znew)
+            Fnew = fn.prob(znew, JCCP.mean, JCCP.cov)
             phi.append(-log(Fnew))
     else:
         raise ValueError("No solution could be found with current risk budget. Try increasing allowable risk")
-    return (m, z, np.array(phi))
+    # Initialises the matrix z and vector phi within the instance of JCCP
+    JCCP.setZ(z)
+    JCCP.setPhi(np.array(phi))
+    return m
 
+def masterProblem(JCCP):
+    '''
+    Description:    Solves the restricted master problem:
 
-def masterProblem(A, vars, b, c, T, q, z, phi, pi, epsilon = 0.0001):
-    k = np.shape(z)[1]
-    p = len(q)
+                    min.    c^Tx
+
+                    S.t.    A*vars <= b
+                            T*vars + q >= sum_{i=0}^k{lambda^i z^i}
+                            sum_{i=0}^k{lambda^i} = 1
+                            sum_{i=0}^k{phi^i * lambda^i} <= pi
+                            lambda^i >= 0
+
+                    And returns a Gurobi model instance containing solution and optimal objective for current iteration.
+    
+    Input:          JCCP:   Instance of JCCP class
+    Output:         m:      An instance of the Gurobi model class
+    '''
+    # Sets up and solves the restricted master problem
+    k = np.shape(JCCP.z)[1]
+    p = len(JCCP.q)
     m = gp.Model("iteration_" + str(k))
-    x = m.addMVar(len(vars), name="vars")
+    x = m.addMVar(len(JCCP.vars), name="vars")
     lam = m.addMVar(k, name="lambda")
-    m.addConstr(A @ x <= b, name="cont")
+    m.addConstr(JCCP.A @ x <= JCCP.b, name="cont")
     for i in range(p):
-        m.addConstr(z[i, :]@lam <= T[i,:]@x + q[i], name="z{}".format(i))
-    m.addConstr(lam @ phi <= pi, name="cc")
+        m.addConstr(JCCP.z[i, :]@lam <= JCCP.T[i,:]@x + JCCP.q[i], name="z{}".format(i))
+    m.addConstr(lam @ JCCP.phi <= JCCP.getPi(), name="cc")
     m.addConstr(x[0] == 0, name="x0")
     m.addConstr(lam.sum() == 1, name="sum_lam")
-    m.setObjective(c @ x, GRB.MINIMIZE)
+    m.setObjective(JCCP.c @ x, GRB.MINIMIZE)
     m.update
     m.write("convex.lp")
     m.optimize()
 
+    # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
     if m.status == GRB.OPTIMAL:
         print('\n objective: ', m.objVal)
         print('\n Vars:')
@@ -180,13 +230,10 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi, epsilon = 0.0001):
             print("Variable {}: ".format(v.varName) + str(v.x))
     m.write("convex.sol")
 
-    # Queries Gurobi to get values of dual variables
+    # Queries Gurobi to get values of dual variables and cbasis
     constraints = m.getConstrs()
     cnames = m.getAttr("ConstrName", constraints)
-
-    u = []
-    mu = []
-    cb = []
+    u, mu, cb = [], [], []
     for i in range(len(cnames)):
         if cnames[i][0] == "z":
             u.append(constraints[i].getAttr("Pi"))
@@ -197,35 +244,48 @@ def masterProblem(A, vars, b, c, T, q, z, phi, pi, epsilon = 0.0001):
             nu = constraints[i].getAttr("Pi")
         elif cnames[i][0:4] == "cont":
             mu.append(constraints[i].getAttr("Pi"))
-    mu = np.array(mu)
-    u = np.array(u)
-    cb = np.array(cb)
 
-    # Gets values for variables lambda and x
+    mu = np.c_[np.array(mu)]
+    u = np.c_[np.array(u)]
+
+    # Sets the dual values and cbasis within the instance of JCCP to the optimal value for the current iteration
+    JCCP.setDuals({"u": u, "v": v, "nu": nu, "mu": mu})
+    JCCP.setCbasis(np.array(cb))
+    print("New Dual Variables added: ", JCCP.duals)
+
+    # Gets values for variables lambda and evaluates current value of  sum_{i=0}^k{lambda^i z^i}
     lam_sol = np.array(lam.x)
-    x_sol = np.array(x.x)
+    z_sol = np.array(sum([lam_sol[i]*JCCP.z[:, i] for i in range(np.shape(JCCP.z)[1])]))
+    
+    return (m, np.c_[z_sol])
 
-    # Gets values for sum_i^k (phi_i lambda_i) and sum_i^k (lambda_i z_i)
-    z_sol = np.array(sum([lam_sol[i]*z[:, i] for i in range(np.shape(z)[1])]))
-    phi_sol = np.dot(lam_sol, phi)
-    print("Phi_sol = ", phi_sol, "Pi", pi)
-    print("v = ", v)
-    print("u = ", u)
-    print("nu = ", nu)
-    print("mu = ", mu)
-    return (m, np.c_[z_sol], np.c_[np.array(u)], v, nu, cb)
+def columnGeneration(z, JCCP, iterations = 100, epsilon = 0.01):
+    '''
+    Description:    Solves the column generaion problem (below) via gradient descent with backtracking line search:
 
-def columnGeneration(z, v, u, nu, cb, mean, cov, iterations = 100, epsilon = 0.01):
+                    min_z.  -u^Tz - v*phi(z) - nu    
+
+                    And returns a column z which optimises the reduced cost.
+    
+    Input:          JCCP:   Instance of JCCP class
+    Output:         m:      An instance of the Gurobi model class
+    '''
+    duals = JCCP.getDuals()
+    u, v, nu = fn.flatten(duals["u"]), duals["v"], duals["nu"]
+    mean, cov = JCCP.mean, JCCP.cov
+    cb = JCCP.cbasis
+    z = fn.flatten(z)
+
     def dualf(z):
-        return -np.dot(u, z) - v * -log(norm(mean, cov, allow_singular=True).cdf(z))
+        # Nested function to be optimised
+        return -np.dot(u, z) - v * -log(norm(mean, cov, allow_singular=True).cdf(z))- nu
 
     def gradf(z):
+        # Nested function to calculate gradients at particular points
         return fn.flatten(v/norm(mean, cov, allow_singular=True).cdf(z) * prob.grad(np.c_[z], cb, mean, cov)) - u
 
-    def reducedCost(z):
-        return np.dot(u, z) + v *  -log(norm(mean, cov, allow_singular=True).cdf(z)) + nu
-
     def backtracking(z, grad, beta=0.8, alpha = 0.5):
+        # Implementation of backtracking line search using Armijos condition
         t = 1
         try:
             dualf(z-t*grad)
@@ -238,93 +298,98 @@ def columnGeneration(z, v, u, nu, cb, mean, cov, iterations = 100, epsilon = 0.0
             print("LHS = ", dualf(z-t*grad), "RHS = ", dualf(z) - alpha * t * np.dot(gradf(z), gradf(z)), "t = ", t)
         print("BACKTRACKING ENDS HERE")
         return t
-
-    u = fn.flatten(u)
-    z = fn.flatten(z)
-    zs = [z]
-    dual = dualf(z)
-    grad = gradf(z)
-    direction = -grad
-
+    
+    # Initialises values for the function and gradient.
+    dual, grad = dualf(z), gradf(z)
     print("\nITERATION NUMBER: 0")
     print("z = ", z)
-    print("Prob = ", norm(mean, cov, allow_singular=True).cdf(z))
+    print("Prob = ", fn.prob(z, mean, cov))
     print("Grad = ", grad)
     print("Function value = ", dual)
-    print("Reduced cost = ", reducedCost(z))
-    print("Direction is = ", direction)
-    print("-grad^T grad is = ", np.dot(grad, direction))
-    Fs = [dual]
+    print("Reduced cost = ", -dual)
+    # Calculates step size using backtracking lnie search and performs gradient descent iterations until the number of iterations limit
+    # is reached or the gradient is within an allowable tolerance.
     for i in range(1,iterations+1):
         t = backtracking(z, grad)
         z = z - t * grad
-        dual = dualf(z)
-        grad = gradf(z)
-        direction = -grad
-        zs.append(z)
-        Fs.append(dual)
+        dual, grad = dualf(z), gradf(z)
         print("\nITERATION NUMBER: {}".format(i))
         print("z = ", z)
         print("Prob = ", norm(mean, cov, allow_singular=True).cdf(z))
         print("Grad = ", grad)
         print("Function value = ", dual)
-        print("Reduced cost = ", reducedCost(z))
-        print("Direction is = ", -grad)
-        print("-grad^T grad is = ", -grad.transpose() @ grad)
+        print("Reduced cost = ", -dual)
         if grad.transpose() @ grad < epsilon:
             return np.c_[z]
     return np.c_[z]
 
-def JCCP(PSTN, alpha, epsilon):
-    sys.stdout = open("log_bt3.txt", "w")
-    ks = []
-    objs = []
-    pi = -log(1-alpha)
+def solveJCCP(PSTN, alpha, epsilon, log=True):
+    '''
+    Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
+                    generation method.
+    
+    Input:          PSTN:       Instance of PSTN class
+                    alpha:      Allowable tolerance on risk:
+                                e.g. P(success) >= 1 - alpha
+                    epsilon:    An allowable upper bound on the distance between the current solution and the global optimum
+                                e.g. (UB - LB)/LB <= epsilon    
+    Output:         m:          An instance of the Gurobi model class which solves the joint chance constrained PSTN
+    '''
+    if log == True:
+        sys.stdout = open("lognew.txt", "w")
+    
+    # Translates the PSTN to the standard form of a JCCP and stores the matrices in an instance of the JCCP class
     matrices = getStandardForm(PSTN)
-    m = []
     A, vars, b, c, T, q, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7]
-    res = Initialise(A, vars, b, T, q, alpha, mu, cov)
-    m, zk, phi = res[0], res[1], res[2]
-    k = len(phi)
+    problem = JCCP(A, vars, b, c, T, q, mu, cov, alpha)
+    
+    # Initialises the problem with k approximation points
+    pi = problem.getPi()
+    m = Initialise(problem)
+    k = len(problem.phi)
+
+    # Solves the master problem
     print("\nSolving master problem with {} approximation points".format(k))
-    m_master_k, z_m, u_k, v_k, nu_k, cb = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
-    print(cb)
-    ks.append(k)
-    objs.append(m_master_k.objVal)
-    print("\nCurrent z points are: ", zk)
+    m_master_k, z_m = masterProblem(problem)
+    print("\nCurrent z points are: ", problem.z)
     print("Current objective is: ", m_master_k.objVal)
+
+    # Solves the column generation problem
     print("\nSolving Column Generation")
-    z_d = columnGeneration(z_m, v_k, u_k, nu_k, cb, mu, cov)
-    rho = fn.reducedCost(z_d, u_k, v_k, nu_k, mu, cov)
-    print("-log(F(z)) = ", -log(norm(mu, cov, allow_singular=True).cdf(fn.flatten(z_d))), "pi = ", pi)
+    z_d = columnGeneration(z_m, problem)
+    rho = problem.reducedCost(z_d)
     print("\nNew approximation point found: ", z_d)
     print("Reduced cost is: ", rho)
+
+    # Calculates optimality gap
     UB = m_master_k.objVal
     LB = m_master_k.objVal - rho
+
+    # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
     while (UB - LB)/LB > epsilon and rho >= 0:
         k += 1
-        zk = np.hstack((zk, z_d))
-        phi_k = -log(norm(mu, cov, allow_singular=True).cdf(fn.flatten(z_d)))
-        phi = np.append(phi, phi_k)
+        problem.addColumn(z_d)
         print("\nSolving master problem with {} approximation points".format(k))
-        m_master_k, z_m, u_k, v_k, nu_k, cb = masterProblem(A, vars, b, c, T, q, zk, phi, pi)
-        ks.append(k)
-        objs.append(m_master_k.objVal)
-        print("\nCurrent z points are: ", zk)
+        m_master_k, z_m = masterProblem(problem)
+        print("\nCurrent z points are: ", problem.z)
         print("Current objective is: ", m_master_k.objVal)
+
         print("\nSolving Column Generation")
-        z_d = columnGeneration(z_m, v_k, u_k, nu_k, cb, mu, cov)
-        rho = fn.reducedCost(z_d, u_k, v_k, nu_k, mu, cov)
+        z_d = columnGeneration(z_m, problem)
+        rho = problem.reducedCost(z_d)
         print("\nNew approximation point found: ", z_d)
         print("Reduced cost is: ", rho)
+
         UB = m_master_k.objVal
         LB_k = m_master_k.objVal - rho
         LB = max(LB, LB_k)
+
     print("\nFinal Solution Found: ")
-    print("Optimal gap is: ", (UB - LB)/LB*100)
+    print("Optimality gap is: ", (UB - LB)/LB*100)
     print('Objective: ', m_master_k.objVal)
     print('Vars:')
     for v in m_master_k.getVars():
         print("Variable {}: ".format(v.varName) + str(v.x))
-    sys.stdout.close()
+    if log == True:
+        sys.stdout.close()
     return None

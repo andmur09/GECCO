@@ -124,8 +124,6 @@ Prob =  0.976193996149261
 Grad =  [-0.          4.72736248 -0.         -0.         -0.          5.8849115 ]
 Function value =  -5.169021818464561
 Reduced cost =  5.169021818464561
-Direction is =  [ 0.         -4.72736248  0.          0.          0.         -5.8849115 ]
--grad^T grad is =  -56.98013933323666
 
 BACKTRACKING BEGINS HERE
 LHS =  279.01046393655133 RHS =  -33.65909148508289 t =  1
@@ -143,8 +141,6 @@ Prob =  0.7335689814854834
 Grad =  [-0.         -3.34489361 -0.         -0.         -0.          2.1421544 ]
 Function value =  -14.440451156113138
 Reduced cost =  14.440451156113138
-Direction is =  [ 0.          3.34489361  0.          0.          0.         -2.1421544 ]
--grad^T grad is =  -15.77713873698758
 
 BACKTRACKING BEGINS HERE
 LHS =  21.25101723307668 RHS =  -22.32902052460693 t =  1
@@ -166,8 +162,6 @@ Prob =  0.7813891310737624
 Grad =  [-0.          0.11675984 -0.         -0.         -0.          0.52601095]
 Function value =  -15.305546244022477
 Reduced cost =  15.305546244022477
-Direction is =  [ 0.         -0.11675984  0.          0.          0.         -0.52601095]
--grad^T grad is =  -0.2903203765687016
 
 BACKTRACKING BEGINS HERE
 LHS =  -14.25086965861372 RHS =  -15.450706432306827 t =  1
@@ -189,8 +183,6 @@ Prob =  0.7695242162751488
 Grad =  [-0.          0.01257805 -0.         -0.         -0.          0.06918439]
 Function value =  -15.32230788342848
 Reduced cost =  15.32230788342848
-Direction is =  [ 0.         -0.01257805  0.          0.          0.         -0.06918439]
--grad^T grad is =  -0.004944687527456195
 
 New approximation point found:  [[3.        ]
  [1.16498573]
@@ -284,8 +276,6 @@ Prob =  0.8546141536211058
 Grad =  [-0.         -7.04699818 -0.         -0.         -0.         -6.92685034]
 Function value =  -5.658623314412196
 Reduced cost =  5.658623314412196
-Direction is =  [0.         7.04699818 0.         0.         0.         6.92685034]
--grad^T grad is =  -97.64143902835293
 
 BACKTRACKING BEGINS HERE
 LHS =  65.07000466423406 RHS =  -54.47934282858866 t =  1
@@ -310,8 +300,6 @@ Prob =  0.9311788332512049
 Grad =  [-0.         -0.62750719 -0.         -0.         -0.         -0.63952574]
 Function value =  -8.401346310899577
 Reduced cost =  8.401346310899577
-Direction is =  [0.         0.62750719 0.         0.         0.         0.63952574]
--grad^T grad is =  -0.8027584431690269
 
 BACKTRACKING BEGINS HERE
 LHS =  -5.490612898779997 RHS =  -8.80272553248409 t =  1
@@ -335,8 +323,6 @@ Prob =  0.9372323313572656
 Grad =  [-0.         -0.09929363 -0.         -0.         -0.         -0.10092811]
 Function value =  -8.434166314570483
 Reduced cost =  8.434166314570483
-Direction is =  [0.         0.09929363 0.         0.         0.         0.10092811]
--grad^T grad is =  -0.020045708634784554
 
 BACKTRACKING BEGINS HERE
 LHS =  -8.343421786600715 RHS =  -8.444189168887876 t =  1
@@ -359,8 +345,6 @@ Prob =  0.9383733397784454
 Grad =  [-0.          0.00122166 -0.         -0.         -0.          0.00122098]
 Function value =  -8.435226612910242
 Reduced cost =  8.435226612910242
-Direction is =  [ 0.         -0.00122166  0.          0.          0.         -0.00122098]
--grad^T grad is =  -2.983245169632061e-06
 
 New approximation point found:  [[3.        ]
  [1.88182591]
@@ -455,8 +439,6 @@ Prob =  0.8156735982272499
 Grad =  [-0.         -2.12625315 -0.         -0.         -0.         -2.06022161]
 Function value =  -0.837518553177123
 Reduced cost =  0.837518553177123
-Direction is =  [0.         2.12625315 0.         0.         0.         2.06022161]
--grad^T grad is =  -8.765465566236053
 
 BACKTRACKING BEGINS HERE
 LHS =  15.674742726998197 RHS =  -5.220251336295149 t =  1
@@ -479,8 +461,6 @@ Prob =  0.8652677685478158
 Grad =  [-0.         -0.11038718 -0.         -0.         -0.         -0.1132815 ]
 Function value =  -1.2276524237546802
 Reduced cost =  1.2276524237546802
-Direction is =  [0.         0.11038718 0.         0.         0.         0.1132815 ]
--grad^T grad is =  -0.025018027258525775
 
 BACKTRACKING BEGINS HERE
 LHS =  -1.135955298571389 RHS =  -1.2401614373839431 t =  1
@@ -502,8 +482,6 @@ Prob =  0.8681923233102616
 Grad =  [-0.          0.00683689 -0.         -0.         -0.          0.00698845]
 Function value =  -1.2292054998266124
 Reduced cost =  1.2292054998266124
-Direction is =  [ 0.         -0.00683689  0.          0.          0.         -0.00698845]
--grad^T grad is =  -9.558148463469635e-05
 
 New approximation point found:  [[3.        ]
  [1.49983009]
@@ -514,7 +492,7 @@ New approximation point found:  [[3.        ]
 Reduced cost is:  [[1.2292055]]
 
 Final Solution Found: 
-Optimal gap is:  [[4.44524134]]
+Optimality gap is:  [[4.44524134]]
 Objective:  15.693310486236662
 Vars:
 Variable vars[0]: 0.0
