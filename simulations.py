@@ -14,6 +14,7 @@ import os
 import numpy as np
 import sys
 import convex
+import monte_carlo as mc
 
 
 inf = 10000
@@ -58,11 +59,11 @@ def solve(PSTN, folder, log = False, budget = inf):
 
 def getSchedule(PSTN, solution):
     '''
-    Description: takes PSTN and gurobi solution and extracts schedule in form of dictionary of timepoint: value pairs.
-    Input:  PSTN - instance to be solved
-            solution - gurobi model containing solution
-    Output: None - returns none if error encountered
-            schedule - dictionary of timepoint, value pairs containing schedule
+    Description: Takes PSTN and gurobi solution and extracts schedule in form of dictionary of timepoint: value pairs.
+    Input:  PSTN:       Instance to be solved
+            solution:   Gurobi model containing solution
+    Output: None:       None if error encountered
+            schedule:   Dictionary {timepoint0: time,...,timepointn: value} of time-point: time pairs
     '''
     try:
         variables = [v.varName for v in solution.getVars()]
@@ -77,17 +78,24 @@ def getSchedule(PSTN, solution):
         return None
 
 def getRelaxations(PSTN, solution):
+    '''
+    Description: Takes PSTN and gurobi solution and extracts schedule in form of dictionary of timepoint: value pairs.
+    Input:  PSTN:           PSTN Instance to be solved
+            solution:       Gurobi model containing solution
+    Output: None:           None if error encountered
+            relaxations:    dictionary {timepoint0: {Lower relaxation: value, Upper relaxation: value}..,timepointn: {Lower relaxation: value, Upper relaxation: value}}
+    '''
     try:
         variables = [v.varName for v in solution.getVars()]
         values = [v.x for v in solution.getVars()]
         controllables = [c.name for c in PSTN.getRequirements() if PSTN.isControllable(c) == True]
         relaxations = {}
         for c in controllables:
-            relaxations[c] = {"Rl": None, "Ru": None}
+            relaxations[c] = {"Rl": 0, "Ru": 0}
         for i in range(len(variables)):
-            if variables[i][-2:] == "Rl":
+            if variables[i][-2:] == "rl":
                 relaxations[variables[i][:-3]]["Rl"] = solution.getVarByName(variables[i]).x
-            elif variables[i][-2:] == "Ru":
+            elif variables[i][-2:] == "ru":
                 relaxations[variables[i][:-3]]["Ru"] = solution.getVarByName(variables[i]).x
         return relaxations
     except:
@@ -114,7 +122,10 @@ def main():
     for i in range(len(woodworking)):
         if i == 0:
             woodworking[i].plot()
-            mat = convex.solveJCCP(woodworking[i], 0.2, 0.05)
+            m, results = convex.solveJCCP(woodworking[i], 0.2, 0.05)
+            schedule = getSchedule(woodworking[i], m)
+            relaxations = getRelaxations(woodworking[i], m)
+            print(mc.monte_carlo_success(woodworking[i], schedule, relaxations, 1000))
 
         # upper = instance.countUncontrollables()
         # result = epsilonConstraint(instance, "pstns/results/woodworking", upper, epsilon, log = True)

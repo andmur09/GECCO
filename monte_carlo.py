@@ -8,11 +8,15 @@ import numpy as np
     
 def monte_carlo_success(PSTN, schedule, relaxation, no_simulations):
     '''
-    Description: For a given schedule and PSTN, simulates execution of schedule a set amount of times and return probability of successfule execution (i.e. all constraints satisfied)
-    Input:  PSTN - instance to be simulated
-            schedule - schedule to be simulated
-            no_simulations - number of times to simulate execution
-    Output: no times successfully executed/total number of simulations
+    Description:    For a given schedule and PSTN, simulates execution of schedule a set amount of times and return probability
+                    of successfule execution (i.e. all constraints satisfied)
+    
+    Input:      PSTN:           instance of PSTN class to be simulated
+                schedule:       dictionary {timepoint0: time,...,timepointn: value} of time-point: time pairs
+                relaxation:     dictionary {timepoint0: {Lower relaxation: value, Upper relaxation: value}..,timepointn: {Lower relaxation: value, Upper relaxation: value}}
+                no_simulations: number of times to simulate execution
+    
+    Output:     float:          no times successfully executed/total number of simulations
     '''
     if schedule == None:
         return None
@@ -25,10 +29,14 @@ def monte_carlo_success(PSTN, schedule, relaxation, no_simulations):
 
 def simulate_execution(PSTN, schedule, relaxation):
     '''
-    Description: For a given schedule and PSTN, simulates execution of schedule once and returns True if successful (all constraints met) else returns False.
-            PSTN - instance to be simulated
-            schedule - schedule to be simulated
-    Output: True (if all constraints met) else False
+    Description: For a given schedule and PSTN, simulates execution of schedule once and returns True if successful (all constraints met)
+                 else returns False.
+    
+    Input:      PSTN:           instance of PSTN class to be simulated
+                schedule:       dictionary {timepoint0: time,...,timepointn: value} of time-point: time pairs
+                relaxation:     dictionary {timepoint0: {Lower relaxation: value, Upper relaxation: value}..,timepointn: {Lower relaxation: value, Upper relaxation: value}}
+    
+    Output:     bool:           True if successfully executed else False
     '''
     contingents = PSTN.getContingents()
     for probabilistic in contingents:

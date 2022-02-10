@@ -1,5 +1,5 @@
 import numpy as np
-from math import log
+from math import log, exp
 from scipy.stats import multivariate_normal as norm
 from additional_functions import *
 import copy
@@ -19,13 +19,16 @@ class JCCP(object):
         self.phi = None
         self.duals = None
         self.cbasis = None
-
+        self.probability = None
 
     def setZ(self, z):
         self.z = z
     
     def setPhi(self, phi):
         self.phi = phi
+
+    def setProbability(self, phi):
+        self.probability = exp(-phi)
 
     def getDuals(self):
         return copy.deepcopy(self.duals)
@@ -52,6 +55,8 @@ class JCCP(object):
 
     def reducedCost(self, z):
         return np.transpose(self.duals["u"])@z + self.duals["v"] *  self.calculatePhi(z) + self.duals["nu"]
+    
+
 
     
     

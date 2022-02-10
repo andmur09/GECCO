@@ -11,7 +11,6 @@ import compute_probabilities as prob
 import numpy as np
 import additional_functions as fn
 from JCCP_class import JCCP
-import time
 #from scipy.optimize import line_search
 
 np.seterr(divide='raise')
@@ -210,7 +209,7 @@ def masterProblem(JCCP):
     k = np.shape(JCCP.z)[1]
     p = len(JCCP.q)
     m = gp.Model("iteration_" + str(k))
-    x = m.addMVar(len(JCCP.vars), name=JCCP.vars)
+    x = m.addMVar(len(JCCP.vars), name="vars")
     lam = m.addMVar(k, name="lambda")
     m.addConstr(JCCP.A @ x <= JCCP.b, name="cont")
     for i in range(p):
@@ -254,12 +253,11 @@ def masterProblem(JCCP):
     JCCP.setCbasis(np.array(cb))
     print("New Dual Variables added: ", JCCP.duals)
 
-    # Gets values for variables lambda and evaluates current value of sum_{i=0}^k{lambda^i z^i} and sum(i=0)^k{lambda^i phi^i}
+    # Gets values for variables lambda and evaluates current value of  sum_{i=0}^k{lambda^i z^i}
     lam_sol = np.array(lam.x)
     z_sol = np.array(sum([lam_sol[i]*JCCP.z[:, i] for i in range(np.shape(JCCP.z)[1])]))
-    phi_sol = np.dot(lam_sol, JCCP.phi)
-    # G
-    return (m, np.c_[z_sol], phi_sol)
+    
+    return (m, np.c_[z_sol])
 
 def columnGeneration(z, JCCP, iterations = 100, epsilon = 0.01):
     '''
@@ -341,14 +339,10 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
         sys.stdout = open("lognew.txt", "w")
     
     # Translates the PSTN to the standard form of a JCCP and stores the matrices in an instance of the JCCP class
-    start = time.time()
     matrices = getStandardForm(PSTN)
-    end = time.time()
-    initialisation_time = end - start
     A, vars, b, c, T, q, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7]
     problem = JCCP(A, vars, b, c, T, q, mu, cov, alpha)
     
-    start = time.time()
     # Initialises the problem with k approximation points
     pi = problem.getPi()
     m = Initialise(problem)
@@ -356,8 +350,7 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
 
     # Solves the master problem
     print("\nSolving master problem with {} approximation points".format(k))
-    m, z_m, phi_m = masterProblem(problem)
-    problem.setProbability(phi_m)
+    m, z_m = masterProblem(problem)
     print("\nCurrent z points are: ", problem.z)
     print("Current objective is: ", m.objVal)
 
@@ -377,10 +370,9 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
         k += 1
         problem.addColumn(z_d)
         print("\nSolving master problem with {} approximation points".format(k))
-        m, z_m, phi_m = masterProblem(problem)
-        problem.setProbability(phi_m)
+        m_master_k, z_m = masterProblem(problem)
         print("\nCurrent z points are: ", problem.z)
-        print("Current objective is: ", m.objVal)
+        print("Current objective is: ", m_master_k.objVal)
 
         print("\nSolving Column Generation")
         z_d = columnGeneration(z_m, problem)
@@ -391,11 +383,8 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
         UB = m.objVal
         LB_k = m.objVal - rho
         LB = max(LB, LB_k)
-    end = time.time()
-    solution_time = end - start
-    print("\nFinal solution found: ")
-    print("Initialisation time: ", initialisation_time)
-    print("Solution time: ", solution_time)
+
+    print("\nFinal Solution Found: ")
     print("Optimality gap is: ", (UB - LB)/LB*100)
     print('Objective: ', m.objVal)
     print('Vars:')
@@ -403,4 +392,4 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
         print("Variable {}: ".format(v.varName) + str(v.x))
     if log == True:
         sys.stdout.close()
-    return m, problem
+    return m

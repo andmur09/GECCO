@@ -237,7 +237,6 @@ class PSTN(object):
                         return False
         return True
 
-    
     def formatSTN(self, plot = False):
         # Makes an adjacency list of STN
         self.getAdjacencyList()

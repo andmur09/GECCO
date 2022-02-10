@@ -492,8 +492,8 @@ New approximation point found:  [[3.        ]
 Reduced cost is:  [[1.2292055]]
 
 Final Solution Found: 
-Optimality gap is:  [[4.44524134]]
-Objective:  15.693310486236662
+Optimality gap is:  [[4.2213905]]
+Objective:  30.347703281354278
 Vars:
 Variable vars[0]: 0.0
 Variable vars[1]: 0.001
@@ -501,16 +501,14 @@ Variable vars[2]: 0.001
 Variable vars[3]: 30.001
 Variable vars[4]: 30.002000000000002
 Variable vars[5]: 40.002
-Variable vars[6]: 37.83400159839908
-Variable vars[7]: 75.69431048623666
+Variable vars[6]: 42.34770328135427
+Variable vars[7]: 90.34870328135428
 Variable vars[8]: 0.0
-Variable vars[9]: 15.693310486236662
-Variable lambda[0]: 0.0
+Variable vars[9]: 30.347703281354278
+Variable lambda[0]: 0.6858724045196816
 Variable lambda[1]: 0.0
-Variable lambda[2]: 0.0
+Variable lambda[2]: 0.31412759548031843
 Variable lambda[3]: 0.0
 Variable lambda[4]: 0.0
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
-Variable lambda[7]: 0.8042131621821244
-Variable lambda[8]: 0.19578683781787565
