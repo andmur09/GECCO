@@ -60,8 +60,10 @@ def solve(PSTN, folder, log = False, budget = inf):
 def getSchedule(PSTN, solution):
     '''
     Description: Takes PSTN and gurobi solution and extracts schedule in form of dictionary of timepoint: value pairs.
+
     Input:  PSTN:       Instance to be solved
             solution:   Gurobi model containing solution
+
     Output: None:       None if error encountered
             schedule:   Dictionary {timepoint0: time,...,timepointn: value} of time-point: time pairs
     '''
@@ -80,8 +82,10 @@ def getSchedule(PSTN, solution):
 def getRelaxations(PSTN, solution):
     '''
     Description: Takes PSTN and gurobi solution and extracts schedule in form of dictionary of timepoint: value pairs.
+
     Input:  PSTN:           PSTN Instance to be solved
             solution:       Gurobi model containing solution
+
     Output: None:           None if error encountered
             relaxations:    dictionary {timepoint0: {Lower relaxation: value, Upper relaxation: value}..,timepointn: {Lower relaxation: value, Upper relaxation: value}}
     '''
@@ -119,20 +123,28 @@ def main():
     #         problem = pkl.load(f)
     #         elevators.append(problem)
 
-    for i in range(len(woodworking)):
-        if i == 0:
-            woodworking[i].plot()
-            m, results = convex.solveJCCP(woodworking[i], 0.2, 0.05)
+    for i in range(11, 12):
+        print("Solving: ", woodworking[i].name)
+        #if i == 0:
+        #woodworking[i].plot()
+        tosave = {}
+        try:
+            m, results = convex.solveJCCP(woodworking[i], 0.2, 0.05, log=True)
             schedule = getSchedule(woodworking[i], m)
             relaxations = getRelaxations(woodworking[i], m)
-            print(mc.monte_carlo_success(woodworking[i], schedule, relaxations, 1000))
+            tosave["PSTN"] = woodworking[i]
+            tosave["Model"] = m
+            tosave["JCCP"] = results
+            tosave["Schedule"] = schedule
+            tosave["Relaxations"] = relaxations
+            with open("results/{}".format(woodworking[i].name), "wb+") as f:
+                pkl.dump(tosave, f)
+        except:
+            continue
 
-        # upper = instance.countUncontrollables()
-        # result = epsilonConstraint(instance, "pstns/results/woodworking", upper, epsilon, log = True)
-        # print(result)
-        # with open("pstns/results/woodworking/{}".format(instance.name), "wb") as f:
-        #     pkl.dump(result, f)
-
+    #print(mc.monte_carlo_success(woodworking[i], schedule, relaxations, 1000))
+    # upper = instance.countUncontrollables()
+    # result = epsilonConstraint(instance, "pstns/results/woodworking", upper, epsilon, log = True)
     # print("Solving elevators instances")
     # for instance in elevators:
     #     upper = instance.countUncontrollables()
@@ -140,7 +152,7 @@ def main():
     #     with open("pstns/results/elevators/{}".format(instance.name), "wb") as f:
     #         pkl.dump(result, f)
 
-    print("Finished")
+    #print("Finished")
 
 if __name__ == "__main__":
     main()

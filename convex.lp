@@ -1,55 +1,312 @@
-\ Model iteration_9
+\ Model iteration_32
 \ LP format - for model browsing. Use MPS format to capture full model detail.
 Minimize
-  c(0,9)_rl + c(0,9)_ru
+  c(0,17)_rl + c(0,17)_ru
 Subject To
  cont[0]: - 0 + 1 <= 10000
  cont[1]: 0 - 1 <= -0.001
  cont[2]: - 0 + 3 <= 10000
  cont[3]: 0 - 3 <= -0.001
- cont[4]: - 3 + 4 <= 30
- cont[5]: 3 - 4 <= -30
- cont[6]: - 4 + 5 <= 10000
- cont[7]: 4 - 5 <= -0.001
- cont[8]: - 3 + 5 <= 10000
- cont[9]: 3 - 5 <= -0.001
- cont[10]: - 1 + 7 <= 10000
- cont[11]: 1 - 7 <= -0.001
- cont[12]: - 5 + 6 <= 10
- cont[13]: 5 - 6 <= -10
- cont[14]: - 3 + 6 <= 10000
- cont[15]: 3 - 6 <= -0.001
- cont[16]: - 0 + 9 - c(0,9)_ru <= 60.001
- cont[17]: 0 - 9 - c(0,9)_rl <= 0
- cont[18]: - 6 + 9 <= 10000
- cont[19]: 6 - 9 <= -0.001
- z0: - 0.1666666666666667 1 + 0.1666666666666667 7 + 3 lambda[0]
+ cont[4]: - 1 + 5 <= 10000
+ cont[5]: 1 - 5 <= -0.001
+ cont[6]: - 1 + 7 <= 10000
+ cont[7]: 1 - 7 <= -0.001
+ cont[8]: - 7 + 9 <= 10000
+ cont[9]: 7 - 9 <= -0.001
+ cont[10]: - 3 + 13 <= 10000
+ cont[11]: 3 - 13 <= -0.001
+ cont[12]: - 0 + 17 - c(0,17)_ru <= 80.002
+ cont[13]: 0 - 17 - c(0,17)_rl <= 0
+ z0: - 0.2777777777777778 1 + 0.2777777777777778 5 + 3 lambda[0]
    + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6]
-   + 3 lambda[7] + 3 lambda[8] <= 1671.666666666667
- z1: 0.1666666666666667 1 - 0.1666666666666667 7 + 3 lambda[0]
+   + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
+   + 3 lambda[12] + 3 lambda[13] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 2782.777777777778
+ z1: 0.2777777777777778 1 - 0.2777777777777778 5 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6]
-   + 1.164985727866252 lambda[7] + 1.881825906864806 lambda[8]
-   <= -5.000166666666667
- z2: - 0.1666666666666667 1 + 0.1666666666666667 7 + 3 lambda[0]
+   + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
+   + 3 lambda[12] + 3 lambda[13] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3.059954126050164 lambda[29]
+   + 3.036756824498004 lambda[30] + 3.059607409320057 lambda[31]
+   <= -5.000277777777779
+ z2: - 0.2777777777777778 1 + 0.2777777777777778 7 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6]
-   + 3 lambda[7] + 3 lambda[8] <= 1661.666666666667
- z3: 0.1666666666666667 1 - 0.1666666666666667 7 + 3 lambda[0]
+   + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
+   + 3 lambda[12] + 3 lambda[13] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 2782.777777777778
+ z3: 0.2777777777777778 1 - 0.2777777777777778 7 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[5] + 3 lambda[6]
-   + 3 lambda[7] + 3 lambda[8] <= 4.999833333333333
- z4: - 0.1666666666666667 7 + 0.1666666666666667 9 + 3 lambda[0]
+   + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
+   + 3 lambda[12] + 3 lambda[13] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3.059954126050164 lambda[29]
+   + 3.036756824498004 lambda[30] + 3.059607409320057 lambda[31]
+   <= -5.000277777777779
+ z4: - 0.5555555555555556 1 + 0.5555555555555556 5 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[6]
-   + 3 lambda[7] + 3 lambda[8] <= 1671.666666666667
- z5: 0.1666666666666667 7 - 0.1666666666666667 9 + 3 lambda[0]
+   + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
+   + 3 lambda[12] + 3 lambda[13] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 5550.555555555556
+ z5: 0.5555555555555556 1 - 0.5555555555555556 5 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
-   + 1.170813688097024 lambda[7] + 1.881132768238339 lambda[8]
+   + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
+   + 3 lambda[12] + 3 lambda[13] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 4.999444444444445
+ z6: - 0.5 1 + 0.5 7 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2]
+   + 3 lambda[3] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[8]
+   + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
+   + 3 lambda[13] + 3 lambda[14] + 3 lambda[15] + 3 lambda[16]
+   + 3 lambda[17] + 3 lambda[18] + 3 lambda[19] + 3 lambda[20]
+   + 3 lambda[21] + 3 lambda[22] + 3 lambda[23] + 3 lambda[24]
+   + 3 lambda[25] + 3 lambda[26] + 3 lambda[27] + 3 lambda[28]
+   + 3 lambda[29] + 3 lambda[30] + 3 lambda[31] <= 4995
+ z7: 0.5 1 - 0.5 7 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
+   + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[9]
+   + 3 lambda[10] + 3 lambda[11] + 3 lambda[12] + 3 lambda[13]
+   + 3 lambda[14] + 3 lambda[15] + 3 lambda[16] + 3 lambda[17]
+   + 3 lambda[18] + 3 lambda[19] + 3 lambda[20] + 3 lambda[21]
+   + 3 lambda[22] + 3 lambda[23] + 3 lambda[24] + 3 lambda[25]
+   + 3 lambda[26] + 3 lambda[27] + 3 lambda[28] + 3 lambda[29]
+   + 3 lambda[30] + 3 lambda[31] <= 4.9995
+ z8: - 0.5 7 + 0.5 9 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2]
+   + 3 lambda[3] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7]
+   + 3 lambda[8] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
+   + 3 lambda[13] + 3 lambda[14] + 3 lambda[15] + 3 lambda[16]
+   + 3 lambda[17] + 3 lambda[18] + 3 lambda[19] + 3 lambda[20]
+   + 3 lambda[21] + 3 lambda[22] + 3 lambda[23] + 3 lambda[24]
+   + 3 lambda[25] + 3 lambda[26] + 3 lambda[27] + 3 lambda[28]
+   + 3 lambda[29] + 3 lambda[30] + 3 lambda[31] <= 5005
+ z9: 0.5 7 - 0.5 9 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
+   + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
+   + 3 lambda[9] + 3 lambda[11] + 3 lambda[12] + 3 lambda[13]
+   + 3 lambda[14] + 3 lambda[15] + 3 lambda[16] + 3 lambda[17]
+   + 3 lambda[18] + 3 lambda[19] + 3 lambda[20] + 3 lambda[21]
+   + 3 lambda[22] + 3 lambda[23] + 3 lambda[24] + 3 lambda[25]
+   + 3 lambda[26] + 3 lambda[27] + 3 lambda[28]
+   + 3.059954126050164 lambda[29] + 3.036756824498004 lambda[30]
+   + 3.059607409320057 lambda[31] <= -5.0005
+ z10: - 0.1666666666666667 3 + 0.1666666666666667 11 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[12] + 3 lambda[13] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 1671.666666666667
+ z11: 0.1666666666666667 3 - 0.1666666666666667 11 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[13] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3.059954126050164 lambda[29]
+   + 3.036756824498004 lambda[30] + 3.059607409320057 lambda[31]
    <= -5.000166666666667
- cc: 0.00540689417095195 lambda[0] + 0.6985540747308973 lambda[1]
-   + 0.6985540747308973 lambda[2] + 0.6985540747308973 lambda[3]
-   + 0.6985540747308973 lambda[4] + 0.6985540747308973 lambda[5]
-   + 0.6985540747308973 lambda[6] + 0.2619828560552344 lambda[7]
-   + 0.0636073923422257 lambda[8] <= 0.2231435513142097
+ z12: - 0.1666666666666667 3 + 0.1666666666666667 13 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[14] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 1671.666666666667
+ z13: 0.1666666666666667 3 - 0.1666666666666667 13 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[15]
+   + 3 lambda[16] + 3 lambda[17] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 1.169343271182305 lambda[29]
+   + 1.877656426166111 lambda[30] + 1.509001990973679 lambda[31]
+   <= -5.000166666666667
+ z14: - 7 + 9 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
+   + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
+   + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
+   + 3 lambda[13] + 3 lambda[14] + 3 lambda[16] + 3 lambda[17]
+   + 3 lambda[18] + 3 lambda[19] + 3 lambda[20] + 3 lambda[21]
+   + 3 lambda[22] + 3 lambda[23] + 3 lambda[24] + 3 lambda[25]
+   + 3 lambda[26] + 3 lambda[27] + 3 lambda[28] + 3 lambda[29]
+   + 3 lambda[30] + 3 lambda[31] <= 9995
+ z15: 7 - 9 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
+   + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
+   + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
+   + 3 lambda[13] + 3 lambda[14] + 3 lambda[15] + 3 lambda[17]
+   + 3 lambda[18] + 3 lambda[19] + 3 lambda[20] + 3 lambda[21]
+   + 3 lambda[22] + 3 lambda[23] + 3 lambda[24] + 3 lambda[25]
+   + 3 lambda[26] + 3 lambda[27] + 3 lambda[28] + 3 lambda[29]
+   + 3 lambda[30] + 3 lambda[31] <= 4.999
+ z16: - 0.1666666666666667 3 + 0.1666666666666667 13 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[14]
+   + 3 lambda[15] + 3 lambda[16] + 3 lambda[18] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 1661.666666666667
+ z17: 0.1666666666666667 3 - 0.1666666666666667 13 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[14]
+   + 3 lambda[15] + 3 lambda[16] + 3 lambda[17] + 3 lambda[19]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 4.999833333333333
+ z18: - 0.1666666666666667 13 + 0.1666666666666667 15 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[14]
+   + 3 lambda[15] + 3 lambda[16] + 3 lambda[17] + 3 lambda[18]
+   + 3 lambda[20] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 1671.666666666667
+ z19: 0.1666666666666667 13 - 0.1666666666666667 15 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[14]
+   + 3 lambda[15] + 3 lambda[16] + 3 lambda[17] + 3 lambda[18]
+   + 3 lambda[19] + 3 lambda[21] + 3 lambda[22] + 3 lambda[23]
+   + 3 lambda[24] + 3 lambda[25] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 1.165586329974341 lambda[29]
+   + 1.875353111319776 lambda[30] + 1.507880453165169 lambda[31]
+   <= -5.000166666666667
+ z20: - 0.25 15 + 0.25 17 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2]
+   + 3 lambda[3] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7]
+   + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
+   + 3 lambda[13] + 3 lambda[14] + 3 lambda[15] + 3 lambda[16]
+   + 3 lambda[17] + 3 lambda[18] + 3 lambda[19] + 3 lambda[20]
+   + 3 lambda[22] + 3 lambda[23] + 3 lambda[24] + 3 lambda[25]
+   + 3 lambda[26] + 3 lambda[27] + 3 lambda[28] + 3 lambda[29]
+   + 3 lambda[30] + 3 lambda[31] <= 2505
+ z21: 0.25 15 - 0.25 17 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2]
+   + 3 lambda[3] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7]
+   + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
+   + 3 lambda[13] + 3 lambda[14] + 3 lambda[15] + 3 lambda[16]
+   + 3 lambda[17] + 3 lambda[18] + 3 lambda[19] + 3 lambda[20]
+   + 3 lambda[21] + 3 lambda[23] + 3 lambda[24] + 3 lambda[25]
+   + 3 lambda[26] + 3 lambda[27] + 3 lambda[28]
+   + 1.469991111293182 lambda[29] + 2.061978350655696 lambda[30]
+   + 1.752250996917216 lambda[31] <= -5.00025
+ z22: - 9 + 17 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
+   + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
+   + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
+   + 3 lambda[13] + 3 lambda[14] + 3 lambda[15] + 3 lambda[16]
+   + 3 lambda[17] + 3 lambda[18] + 3 lambda[19] + 3 lambda[20]
+   + 3 lambda[21] + 3 lambda[22] + 3 lambda[24] + 3 lambda[25]
+   + 3 lambda[26] + 3 lambda[27] + 3 lambda[28] + 3 lambda[29]
+   + 3 lambda[30] + 3 lambda[31] <= 10005
+ z23: 9 - 17 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
+   + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
+   + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
+   + 3 lambda[13] + 3 lambda[14] + 3 lambda[15] + 3 lambda[16]
+   + 3 lambda[17] + 3 lambda[18] + 3 lambda[19] + 3 lambda[20]
+   + 3 lambda[21] + 3 lambda[22] + 3 lambda[23] + 3 lambda[25]
+   + 3 lambda[26] + 3 lambda[27] + 3 lambda[28] + 3 lambda[29]
+   + 3 lambda[30] + 3 lambda[31] <= -5.001
+ z24: - 0.2941176470588235 11 + 0.2941176470588235 17 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[14]
+   + 3 lambda[15] + 3 lambda[16] + 3 lambda[17] + 3 lambda[18]
+   + 3 lambda[19] + 3 lambda[20] + 3 lambda[21] + 3 lambda[22]
+   + 3 lambda[23] + 3 lambda[24] + 3 lambda[26] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 2946.176470588235
+ z25: 0.2941176470588235 11 - 0.2941176470588235 17 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[14]
+   + 3 lambda[15] + 3 lambda[16] + 3 lambda[17] + 3 lambda[18]
+   + 3 lambda[19] + 3 lambda[20] + 3 lambda[21] + 3 lambda[22]
+   + 3 lambda[23] + 3 lambda[24] + 3 lambda[25] + 3 lambda[27]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= -5.000294117647059
+ z26: - 0.5555555555555556 5 + 0.5555555555555556 17 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[14]
+   + 3 lambda[15] + 3 lambda[16] + 3 lambda[17] + 3 lambda[18]
+   + 3 lambda[19] + 3 lambda[20] + 3 lambda[21] + 3 lambda[22]
+   + 3 lambda[23] + 3 lambda[24] + 3 lambda[25] + 3 lambda[26]
+   + 3 lambda[28] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= 5560.555555555556
+ z27: 0.5555555555555556 5 - 0.5555555555555556 17 + 3 lambda[0]
+   + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
+   + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
+   + 3 lambda[11] + 3 lambda[12] + 3 lambda[13] + 3 lambda[14]
+   + 3 lambda[15] + 3 lambda[16] + 3 lambda[17] + 3 lambda[18]
+   + 3 lambda[19] + 3 lambda[20] + 3 lambda[21] + 3 lambda[22]
+   + 3 lambda[23] + 3 lambda[24] + 3 lambda[25] + 3 lambda[26]
+   + 3 lambda[27] + 3 lambda[29] + 3 lambda[30] + 3 lambda[31]
+   <= -5.000555555555556
+ cc: 0.0216275766838078 lambda[0] + 0.7147747572437531 lambda[1]
+   + 0.7147747572437531 lambda[2] + 0.7147747572437531 lambda[3]
+   + 0.7147747572437531 lambda[4] + 0.7147747572437531 lambda[5]
+   + 0.7147747572437531 lambda[6] + 0.7147747572437531 lambda[7]
+   + 0.7147747572437531 lambda[8] + 0.7147747572437531 lambda[9]
+   + 0.7147747572437531 lambda[10] + 0.7147747572437531 lambda[11]
+   + 0.7147747572437531 lambda[12] + 0.7147747572437531 lambda[13]
+   + 0.7147747572437531 lambda[14] + 0.7147747572437531 lambda[15]
+   + 0.7147747572437531 lambda[16] + 0.7147747572437531 lambda[17]
+   + 0.7147747572437531 lambda[18] + 0.7147747572437531 lambda[19]
+   + 0.7147747572437531 lambda[20] + 0.7147747572437531 lambda[21]
+   + 0.7147747572437531 lambda[22] + 0.7147747572437531 lambda[23]
+   + 0.7147747572437531 lambda[24] + 0.7147747572437531 lambda[25]
+   + 0.7147747572437531 lambda[26] + 0.7147747572437531 lambda[27]
+   + 0.7147747572437531 lambda[28] + 0.3503206645421258 lambda[29]
+   + 0.0988489768087467 lambda[30] + 0.1942153319104317 lambda[31]
+   <= 0.2231435513142097
  x0: 0 = 0
  sum_lam: lambda[0] + lambda[1] + lambda[2] + lambda[3] + lambda[4]
-   + lambda[5] + lambda[6] + lambda[7] + lambda[8] = 1
+   + lambda[5] + lambda[6] + lambda[7] + lambda[8] + lambda[9] + lambda[10]
+   + lambda[11] + lambda[12] + lambda[13] + lambda[14] + lambda[15]
+   + lambda[16] + lambda[17] + lambda[18] + lambda[19] + lambda[20]
+   + lambda[21] + lambda[22] + lambda[23] + lambda[24] + lambda[25]
+   + lambda[26] + lambda[27] + lambda[28] + lambda[29] + lambda[30]
+   + lambda[31] = 1
+ R45: 0.0216275766838078 lambda[0] + 0.7147747572437531 lambda[1]
+   + 0.7147747572437531 lambda[2] + 0.7147747572437531 lambda[3]
+   + 0.7147747572437531 lambda[4] + 0.7147747572437531 lambda[5]
+   + 0.7147747572437531 lambda[6] + 0.7147747572437531 lambda[7]
+   + 0.7147747572437531 lambda[8] + 0.7147747572437531 lambda[9]
+   + 0.7147747572437531 lambda[10] + 0.7147747572437531 lambda[11]
+   + 0.7147747572437531 lambda[12] + 0.7147747572437531 lambda[13]
+   + 0.7147747572437531 lambda[14] + 0.7147747572437531 lambda[15]
+   + 0.7147747572437531 lambda[16] + 0.7147747572437531 lambda[17]
+   + 0.7147747572437531 lambda[18] + 0.7147747572437531 lambda[19]
+   + 0.7147747572437531 lambda[20] + 0.7147747572437531 lambda[21]
+   + 0.7147747572437531 lambda[22] + 0.7147747572437531 lambda[23]
+   + 0.7147747572437531 lambda[24] + 0.7147747572437531 lambda[25]
+   + 0.7147747572437531 lambda[26] + 0.7147747572437531 lambda[27]
+   + 0.7147747572437531 lambda[28] + 0.3503206645421258 lambda[29]
+   + 0.0988489768087467 lambda[30] + 0.1942153319104317 lambda[31] - phi[0]
+   = 0
 Bounds
 End

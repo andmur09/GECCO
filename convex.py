@@ -7,11 +7,11 @@ import sys
 import gurobipy as gp
 from gurobipy import GRB
 from math import sqrt, log
-import compute_probabilities as prob
 import numpy as np
 import additional_functions as fn
 from JCCP_class import JCCP
 import time
+from timeout import timeout
 #from scipy.optimize import line_search
 
 np.seterr(divide='raise')
@@ -189,6 +189,7 @@ def Initialise(JCCP, box = 3):
     JCCP.setPhi(np.array(phi))
     return m
 
+@timeout(30)
 def masterProblem(JCCP):
     '''
     Description:    Solves the restricted master problem:
@@ -212,12 +213,14 @@ def masterProblem(JCCP):
     m = gp.Model("iteration_" + str(k))
     x = m.addMVar(len(JCCP.vars), name=JCCP.vars)
     lam = m.addMVar(k, name="lambda")
+    phi = m.addMVar(1, name = "phi")
     m.addConstr(JCCP.A @ x <= JCCP.b, name="cont")
     for i in range(p):
         m.addConstr(JCCP.z[i, :]@lam <= JCCP.T[i,:]@x + JCCP.q[i], name="z{}".format(i))
     m.addConstr(lam @ JCCP.phi <= JCCP.getPi(), name="cc")
     m.addConstr(x[0] == 0, name="x0")
     m.addConstr(lam.sum() == 1, name="sum_lam")
+    m.addConstr(lam @ JCCP.phi == phi, 'phi')
     m.setObjective(JCCP.c @ x, GRB.MINIMIZE)
     m.update
     m.write("convex.lp")
@@ -261,7 +264,7 @@ def masterProblem(JCCP):
     # G
     return (m, np.c_[z_sol], phi_sol)
 
-def columnGeneration(z, JCCP, iterations = 100, epsilon = 0.01):
+def columnGeneration(z, JCCP, iterations = 100, epsilon = 0.5):
     '''
     Description:    Solves the column generaion problem (below) via gradient descent with backtracking line search:
 
@@ -284,7 +287,7 @@ def columnGeneration(z, JCCP, iterations = 100, epsilon = 0.01):
 
     def gradf(z):
         # Nested function to calculate gradients at particular points
-        return fn.flatten(v/norm(mean, cov, allow_singular=True).cdf(z) * prob.grad(np.c_[z], cb, mean, cov)) - u
+        return fn.flatten(v/norm(mean, cov, allow_singular=True).cdf(z) * fn.grad(np.c_[z], cb, mean, cov)) - u
 
     def backtracking(z, grad, beta=0.8, alpha = 0.5):
         # Implementation of backtracking line search using Armijos condition
@@ -321,11 +324,12 @@ def columnGeneration(z, JCCP, iterations = 100, epsilon = 0.01):
         print("Grad = ", grad)
         print("Function value = ", dual)
         print("Reduced cost = ", -dual)
+        print("Grad^2 = ", grad.transpose() @ grad)
         if grad.transpose() @ grad < epsilon:
             return np.c_[z]
-    return np.c_[z]
+    raise StopIteration("Gradient descent maximum iterations exceeded.")
 
-def solveJCCP(PSTN, alpha, epsilon, log=False):
+def solveJCCP(PSTN, alpha, epsilon, log=False, max_iterations = 100, iterations_grad_descent = 100):
     '''
     Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
                     generation method.
@@ -337,18 +341,17 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
                                 e.g. (UB - LB)/LB <= epsilon    
     Output:         m:          An instance of the Gurobi model class which solves the joint chance constrained PSTN
     '''
+    n_iterations = 0
     if log == True:
-        sys.stdout = open("lognew.txt", "w")
+        saved_stdout = sys.stdout
+        sys.stdout = open("logs/log_{}.txt".format(PSTN.name), "w+")
     
     # Translates the PSTN to the standard form of a JCCP and stores the matrices in an instance of the JCCP class
     start = time.time()
     matrices = getStandardForm(PSTN)
-    end = time.time()
-    initialisation_time = end - start
     A, vars, b, c, T, q, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7]
     problem = JCCP(A, vars, b, c, T, q, mu, cov, alpha)
     
-    start = time.time()
     # Initialises the problem with k approximation points
     pi = problem.getPi()
     m = Initialise(problem)
@@ -357,13 +360,13 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
     # Solves the master problem
     print("\nSolving master problem with {} approximation points".format(k))
     m, z_m, phi_m = masterProblem(problem)
-    problem.setProbability(phi_m)
+    problem.addSolution(m)
     print("\nCurrent z points are: ", problem.z)
     print("Current objective is: ", m.objVal)
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
-    z_d = columnGeneration(z_m, problem)
+    z_d = columnGeneration(z_m, problem, iterations=iterations_grad_descent)
     rho = problem.reducedCost(z_d)
     print("\nNew approximation point found: ", z_d)
     print("Reduced cost is: ", rho)
@@ -371,14 +374,15 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
     # Calculates optimality gap
     UB = m.objVal
     LB = m.objVal - rho
-
+    
     # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
-    while (UB - LB)/LB > epsilon and rho >= 0:
+    while (UB - LB)/LB > epsilon and rho >= 0 and n_iterations <= max_iterations:
+        n_iterations += 1
         k += 1
         problem.addColumn(z_d)
         print("\nSolving master problem with {} approximation points".format(k))
         m, z_m, phi_m = masterProblem(problem)
-        problem.setProbability(phi_m)
+        problem.addSolution(m)
         print("\nCurrent z points are: ", problem.z)
         print("Current objective is: ", m.objVal)
 
@@ -387,20 +391,23 @@ def solveJCCP(PSTN, alpha, epsilon, log=False):
         rho = problem.reducedCost(z_d)
         print("\nNew approximation point found: ", z_d)
         print("Reduced cost is: ", rho)
-
         UB = m.objVal
         LB_k = m.objVal - rho
         LB = max(LB, LB_k)
     end = time.time()
     solution_time = end - start
+    if n_iterations <= max_iterations:
+        problem.setSolved(True)
+    problem.setSolutionTime(solution_time)
     print("\nFinal solution found: ")
-    print("Initialisation time: ", initialisation_time)
     print("Solution time: ", solution_time)
     print("Optimality gap is: ", (UB - LB)/LB*100)
+    print("Final Probability is: ", problem.getCurrentProbability())
     print('Objective: ', m.objVal)
     print('Vars:')
     for v in m.getVars():
         print("Variable {}: ".format(v.varName) + str(v.x))
     if log == True:
         sys.stdout.close()
+        sys.stdout = saved_stdout
     return m, problem
