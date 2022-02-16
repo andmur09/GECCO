@@ -264,7 +264,7 @@ def masterProblem(JCCP):
     # G
     return (m, np.c_[z_sol], phi_sol)
 
-def columnGeneration(z, JCCP, iterations = 100, epsilon = 0.5):
+def columnGeneration(z, JCCP, iterations = 20, epsilon = 0.5):
     '''
     Description:    Solves the column generaion problem (below) via gradient descent with backtracking line search:
 
@@ -289,7 +289,7 @@ def columnGeneration(z, JCCP, iterations = 100, epsilon = 0.5):
         # Nested function to calculate gradients at particular points
         return fn.flatten(v/norm(mean, cov, allow_singular=True).cdf(z) * fn.grad(np.c_[z], cb, mean, cov)) - u
 
-    def backtracking(z, grad, beta=0.8, alpha = 0.5):
+    def backtracking(z, grad, beta=0.8, alpha = 0.1):
         # Implementation of backtracking line search using Armijos condition
         t = 1
         try:

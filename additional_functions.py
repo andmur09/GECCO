@@ -1,10 +1,10 @@
 import numpy as np
-from rpy2.robjects.packages import importr
-from rpy2 import robjects as ro
+#from rpy2.robjects.packages import importr
+#from rpy2 import robjects as ro
 import numpy as np
 from scipy.stats import multivariate_normal as norm
 from math import sqrt, log
-from sqlalchemy import true
+#from sqlalchemy import true
 
 def flatten(column_vector):
     '''
@@ -14,21 +14,21 @@ def flatten(column_vector):
     '''
     return np.transpose(column_vector).flatten()
 
-def pmvnorm(z, mean, cov):
-    '''
-    Description:    Uses algorithm from: Genz, A. and Kwong, K.S., 2000. Numerical evaluation of singular multivariate normal distributions
-                    to calculate probability F(z) of singular multivariate normal distributions
-    Input:          z:      a vector at which to evaluate the probability
-                    mean:   a vector of mean values
-                    cov:    a covariance matrix
-    Output          float:  Value of F(z) for N(mean, cov)
-    '''
-    mvtnorm = importr('mvtnorm', lib_loc = "/home/andmur09/R/x86_64-pc-linux-gnu-library/4.1")
-    upper = ro.FloatVector(z)
-    mean = ro.FloatVector(mean)
-    cov = ro.r.matrix(ro.FloatVector(cov.flatten('f')), nrow=np.shape(cov)[0])
-    result = mvtnorm.pmvnorm(upper=upper, mean=mean, sigma=cov)
-    return np.asarray(result)[0]
+#def pmvnorm(z, mean, cov):
+ #   '''
+  #  Description:    Uses algorithm from: Genz, A. and Kwong, K.S., 2000. Numerical evaluation of singular multivariate normal distributions
+   #                 to calculate probability F(z) of singular multivariate normal distributions
+    #Input:          z:      a vector at which to evaluate the probability
+   #                 mean:   a vector of mean values
+   #                 cov:    a covariance matrix
+   # Output          float:  Value of F(z) for N(mean, cov)
+   # '''
+   # mvtnorm = importr('mvtnorm', lib_loc = "/home/andmur09/R/x86_64-pc-linux-gnu-library/4.1")
+   # upper = ro.FloatVector(z)
+   # mean = ro.FloatVector(mean)
+   # cov = ro.r.matrix(ro.FloatVector(cov.flatten('f')), nrow=np.shape(cov)[0])
+   # result = mvtnorm.pmvnorm(upper=upper, mean=mean, sigma=cov)
+   # return np.asarray(result)[0]
 
 def prob(z, mean, cov):
     '''

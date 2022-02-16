@@ -110,7 +110,7 @@ def main():
     woodworking_path = "pstns/problems/woodworking"
     woodworking_files = sorted(os.listdir(woodworking_path))
     woodworking = []
-    for i in range(len(woodworking_files)):
+    for i in range(len(woodworking_files)-1, len(woodworking_files)):
         with open(woodworking_path + "/" + woodworking_files[i], "rb") as f:
             problem = pkl.load(f)
             woodworking.append(problem)
@@ -123,7 +123,7 @@ def main():
     #         problem = pkl.load(f)
     #         elevators.append(problem)
 
-    for i in range(11, 12):
+    for i in range(len(woodworking)):
         print("Solving: ", woodworking[i].name)
         #if i == 0:
         #woodworking[i].plot()
