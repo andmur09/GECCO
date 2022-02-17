@@ -660,9 +660,9 @@ New approximation point found:  [[3.        ]
 Reduced cost is:  [[1.32363135]]
 
 Final solution found: 
-Solution time:  1.8096110820770264
+Solution time:  1.77931809425354
 Optimality gap is:  [[2.62206525]]
-Final Probability is:  0.8
+Final Probability is:  None
 Objective:  15.439918657008995
 Vars:
 Variable 0: 0.0

@@ -1,4 +1,4 @@
-\ Model iteration_187
+\ Model iteration_194
 \ LP format - for model browsing. Use MPS format to capture full model detail.
 Minimize
   c(0,75)_rl + c(0,75)_ru
@@ -419,7 +419,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2782.777777777778
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2782.777777777778
  z1: 0.2777777777777778 1 - 0.2777777777777778 9 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6]
    + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
@@ -466,7 +468,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000277777777779
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000277777777779
  z2: - 0.5555555555555556 1 + 0.5555555555555556 9 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[4] + 3 lambda[5] + 3 lambda[6]
    + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
@@ -513,7 +519,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 5550.555555555556
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 5550.555555555556
  z3: 0.5555555555555556 1 - 0.5555555555555556 9 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[5] + 3 lambda[6]
    + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
@@ -560,7 +568,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999444444444445
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999444444444445
  z4: - 0.2777777777777778 1 + 0.2777777777777778 15 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[6]
    + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
@@ -607,7 +617,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2782.777777777778
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2782.777777777778
  z5: 0.2777777777777778 1 - 0.2777777777777778 15 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
@@ -654,7 +666,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000277777777779
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000277777777779
  z6: - 0.1666666666666667 3 + 0.1666666666666667 15 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
@@ -701,7 +715,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z7: 0.1666666666666667 3 - 0.1666666666666667 15 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[9] + 3 lambda[10] + 3 lambda[11]
@@ -748,7 +764,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000166666666667
  z8: - 0.1666666666666667 3 + 0.1666666666666667 17 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[10] + 3 lambda[11]
@@ -795,7 +815,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z9: 0.1666666666666667 3 - 0.1666666666666667 17 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[11]
@@ -842,7 +864,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 1.145549824620206 lambda[187] + 1.851209420799176 lambda[188]
+   + 1.096831461723077 lambda[189] + 1.744190436717407 lambda[190]
+   + 1.323178565444461 lambda[191] + 1.798688041530702 lambda[192]
+   + 1.547620455942047 lambda[193] <= -5.000166666666667
  z10: - 0.5555555555555556 9 + 0.5555555555555556 19 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -889,7 +915,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 5560.555555555556
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 5560.555555555556
  z11: 0.5555555555555556 9 - 0.5555555555555556 19 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -936,7 +964,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000555555555556
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000555555555556
  z12: - 0.7142857142857142 9 + 0.7142857142857142 19 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -983,7 +1015,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 7137.857142857142
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 7137.857142857142
  z13: 0.7142857142857142 9 - 0.7142857142857142 19 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1030,7 +1064,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999285714285714
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999285714285714
  z14: - 0.7142857142857142 19 + 0.7142857142857142 29 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1077,7 +1113,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 7147.857142857142
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 7147.857142857142
  z15: 0.7142857142857142 19 - 0.7142857142857142 29 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1124,7 +1162,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000714285714285
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000714285714285
  z16: - 0.5555555555555556 9 + 0.5555555555555556 29 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1171,7 +1213,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 5560.555555555556
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 5560.555555555556
  z17: 0.5555555555555556 9 - 0.5555555555555556 29 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1218,7 +1262,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000555555555556
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000555555555556
  z18: - 0.1923076923076923 1 + 0.1923076923076923 15 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1265,7 +1311,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1918.076923076923
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1918.076923076923
  z19: 0.1923076923076923 1 - 0.1923076923076923 15 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1312,7 +1360,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999807692307692
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999807692307692
  z20: - 0.1923076923076923 15 + 0.1923076923076923 33 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1359,7 +1409,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1928.076923076923
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1928.076923076923
  z21: 0.1923076923076923 15 - 0.1923076923076923 33 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1406,7 +1458,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000192307692307
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000192307692307
  z22: - 0.1666666666666667 3 + 0.1666666666666667 33 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1453,7 +1509,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z23: 0.1666666666666667 3 - 0.1666666666666667 33 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1500,7 +1558,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z24: - 0.1666666666666667 3 + 0.1666666666666667 17 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1547,7 +1607,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z25: 0.1666666666666667 3 - 0.1666666666666667 17 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1594,7 +1656,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z26: - 0.3846153846153846 23 + 0.3846153846153846 35 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1641,7 +1705,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 3851.153846153846
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 3851.153846153846
  z27: 0.3846153846153846 23 - 0.3846153846153846 35 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1688,7 +1754,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000384615384615
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000384615384615
  z28: - 0.1666666666666667 17 + 0.1666666666666667 35 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1735,7 +1803,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z29: 0.1666666666666667 17 - 0.1666666666666667 35 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1782,7 +1852,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 1.141412864719918 lambda[187] + 1.851206612217255 lambda[188]
+   + 2.329946114073787 lambda[189] + 2.307757098956737 lambda[190]
+   + 1.527376020823322 lambda[191] + 1.883907659848413 lambda[192]
+   + 1.592259108463978 lambda[193] <= -5.000166666666667
  z30: - 0.1666666666666667 17 + 0.1666666666666667 37 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1829,7 +1903,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z31: 0.1666666666666667 17 - 0.1666666666666667 37 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1876,7 +1952,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 1.236284649497558 lambda[189] + 1.984040821093921 lambda[190]
+   + 2.16569761181203 lambda[191] + 2.390509186933041 lambda[192]
+   + 2.790481458669047 lambda[193] <= -5.000166666666667
  z32: - 0.1666666666666667 3 + 0.1666666666666667 37 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1923,7 +2003,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z33: 0.1666666666666667 3 - 0.1666666666666667 37 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -1970,7 +2052,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z34: - 0.4166666666666666 19 + 0.4166666666666666 29 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2017,7 +2101,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4161.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4161.666666666666
  z35: 0.4166666666666666 19 - 0.4166666666666666 29 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2064,7 +2150,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999583333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999583333333333
  z36: - 0.4166666666666666 9 + 0.4166666666666666 29 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2111,7 +2199,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4161.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4161.666666666666
  z37: 0.4166666666666666 9 - 0.4166666666666666 29 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2158,7 +2248,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999583333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999583333333333
  z38: - 0.4545454545454545 23 + 0.4545454545454545 35 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2205,7 +2297,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4540.454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4540.454545454545
  z39: 0.4545454545454545 23 - 0.4545454545454545 35 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2252,7 +2346,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999545454545455
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999545454545455
  z40: - 0.1923076923076923 15 + 0.1923076923076923 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2299,7 +2395,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1928.076923076923
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1928.076923076923
  z41: 0.1923076923076923 15 - 0.1923076923076923 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2346,7 +2444,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000192307692307
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000192307692307
  z42: - 0.4545454545454545 35 + 0.4545454545454545 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2393,7 +2493,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4550.454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4550.454545454545
  z43: 0.4545454545454545 35 - 0.4545454545454545 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2440,7 +2542,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 1.781206084254038 lambda[187] + 2.32587190116279 lambda[188]
+   + 2.708876386322108 lambda[189] + 2.704646571492384 lambda[190]
+   + 2.069297430536187 lambda[191] + 2.353951648605249 lambda[192]
+   + 2.136522696144173 lambda[193] <= -5.000454545454545
  z44: - 0.1666666666666667 17 + 0.1666666666666667 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2487,7 +2593,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z45: 0.1666666666666667 17 - 0.1666666666666667 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2534,7 +2642,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z46: - 0.2777777777777778 1 + 0.2777777777777778 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2581,7 +2691,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2782.777777777778
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2782.777777777778
  z47: 0.2777777777777778 1 - 0.2777777777777778 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2628,7 +2740,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000277777777779
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000277777777779
  z48: - 0.4166666666666666 29 + 0.4166666666666666 47 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2675,7 +2789,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4171.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4171.666666666666
  z49: 0.4166666666666666 29 - 0.4166666666666666 47 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2722,7 +2838,10 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000416666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3.270640441817311 lambda[190]
+   + 3.235922783558241 lambda[191] + 3.288339722517215 lambda[192]
+   + 3.282227608738001 lambda[193] <= -5.000416666666666
  z50: - 0.4166666666666666 35 + 0.4166666666666666 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2769,7 +2888,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4161.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4161.666666666666
  z51: 0.4166666666666666 35 - 0.4166666666666666 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2816,7 +2937,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999583333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999583333333333
  z52: - 0.4166666666666666 15 + 0.4166666666666666 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2863,7 +2986,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4161.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4161.666666666666
  z53: 0.4166666666666666 15 - 0.4166666666666666 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2910,7 +3035,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999583333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999583333333333
  z54: - 0.4166666666666666 1 + 0.4166666666666666 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -2957,7 +3084,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4161.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4161.666666666666
  z55: 0.4166666666666666 1 - 0.4166666666666666 45 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3004,7 +3133,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999583333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999583333333333
  z56: - 0.4545454545454545 35 + 0.4545454545454545 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3051,7 +3182,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4550.454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4550.454545454545
  z57: 0.4545454545454545 35 - 0.4545454545454545 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3098,7 +3231,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000454545454545
  z58: - 0.4166666666666666 45 + 0.4166666666666666 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3145,7 +3280,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4171.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4171.666666666666
  z59: 0.4166666666666666 45 - 0.4166666666666666 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3192,7 +3329,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000416666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000416666666666
  z60: - 0.1666666666666667 17 + 0.1666666666666667 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3239,7 +3380,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z61: 0.1666666666666667 17 - 0.1666666666666667 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3286,7 +3429,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z62: - 0.3846153846153846 23 + 0.3846153846153846 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3333,7 +3478,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 3851.153846153846
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 3851.153846153846
  z63: 0.3846153846153846 23 - 0.3846153846153846 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3380,7 +3527,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000384615384615
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000384615384615
  z64: - 0.1666666666666667 17 + 0.1666666666666667 37 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3427,7 +3576,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z65: 0.1666666666666667 17 - 0.1666666666666667 37 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3474,7 +3625,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z66: - 0.1666666666666667 3 + 0.1666666666666667 37 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3521,7 +3674,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z67: 0.1666666666666667 3 - 0.1666666666666667 37 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3568,7 +3723,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z68: - 0.4166666666666666 29 + 0.4166666666666666 51 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3615,7 +3772,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4171.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4171.666666666666
  z69: 0.4166666666666666 29 - 0.4166666666666666 51 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3662,7 +3821,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000416666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000416666666666
  z70: - 0.1666666666666667 37 + 0.1666666666666667 51 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3709,7 +3870,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z71: 0.1666666666666667 37 - 0.1666666666666667 51 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3756,7 +3919,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000166666666667
  z72: - 0.7142857142857142 19 + 0.7142857142857142 51 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3803,7 +3970,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 7147.857142857142
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 7147.857142857142
  z73: 0.7142857142857142 19 - 0.7142857142857142 51 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3850,7 +4019,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000714285714285
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000714285714285
  z74: - 0.5555555555555556 9 + 0.5555555555555556 51 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3897,7 +4068,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 5560.555555555556
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 5560.555555555556
  z75: 0.5555555555555556 9 - 0.5555555555555556 51 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3944,7 +4117,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000555555555556
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000555555555556
  z76: - 0.1666666666666667 37 + 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -3991,7 +4166,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z77: 0.1666666666666667 37 - 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4038,7 +4215,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 1.241634046179771 lambda[189] + 1.988550936392257 lambda[190]
+   + 2.171500323491556 lambda[191] + 2.394417771903748 lambda[192]
+   + 2.791709065170641 lambda[193] <= -5.000166666666667
  z78: - 0.1666666666666667 17 + 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4085,7 +4266,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z79: 0.1666666666666667 17 - 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4132,7 +4315,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z80: - 0.1666666666666667 3 + 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4179,7 +4364,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z81: 0.1666666666666667 3 - 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4226,7 +4413,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z82: - 0.4545454545454545 45 + 0.4545454545454545 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4273,7 +4462,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4540.454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4540.454545454545
  z83: 0.4545454545454545 45 - 0.4545454545454545 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4320,7 +4511,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999545454545455
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999545454545455
  z84: - 0.4545454545454545 35 + 0.4545454545454545 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4367,7 +4560,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4540.454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4540.454545454545
  z85: 0.4545454545454545 35 - 0.4545454545454545 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4414,7 +4609,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999545454545455
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999545454545455
  z86: - 0.4545454545454545 23 + 0.4545454545454545 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4461,7 +4658,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4540.454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4540.454545454545
  z87: 0.4545454545454545 23 - 0.4545454545454545 49 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4508,7 +4707,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999545454545455
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999545454545455
  z88: - 29 + 51 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
    + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
    + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
@@ -4555,7 +4756,8 @@ Subject To
    + 3 lambda[174] + 3 lambda[175] + 3 lambda[176] + 3 lambda[177]
    + 3 lambda[178] + 3 lambda[179] + 3 lambda[180] + 3 lambda[181]
    + 3 lambda[182] + 3 lambda[183] + 3 lambda[184] + 3 lambda[185]
-   + 3 lambda[186] <= 9995
+   + 3 lambda[186] + 3 lambda[187] + 3 lambda[188] + 3 lambda[189]
+   + 3 lambda[190] + 3 lambda[191] + 3 lambda[192] + 3 lambda[193] <= 9995
  z89: 29 - 51 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
    + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
    + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
@@ -4602,7 +4804,9 @@ Subject To
    + 3 lambda[174] + 3 lambda[175] + 3 lambda[176] + 3 lambda[177]
    + 3 lambda[178] + 3 lambda[179] + 3 lambda[180] + 3 lambda[181]
    + 3 lambda[182] + 3 lambda[183] + 3 lambda[184] + 3 lambda[185]
-   + 3 lambda[186] <= 4.999
+   + 3 lambda[186] + 3 lambda[187] + 3 lambda[188] + 3 lambda[189]
+   + 3 lambda[190] + 3 lambda[191] + 3 lambda[192] + 3 lambda[193]
+   <= 4.999
  z90: - 19 + 51 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
    + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
    + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
@@ -4649,7 +4853,8 @@ Subject To
    + 3 lambda[174] + 3 lambda[175] + 3 lambda[176] + 3 lambda[177]
    + 3 lambda[178] + 3 lambda[179] + 3 lambda[180] + 3 lambda[181]
    + 3 lambda[182] + 3 lambda[183] + 3 lambda[184] + 3 lambda[185]
-   + 3 lambda[186] <= 9995
+   + 3 lambda[186] + 3 lambda[187] + 3 lambda[188] + 3 lambda[189]
+   + 3 lambda[190] + 3 lambda[191] + 3 lambda[192] + 3 lambda[193] <= 9995
  z91: 19 - 51 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
    + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
    + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
@@ -4696,7 +4901,9 @@ Subject To
    + 3 lambda[174] + 3 lambda[175] + 3 lambda[176] + 3 lambda[177]
    + 3 lambda[178] + 3 lambda[179] + 3 lambda[180] + 3 lambda[181]
    + 3 lambda[182] + 3 lambda[183] + 3 lambda[184] + 3 lambda[185]
-   + 3 lambda[186] <= 4.999
+   + 3 lambda[186] + 3 lambda[187] + 3 lambda[188] + 3 lambda[189]
+   + 3 lambda[190] + 3 lambda[191] + 3 lambda[192] + 3 lambda[193]
+   <= 4.999
  z92: - 9 + 51 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
    + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
    + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
@@ -4743,7 +4950,8 @@ Subject To
    + 3 lambda[174] + 3 lambda[175] + 3 lambda[176] + 3 lambda[177]
    + 3 lambda[178] + 3 lambda[179] + 3 lambda[180] + 3 lambda[181]
    + 3 lambda[182] + 3 lambda[183] + 3 lambda[184] + 3 lambda[185]
-   + 3 lambda[186] <= 9995
+   + 3 lambda[186] + 3 lambda[187] + 3 lambda[188] + 3 lambda[189]
+   + 3 lambda[190] + 3 lambda[191] + 3 lambda[192] + 3 lambda[193] <= 9995
  z93: 9 - 51 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
    + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
    + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
@@ -4790,7 +4998,9 @@ Subject To
    + 3 lambda[174] + 3 lambda[175] + 3 lambda[176] + 3 lambda[177]
    + 3 lambda[178] + 3 lambda[179] + 3 lambda[180] + 3 lambda[181]
    + 3 lambda[182] + 3 lambda[183] + 3 lambda[184] + 3 lambda[185]
-   + 3 lambda[186] <= 4.999
+   + 3 lambda[186] + 3 lambda[187] + 3 lambda[188] + 3 lambda[189]
+   + 3 lambda[190] + 3 lambda[191] + 3 lambda[192] + 3 lambda[193]
+   <= 4.999
  z94: - 0.4166666666666666 45 + 0.4166666666666666 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4837,7 +5047,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4171.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4171.666666666666
  z95: 0.4166666666666666 45 - 0.4166666666666666 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4884,7 +5096,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000416666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 1.734081124274644 lambda[187] + 2.288569600051201 lambda[188]
+   + 2.68152772148924 lambda[189] + 2.674118813294066 lambda[190]
+   + 2.027733578347017 lambda[191] + 2.31807579201871 lambda[192]
+   + 2.096142380148396 lambda[193] <= -5.000416666666666
  z96: - 0.4166666666666666 29 + 0.4166666666666666 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4931,7 +5147,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4171.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4171.666666666666
  z97: 0.4166666666666666 29 - 0.4166666666666666 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -4978,7 +5196,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000416666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000416666666666
  z98: - 0.1923076923076923 15 + 0.1923076923076923 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5025,7 +5245,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1928.076923076923
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1928.076923076923
  z99: 0.1923076923076923 15 - 0.1923076923076923 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5072,7 +5294,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000192307692307
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000192307692307
  z100: - 0.2777777777777778 1 + 0.2777777777777778 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5119,7 +5343,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2782.777777777778
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2782.777777777778
  z101: 0.2777777777777778 1 - 0.2777777777777778 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5166,7 +5392,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000277777777779
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000277777777779
  z102: - 0.1666666666666667 37 + 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5213,7 +5441,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z103: 0.1666666666666667 37 - 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5260,7 +5490,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z104: - 0.1666666666666667 17 + 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5307,7 +5539,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z105: 0.1666666666666667 17 - 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5354,7 +5588,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z106: - 0.1666666666666667 3 + 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5401,7 +5637,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z107: 0.1666666666666667 3 - 0.1666666666666667 53 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5448,7 +5686,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z108: - 0.4545454545454545 49 + 0.4545454545454545 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5495,7 +5735,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4550.454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4550.454545454545
  z109: 0.4545454545454545 49 - 0.4545454545454545 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5542,7 +5784,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000454545454545
  z110: - 0.1666666666666667 53 + 0.1666666666666667 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5589,7 +5833,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z111: 0.1666666666666667 53 - 0.1666666666666667 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5636,7 +5882,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000166666666667
  z112: - 0.4545454545454545 35 + 0.4545454545454545 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5683,7 +5933,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4550.454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4550.454545454545
  z113: 0.4545454545454545 35 - 0.4545454545454545 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5730,7 +5982,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000454545454545
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000454545454545
  z114: - 0.3846153846153846 23 + 0.3846153846153846 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5777,7 +6031,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 3851.153846153846
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 3851.153846153846
  z115: 0.3846153846153846 23 - 0.3846153846153846 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5824,7 +6080,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000384615384615
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000384615384615
  z116: - 0.1666666666666667 53 + 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5871,7 +6129,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z117: 0.1666666666666667 53 - 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5918,7 +6178,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 1.241634046179771 lambda[189] + 1.988550936392257 lambda[190]
+   + 2.171500323491556 lambda[191] + 2.394417771903748 lambda[192]
+   + 2.791709065170641 lambda[193] <= -5.000166666666667
  z118: - 0.1666666666666667 37 + 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -5965,7 +6229,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z119: 0.1666666666666667 37 - 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6012,7 +6278,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z120: - 0.1666666666666667 17 + 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6059,7 +6327,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z121: 0.1666666666666667 17 - 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6106,7 +6376,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z122: - 0.1666666666666667 3 + 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6153,7 +6425,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z123: 0.1666666666666667 3 - 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6200,7 +6474,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z124: - 0.2083333333333333 47 + 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6247,7 +6523,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2078.333333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2078.333333333333
  z125: 0.2083333333333333 47 - 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6294,7 +6572,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999791666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999791666666666
  z126: - 0.2083333333333333 45 + 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6341,7 +6621,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2078.333333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2078.333333333333
  z127: 0.2083333333333333 45 - 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6388,7 +6670,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999791666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999791666666666
  z128: - 0.2083333333333333 29 + 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6435,7 +6719,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2078.333333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2078.333333333333
  z129: 0.2083333333333333 29 - 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6482,7 +6768,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999791666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999791666666666
  z130: - 0.2083333333333333 15 + 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6529,7 +6817,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2078.333333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2078.333333333333
  z131: 0.2083333333333333 15 - 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6576,7 +6866,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999791666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999791666666666
  z132: - 0.2083333333333333 1 + 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6623,7 +6915,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2078.333333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2078.333333333333
  z133: 0.2083333333333333 1 - 0.2083333333333333 57 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6670,7 +6964,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999791666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999791666666666
  z134: - 0.2083333333333333 57 + 0.2083333333333333 63 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6717,7 +7013,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2088.333333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2088.333333333333
  z135: 0.2083333333333333 57 - 0.2083333333333333 63 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6764,7 +7062,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000208333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 3.245918271235479 lambda[189] + 3.374443378752886 lambda[190]
+   + 3.381810570882023 lambda[191] + 3.415780405377089 lambda[192]
+   + 3.421754340731912 lambda[193] <= -5.000208333333333
  z136: - 0.4166666666666666 29 + 0.4166666666666666 63 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6811,7 +7113,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4171.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4171.666666666666
  z137: 0.4166666666666666 29 - 0.4166666666666666 63 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6858,7 +7162,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000416666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000416666666666
  z138: - 0.2083333333333333 57 + 0.2083333333333333 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6905,7 +7211,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2088.333333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2088.333333333333
  z139: 0.2083333333333333 57 - 0.2083333333333333 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6952,7 +7260,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000208333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 1.316424725130895 lambda[187] + 1.969369397171298 lambda[188]
+   + 2.427238050720293 lambda[189] + 2.405600945550836 lambda[190]
+   + 1.667342436097816 lambda[191] + 2.010123327656671 lambda[192]
+   + 1.744492478771558 lambda[193] <= -5.000208333333333
  z140: - 0.4166666666666666 45 + 0.4166666666666666 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -6999,7 +7311,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4171.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4171.666666666666
  z141: 0.4166666666666666 45 - 0.4166666666666666 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7046,7 +7360,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000416666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000416666666666
  z142: - 0.1923076923076923 15 + 0.1923076923076923 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7093,7 +7409,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1928.076923076923
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1928.076923076923
  z143: 0.1923076923076923 15 - 0.1923076923076923 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7140,7 +7458,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000192307692307
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000192307692307
  z144: - 0.2777777777777778 1 + 0.2777777777777778 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7187,7 +7507,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2782.777777777778
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2782.777777777778
  z145: 0.2777777777777778 1 - 0.2777777777777778 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7234,7 +7556,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000277777777779
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000277777777779
  z146: - 0.2777777777777778 49 + 0.2777777777777778 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7281,7 +7605,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2772.777777777778
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2772.777777777778
  z147: 0.2777777777777778 49 - 0.2777777777777778 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7328,7 +7654,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999722222222222
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999722222222222
  z148: - 0.2777777777777778 35 + 0.2777777777777778 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7375,7 +7703,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2772.777777777778
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2772.777777777778
  z149: 0.2777777777777778 35 - 0.2777777777777778 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7422,7 +7752,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999722222222222
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999722222222222
  z150: - 0.2777777777777778 23 + 0.2777777777777778 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7469,7 +7801,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2772.777777777778
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2772.777777777778
  z151: 0.2777777777777778 23 - 0.2777777777777778 59 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7516,7 +7850,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999722222222222
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999722222222222
  z152: - 0.1666666666666667 53 + 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7563,7 +7899,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z153: 0.1666666666666667 53 - 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7610,7 +7948,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z154: - 0.1666666666666667 37 + 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7657,7 +7997,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z155: 0.1666666666666667 37 - 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7704,7 +8046,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z156: - 0.1666666666666667 17 + 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7751,7 +8095,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z157: 0.1666666666666667 17 - 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7798,7 +8144,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z158: - 0.1666666666666667 3 + 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7845,7 +8193,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z159: 0.1666666666666667 3 - 0.1666666666666667 61 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7892,7 +8242,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z160: - 0.1666666666666667 61 + 0.1666666666666667 67 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7939,7 +8291,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z161: 0.1666666666666667 61 - 0.1666666666666667 67 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -7986,7 +8340,11 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 3.180083179293724 lambda[187] + 3.277681403880071 lambda[188]
+   + 1.241634046179771 lambda[189] + 1.988550936392257 lambda[190]
+   + 2.171500323491556 lambda[191] + 2.394417771903748 lambda[192]
+   + 2.791709065170641 lambda[193] <= -5.000166666666667
  z162: - 0.1666666666666667 57 + 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8033,7 +8391,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z163: 0.1666666666666667 57 - 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8080,7 +8440,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z164: - 0.1666666666666667 55 + 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8127,7 +8489,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z165: 0.1666666666666667 55 - 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8174,7 +8538,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z166: - 0.1666666666666667 45 + 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8221,7 +8587,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z167: 0.1666666666666667 45 - 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8268,7 +8636,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z168: - 0.1666666666666667 27 + 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8315,7 +8685,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z169: 0.1666666666666667 27 - 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8362,7 +8734,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z170: - 0.1666666666666667 15 + 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8409,7 +8783,9 @@ Subject To
    + 3 lambda[172] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z171: 0.1666666666666667 15 - 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8456,7 +8832,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[173] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z172: - 0.1666666666666667 1 + 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8503,7 +8881,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[174] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1661.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1661.666666666667
  z173: 0.1666666666666667 1 - 0.1666666666666667 65 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8550,7 +8930,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[175]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4.999833333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4.999833333333333
  z174: - 0.1666666666666667 65 + 0.1666666666666667 69 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8597,7 +8979,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[176] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z175: 0.1666666666666667 65 - 0.1666666666666667 69 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8644,7 +9028,11 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[177] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186]
+   + 1.141412864719918 lambda[187] + 1.851206612217255 lambda[188]
+   + 2.333179579844115 lambda[189] + 2.311685897625847 lambda[190]
+   + 1.535525573800993 lambda[191] + 1.887022978439299 lambda[192]
+   + 1.592823985947829 lambda[193] <= -5.000166666666667
  z176: - 0.2083333333333333 57 + 0.2083333333333333 71 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8691,7 +9079,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[176] + 3 lambda[178] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 2088.333333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2088.333333333333
  z177: 0.2083333333333333 57 - 0.2083333333333333 71 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8738,7 +9128,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[176] + 3 lambda[177] + 3 lambda[179]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000208333333333
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000208333333333
  z178: - 0.4166666666666666 29 + 0.4166666666666666 71 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8785,7 +9177,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[176] + 3 lambda[177] + 3 lambda[178]
    + 3 lambda[180] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 4171.666666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 4171.666666666666
  z179: 0.4166666666666666 29 - 0.4166666666666666 71 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8832,7 +9226,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[176] + 3 lambda[177] + 3 lambda[178]
    + 3 lambda[179] + 3 lambda[181] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000416666666666
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000416666666666
  z180: - 0.1666666666666667 65 + 0.1666666666666667 73 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8879,7 +9275,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[176] + 3 lambda[177] + 3 lambda[178]
    + 3 lambda[179] + 3 lambda[180] + 3 lambda[182] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= 1671.666666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 1671.666666666667
  z181: 0.1666666666666667 65 - 0.1666666666666667 73 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -8926,7 +9324,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[176] + 3 lambda[177] + 3 lambda[178]
    + 3 lambda[179] + 3 lambda[180] + 3 lambda[181] + 3 lambda[183]
-   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] <= -5.000166666666667
+   + 3 lambda[184] + 3 lambda[185] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000166666666667
  z182: - 51 + 75 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
    + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
    + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
@@ -8973,7 +9373,9 @@ Subject To
    + 3 lambda[173] + 3 lambda[174] + 3 lambda[175] + 3 lambda[176]
    + 3 lambda[177] + 3 lambda[178] + 3 lambda[179] + 3 lambda[180]
    + 3 lambda[181] + 3 lambda[182] + 3 lambda[184] + 3 lambda[185]
-   + 3 lambda[186] <= 10005
+   + 3 lambda[186] + 3 lambda[187] + 3 lambda[188] + 3 lambda[189]
+   + 3 lambda[190] + 3 lambda[191] + 3 lambda[192] + 3 lambda[193]
+   <= 10005
  z183: 51 - 75 + 3 lambda[0] + 3 lambda[1] + 3 lambda[2] + 3 lambda[3]
    + 3 lambda[4] + 3 lambda[5] + 3 lambda[6] + 3 lambda[7] + 3 lambda[8]
    + 3 lambda[9] + 3 lambda[10] + 3 lambda[11] + 3 lambda[12]
@@ -9020,7 +9422,9 @@ Subject To
    + 3 lambda[173] + 3 lambda[174] + 3 lambda[175] + 3 lambda[176]
    + 3 lambda[177] + 3 lambda[178] + 3 lambda[179] + 3 lambda[180]
    + 3 lambda[181] + 3 lambda[182] + 3 lambda[183] + 3 lambda[185]
-   + 3 lambda[186] <= -5.001
+   + 3 lambda[186] + 3 lambda[187] + 3 lambda[188] + 3 lambda[189]
+   + 3 lambda[190] + 3 lambda[191] + 3 lambda[192] + 3 lambda[193]
+   <= -5.001
  z184: - 0.2777777777777778 59 + 0.2777777777777778 75 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -9067,7 +9471,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[176] + 3 lambda[177] + 3 lambda[178]
    + 3 lambda[179] + 3 lambda[180] + 3 lambda[181] + 3 lambda[182]
-   + 3 lambda[183] + 3 lambda[184] + 3 lambda[186] <= 2782.777777777778
+   + 3 lambda[183] + 3 lambda[184] + 3 lambda[186] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= 2782.777777777778
  z185: 0.2777777777777778 59 - 0.2777777777777778 75 + 3 lambda[0]
    + 3 lambda[1] + 3 lambda[2] + 3 lambda[3] + 3 lambda[4] + 3 lambda[5]
    + 3 lambda[6] + 3 lambda[7] + 3 lambda[8] + 3 lambda[9] + 3 lambda[10]
@@ -9114,7 +9520,9 @@ Subject To
    + 3 lambda[171] + 3 lambda[172] + 3 lambda[173] + 3 lambda[174]
    + 3 lambda[175] + 3 lambda[176] + 3 lambda[177] + 3 lambda[178]
    + 3 lambda[179] + 3 lambda[180] + 3 lambda[181] + 3 lambda[182]
-   + 3 lambda[183] + 3 lambda[184] + 3 lambda[185] <= -5.000277777777779
+   + 3 lambda[183] + 3 lambda[184] + 3 lambda[185] + 3 lambda[187]
+   + 3 lambda[188] + 3 lambda[189] + 3 lambda[190] + 3 lambda[191]
+   + 3 lambda[192] + 3 lambda[193] <= -5.000277777777779
  cc: 0.0486620475385675 lambda[0] + 0.7418092280985128 lambda[1]
    + 0.7418092280985128 lambda[2] + 0.7418092280985128 lambda[3]
    + 0.7418092280985128 lambda[4] + 0.7418092280985128 lambda[5]
@@ -9208,7 +9616,11 @@ Subject To
    + 0.7418092280985128 lambda[180] + 0.7418092280985128 lambda[181]
    + 0.7418092280985128 lambda[182] + 0.7418092280985128 lambda[183]
    + 0.7418092280985128 lambda[184] + 0.7418092280985128 lambda[185]
-   + 0.7418092280985128 lambda[186] <= 0.2231435513142097
+   + 0.7418092280985128 lambda[186] + 0.6265703202511358 lambda[187]
+   + 0.1844655239533708 lambda[188] + 0.6631560790942593 lambda[189]
+   + 0.198722412267174 lambda[190] + 0.3993139746992432 lambda[191]
+   + 0.200818701784694 lambda[192] + 0.2980237621256683 lambda[193]
+   <= 0.2231435513142097
  x0: 0 = 0
  sum_lam: lambda[0] + lambda[1] + lambda[2] + lambda[3] + lambda[4]
    + lambda[5] + lambda[6] + lambda[7] + lambda[8] + lambda[9] + lambda[10]
@@ -9247,7 +9659,8 @@ Subject To
    + lambda[171] + lambda[172] + lambda[173] + lambda[174] + lambda[175]
    + lambda[176] + lambda[177] + lambda[178] + lambda[179] + lambda[180]
    + lambda[181] + lambda[182] + lambda[183] + lambda[184] + lambda[185]
-   + lambda[186] = 1
+   + lambda[186] + lambda[187] + lambda[188] + lambda[189] + lambda[190]
+   + lambda[191] + lambda[192] + lambda[193] = 1
  R559: 0.0486620475385675 lambda[0] + 0.7418092280985128 lambda[1]
    + 0.7418092280985128 lambda[2] + 0.7418092280985128 lambda[3]
    + 0.7418092280985128 lambda[4] + 0.7418092280985128 lambda[5]
@@ -9341,6 +9754,10 @@ Subject To
    + 0.7418092280985128 lambda[180] + 0.7418092280985128 lambda[181]
    + 0.7418092280985128 lambda[182] + 0.7418092280985128 lambda[183]
    + 0.7418092280985128 lambda[184] + 0.7418092280985128 lambda[185]
-   + 0.7418092280985128 lambda[186] - phi[0] = 0
+   + 0.7418092280985128 lambda[186] + 0.6265703202511358 lambda[187]
+   + 0.1844655239533708 lambda[188] + 0.6631560790942593 lambda[189]
+   + 0.198722412267174 lambda[190] + 0.3993139746992432 lambda[191]
+   + 0.200818701784694 lambda[192] + 0.2980237621256683 lambda[193]
+   - phi[0] = 0
 Bounds
 End

@@ -24,7 +24,9 @@ class JCCP(object):
                                 u: Z @ lambda - T @ x <= q, v: phi^T @ lambda, nu: 1^T @ lambda = 1, mu: A @ x <= b
                 cbasis:         numpy Gurobi attribute class associated with current master problem: 
                                 https://www.gurobi.com/documentation/9.5/refman/cbasis.html
-                probability:    float: probability of success for current iteration of master problem
+                solved:         bool True if solution is optimal else False
+                solution:       dictionary {variable name: value,..,objective: objective value}
+                solution_time:  float time taken to reach solution
     """
     def __init__(self, A, vars, b, c, T, q, mean, cov, alpha):
         self.A = A
@@ -55,6 +57,9 @@ class JCCP(object):
     def getDuals(self):
         # Returns a copy of the dual variable dictionary
         return copy.deepcopy(self.duals)
+    
+    def getSolution(self):
+        return self.solution
 
     def setDuals(self, duals):
         # Sets duals based on current solution to master problem
@@ -88,16 +93,21 @@ class JCCP(object):
     def setSolved(self, status):
         self.status = status
     
-    def addSolution(self, solution):
-        self.solution.append(solution)
+    # Takes a Gurobi model and adds a solution containing variable and objective values.
+    def addSolution(self, model):
+        solution = {}
+        for v in model.getVars():
+            solution[v.varName] = v.x
+        solution["Objective"] = model.objVal
+        self.solution = solution
     
     def setSolutionTime(self, time):
         self.solution_time = time
     
     def getCurrentProbability(self):
-        for v in self.solution[-1].getVars():
-            if "phi" in v.VarName:
-                return exp(-v.x)
+        for key in self.solution.keys():
+            if "phi" == key:
+                return exp(-self.solution[key])
     
 
 

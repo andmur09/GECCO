@@ -20,22 +20,26 @@ def main():
     ####################################################################
     ## ----------------------For woodworking cases--------------------##
     ####################################################################
-    woodworking_path = "pstns/results/woodworking"
+    woodworking_path = "results"
     woodworking_files = sorted(os.listdir(woodworking_path))
-    woodworking_sol = [f for f in woodworking_files if f[-3:] not in ["sol", "ilp", "mps"]]
+    print(woodworking_files)
+    #woodworking_sol = [f for f in woodworking_files if f[-3:] not in ["sol", "ilp", "mps"]]
     
-    for i in woodworking_sol:
+    for i in woodworking_files:
+        print(i)
         with open(woodworking_path + "/" + i, "rb") as f:
             instance = pkl.load(f)
-            pstn, result = instance["PSTN"], instance["Result"]
-            for k in result:
-                result[k]["Probability"] = mc.monte_carlo_success(pstn, result[k]["Schedule"], result[k]["Relaxations"], 1000)
-            risk = [1 - result[k]["Probability"] for k in result]
-            booles = [result[k]["Risk"] for k in result]
-            print(risk)
-            cost = [result[k]["Cost"] for k in result]
-            plot_pareto(booles, cost, "Booles Risk", "Cost", "Booles_vs_Cost")
-            plot_pareto(risk, cost, "Monte-Carlo Risk", "Cost", "Risk_vs_Cost")
+            print(instance)
+            print(instance["Schedule"])
+         #   pstn, result = instance["PSTN"], instance["Result"]
+         #   for k in result:
+         #       result[k]["Probability"] = mc.monte_carlo_success(pstn, result[k]["Schedule"], result[k]["Relaxations"], 1000)
+         #   risk = [1 - result[k]["Probability"] for k in result]
+          #  booles = [result[k]["Risk"] for k in result]
+          #  print(risk)
+          #  cost = [result[k]["Cost"] for k in result]
+          #  plot_pareto(booles, cost, "Booles Risk", "Cost", "Booles_vs_Cost")
+          #  plot_pareto(risk, cost, "Monte-Carlo Risk", "Cost", "Risk_vs_Cost")
 
 
     

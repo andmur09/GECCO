@@ -162,11 +162,11 @@ def Initialise(JCCP, box = 3):
     m.update()
     m.optimize()
     # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
-    if m.status == GRB.OPTIMAL:
-        print('\n objective: ', m.objVal)
-        print('\n Vars:')
-        for v in m.getVars():
-            print("Variable {}: ".format(v.varName) + str(v.x))
+    #if m.status == GRB.OPTIMAL:
+        #print('\n objective: ', m.objVal)
+        #print('\n Vars:')
+        #for v in m.getVars():
+         #   print("Variable {}: ".format(v.varName) + str(v.x))
     z_ = np.array(z.x)
 
     # Checks to see whether solution to z satisfies the chance constraint
@@ -189,7 +189,7 @@ def Initialise(JCCP, box = 3):
     JCCP.setPhi(np.array(phi))
     return m
 
-@timeout(30)
+#@timeout(30)
 def masterProblem(JCCP):
     '''
     Description:    Solves the restricted master problem:
@@ -227,11 +227,11 @@ def masterProblem(JCCP):
     m.optimize()
 
     # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
-    if m.status == GRB.OPTIMAL:
-        print('\n objective: ', m.objVal)
-        print('\n Vars:')
-        for v in m.getVars():
-            print("Variable {}: ".format(v.varName) + str(v.x))
+    #if m.status == GRB.OPTIMAL:
+        #print('\n objective: ', m.objVal)
+        #print('\n Vars:')
+        #for v in m.getVars():
+        #    print("Variable {}: ".format(v.varName) + str(v.x))
     m.write("convex.sol")
 
     # Queries Gurobi to get values of dual variables and cbasis
@@ -255,7 +255,7 @@ def masterProblem(JCCP):
     # Sets the dual values and cbasis within the instance of JCCP to the optimal value for the current iteration
     JCCP.setDuals({"u": u, "v": v, "nu": nu, "mu": mu})
     JCCP.setCbasis(np.array(cb))
-    print("New Dual Variables added: ", JCCP.duals)
+    #print("New Dual Variables added: ", JCCP.duals)
 
     # Gets values for variables lambda and evaluates current value of sum_{i=0}^k{lambda^i z^i} and sum(i=0)^k{lambda^i phi^i}
     lam_sol = np.array(lam.x)
@@ -264,7 +264,7 @@ def masterProblem(JCCP):
     # G
     return (m, np.c_[z_sol], phi_sol)
 
-def columnGeneration(z, JCCP, iterations = 20, epsilon = 0.5):
+def columnGeneration(z, JCCP, iterations = 20, epsilon = 0.5, lb == False):
     '''
     Description:    Solves the column generaion problem (below) via gradient descent with backtracking line search:
 
@@ -296,35 +296,35 @@ def columnGeneration(z, JCCP, iterations = 20, epsilon = 0.5):
             dualf(z-t*grad)
         except ValueError:
             t *= beta
-        print("\nBACKTRACKING BEGINS HERE")
-        print("LHS = ", dualf(z-t*grad), "RHS = ", dualf(z) - alpha * t * np.dot(gradf(z), gradf(z)), "t = ", t)
+        #print("\nBACKTRACKING BEGINS HERE")
+        #print("LHS = ", dualf(z-t*grad), "RHS = ", dualf(z) - alpha * t * np.dot(gradf(z), gradf(z)), "t = ", t)
         while dualf(z-t*grad) > dual - alpha * t * np.dot(gradf(z), gradf(z)):
             t *= beta
-            print("LHS = ", dualf(z-t*grad), "RHS = ", dualf(z) - alpha * t * np.dot(gradf(z), gradf(z)), "t = ", t)
-        print("BACKTRACKING ENDS HERE")
+            #print("LHS = ", dualf(z-t*grad), "RHS = ", dualf(z) - alpha * t * np.dot(gradf(z), gradf(z)), "t = ", t)
+        #print("BACKTRACKING ENDS HERE")
         return t
     
     # Initialises values for the function and gradient.
     dual, grad = dualf(z), gradf(z)
-    print("\nITERATION NUMBER: 0")
-    print("z = ", z)
-    print("Prob = ", fn.prob(z, mean, cov))
-    print("Grad = ", grad)
-    print("Function value = ", dual)
-    print("Reduced cost = ", -dual)
+    #print("\nITERATION NUMBER: 0")
+    #print("z = ", z)
+    #print("Prob = ", fn.prob(z, mean, cov))
+    #print("Grad = ", grad)
+    #print("Function value = ", dual)
+    #print("Reduced cost = ", -dual)
     # Calculates step size using backtracking lnie search and performs gradient descent iterations until the number of iterations limit
     # is reached or the gradient is within an allowable tolerance.
     for i in range(1,iterations+1):
         t = backtracking(z, grad)
         z = z - t * grad
         dual, grad = dualf(z), gradf(z)
-        print("\nITERATION NUMBER: {}".format(i))
-        print("z = ", z)
-        print("Prob = ", norm(mean, cov, allow_singular=True).cdf(z))
-        print("Grad = ", grad)
-        print("Function value = ", dual)
-        print("Reduced cost = ", -dual)
-        print("Grad^2 = ", grad.transpose() @ grad)
+        #print("\nITERATION NUMBER: {}".format(i))
+        #print("z = ", z)
+        #print("Prob = ", norm(mean, cov, allow_singular=True).cdf(z))
+        #print("Grad = ", grad)
+        #print("Function value = ", dual)
+        #print("Reduced cost = ", -dual)
+        #print("Grad^2 = ", grad.transpose() @ grad)
         if grad.transpose() @ grad < epsilon:
             return np.c_[z]
     raise StopIteration("Gradient descent maximum iterations exceeded.")
@@ -342,6 +342,7 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, max_iterations = 100, iterations_
     Output:         m:          An instance of the Gurobi model class which solves the joint chance constrained PSTN
     '''
     n_iterations = 0
+    calculate_lower_bound = False
     if log == True:
         saved_stdout = sys.stdout
         sys.stdout = open("logs/log_{}.txt".format(PSTN.name), "w+")
@@ -358,40 +359,44 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, max_iterations = 100, iterations_
     k = len(problem.phi)
 
     # Solves the master problem
-    print("\nSolving master problem with {} approximation points".format(k))
+    #print("\nSolving master problem with {} approximation points".format(k))
     m, z_m, phi_m = masterProblem(problem)
     problem.addSolution(m)
-    print("\nCurrent z points are: ", problem.z)
-    print("Current objective is: ", m.objVal)
+    #print("\nCurrent z points are: ", problem.z)
+    #print("Current objective is: ", m.objVal)
 
     # Solves the column generation problem
-    print("\nSolving Column Generation")
+    #print("\nSolving Column Generation")
     z_d = columnGeneration(z_m, problem, iterations=iterations_grad_descent)
     rho = problem.reducedCost(z_d)
-    print("\nNew approximation point found: ", z_d)
-    print("Reduced cost is: ", rho)
+    #print("\nNew approximation point found: ", z_d)
+    #print("Reduced cost is: ", rho)
 
     # Calculates optimality gap
     UB = m.objVal
-    LB = m.objVal - rho
+    LB = -inf
     
     # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
     while (UB - LB)/LB > epsilon and rho >= 0 and n_iterations <= max_iterations:
         n_iterations += 1
         k += 1
         problem.addColumn(z_d)
-        print("\nSolving master problem with {} approximation points".format(k))
+        #print("\nSolving master problem with {} approximation points".format(k))
         m, z_m, phi_m = masterProblem(problem)
         problem.addSolution(m)
-        print("\nCurrent z points are: ", problem.z)
-        print("Current objective is: ", m.objVal)
+        #print("\nCurrent z points are: ", problem.z)
+        #print("Current objective is: ", m.objVal)
 
-        print("\nSolving Column Generation")
-        z_d = columnGeneration(z_m, problem)
+        #print("\nSolving Column Generation")
+        z_d = columnGeneration(z_m, problem, lb = calculate_lower_bound)
+        calculate_lower_bound = False
         rho = problem.reducedCost(z_d)
-        print("\nNew approximation point found: ", z_d)
-        print("Reduced cost is: ", rho)
-        UB = m.objVal
+        #print("\nNew approximation point found: ", z_d)
+        #print("Reduced cost is: ", rho)
+        UB_temp = m.objVal
+        if (UB_temp - UB)/UB <= 0.01:
+            calculate_lower_bound = True
+        Ub = UB_temp
         LB_k = m.objVal - rho
         LB = max(LB, LB_k)
     end = time.time()
@@ -399,14 +404,14 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, max_iterations = 100, iterations_
     if n_iterations <= max_iterations:
         problem.setSolved(True)
     problem.setSolutionTime(solution_time)
-    print("\nFinal solution found: ")
-    print("Solution time: ", solution_time)
-    print("Optimality gap is: ", (UB - LB)/LB*100)
-    print("Final Probability is: ", problem.getCurrentProbability())
-    print('Objective: ', m.objVal)
-    print('Vars:')
-    for v in m.getVars():
-        print("Variable {}: ".format(v.varName) + str(v.x))
+    #print("\nFinal solution found: ")
+    #print("Solution time: ", solution_time)
+    #print("Optimality gap is: ", (UB - LB)/LB*100)
+    #print("Final Probability is: ", problem.getCurrentProbability())
+    #print('Objective: ', m.objVal)
+    #print('Vars:')
+    #for v in m.getVars():
+        #print("Variable {}: ".format(v.varName) + str(v.x))
     if log == True:
         sys.stdout.close()
         sys.stdout = saved_stdout

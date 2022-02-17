@@ -4,6 +4,7 @@ Created on Thu Sep  2 23:06:10 2021
 
 @author: kpb20194
 """
+from tkinter import FALSE
 import gurobipy as gp
 from scipy.stats.stats import weightedtau
 from scipy.stats import multivariate_normal
@@ -15,7 +16,7 @@ import numpy as np
 import sys
 import convex
 import monte_carlo as mc
-
+import dill
 
 inf = 10000
 
@@ -110,7 +111,7 @@ def main():
     woodworking_path = "pstns/problems/woodworking"
     woodworking_files = sorted(os.listdir(woodworking_path))
     woodworking = []
-    for i in range(len(woodworking_files)-1, len(woodworking_files)):
+    for i in range(len(woodworking_files)):
         with open(woodworking_path + "/" + woodworking_files[i], "rb") as f:
             problem = pkl.load(f)
             woodworking.append(problem)
@@ -124,20 +125,19 @@ def main():
     #         elevators.append(problem)
 
     for i in range(len(woodworking)):
-        print("Solving: ", woodworking[i].name)
-        #if i == 0:
-        #woodworking[i].plot()
+        print("\nSOLVING: ", woodworking[i].name, "\n")
         tosave = {}
         try:
-            m, results = convex.solveJCCP(woodworking[i], 0.2, 0.05, log=True)
+            m, results = convex.solveJCCP(woodworking[i], 0.2, 0.05, log=False)
+            print("SOLVED: ", woodworking[i].name, "\n")
             schedule = getSchedule(woodworking[i], m)
             relaxations = getRelaxations(woodworking[i], m)
             tosave["PSTN"] = woodworking[i]
-            tosave["Model"] = m
             tosave["JCCP"] = results
             tosave["Schedule"] = schedule
             tosave["Relaxations"] = relaxations
-            with open("results/{}".format(woodworking[i].name), "wb+") as f:
+            #print(dill.detect.baditems(tosave))
+            with open("results/{}".format(woodworking[i].name), "wb") as f:
                 pkl.dump(tosave, f)
         except:
             continue
