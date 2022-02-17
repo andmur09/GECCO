@@ -16,7 +16,7 @@ import numpy as np
 import sys
 import convex
 import monte_carlo as mc
-import dill
+#import dill
 
 inf = 10000
 
@@ -124,11 +124,11 @@ def main():
     #         problem = pkl.load(f)
     #         elevators.append(problem)
 
-    for i in range(17, len(woodworking_files)):
+    for i in range(len(woodworking)):
         print("\nSOLVING: ", woodworking[i].name, "\n")
         tosave = {}
         try:
-            m, results = convex.solveJCCP(woodworking[i], 0.2, 0.05, log=True)
+            m, results = convex.solveJCCP2(woodworking[i], 0.2, 0.05, log=True)
             print("SOLVED: ", woodworking[i].name, "\n")
             schedule = getSchedule(woodworking[i], m)
             relaxations = getRelaxations(woodworking[i], m)
@@ -152,7 +152,7 @@ def main():
     #     with open("pstns/results/elevators/{}".format(instance.name), "wb") as f:
     #         pkl.dump(result, f)
 
-    #print("Finished")
+    print("Finished")
 
 if __name__ == "__main__":
     main()
