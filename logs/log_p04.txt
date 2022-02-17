@@ -196,29 +196,38 @@ Current z points are:  [[3. 0. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3.]
 Current objective is:  48.417907776017685
 
 Solving Column Generation
+Time taken:  0.28754663467407227
 
-ITERATION NUMBER: 0
-z =  [3.         2.06931796 3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
-Grad =  [-0.          4.76010386 -0.         -0.         -0.          5.8849115  -0.         -0.         -0.         -0.         -0.         -0.         -0.          5.8849115 ]
-Function value =  -5.113545689243907
-Reduced cost =  5.113545689243907
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         0.11957942 3.         3.         3.         0.58954025 3.         3.         3.         3.         3.         3.         3.         0.58954025]
-Grad =  [ -0.         -12.77988527  -0.          -0.          -0.          -6.04582108  -0.          -0.          -0.          -0.          -0.          -0.          -0.          -6.04582108]
-Function value =  -13.71907409354089
-Reduced cost =  13.71907409354089
-Grad^2 =  236.42937250254045
+       fun: -22.977437192066763
+ hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.31794533,  0.        ,  0.        ,  0.        ,  0.01051682,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.01051682],
+       [ 0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.01051682,  0.        ,  0.        ,  0.        ,  0.65331065,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        , -0.34668935],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ],
+       [ 0.        ,  0.01051682,  0.        ,  0.        ,  0.        , -0.34668935,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.65331065]])
+      jac: array([-0.        ,  0.26641319, -0.        , -0.        , -0.        ,  0.15832243, -0.        , -0.        , -0.        , -0.        , -0.        , -0.        , -0.        ,  0.15832243])
+  message: 'Optimization terminated successfully.'
+     nfev: 6
+      nit: 3
+     njev: 6
+   status: 0
+  success: True
+        x: array([3.        , 1.1948338 , 3.        , 3.        , 3.        , 1.18160376, 3.        , 3.        , 3.        , 3.        , 3.        , 3.        , 3.        , 1.18160376])
 
 New approximation point found:  [[3.        ]
- [0.11957942]
+ [1.1948338 ]
  [3.        ]
  [3.        ]
  [3.        ]
- [0.58954025]
+ [1.18160376]
  [3.        ]
  [3.        ]
  [3.        ]
@@ -226,15 +235,15 @@ New approximation point found:  [[3.        ]
  [3.        ]
  [3.        ]
  [3.        ]
- [0.58954025]]
-Reduced cost is:  [[13.71907409]]
-LB =  0.01 UB =  48.417907776017685
+ [1.18160376]]
+Reduced cost is:  [[22.97743719]]
+LB =  [[24.94047058]] UB =  48.417907776017685
 
 Solving master problem with 16 approximation points
 Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
 Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 76 rows, 32 columns and 406 nonzeros
-Model fingerprint: 0x3a9ccdb3
+Model fingerprint: 0xdd366638
 Coefficient statistics:
   Matrix range     [8e-03, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -246,12 +255,12 @@ Presolved: 27 rows, 35 columns, 302 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
        0    0.0000000e+00   3.418758e+00   0.000000e+00      0s
-      13    4.6059920e+01   0.000000e+00   0.000000e+00      0s
+      12    3.5155147e+01   0.000000e+00   0.000000e+00      0s
 
-Solved in 13 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  4.605992033e+01
+Solved in 12 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  3.515514663e+01
 
- objective:  46.05992032547583
+ objective:  35.155146630679155
 
  Vars:
 Variable 0: 0.0
@@ -260,16 +269,16 @@ Variable 3: 0.001
 Variable 4: 30.001
 Variable 5: 30.002000000000002
 Variable 6: 40.002
-Variable 7: 45.0315390802964
+Variable 7: 41.750261490347754
 Variable 9: 40.003
 Variable 10: 50.003
 Variable 11: 50.004
 Variable 12: 60.004
-Variable 13: 90.54672970288611
-Variable 15: 136.06192032547582
+Variable 13: 83.45370406051345
+Variable 15: 125.15714663067915
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 46.05992032547583
-Variable lambda[0]: 0.8281234262265555
+Variable c(0,15)_ru: 35.155146630679155
+Variable lambda[0]: 0.42279197481964453
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
@@ -284,7 +293,7 @@ Variable lambda[11]: 0.0
 Variable lambda[12]: 0.0
 Variable lambda[13]: 0.0
 Variable lambda[14]: 0.0
-Variable lambda[15]: 0.17187657377344437
+Variable lambda[15]: 0.5772080251803555
 Variable phi[0]: 0.22314355131420974
 New Dual Variables added:  {'u': array([[ 0.],
        [-6.],
@@ -299,7 +308,7 @@ New Dual Variables added:  {'u': array([[ 0.],
        [ 0.],
        [ 0.],
        [ 0.],
-       [-6.]]), 'v': -36.93420040741634, 'nu': 54.29954896933744, 'mu': array([[ 0.],
+       [-6.]]), 'v': -87.64624480217026, 'nu': 54.71084095519002, 'mu': array([[ 0.],
        [-1.],
        [ 0.],
        [ 0.],
@@ -359,11 +368,11 @@ New Dual Variables added:  {'u': array([[ 0.],
        [ 0.]])}
 
 Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.11957942]
+ [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         1.1948338 ]
  [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         0.58954025]
+ [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         1.18160376]
  [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
@@ -371,33 +380,42 @@ Current z points are:  [[3.         0.         3.         3.         3.         
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         0.58954025]]
-Current objective is:  46.05992032547583
+ [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         1.18160376]]
+Current objective is:  35.155146630679155
 
 Solving Column Generation
+Time taken:  0.14290285110473633
 
-ITERATION NUMBER: 0
-z =  [3.         2.50492318 3.         3.         3.         2.58569844 3.         3.         3.         3.         3.         3.         3.         2.58569844]
-Grad =  [-0.          5.35745744 -0.         -0.         -0.          5.47753322 -0.         -0.         -0.         -0.         -0.         -0.         -0.          5.47753322]
-Function value =  -7.504474973573615
-Reduced cost =  7.504474973573615
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         0.74939153 3.         3.         3.         0.79082035 3.         3.         3.         3.         3.         3.         3.         0.79082035]
-Grad =  [-0.         -8.37773512 -0.         -0.         -0.         -7.70805374 -0.         -0.         -0.         -0.         -0.         -0.         -0.         -7.70805374]
-Function value =  -12.784427099564255
-Reduced cost =  12.784427099564255
-Grad^2 =  189.0146308138133
+       fun: -12.48404833415755
+ hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]])
+      jac: array([-0.        ,  0.08815274, -0.        , -0.        , -0.        ,  0.07441783, -0.        , -0.        , -0.        , -0.        , -0.        , -0.        , -0.        ,  0.07441783])
+  message: 'Optimization terminated successfully.'
+     nfev: 3
+      nit: 1
+     njev: 3
+   status: 0
+  success: True
+        x: array([3.        , 1.90012002, 3.        , 3.        , 3.        , 1.8989404 , 3.        , 3.        , 3.        , 3.        , 3.        , 3.        , 3.        , 1.8989404 ])
 
 New approximation point found:  [[3.        ]
- [0.74939153]
+ [1.90012002]
  [3.        ]
  [3.        ]
  [3.        ]
- [0.79082035]
+ [1.8989404 ]
  [3.        ]
  [3.        ]
  [3.        ]
@@ -405,15 +423,15 @@ New approximation point found:  [[3.        ]
  [3.        ]
  [3.        ]
  [3.        ]
- [0.79082035]]
-Reduced cost is:  [[12.7844271]]
-LB =  0.01 UB =  46.05992032547583
+ [1.8989404 ]]
+Reduced cost is:  [[12.48404833]]
+LB =  [[24.94047058]] UB =  35.155146630679155
 
 Solving master problem with 17 approximation points
 Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
 Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 76 rows, 33 columns and 423 nonzeros
-Model fingerprint: 0x8a99555f
+Model fingerprint: 0xb0885360
 Coefficient statistics:
   Matrix range     [8e-03, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -425,12 +443,12 @@ Presolved: 27 rows, 36 columns, 318 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
        0    0.0000000e+00   3.418758e+00   0.000000e+00      0s
-      14    4.2331046e+01   0.000000e+00   0.000000e+00      0s
+      14    2.8349652e+01   0.000000e+00   0.000000e+00      0s
 
 Solved in 14 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  4.233104584e+01
+Optimal objective  2.834965194e+01
 
- objective:  42.33104583659791
+ objective:  28.349651935667552
 
  Vars:
 Variable 0: 0.0
@@ -439,16 +457,16 @@ Variable 3: 0.001
 Variable 4: 30.001
 Variable 5: 30.002000000000002
 Variable 6: 40.002
-Variable 7: 44.06334723651695
+Variable 7: 39.4778610332667
 Variable 9: 40.003
 Variable 10: 50.003
 Variable 11: 50.004
 Variable 12: 60.004
-Variable 13: 88.19819653655742
-Variable 15: 132.3330458365979
+Variable 13: 78.91475648446712
+Variable 15: 118.35165193566755
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 42.33104583659791
-Variable lambda[0]: 0.7083268213868551
+Variable c(0,15)_ru: 28.349651935667552
+Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
@@ -463,9 +481,9 @@ Variable lambda[11]: 0.0
 Variable lambda[12]: 0.0
 Variable lambda[13]: 0.0
 Variable lambda[14]: 0.0
-Variable lambda[15]: 0.0
-Variable lambda[16]: 0.2916731786131449
-Variable phi[0]: 0.22314355131420968
+Variable lambda[15]: 0.4548647591830348
+Variable lambda[16]: 0.5451352408169652
+Variable phi[0]: 0.2231435513142097
 New Dual Variables added:  {'u': array([[ 0.],
        [-6.],
        [ 0.],
@@ -479,7 +497,7 @@ New Dual Variables added:  {'u': array([[ 0.],
        [ 0.],
        [ 0.],
        [ 0.],
-       [-6.]]), 'v': -54.275124108810886, 'nu': 54.440189778257434, 'mu': array([[ 0.],
+       [-6.]]), 'v': -44.438680291667254, 'nu': 38.26385687166696, 'mu': array([[ 0.],
        [-1.],
        [ 0.],
        [ 0.],
@@ -539,11 +557,11 @@ New Dual Variables added:  {'u': array([[ 0.],
        [ 0.]])}
 
 Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.11957942 0.74939153]
+ [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         1.1948338  1.90012002]
  [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         0.58954025 0.79082035]
+ [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         1.18160376 1.8989404 ]
  [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
@@ -551,33 +569,42 @@ Current z points are:  [[3.         0.         3.         3.         3.         
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         0.58954025 0.79082035]]
-Current objective is:  42.33104583659791
+ [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         1.18160376 1.8989404 ]]
+Current objective is:  28.349651935667552
 
 Solving Column Generation
+Time taken:  0.1425316333770752
 
-ITERATION NUMBER: 0
-z =  [3.         2.34355787 3.         3.         3.         2.35564155 3.         3.         3.         3.         3.         3.         3.         2.35564155]
-Grad =  [-0.          4.59890733 -0.         -0.         -0.          4.63854733 -0.         -0.         -0.         -0.         -0.         -0.         -0.          4.63854733]
-Function value =  -10.36002508016869
-Reduced cost =  10.36002508016869
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         1.3790971  3.         3.         3.         1.38286767 3.         3.         3.         3.         3.         3.         3.         1.38286767]
-Grad =  [-0.         -3.12127326 -0.         -0.         -0.         -3.06815467 -0.         -0.         -0.         -0.         -0.         -0.         -0.         -3.06815467]
-Function value =  -15.125745111918839
-Reduced cost =  15.125745111918839
-Grad^2 =  28.569492919191543
+       fun: -1.8573562080594144
+ hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]])
+      jac: array([-0.        ,  0.0607464 , -0.        , -0.        , -0.        ,  0.05236029, -0.        , -0.        , -0.        , -0.        , -0.        , -0.        , -0.        ,  0.05236029])
+  message: 'Optimization terminated successfully.'
+     nfev: 3
+      nit: 1
+     njev: 3
+   status: 0
+  success: True
+        x: array([3.        , 1.52213931, 3.        , 3.        , 3.        , 1.52128718, 3.        , 3.        , 3.        , 3.        , 3.        , 3.        , 3.        , 1.52128718])
 
 New approximation point found:  [[3.        ]
- [1.3790971 ]
+ [1.52213931]
  [3.        ]
  [3.        ]
  [3.        ]
- [1.38286767]
+ [1.52128718]
  [3.        ]
  [3.        ]
  [3.        ]
@@ -585,15 +612,15 @@ New approximation point found:  [[3.        ]
  [3.        ]
  [3.        ]
  [3.        ]
- [1.38286767]]
-Reduced cost is:  [[15.12574511]]
-LB =  0.01 UB =  42.33104583659791
+ [1.52128718]]
+Reduced cost is:  [[1.85735621]]
+LB =  [[25.99229573]] UB =  28.349651935667552
 
 Solving master problem with 18 approximation points
 Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
 Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 76 rows, 34 columns and 440 nonzeros
-Model fingerprint: 0xbbe51577
+Model fingerprint: 0x457ffbb2
 Coefficient statistics:
   Matrix range     [8e-03, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -605,12 +632,12 @@ Presolved: 27 rows, 37 columns, 334 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
        0    0.0000000e+00   3.418758e+00   0.000000e+00      0s
-      14    2.9726362e+01   0.000000e+00   0.000000e+00      0s
+      16    2.6703490e+01   0.000000e+00   0.000000e+00      0s
 
-Solved in 14 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  2.972636197e+01
+Solved in 16 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  2.670348960e+01
 
- objective:  29.726361969208313
+ objective:  26.70348959782389
 
  Vars:
 Variable 0: 0.0
@@ -619,16 +646,16 @@ Variable 3: 0.001
 Variable 4: 30.001
 Variable 5: 30.002000000000002
 Variable 6: 40.002
-Variable 7: 39.89755220518676
+Variable 7: 38.911534879083646
 Variable 9: 40.003
 Variable 10: 50.003
 Variable 11: 50.004
 Variable 12: 60.004
-Variable 13: 79.81295708719753
-Variable 15: 119.72836196920831
+Variable 13: 77.80851223845377
+Variable 15: 116.70548959782388
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 29.726361969208313
-Variable lambda[0]: 0.16667352423800164
+Variable c(0,15)_ru: 26.70348959782389
+Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
@@ -643,9 +670,9 @@ Variable lambda[11]: 0.0
 Variable lambda[12]: 0.0
 Variable lambda[13]: 0.0
 Variable lambda[14]: 0.0
-Variable lambda[15]: 0.0
+Variable lambda[15]: 0.11370671349919333
 Variable lambda[16]: 0.0
-Variable lambda[17]: 0.8333264757619984
+Variable lambda[17]: 0.8862932865008066
 Variable phi[0]: 0.2231435513142097
 New Dual Variables added:  {'u': array([[ 0.],
        [-6.],
@@ -660,7 +687,7 @@ New Dual Variables added:  {'u': array([[ 0.],
        [ 0.],
        [ 0.],
        [ 0.],
-       [-6.]]), 'v': -112.89250634480402, 'nu': 54.91559675174981, 'mu': array([[ 0.],
+       [-6.]]), 'v': -33.9873217064823, 'nu': 34.285541263066875, 'mu': array([[ 0.],
        [-1.],
        [ 0.],
        [ 0.],
@@ -720,11 +747,11 @@ New Dual Variables added:  {'u': array([[ 0.],
        [ 0.]])}
 
 Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.11957942 0.74939153 1.3790971 ]
+ [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         1.1948338  1.90012002 1.52213931]
  [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         0.58954025 0.79082035 1.38286767]
+ [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         1.18160376 1.8989404  1.52128718]
  [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
@@ -732,398 +759,42 @@ Current z points are:  [[3.         0.         3.         3.         3.         
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         0.58954025 0.79082035 1.38286767]]
-Current objective is:  29.726361969208313
+ [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         1.18160376 1.8989404  1.52128718]]
+Current objective is:  26.70348959782389
 
 Solving Column Generation
+Time taken:  0.14241409301757812
 
-ITERATION NUMBER: 0
-z =  [3.         1.6492587  3.         3.         3.         1.65240081 3.         3.         3.         3.         3.         3.         3.         1.65240081]
-Grad =  [-0.         -6.14606401 -0.         -0.         -0.         -6.07914044 -0.         -0.         -0.         -0.         -0.         -0.         -0.         -6.07914044]
-Function value =  -7.5756604107185055
-Reduced cost =  7.5756604107185055
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         2.3091873  3.         3.         3.         2.30514355 3.         3.         3.         3.         3.         3.         3.         2.30514355]
-Grad =  [-0.          2.84020236 -0.         -0.         -0.          2.81022107 -0.         -0.         -0.         -0.         -0.         -0.         -0.          2.81022107]
-Function value =  -9.347191752156682
-Reduced cost =  9.347191752156682
-Grad^2 =  23.861434363514594
-
-New approximation point found:  [[3.        ]
- [2.3091873 ]
- [3.        ]
- [3.        ]
- [3.        ]
- [2.30514355]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [2.30514355]]
-Reduced cost is:  [[9.34719175]]
-LB =  0.01 UB =  29.726361969208313
-
-Solving master problem with 19 approximation points
-Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
-Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
-Optimize a model with 76 rows, 35 columns and 457 nonzeros
-Model fingerprint: 0xcf709a72
-Coefficient statistics:
-  Matrix range     [8e-03, 3e+00]
-  Objective range  [1e+00, 1e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [1e-03, 1e+04]
-Presolve removed 49 rows and 7 columns
-Presolve time: 0.00s
-Presolved: 27 rows, 38 columns, 350 nonzeros
-
-Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0    0.0000000e+00   3.418758e+00   0.000000e+00      0s
-      15    2.7980489e+01   0.000000e+00   0.000000e+00      0s
-
-Solved in 15 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  2.798048878e+01
-
- objective:  27.980488781253882
-
- Vars:
-Variable 0: 0.0
-Variable 1: 0.001
-Variable 3: 0.001
-Variable 4: 30.001
-Variable 5: 30.002000000000002
-Variable 6: 40.002
-Variable 7: 39.31891890955645
-Variable 9: 40.003
-Variable 10: 50.003
-Variable 11: 50.004
-Variable 12: 60.004
-Variable 13: 78.65070384540518
-Variable 15: 117.98248878125388
-Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 27.980488781253882
-Variable lambda[0]: 0.0
-Variable lambda[1]: 0.0
-Variable lambda[2]: 0.0
-Variable lambda[3]: 0.0
-Variable lambda[4]: 0.0
-Variable lambda[5]: 0.0
-Variable lambda[6]: 0.0
-Variable lambda[7]: 0.0
-Variable lambda[8]: 0.0
-Variable lambda[9]: 0.0
-Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
-Variable lambda[12]: 0.0
-Variable lambda[13]: 0.0
-Variable lambda[14]: 0.0
-Variable lambda[15]: 0.0
-Variable lambda[16]: 0.0
-Variable lambda[17]: 0.8132194958393149
-Variable lambda[18]: 0.18678050416068515
-Variable phi[0]: 0.2231435513142097
-New Dual Variables added:  {'u': array([[ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.]]), 'v': -72.29907918551814, 'nu': 44.11156206745765, 'mu': array([[ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.]])}
-
-Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.11957942 0.74939153 1.3790971  2.3091873 ]
- [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         0.58954025 0.79082035 1.38286767 2.30514355]
- [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         0.58954025 0.79082035 1.38286767 2.30514355]]
-Current objective is:  27.980488781253882
-
-Solving Column Generation
-
-ITERATION NUMBER: 0
-z =  [3.         1.55281982 3.         3.         3.         1.55513082 3.         3.         3.         3.         3.         3.         3.         1.55513082]
-Grad =  [-0.         -3.18071947 -0.         -0.         -0.         -3.14512226 -0.         -0.         -0.         -0.         -0.         -0.         -0.         -3.14512226]
-Function value =  -2.389364769773131
-Reduced cost =  2.389364769773131
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         1.97972876 3.         3.         3.         1.97726199 3.         3.         3.         3.         3.         3.         3.         1.97726199]
-Grad =  [-0.          1.84194784 -0.         -0.         -0.          1.82100895 -0.         -0.         -0.         -0.         -0.         -0.         -0.          1.82100895]
-Function value =  -2.9458039183040086
-Reduced cost =  2.9458039183040086
-Grad^2 =  10.024919065279857
+       fun: -0.3844397531013328
+ hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]])
+      jac: array([-0.        ,  0.093451  , -0.        , -0.        , -0.        ,  0.09053012, -0.        , -0.        , -0.        , -0.        , -0.        , -0.        , -0.        ,  0.09053012])
+  message: 'Optimization terminated successfully.'
+     nfev: 3
+      nit: 1
+     njev: 3
+   status: 0
+  success: True
+        x: array([3.        , 1.35731795, 3.        , 3.        , 3.        , 1.35699512, 3.        , 3.        , 3.        , 3.        , 3.        , 3.        , 3.        , 1.35699512])
 
 New approximation point found:  [[3.        ]
- [1.97972876]
+ [1.35731795]
  [3.        ]
  [3.        ]
  [3.        ]
- [1.97726199]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [1.97726199]]
-Reduced cost is:  [[2.94580392]]
-LB =  0.01 UB =  27.980488781253882
-
-Solving master problem with 20 approximation points
-Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
-Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
-Optimize a model with 76 rows, 36 columns and 474 nonzeros
-Model fingerprint: 0x7bf724d8
-Coefficient statistics:
-  Matrix range     [8e-03, 3e+00]
-  Objective range  [1e+00, 1e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [1e-03, 1e+04]
-Presolve removed 49 rows and 7 columns
-Presolve time: 0.00s
-Presolved: 27 rows, 39 columns, 366 nonzeros
-
-Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0    0.0000000e+00   3.418758e+00   0.000000e+00      0s
-      17    2.7311015e+01   0.000000e+00   0.000000e+00      0s
-
-Solved in 17 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  2.731101487e+01
-
- objective:  27.31101487453371
-
- Vars:
-Variable 0: 0.0
-Variable 1: 0.001
-Variable 3: 0.001
-Variable 4: 30.001
-Variable 5: 30.002000000000002
-Variable 6: 40.002
-Variable 7: 39.09559277220773
-Variable 9: 40.003
-Variable 10: 50.003
-Variable 11: 50.004
-Variable 12: 60.004
-Variable 13: 78.20430382337072
-Variable 15: 117.3130148745337
-Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 27.31101487453371
-Variable lambda[0]: 0.0
-Variable lambda[1]: 0.0
-Variable lambda[2]: 0.0
-Variable lambda[3]: 0.0
-Variable lambda[4]: 0.0
-Variable lambda[5]: 0.0
-Variable lambda[6]: 0.0
-Variable lambda[7]: 0.0
-Variable lambda[8]: 0.0
-Variable lambda[9]: 0.0
-Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
-Variable lambda[12]: 0.0
-Variable lambda[13]: 0.0
-Variable lambda[14]: 0.0
-Variable lambda[15]: 0.0
-Variable lambda[16]: 0.0
-Variable lambda[17]: 0.7727364328085973
-Variable lambda[18]: 0.0
-Variable lambda[19]: 0.22726356719140273
-Variable phi[0]: 0.2231435513142097
-New Dual Variables added:  {'u': array([[ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.]]), 'v': -56.73309165848038, 'nu': 39.96863842424157, 'mu': array([[ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.]])}
-
-Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.11957942 0.74939153 1.3790971  2.3091873  1.97972876]
- [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         0.58954025 0.79082035 1.38286767 2.30514355 1.97726199]
- [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         0.58954025 0.79082035 1.38286767 2.30514355 1.97726199]]
-Current objective is:  27.31101487453371
-
-Solving Column Generation
-
-ITERATION NUMBER: 0
-z =  [3.         1.5155988  3.         3.         3.         1.51795184 3.         3.         3.         3.         3.         3.         3.         1.51795184]
-Grad =  [-0.         -1.66486064 -0.         -0.         -0.         -1.6351237  -0.         -0.         -0.         -0.         -0.         -0.         -0.         -1.6351237 ]
-Function value =  -1.0454974471768992
-Reduced cost =  1.0454974471768992
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         1.73905261 3.         3.         3.         1.73741443 3.         3.         3.         3.         3.         3.         3.         1.73741443]
-Grad =  [-0.          0.80420406 -0.         -0.         -0.          0.78860266 -0.         -0.         -0.         -0.         -0.         -0.         -0.          0.78860266]
-Function value =  -1.3009875879149675
-Reduced cost =  1.3009875879149675
-Grad^2 =  1.8905324916544375
-
-New approximation point found:  [[3.        ]
- [1.73905261]
- [3.        ]
- [3.        ]
- [3.        ]
- [1.73741443]
+ [1.35699512]
  [3.        ]
  [3.        ]
  [3.        ]
@@ -1131,614 +802,15 @@ New approximation point found:  [[3.        ]
  [3.        ]
  [3.        ]
  [3.        ]
- [1.73741443]]
-Reduced cost is:  [[1.30098759]]
-LB =  0.01 UB =  27.31101487453371
-
-Solving master problem with 21 approximation points
-Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
-Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
-Optimize a model with 76 rows, 37 columns and 491 nonzeros
-Model fingerprint: 0xe968c3d9
-Coefficient statistics:
-  Matrix range     [8e-03, 3e+00]
-  Objective range  [1e+00, 1e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [1e-03, 1e+04]
-Presolve removed 49 rows and 7 columns
-Presolve time: 0.00s
-Presolved: 27 rows, 40 columns, 382 nonzeros
-
-Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0    0.0000000e+00   3.418758e+00   0.000000e+00      0s
-      17    2.6899567e+01   0.000000e+00   0.000000e+00      0s
-
-Solved in 17 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  2.689956703e+01
-
- objective:  26.89956703137358
-
- Vars:
-Variable 0: 0.0
-Variable 1: 0.001
-Variable 3: 0.001
-Variable 4: 30.001
-Variable 5: 30.002000000000002
-Variable 6: 40.002
-Variable 7: 38.959615648093994
-Variable 9: 40.003
-Variable 10: 50.003
-Variable 11: 50.004
-Variable 12: 60.004
-Variable 13: 77.9305913397338
-Variable 15: 116.90156703137357
-Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 26.89956703137358
-Variable lambda[0]: 0.0
-Variable lambda[1]: 0.0
-Variable lambda[2]: 0.0
-Variable lambda[3]: 0.0
-Variable lambda[4]: 0.0
-Variable lambda[5]: 0.0
-Variable lambda[6]: 0.0
-Variable lambda[7]: 0.0
-Variable lambda[8]: 0.0
-Variable lambda[9]: 0.0
-Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
-Variable lambda[12]: 0.0
-Variable lambda[13]: 0.0
-Variable lambda[14]: 0.0
-Variable lambda[15]: 0.0
-Variable lambda[16]: 0.0
-Variable lambda[17]: 0.6837419150020383
-Variable lambda[18]: 0.0
-Variable lambda[19]: 0.0
-Variable lambda[20]: 0.3162580849979617
-Variable phi[0]: 0.2231435513142097
-New Dual Variables added:  {'u': array([[ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.]]), 'v': -47.16648729889672, 'nu': 37.42246451026596, 'mu': array([[ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.]])}
-
-Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.11957942 0.74939153 1.3790971  2.3091873  1.97972876 1.73905261]
- [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         0.58954025 0.79082035 1.38286767 2.30514355 1.97726199 1.73741443]
- [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         0.58954025 0.79082035 1.38286767 2.30514355 1.97726199 1.73741443]]
-Current objective is:  26.89956703137358
-
-Solving Column Generation
-
-ITERATION NUMBER: 0
-z =  [3.         1.49293594 3.         3.         3.         1.49499595 3.         3.         3.         3.         3.         3.         3.         1.49499595]
-Grad =  [-0.         -0.61401817 -0.         -0.         -0.         -0.5917879  -0.         -0.         -0.         -0.         -0.         -0.         -0.         -0.5917879 ]
-Function value =  -0.4238447968293997
-Reduced cost =  0.4238447968293997
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         1.5959511  3.         3.         3.         1.59428148 3.         3.         3.         3.         3.         3.         3.         1.59428148]
-Grad =  [-0.          0.43344515 -0.         -0.         -0.          0.41749594 -0.         -0.         -0.         -0.         -0.         -0.         -0.          0.41749594]
-Function value =  -0.4522988656330895
-Reduced cost =  0.4522988656330895
-Grad^2 =  0.5364804211224101
-
-New approximation point found:  [[3.        ]
- [1.5959511 ]
- [3.        ]
- [3.        ]
- [3.        ]
- [1.59428148]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [1.59428148]]
-Reduced cost is:  [[0.45229887]]
-LB =  0.01 UB =  26.89956703137358
-
-Solving master problem with 22 approximation points
-Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
-Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
-Optimize a model with 76 rows, 38 columns and 508 nonzeros
-Model fingerprint: 0x4de84885
-Coefficient statistics:
-  Matrix range     [8e-03, 3e+00]
-  Objective range  [1e+00, 1e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [1e-03, 1e+04]
-Presolve removed 49 rows and 7 columns
-Presolve time: 0.00s
-Presolved: 27 rows, 41 columns, 398 nonzeros
-
-Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0    0.0000000e+00   3.418758e+00   0.000000e+00      0s
-      17    2.6685712e+01   0.000000e+00   0.000000e+00      0s
-
-Solved in 17 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  2.668571205e+01
-
- objective:  26.68571204588291
-
- Vars:
-Variable 0: 0.0
-Variable 1: 0.001
-Variable 3: 0.001
-Variable 4: 30.001
-Variable 5: 30.002000000000002
-Variable 6: 40.002
-Variable 7: 38.89177727166102
-Variable 9: 40.003
-Variable 10: 50.003
-Variable 11: 50.004
-Variable 12: 60.004
-Variable 13: 77.78974465877197
-Variable 15: 116.6877120458829
-Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 26.68571204588291
-Variable lambda[0]: 0.0
-Variable lambda[1]: 0.0
-Variable lambda[2]: 0.0
-Variable lambda[3]: 0.0
-Variable lambda[4]: 0.0
-Variable lambda[5]: 0.0
-Variable lambda[6]: 0.0
-Variable lambda[7]: 0.0
-Variable lambda[8]: 0.0
-Variable lambda[9]: 0.0
-Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
-Variable lambda[12]: 0.0
-Variable lambda[13]: 0.0
-Variable lambda[14]: 0.0
-Variable lambda[15]: 0.0
-Variable lambda[16]: 0.0
-Variable lambda[17]: 0.5271821316833017
-Variable lambda[18]: 0.0
-Variable lambda[19]: 0.0
-Variable lambda[20]: 0.0
-Variable lambda[21]: 0.47281786831669825
-Variable phi[0]: 0.2231435513142097
-New Dual Variables added:  {'u': array([[ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.]]), 'v': -42.194129148223524, 'nu': 36.09905986862789, 'mu': array([[ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.]])}
-
-Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.11957942 0.74939153 1.3790971  2.3091873  1.97972876 1.73905261 1.5959511 ]
- [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         0.58954025 0.79082035 1.38286767 2.30514355 1.97726199 1.73741443 1.59428148]
- [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         0.58954025 0.79082035 1.38286767 2.30514355 1.97726199 1.73741443 1.59428148]]
-Current objective is:  26.68571204588291
-
-Solving Column Generation
-
-ITERATION NUMBER: 0
-z =  [3.         1.48162955 3.         3.         3.         1.4828279  3.         3.         3.         3.         3.         3.         3.         1.4828279 ]
-Grad =  [-0.         -0.02675748 -0.         -0.         -0.         -0.01503063 -0.         -0.         -0.         -0.         -0.         -0.         -0.         -0.01503063]
-Function value =  -0.1661283590175131
-Reduced cost =  0.1661283590175131
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         1.49039744 3.         3.         3.         1.48775313 3.         3.         3.         3.         3.         3.         3.         1.48775313]
-Grad =  [-0.          0.05866949 -0.         -0.         -0.          0.03299679 -0.         -0.         -0.         -0.         -0.         -0.         -0.          0.03299679]
-Function value =  -0.16620090428020262
-Reduced cost =  0.16620090428020262
-Grad^2 =  0.005619685597090598
-
-New approximation point found:  [[3.        ]
- [1.49039744]
- [3.        ]
- [3.        ]
- [3.        ]
- [1.48775313]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [1.48775313]]
-Reduced cost is:  [[0.1662009]]
-Difference between upper bounds =  26.68571204588291 - 26.89956703137358 / 26.89956703137358
-Next iteration to calculate lower bound
-LB =  0.01 UB =  26.68571204588291
-
-Solving master problem with 23 approximation points
-Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
-Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
-Optimize a model with 76 rows, 39 columns and 525 nonzeros
-Model fingerprint: 0x1316b38c
-Coefficient statistics:
-  Matrix range     [8e-03, 3e+00]
-  Objective range  [1e+00, 1e+00]
-  Bounds range     [0e+00, 0e+00]
-  RHS range        [1e-03, 1e+04]
-Presolve removed 49 rows and 7 columns
-Presolve time: 0.00s
-Presolved: 27 rows, 42 columns, 414 nonzeros
-
-Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0    0.0000000e+00   3.418758e+00   0.000000e+00      0s
-      20    2.6541583e+01   0.000000e+00   0.000000e+00      0s
-
-Solved in 20 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  2.654158342e+01
-
- objective:  26.541583417491353
-
- Vars:
-Variable 0: 0.0
-Variable 1: 0.001
-Variable 3: 0.001
-Variable 4: 30.001
-Variable 5: 30.002000000000002
-Variable 6: 40.002
-Variable 7: 38.85569732115515
-Variable 9: 40.003
-Variable 10: 50.003
-Variable 11: 50.004
-Variable 12: 60.004
-Variable 13: 77.69964036932325
-Variable 15: 116.54358341749135
-Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 26.541583417491353
-Variable lambda[0]: 0.0
-Variable lambda[1]: 0.0
-Variable lambda[2]: 0.0
-Variable lambda[3]: 0.0
-Variable lambda[4]: 0.0
-Variable lambda[5]: 0.0
-Variable lambda[6]: 0.0
-Variable lambda[7]: 0.0
-Variable lambda[8]: 0.0
-Variable lambda[9]: 0.0
-Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
-Variable lambda[12]: 0.0
-Variable lambda[13]: 0.0
-Variable lambda[14]: 0.0
-Variable lambda[15]: 0.0
-Variable lambda[16]: 0.0
-Variable lambda[17]: 0.13280478818252123
-Variable lambda[18]: 0.0
-Variable lambda[19]: 0.0
-Variable lambda[20]: 0.0
-Variable lambda[21]: 0.0
-Variable lambda[22]: 0.8671952118174788
-Variable phi[0]: 0.2231435513142097
-New Dual Variables added:  {'u': array([[ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-6.]]), 'v': -38.84298370504607, 'nu': 35.20714474507531, 'mu': array([[ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [ 0.],
-       [-1.],
-       [ 0.],
-       [ 0.],
-       [ 0.]])}
-
-Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.11957942 0.74939153 1.3790971  2.3091873  1.97972876 1.73905261 1.5959511  1.49039744]
- [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         0.58954025 0.79082035 1.38286767 2.30514355 1.97726199 1.73741443 1.59428148 1.48775313]
- [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         0.58954025 0.79082035 1.38286767 2.30514355 1.97726199 1.73741443 1.59428148 1.48775313]]
-Current objective is:  26.541583417491353
-
-Solving Column Generation
-
-ITERATION NUMBER: 0
-z =  [3.         1.47561622 3.         3.         3.         1.47382384 3.         3.         3.         3.         3.         3.         3.         1.47382384]
-Grad =  [-0.          0.39750298 -0.         -0.         -0.          0.38121611 -0.         -0.         -0.         -0.         -0.         -0.         -0.          0.38121611]
-Function value =  -0.018596739383028194
-Reduced cost =  0.018596739383028194
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 1
-z =  [3.         1.40892629 3.         3.         3.         1.40986639 3.         3.         3.         3.         3.         3.         3.         1.40986639]
-Grad =  [-0.        -0.2312495 -0.        -0.        -0.        -0.2220584 -0.        -0.        -0.        -0.        -0.        -0.        -0.        -0.2220584]
-Function value =  -0.03192505907311727
-Reduced cost =  0.03192505907311727
-Grad^2 =  0.15209619120072743
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 2
-z =  [3.         1.44772351 3.         3.         3.         1.44712161 3.         3.         3.         3.         3.         3.         3.         1.44712161]
-Grad =  [-0.          0.14024126 -0.         -0.         -0.          0.13459967 -0.         -0.         -0.         -0.         -0.         -0.         -0.          0.13459967]
-Function value =  -0.038659214135684294
-Reduced cost =  0.038659214135684294
-Grad^2 =  0.05590175367456534
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 3
-z =  [3.         1.42890065 3.         3.         3.         1.42905595 3.         3.         3.         3.         3.         3.         3.         1.42905595]
-Grad =  [-0.         -0.03799494 -0.         -0.         -0.         -0.03650908 -0.         -0.         -0.         -0.         -0.         -0.         -0.         -0.03650908]
-Function value =  -0.04052469155715244
-Reduced cost =  0.04052469155715244
-Grad^2 =  0.004109441497390539
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 4
-z =  [3.         1.4388608  3.         3.         3.         1.43862658 3.         3.         3.         3.         3.         3.         3.         1.43862658]
-Grad =  [-0.          0.0567859  -0.         -0.         -0.          0.05456918 -0.         -0.         -0.         -0.         -0.         -0.         -0.          0.05456918]
-Function value =  -0.04072779935454207
-Reduced cost =  0.04072779935454207
-Grad^2 =  0.009180228222794302
-
-BACKTRACKING BEGINS HERE
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 5
-z =  [3.         1.43276346 3.         3.         3.         1.43276726 3.         3.         3.         3.         3.         3.         3.         1.43276726]
-Grad =  [-0.         -0.00111162 -0.         -0.         -0.         -0.00107537 -0.         -0.         -0.         -0.         -0.         -0.         -0.         -0.00107537]
-Function value =  -0.04092345539632447
-Reduced cost =  0.04092345539632447
-Grad^2 =  3.5485661510496077e-06
-
-New approximation point found:  [[3.        ]
- [1.43276346]
- [3.        ]
- [3.        ]
- [3.        ]
- [1.43276726]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [1.43276726]]
-Reduced cost is:  [[0.04092346]]
-Difference between upper bounds =  26.541583417491353 - 26.68571204588291 / 26.68571204588291
-Next iteration to calculate lower bound
-LB =  [[26.37538251]] UB =  26.541583417491353
+ [1.35699512]]
+Reduced cost is:  [[0.38443975]]
+LB =  [[25.99229573]] UB =  26.70348959782389
 
 Final solution found: 
-Solution time:  11.310052394866943
-Optimality gap is:  [[0.63013647]]
+Solution time:  1.015930414199829
+Optimality gap is:  [[2.73617182]]
 Final Probability is:  None
-objective:  26.541583417491353
+objective:  26.70348959782389
 Vars:
 Variable 0: 0.0
 Variable 1: 0.001
@@ -1746,15 +818,15 @@ Variable 3: 0.001
 Variable 4: 30.001
 Variable 5: 30.002000000000002
 Variable 6: 40.002
-Variable 7: 38.85569732115515
+Variable 7: 38.911534879083646
 Variable 9: 40.003
 Variable 10: 50.003
 Variable 11: 50.004
 Variable 12: 60.004
-Variable 13: 77.69964036932325
-Variable 15: 116.54358341749135
+Variable 13: 77.80851223845377
+Variable 15: 116.70548959782388
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 26.541583417491353
+Variable c(0,15)_ru: 26.70348959782389
 Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
@@ -1770,12 +842,7 @@ Variable lambda[11]: 0.0
 Variable lambda[12]: 0.0
 Variable lambda[13]: 0.0
 Variable lambda[14]: 0.0
-Variable lambda[15]: 0.0
+Variable lambda[15]: 0.11370671349919333
 Variable lambda[16]: 0.0
-Variable lambda[17]: 0.13280478818252123
-Variable lambda[18]: 0.0
-Variable lambda[19]: 0.0
-Variable lambda[20]: 0.0
-Variable lambda[21]: 0.0
-Variable lambda[22]: 0.8671952118174788
+Variable lambda[17]: 0.8862932865008066
 Variable phi[0]: 0.2231435513142097

@@ -1,0 +1,558 @@
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 48 rows, 19 columns and 102 nonzeros
+Model fingerprint: 0x62e1f2ba
+Coefficient statistics:
+  Matrix range     [2e-01, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+04, 1e+04]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 39 rows and 12 columns
+Presolve time: 0.00s
+Presolved: 9 rows, 12 columns, 27 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.3316665e+03   3.127549e+03   0.000000e+00      0s
+       8    3.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 8 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  3.000000000e+00
+
+ objective:  3.0
+
+ Vars:
+Variable vars[0]: 0.0
+Variable vars[1]: 50.00200000000132
+Variable vars[2]: 0.001
+Variable vars[3]: 30.001
+Variable vars[4]: 30.002000000000002
+Variable vars[5]: 40.002
+Variable vars[6]: 10002.002
+Variable vars[7]: 40.003
+Variable vars[8]: 50.003
+Variable vars[9]: 10050.003
+Variable vars[10]: 0.0
+Variable vars[11]: 9990.002
+Variable t_l[0]: 3.0
+Variable zl[0]: 3.0
+Variable zl[1]: 3.0
+Variable zl[2]: 3.0
+Variable zl[3]: 3.0
+Variable zl[4]: 3.0
+Variable zl[5]: 3.0
+
+Solving master problem with 7 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 44 rows, 20 columns and 141 nonzeros
+Model fingerprint: 0xd7e39337
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 30 rows and 6 columns
+Presolve time: 0.00s
+Presolved: 14 rows, 19 columns, 79 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      10    3.0347703e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 10 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  3.034770328e+01
+
+ objective:  30.347703281354278
+
+ Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 42.34770328135427
+Variable 9: 40.003
+Variable 10: 50.003
+Variable 11: 90.34870328135428
+Variable c(0,11)_rl: 0.0
+Variable c(0,11)_ru: 30.347703281354278
+Variable lambda[0]: 0.6858724045196816
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.31412759548031843
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable phi[0]: 0.22314355131420968
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -25.968510736001342, 'nu': 36.14040898932679, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3. 0. 3. 3. 3. 3. 3.]
+ [3. 3. 0. 3. 3. 3. 3.]
+ [3. 3. 3. 0. 3. 3. 3.]
+ [3. 3. 3. 3. 0. 3. 3.]
+ [3. 3. 3. 3. 3. 0. 3.]
+ [3. 3. 3. 3. 3. 3. 0.]]
+Current objective is:  30.347703281354278
+
+Solving Column Generation
+Time taken:  0.019577503204345703
+
+       fun: -15.322197472294864
+ hess_inv: array([[1.        , 0.        , 0.        , 0.        , 0.        , 0.        ],
+       [0.        , 0.26311525, 0.        , 0.        , 0.        , 0.00796096],
+       [0.        , 0.        , 1.        , 0.        , 0.        , 0.        ],
+       [0.        , 0.        , 0.        , 1.        , 0.        , 0.        ],
+       [0.        , 0.        , 0.        , 0.        , 1.        , 0.        ],
+       [0.        , 0.00796096, 0.        , 0.        , 0.        , 0.24016153]])
+      jac: array([-0.        ,  0.05134545, -0.        , -0.        , -0.        ,  0.06907106])
+  message: 'Optimization terminated successfully.'
+     nfev: 6
+      nit: 3
+     njev: 6
+   status: 0
+  success: True
+        x: array([3.        , 1.16963413, 3.        , 3.        , 3.        , 1.17080004])
+
+New approximation point found:  [[3.        ]
+ [1.16963413]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.17080004]]
+Reduced cost is:  [[15.32219747]]
+LB =  [[14.52550581]] UB =  30.347703281354278
+
+Solving master problem with 8 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 44 rows, 21 columns and 150 nonzeros
+Model fingerprint: 0x7f5cce22
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 30 rows and 6 columns
+Presolve time: 0.00s
+Presolved: 14 rows, 20 columns, 87 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      10    1.7290631e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 10 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.729063138e+01
+
+ objective:  17.29063137916676
+
+ Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 38.64333505487095
+Variable 9: 40.003
+Variable 10: 50.003
+Variable 11: 77.29163137916676
+Variable c(0,11)_rl: 0.0
+Variable c(0,11)_ru: 17.29063137916676
+Variable lambda[0]: 0.14783294460230526
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.8521670553976948
+Variable phi[0]: 0.2231435513142097
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -85.93577611748803, 'nu': 36.46464564696588, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         1.16963413]
+ [3.         3.         3.         0.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         0.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         0.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         1.17080004]]
+Current objective is:  17.29063137916676
+
+Solving Column Generation
+Time taken:  0.01253652572631836
+
+       fun: -8.414113607987748
+ hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.54943024,  0.        ,  0.        ,  0.        , -0.44349098],
+       [ 0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ],
+       [ 0.        , -0.44349098,  0.        ,  0.        ,  0.        ,  0.56342316]])
+      jac: array([-0.        , -0.10862391, -0.        , -0.        , -0.        , -0.36777689])
+  message: 'Optimization terminated successfully.'
+     nfev: 4
+      nit: 3
+     njev: 4
+   status: 0
+  success: True
+        x: array([3.        , 1.87400183, 3.        , 3.        , 3.        , 1.85183796])
+
+New approximation point found:  [[3.        ]
+ [1.87400183]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.85183796]]
+Reduced cost is:  [[8.41411361]]
+LB =  [[14.52550581]] UB =  17.29063137916676
+
+Solving master problem with 9 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 44 rows, 22 columns and 159 nonzeros
+Model fingerprint: 0xe6e00020
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 30 rows and 6 columns
+Presolve time: 0.00s
+Presolved: 14 rows, 21 columns, 95 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      11    1.5657752e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 11 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.565775198e+01
+
+ objective:  15.657751983605898
+
+ Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 37.839960712068276
+Variable 9: 40.003
+Variable 10: 50.003
+Variable 11: 75.6587519836059
+Variable c(0,11)_rl: 0.0
+Variable c(0,11)_ru: 15.657751983605898
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.8059356610052519
+Variable lambda[8]: 0.19406433899474806
+Variable phi[0]: 0.2231435513142097
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -42.70668836103358, 'nu': 25.185474089356152, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         1.16963413 1.87400183]
+ [3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         0.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         1.17080004 1.85183796]]
+Current objective is:  15.657751983605898
+
+Solving Column Generation
+Time taken:  0.009284734725952148
+
+       fun: -1.1564472667053955
+ hess_inv: array([[1, 0, 0, 0, 0, 0],
+       [0, 1, 0, 0, 0, 0],
+       [0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 1, 0, 0],
+       [0, 0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 0, 1]])
+      jac: array([-0.        ,  0.02788226, -0.        , -0.        , -0.        ,  0.02999454])
+  message: 'Optimization terminated successfully.'
+     nfev: 3
+      nit: 1
+     njev: 3
+   status: 0
+  success: True
+        x: array([3.        , 1.4954531 , 3.        , 3.        , 3.        , 1.49484225])
+
+New approximation point found:  [[3.        ]
+ [1.4954531 ]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.49484225]]
+Reduced cost is:  [[1.15644727]]
+LB =  [[14.52550581]] UB =  15.657751983605898
+
+Solving master problem with 10 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 44 rows, 23 columns and 168 nonzeros
+Model fingerprint: 0xbc39b5f2
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 30 rows and 6 columns
+Presolve time: 0.00s
+Presolved: 14 rows, 22 columns, 103 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      13    1.5288752e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 13 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.528875244e+01
+
+ objective:  15.28875243769243
+
+ Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 37.643579284169256
+Variable 9: 40.003
+Variable 10: 50.003
+Variable 11: 75.28975243769243
+Variable c(0,11)_rl: 0.0
+Variable c(0,11)_ru: 15.28875243769243
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.6809196955735596
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.3190803044264404
+Variable phi[0]: 0.2231435513142097
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -32.937740454806395, 'nu': 22.636596815043625, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         1.16963413 1.87400183 1.4954531 ]
+ [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         1.17080004 1.85183796 1.49484225]]
+Current objective is:  15.28875243769243
+
+Solving Column Generation
+Time taken:  0.0032379627227783203
+
+       fun: -0.21124322619201052
+ hess_inv: array([[1, 0, 0, 0, 0, 0],
+       [0, 1, 0, 0, 0, 0],
+       [0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 1, 0, 0],
+       [0, 0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 0, 1]])
+      jac: array([-0.        , -0.49953037, -0.        , -0.        , -0.        , -0.48502678])
+  message: 'Optimization terminated successfully.'
+     nfev: 1
+      nit: 0
+     njev: 1
+   status: 0
+  success: True
+        x: array([3.        , 1.27359655, 3.        , 3.        , 3.        , 1.27419553])
+
+New approximation point found:  [[3.        ]
+ [1.27359655]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.27419553]]
+Reduced cost is:  [[0.21124323]]
+LB =  [[14.57750921]] UB =  15.28875243769243
+
+Final solution found: 
+Solution time:  0.10010027885437012
+Optimality gap is:  [[4.87904494]]
+Final Probability is:  None
+objective:  15.28875243769243
+Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 37.643579284169256
+Variable 9: 40.003
+Variable 10: 50.003
+Variable 11: 75.28975243769243
+Variable c(0,11)_rl: 0.0
+Variable c(0,11)_ru: 15.28875243769243
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.6809196955735596
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.3190803044264404
+Variable phi[0]: 0.2231435513142097

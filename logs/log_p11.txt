@@ -1,9 +1,7 @@
-Academic license - for non-commercial use only - expires 2022-04-09
-Using license file /home/andmur09/gurobi.lic
-Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
-Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 52 rows, 25 columns and 114 nonzeros
-Model fingerprint: 0x9d1e95b7
+Model fingerprint: 0x1bb0d7ae
 Coefficient statistics:
   Matrix range     [2e-01, 1e+00]
   Objective range  [1e+00, 1e+00]
@@ -17,7 +15,7 @@ Iteration    Objective       Primal Inf.    Dual Inf.      Time
        0    4.5427270e+03   7.803799e+03   0.000000e+00      0s
        7    3.0000000e+00   0.000000e+00   0.000000e+00      0s
 
-Solved in 7 iterations and 0.00 seconds
+Solved in 7 iterations and 0.00 seconds (0.00 work units)
 Optimal objective  3.000000000e+00
 
  objective:  3.0
@@ -50,10 +48,10 @@ Variable zl[8]: 3.0
 Variable zl[9]: 3.0
 
 Solving master problem with 11 approximation points
-Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
-Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 44 rows, 26 columns and 217 nonzeros
-Model fingerprint: 0xcace438d
+Model fingerprint: 0x430f54ef
 Coefficient statistics:
   Matrix range     [1e-02, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -67,7 +65,7 @@ Iteration    Objective       Primal Inf.    Dual Inf.      Time
        0    0.0000000e+00   4.173310e+00   0.000000e+00      0s
       10    2.5088112e+01   0.000000e+00   0.000000e+00      0s
 
-Solved in 10 iterations and 0.00 seconds
+Solved in 10 iterations and 0.00 seconds (0.00 work units)
 Optimal objective  2.508811227e+01
 
  objective:  25.088112270681044
@@ -152,45 +150,46 @@ Current z points are:  [[3. 0. 3. 3. 3. 3. 3. 3. 3. 3. 3.]
 Current objective is:  25.088112270681044
 
 Solving Column Generation
-Time taken:  0.5333003997802734
-      fun: -10.904885222268629
+Time taken:  0.17216825485229492
+
+       fun: -10.879597411650959
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        , 16.33416662,  0.        ,  0.06593209,  0.        , -0.01274288,  0.        ,  0.        ,  0.        , -0.02031414],
+       [ 0.        ,  1.00221602,  0.        , -0.001951  ,  0.        , -0.01318886,  0.        ,  0.        ,  0.        , -0.01035655],
        [ 0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.06593209,  0.        ,  0.12920781,  0.        , -0.009128  ,  0.        ,  0.        ,  0.        , -0.00979964],
+       [ 0.        , -0.001951  ,  0.        ,  0.19321035,  0.        , -0.00650242,  0.        ,  0.        ,  0.        , -0.01364111],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        , -0.01274288,  0.        , -0.009128  ,  0.        ,  0.25758147,  0.        ,  0.        ,  0.        , -0.00289012],
+       [ 0.        , -0.01318886,  0.        , -0.00650242,  0.        ,  0.8708421 ,  0.        ,  0.        ,  0.        , -0.20684632],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ],
-       [ 0.        , -0.02031414,  0.        , -0.00979964,  0.        , -0.00289012,  0.        ,  0.        ,  0.        ,  0.24223655]])
-      jac: array([-0.        , -0.00567889, -0.        ,  0.00901335, -0.        , -0.0009487 , -0.        , -0.        , -0.        , -0.00151971])
+       [ 0.        , -0.01035655,  0.        , -0.01364111,  0.        , -0.20684632,  0.        ,  0.        ,  0.        ,  0.70126417]])
+      jac: array([-0.        , -0.08160731, -0.        ,  0.05962586, -0.        , -0.05223676, -0.        , -0.        , -0.        ,  0.13260924])
   message: 'Optimization terminated successfully.'
-     nfev: 12
-      nit: 8
-     njev: 12
+     nfev: 6
+      nit: 3
+     njev: 6
    status: 0
   success: True
-        x: array([3.        , 3.87530606, 3.        , 1.16455929, 3.        , 1.83216153, 3.        , 3.        , 3.        , 1.78083571])
+        x: array([3.        , 3.11278362, 3.        , 1.17062956, 3.        , 1.81886665, 3.        , 3.        , 3.        , 1.81427308])
 
 New approximation point found:  [[3.        ]
+ [3.11278362]
+ [3.        ]
+ [1.17062956]
+ [3.        ]
+ [1.81886665]
  [3.        ]
  [3.        ]
- [2.08101871]
  [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]]
-Reduced cost is:  [[5.05770918]]
-LB =  0.01 UB =  25.088112270681044
+ [1.81427308]]
+Reduced cost is:  [[10.87959741]]
+LB =  [[13.70851486]] UB =  25.088112270681044
 
 Solving master problem with 12 approximation points
-Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
-Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 44 rows, 27 columns and 230 nonzeros
-Model fingerprint: 0xc46d256f
+Model fingerprint: 0x8f7b5a52
 Coefficient statistics:
   Matrix range     [1e-02, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -202,12 +201,12 @@ Presolved: 18 rows, 26 columns, 171 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
        0    0.0000000e+00   4.173310e+00   0.000000e+00      0s
-      11    2.1488490e+01   0.000000e+00   0.000000e+00      0s
+      10    1.4584050e+01   0.000000e+00   0.000000e+00      0s
 
-Solved in 11 iterations and 0.00 seconds
-Optimal objective  2.148849033e+01
+Solved in 10 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.458405025e+01
 
- objective:  21.488490326145275
+ objective:  14.584050246328893
 
  Vars:
 Variable 0: 0.0
@@ -215,27 +214,27 @@ Variable 1: 0.001
 Variable 3: 0.001
 Variable 5: 0.001
 Variable 6: 30.001
-Variable 7: 35.202
-Variable 8: 45.202
+Variable 7: 35.68111873372656
+Variable 8: 45.68111873372656
 Variable 9: 30.002000000000002
 Variable 10: 40.002
-Variable 11: 38.88849032614529
-Variable 13: 54.889490326145285
-Variable 15: 72.49049032614528
+Variable 11: 36.783334827338685
+Variable 13: 50.503607424322006
+Variable 15: 65.5860502463289
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 21.488490326145275
+Variable c(0,15)_ru: 14.584050246328893
 Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
-Variable lambda[4]: 0.2882900510984615
+Variable lambda[4]: 0.03451739738978235
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
 Variable lambda[7]: 0.0
 Variable lambda[8]: 0.0
 Variable lambda[9]: 0.0
 Variable lambda[10]: 0.0
-Variable lambda[11]: 0.7117099489015385
+Variable lambda[11]: 0.9654826026102177
 Variable phi[0]: 0.2231435513142097
 New Dual Variables added:  {'u': array([[ 0. ],
        [ 0. ],
@@ -246,7 +245,7 @@ New Dual Variables added:  {'u': array([[ 0. ],
        [ 0. ],
        [ 0. ],
        [ 0. ],
-       [-2.2]]), 'v': -18.48204744896857, 'nu': 25.610640029465863, 'mu': array([[ 0.],
+       [-2.2]]), 'v': -4.122251344955962, 'nu': 15.50190405085215, 'mu': array([[ 0.],
        [ 0.],
        [ 0.],
        [-1.],
@@ -278,55 +277,58 @@ New Dual Variables added:  {'u': array([[ 0. ],
        [ 0.]])}
 
 Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.11278362]
  [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         2.08101871]
+ [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         1.17062956]
  [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         1.81886665]
  [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.        ]]
-Current objective is:  21.488490326145275
-Time taken:  0.5202827453613281
-      fun: -7.543117709758398
+ [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         1.81427308]]
+Current objective is:  14.584050246328893
+
+Solving Column Generation
+Time taken:  0.1436295509338379
+
+       fun: -8.711016126446719
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        , 33.6276769 ,  0.        , -0.25444959,  0.        , -0.16225358,  0.        ,  0.        ,  0.        , -0.20525569],
+       [ 0.        ,  1.00009203,  0.        , -0.00027894,  0.        ,  0.00149551,  0.        ,  0.        ,  0.        ,  0.00209811],
        [ 0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        , -0.25444959,  0.        ,  0.11845386,  0.        , -0.03373606,  0.        ,  0.        ,  0.        , -0.03057374],
+       [ 0.        , -0.00027894,  0.        ,  0.5126504 ,  0.        , -0.04701536,  0.        ,  0.        ,  0.        , -0.07370667],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        , -0.16225358,  0.        , -0.03373606,  0.        ,  0.31128979,  0.        ,  0.        ,  0.        ,  0.00506538],
+       [ 0.        ,  0.00149551,  0.        , -0.04701536,  0.        ,  0.81505699,  0.        ,  0.        ,  0.        , -0.25301902],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ],
-       [ 0.        , -0.20525569,  0.        , -0.03057374,  0.        ,  0.00506538,  0.        ,  0.        ,  0.        ,  0.26115538]])
-      jac: array([-0.        , -0.00254248, -0.        , -0.00576836, -0.        , -0.00165208, -0.        , -0.        , -0.        , -0.00229673])
+       [ 0.        ,  0.00209811,  0.        , -0.07370667,  0.        , -0.25301902,  0.        ,  0.        ,  0.        ,  0.65884251]])
+      jac: array([-0.        , -0.01173241, -0.        ,  0.37940307, -0.        ,  0.0410461 , -0.        , -0.        , -0.        , -0.01375767])
   message: 'Optimization terminated successfully.'
-     nfev: 14
-      nit: 11
-     njev: 14
+     nfev: 5
+      nit: 4
+     njev: 5
    status: 0
   success: True
-        x: array([3.        , 3.99312164, 3.        , 0.90314477, 3.        , 1.64626808, 3.        , 3.        , 3.        , 1.590339  ])
+        x: array([ 3.        ,  3.1444218 ,  3.        , -0.78629536,  3.        ,  0.56778394,  3.        ,  3.        ,  3.        ,  0.44581268])
 
-New approximation point found:  [[3.        ]
- [3.        ]
- [3.        ]
- [1.48108172]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]]
-Reduced cost is:  [[2.62023011]]
-LB =  [[16.43078114]] UB =  21.488490326145275
+New approximation point found:  [[ 3.        ]
+ [ 3.1444218 ]
+ [ 3.        ]
+ [-0.78629536]
+ [ 3.        ]
+ [ 0.56778394]
+ [ 3.        ]
+ [ 3.        ]
+ [ 3.        ]
+ [ 0.44581268]]
+Reduced cost is:  [[8.71101613]]
+LB =  [[13.70851486]] UB =  14.584050246328893
 
 Solving master problem with 13 approximation points
-Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
-Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 44 rows, 28 columns and 243 nonzeros
-Model fingerprint: 0x72a5aee9
+Model fingerprint: 0x72db3e0c
 Coefficient statistics:
   Matrix range     [1e-02, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -337,43 +339,43 @@ Presolve time: 0.00s
 Presolved: 18 rows, 27 columns, 183 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0    0.0000000e+00   4.173310e+00   0.000000e+00      0s
-      10    1.9464921e+01   0.000000e+00   0.000000e+00      0s
+       0    0.0000000e+00   4.310238e+00   0.000000e+00      0s
+      11    1.4511798e+01   0.000000e+00   0.000000e+00      0s
 
-Solved in 10 iterations and 0.00 seconds
-Optimal objective  1.946492074e+01
+Solved in 11 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.451179809e+01
 
- objective:  19.464920736301202
+ objective:  14.51179808930329
 
  Vars:
 Variable 0: 0.0
 Variable 1: 0.001
 Variable 3: 0.001
-Variable 5: 0.001
-Variable 6: 30.001
-Variable 7: 35.202
-Variable 8: 45.202
-Variable 9: 30.002000000000002
-Variable 10: 40.002
-Variable 11: 36.8649207363012
-Variable 13: 52.8659207363012
-Variable 15: 70.4669207363012
+Variable 5: 10.544368380052305
+Variable 6: 40.544368380052305
+Variable 7: 35.69940255945076
+Variable 8: 45.69940255945076
+Variable 9: 40.5453683800523
+Variable 10: 50.5453683800523
+Variable 11: 36.9283889001951
+Variable 13: 50.5463683800523
+Variable 15: 65.5137980893033
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 19.464920736301202
+Variable c(0,15)_ru: 14.51179808930329
 Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
-Variable lambda[4]: 0.22771302455486464
+Variable lambda[4]: 0.0
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
 Variable lambda[7]: 0.0
 Variable lambda[8]: 0.0
 Variable lambda[9]: 0.0
 Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
-Variable lambda[12]: 0.7722869754451354
-Variable phi[0]: 0.2231435513142097
+Variable lambda[11]: 0.9917056568399345
+Variable lambda[12]: 0.008294343160065498
+Variable phi[0]: 0.22314355131420965
 New Dual Variables added:  {'u': array([[ 0. ],
        [ 0. ],
        [ 0. ],
@@ -383,7 +385,7 @@ New Dual Variables added:  {'u': array([[ 0. ],
        [ 0. ],
        [ 0. ],
        [ 0. ],
-       [-2.2]]), 'v': -14.273444524397414, 'nu': 22.6479478369616, 'mu': array([[ 0.],
+       [-2.2]]), 'v': -8.325422117483399, 'nu': 16.3675623467884, 'mu': array([[ 0.],
        [ 0.],
        [ 0.],
        [-1.],
@@ -414,56 +416,59 @@ New Dual Variables added:  {'u': array([[ 0. ],
        [ 0.],
        [ 0.]])}
 
-Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         2.08101871 1.48108172]
- [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.        ]]
-Current objective is:  19.464920736301202
-Time taken:  0.429337739944458
-      fun: -6.140056042963067
+Current z points are:  [[ 3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.11278362  3.1444218 ]
+ [ 3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          1.17062956 -0.78629536]
+ [ 3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          1.81886665  0.56778394]
+ [ 3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          0.          1.81427308  0.44581268]]
+Current objective is:  14.51179808930329
+
+Solving Column Generation
+Time taken:  0.1420290470123291
+
+       fun: -3.5206529668516744
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        , 14.06047498,  0.        ,  0.0073292 ,  0.        ,  0.00728696,  0.        ,  0.        ,  0.        ,  0.03882845],
+       [ 0.        ,  1.00060704,  0.        , -0.00377858,  0.        , -0.00597055,  0.        ,  0.        ,  0.        , -0.00561853],
        [ 0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.0073292 ,  0.        ,  0.16523188,  0.        , -0.00352324,  0.        ,  0.        ,  0.        , -0.01249454],
+       [ 0.        , -0.00377858,  0.        ,  0.29105309,  0.        , -0.00015413,  0.        ,  0.        ,  0.        , -0.00862783],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.00728696,  0.        , -0.00352324,  0.        ,  0.32519673,  0.        ,  0.        ,  0.        , -0.019525  ],
+       [ 0.        , -0.00597055,  0.        , -0.00015413,  0.        ,  0.77830023,  0.        ,  0.        ,  0.        , -0.28146806],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ],
-       [ 0.        ,  0.03882845,  0.        , -0.01249454,  0.        , -0.019525  ,  0.        ,  0.        ,  0.        ,  0.21261305]])
-      jac: array([-0.        , -0.00721605, -0.        , -0.00186436, -0.        , -0.00165859, -0.        , -0.        , -0.        , -0.0083083 ])
+       [ 0.        , -0.00561853,  0.        , -0.00862783,  0.        , -0.28146806,  0.        ,  0.        ,  0.        ,  0.64766006]])
+      jac: array([-0.        , -0.02273302, -0.        , -0.24102683, -0.        , -0.06615106, -0.        , -0.        , -0.        ,  0.04992507])
   message: 'Optimization terminated successfully.'
-     nfev: 11
-      nit: 9
-     njev: 11
+     nfev: 5
+      nit: 3
+     njev: 5
    status: 0
   success: True
-        x: array([3.        , 3.65268116, 3.        , 0.68180791, 3.        , 1.49372244, 3.        , 3.        , 3.        , 1.431876  ])
+        x: array([3.        , 3.15756516, 3.        , 0.07825823, 3.        , 1.11157301, 3.        , 3.        , 3.        , 1.08107909])
 
 New approximation point found:  [[3.        ]
+ [3.15756516]
+ [3.        ]
+ [0.07825823]
+ [3.        ]
+ [1.11157301]
  [3.        ]
  [3.        ]
- [1.14382012]
  [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]]
-Reduced cost is:  [[1.11921585]]
-LB =  [[16.84469062]] UB =  19.464920736301202
+ [1.08107909]]
+Reduced cost is:  [[3.52065297]]
+LB =  [[13.70851486]] UB =  14.51179808930329
 
 Solving master problem with 14 approximation points
-Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
-Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 44 rows, 29 columns and 256 nonzeros
-Model fingerprint: 0x73142341
+Model fingerprint: 0x44845a30
 Coefficient statistics:
   Matrix range     [1e-02, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -474,44 +479,44 @@ Presolve time: 0.00s
 Presolved: 18 rows, 28 columns, 195 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0    0.0000000e+00   4.173310e+00   0.000000e+00      0s
-      10    1.8502636e+01   0.000000e+00   0.000000e+00      0s
+       0    0.0000000e+00   4.310238e+00   0.000000e+00      0s
+      13    1.4428670e+01   0.000000e+00   0.000000e+00      0s
 
-Solved in 10 iterations and 0.00 seconds
-Optimal objective  1.850263582e+01
+Solved in 13 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.442867045e+01
 
- objective:  18.50263581666085
+ objective:  14.428670452407495
 
  Vars:
 Variable 0: 0.0
 Variable 1: 0.001
 Variable 3: 0.001
-Variable 5: 0.001
-Variable 6: 30.001
-Variable 7: 35.202
-Variable 8: 45.202
-Variable 9: 30.002000000000002
-Variable 10: 40.002
-Variable 11: 35.902635816660855
-Variable 13: 51.90363581666085
-Variable 15: 69.50463581666085
+Variable 5: 10.474355548921423
+Variable 6: 40.47435554892142
+Variable 7: 35.7029002870872
+Variable 8: 45.7029002870872
+Variable 9: 40.47535554892142
+Variable 10: 50.47535554892142
+Variable 11: 36.871022673109586
+Variable 13: 50.47635554892142
+Variable 15: 65.4306704524075
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 18.50263581666085
+Variable c(0,15)_ru: 14.428670452407495
 Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
-Variable lambda[4]: 0.14021507119416027
+Variable lambda[4]: 0.0
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
 Variable lambda[7]: 0.0
 Variable lambda[8]: 0.0
 Variable lambda[9]: 0.0
 Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
+Variable lambda[11]: 0.9763885740291721
 Variable lambda[12]: 0.0
-Variable lambda[13]: 0.8597849288058397
-Variable phi[0]: 0.2231435513142097
+Variable lambda[13]: 0.023611425970827882
+Variable phi[0]: 0.22314355131420976
 New Dual Variables added:  {'u': array([[ 0. ],
        [ 0. ],
        [ 0. ],
@@ -521,7 +526,7 @@ New Dual Variables added:  {'u': array([[ 0. ],
        [ 0. ],
        [ 0. ],
        [ 0. ],
-       [-2.2]]), 'v': -12.272092484223137, 'nu': 21.239074115646822, 'mu': array([[ 0.],
+       [-2.2]]), 'v': -13.161259110776328, 'nu': 17.363520550152618, 'mu': array([[ 0.],
        [ 0.],
        [ 0.],
        [-1.],
@@ -552,56 +557,59 @@ New Dual Variables added:  {'u': array([[ 0. ],
        [ 0.],
        [ 0.]])}
 
-Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         2.08101871 1.48108172 1.14382012]
- [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.        ]]
-Current objective is:  18.50263581666085
-Time taken:  0.5047216415405273
-      fun: -5.698799481444114
+Current z points are:  [[ 3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.11278362  3.1444218   3.15756516]
+ [ 3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          1.17062956 -0.78629536  0.07825823]
+ [ 3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          1.81886665  0.56778394  1.11157301]
+ [ 3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          0.          1.81427308  0.44581268  1.08107909]]
+Current objective is:  14.428670452407495
+
+Solving Column Generation
+Time taken:  0.19886159896850586
+
+       fun: -1.3403280567238518
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        , 30.27303874,  0.        ,  0.11350379,  0.        ,  0.07770703,  0.        ,  0.        ,  0.        ,  0.37176853],
+       [ 0.        ,  1.01058688,  0.        , -0.00077234,  0.        , -0.00816014,  0.        ,  0.        ,  0.        , -0.02024954],
        [ 0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.11350379,  0.        ,  0.17004565,  0.        , -0.0059476 ,  0.        ,  0.        ,  0.        , -0.03188257],
+       [ 0.        , -0.00077234,  0.        ,  0.1550713 ,  0.        ,  0.06829091,  0.        ,  0.        ,  0.        , -0.01244422],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.07770703,  0.        , -0.0059476 ,  0.        ,  0.33577594,  0.        ,  0.        ,  0.        , -0.02030781],
+       [ 0.        , -0.00816014,  0.        ,  0.06829091,  0.        ,  0.82791572,  0.        ,  0.        ,  0.        , -0.26337702],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ],
-       [ 0.        ,  0.37176853,  0.        , -0.03188257,  0.        , -0.02030781,  0.        ,  0.        ,  0.        ,  0.22320795]])
-      jac: array([-0.        , -0.00292477, -0.        ,  0.00113978, -0.        ,  0.00035701, -0.        , -0.        , -0.        ,  0.0018173 ])
+       [ 0.        , -0.02024954,  0.        , -0.01244422,  0.        , -0.26337702,  0.        ,  0.        ,  0.        ,  0.47162831]])
+      jac: array([-0.        , -0.03039986, -0.        ,  0.30758595, -0.        ,  0.10000222, -0.        , -0.        , -0.        ,  0.29715417])
   message: 'Optimization terminated successfully.'
-     nfev: 12
-      nit: 10
-     njev: 12
+     nfev: 7
+      nit: 5
+     njev: 7
    status: 0
   success: True
-        x: array([3.        , 3.85304723, 3.        , 0.54055598, 3.        , 1.39983606, 3.        , 3.        , 3.        , 1.33748685])
+        x: array([3.        , 3.21008437, 3.        , 0.6560897 , 3.        , 1.47590162, 3.        , 3.        , 3.        , 1.47414183])
 
-New approximation point found:  [[3.       ]
- [3.       ]
- [3.       ]
- [0.9834393]
- [3.       ]
- [3.       ]
- [3.       ]
- [3.       ]
- [3.       ]
- [3.       ]]
-Reduced cost is:  [[0.43997997]]
-LB =  [[17.38341997]] UB =  18.50263581666085
+New approximation point found:  [[3.        ]
+ [3.21008437]
+ [3.        ]
+ [0.6560897 ]
+ [3.        ]
+ [1.47590162]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.47414183]]
+Reduced cost is:  [[1.34032806]]
+LB =  [[13.70851486]] UB =  14.428670452407495
 
 Solving master problem with 15 approximation points
-Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (linux64)
-Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 44 rows, 30 columns and 269 nonzeros
-Model fingerprint: 0x4eafa3d9
+Model fingerprint: 0xb8d2de98
 Coefficient statistics:
   Matrix range     [1e-02, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -612,44 +620,44 @@ Presolve time: 0.00s
 Presolved: 18 rows, 29 columns, 207 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
-       0    0.0000000e+00   4.173310e+00   0.000000e+00      0s
-      10    1.8093186e+01   0.000000e+00   0.000000e+00      0s
+       0    0.0000000e+00   4.310238e+00   0.000000e+00      0s
+      16    1.4333347e+01   0.000000e+00   0.000000e+00      0s
 
-Solved in 10 iterations and 0.00 seconds
-Optimal objective  1.809318638e+01
+Solved in 16 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.433334674e+01
 
- objective:  18.093186375268935
+ objective:  14.333346743607358
 
  Vars:
 Variable 0: 0.0
 Variable 1: 0.001
 Variable 3: 0.001
-Variable 5: 0.001
-Variable 6: 30.001
-Variable 7: 35.202
-Variable 8: 45.202
-Variable 9: 30.002000000000002
-Variable 10: 40.002
-Variable 11: 35.49318637526894
-Variable 13: 51.49418637526894
-Variable 15: 69.09518637526894
+Variable 5: 10.394164037757704
+Variable 6: 40.394164037757704
+Variable 7: 35.72869591474915
+Variable 8: 45.72869591474915
+Variable 9: 40.3951640377577
+Variable 10: 50.3951640377577
+Variable 11: 36.80621386861604
+Variable 13: 50.3961640377577
+Variable 15: 65.33534674360736
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 18.093186375268935
+Variable c(0,15)_ru: 14.333346743607358
 Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
-Variable lambda[4]: 0.06939073247594767
+Variable lambda[4]: 0.0
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
 Variable lambda[7]: 0.0
 Variable lambda[8]: 0.0
 Variable lambda[9]: 0.0
 Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
+Variable lambda[11]: 0.9288803152915158
 Variable lambda[12]: 0.0
 Variable lambda[13]: 0.0
-Variable lambda[14]: 0.9306092675240524
+Variable lambda[14]: 0.07111968470848418
 Variable phi[0]: 0.2231435513142097
 New Dual Variables added:  {'u': array([[ 0. ],
        [ 0. ],
@@ -660,7 +668,7 @@ New Dual Variables added:  {'u': array([[ 0. ],
        [ 0. ],
        [ 0. ],
        [ 0. ],
-       [-2.2]]), 'v': -11.420522997730316, 'nu': 20.639602434848086, 'mu': array([[ 0.],
+       [-2.2]]), 'v': -18.70658596677053, 'nu': 18.505600769197095, 'mu': array([[ 0.],
        [ 0.],
        [ 0.],
        [-1.],
@@ -691,84 +699,87 @@ New Dual Variables added:  {'u': array([[ 0. ],
        [ 0.],
        [ 0.]])}
 
-Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         2.08101871 1.48108172 1.14382012 0.9834393 ]
- [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]]
-Current objective is:  18.093186375268935
-Time taken:  0.45840024948120117
-      fun: -5.575135905016861
- hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        , 29.90328214,  0.        ,  0.12959612,  0.        ,  0.0645907 ,  0.        ,  0.        ,  0.        ,  0.26492852],
-       [ 0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.12959612,  0.        ,  0.16565137,  0.        , -0.0096506 ,  0.        ,  0.        ,  0.        , -0.04693452],
-       [ 0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.0645907 ,  0.        , -0.0096506 ,  0.        ,  0.34038439,  0.        ,  0.        ,  0.        , -0.02158673],
-       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ,  0.        ],
-       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  1.        ,  0.        ],
-       [ 0.        ,  0.26492852,  0.        , -0.04693452,  0.        , -0.02158673,  0.        ,  0.        ,  0.        ,  0.24356069]])
-      jac: array([-0.        , -0.00301652, -0.        ,  0.00006649, -0.        , -0.0000482 , -0.        , -0.        , -0.        , -0.00013596])
+Current z points are:  [[ 3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.11278362  3.1444218   3.15756516  3.21008437]
+ [ 3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          1.17062956 -0.78629536  0.07825823  0.6560897 ]
+ [ 3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          1.81886665  0.56778394  1.11157301  1.47590162]
+ [ 3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          3.          0.          3.          3.          3.          3.          3.        ]
+ [ 3.          3.          3.          3.          3.          3.          3.          3.          3.          3.          0.          1.81427308  0.44581268  1.08107909  1.47414183]]
+Current objective is:  14.333346743607358
+
+Solving Column Generation
+Time taken:  0.08541178703308105
+
+       fun: -0.3276151434561463
+ hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]])
+      jac: array([-0.        , -0.05595688, -0.        , -0.07946008, -0.        ,  0.23918849, -0.        , -0.        , -0.        ,  0.33166881])
   message: 'Optimization terminated successfully.'
-     nfev: 12
-      nit: 10
-     njev: 12
+     nfev: 3
+      nit: 1
+     njev: 3
    status: 0
   success: True
-        x: array([3.        , 3.82627479, 3.        , 0.46935982, 3.        , 1.35317924, 3.        , 3.        , 3.        , 1.28893608])
+        x: array([3.        , 3.12857501, 3.        , 0.90304735, 3.        , 1.72477589, 3.        , 3.        , 3.        , 1.6911925 ])
 
 New approximation point found:  [[3.        ]
+ [3.12857501]
+ [3.        ]
+ [0.90304735]
+ [3.        ]
+ [1.72477589]
  [3.        ]
  [3.        ]
- [0.91519773]
  [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]
- [3.        ]]
-Reduced cost is:  [[0.16994936]]
-LB =  [[17.6532064]] UB =  18.093186375268935
+ [1.6911925 ]]
+Reduced cost is:  [[0.32761514]]
+LB =  [[13.70851486]] UB =  14.333346743607358
 
 Final solution found: 
-Solution time:  2.782418727874756
-Optimality gap is:  [[2.49235161]]
+Solution time:  0.9472322463989258
+Optimality gap is:  [[4.55798379]]
 Final Probability is:  None
-objective:  18.093186375268935
+objective:  14.333346743607358
 Vars:
 Variable 0: 0.0
 Variable 1: 0.001
 Variable 3: 0.001
-Variable 5: 0.001
-Variable 6: 30.001
-Variable 7: 35.202
-Variable 8: 45.202
-Variable 9: 30.002000000000002
-Variable 10: 40.002
-Variable 11: 35.49318637526894
-Variable 13: 51.49418637526894
-Variable 15: 69.09518637526894
+Variable 5: 10.394164037757704
+Variable 6: 40.394164037757704
+Variable 7: 35.72869591474915
+Variable 8: 45.72869591474915
+Variable 9: 40.3951640377577
+Variable 10: 50.3951640377577
+Variable 11: 36.80621386861604
+Variable 13: 50.3961640377577
+Variable 15: 65.33534674360736
 Variable c(0,15)_rl: 0.0
-Variable c(0,15)_ru: 18.093186375268935
+Variable c(0,15)_ru: 14.333346743607358
 Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
-Variable lambda[4]: 0.06939073247594767
+Variable lambda[4]: 0.0
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
 Variable lambda[7]: 0.0
 Variable lambda[8]: 0.0
 Variable lambda[9]: 0.0
 Variable lambda[10]: 0.0
-Variable lambda[11]: 0.0
+Variable lambda[11]: 0.9288803152915158
 Variable lambda[12]: 0.0
 Variable lambda[13]: 0.0
-Variable lambda[14]: 0.9306092675240524
+Variable lambda[14]: 0.07111968470848418
 Variable phi[0]: 0.2231435513142097
