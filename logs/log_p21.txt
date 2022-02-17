@@ -1,2 +1,8 @@
-Solving:  p22
-Solving:  p23
+
+SOLVING:  p22 
+
+SOLVED:  p22 
+
+
+SOLVING:  p23 
+

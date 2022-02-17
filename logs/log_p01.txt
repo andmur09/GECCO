@@ -121,174 +121,34 @@ Solving Column Generation
 
 ITERATION NUMBER: 0
 z =  [3.         2.05761721 3.         3.         3.         3.        ]
-Prob =  0.976193996149261
 Grad =  [-0.          4.72736248 -0.         -0.         -0.          5.8849115 ]
 Function value =  -5.169021818464561
 Reduced cost =  5.169021818464561
 
 BACKTRACKING BEGINS HERE
-LHS =  279.01046393655133 RHS =  -10.867035751788226 t =  1
-LHS =  108.25806259864048 RHS =  -9.727432965123494 t =  0.8
-LHS =  39.48735294458707 RHS =  -8.815750735791708 t =  0.6400000000000001
-LHS =  6.693538501608799 RHS =  -8.086404952326278 t =  0.5120000000000001
-LHS =  -7.706327813286457 RHS =  -7.502928325553935 t =  0.40960000000000013
 BACKTRACKING ENDS HERE
 
 ITERATION NUMBER: 1
 z =  [3.         0.12128954 3.         3.         3.         0.58954025]
-Prob =  0.394274438980782
 Grad =  [ -0.         -12.77814829  -0.          -0.          -0.          -6.04582108]
 Function value =  -7.706327813286457
 Reduced cost =  7.706327813286457
 Grad^2 =  199.83302616579607
 
-BACKTRACKING BEGINS HERE
-LHS =  81.17366897140606 RHS =  -27.689630429866064 t =  1
-LHS =  58.58490573449737 RHS =  -23.692969906550147 t =  0.8
-LHS =  40.513895144970434 RHS =  -20.49564148789741 t =  0.6400000000000001
-LHS =  26.057086673696055 RHS =  -17.93777875297522 t =  0.5120000000000001
-LHS =  14.491641007092618 RHS =  -15.891488565037466 t =  0.40960000000000013
-LHS =  5.336691122178912 RHS =  -14.254456414687265 t =  0.32768000000000014
-LHS =  -1.8022777588311243 RHS =  -12.944830694407104 t =  0.2621440000000001
-LHS =  -7.217282707126419 RHS =  -11.897130118182975 t =  0.2097152000000001
-LHS =  -11.095185683935185 RHS =  -11.05896965720367 t =  0.1677721600000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 2
-z =  [3.         2.26510708 3.         3.         3.         1.60386071]
-Prob =  0.9319048963933617
-Grad =  [-0.          5.19391828 -0.         -0.         -0.          2.97656662]
-Function value =  -11.095185683935185
-Reduced cost =  11.095185683935185
-Grad^2 =  35.836735996021986
-
-BACKTRACKING BEGINS HERE
-LHS =  209.0477886892515 RHS =  -14.678859283537383 t =  1
-LHS =  80.34413994134555 RHS =  -13.962124563616944 t =  0.8
-LHS =  31.229606790419368 RHS =  -13.388736787680592 t =  0.6400000000000001
-LHS =  6.045032399773859 RHS =  -12.930026566931511 t =  0.5120000000000001
-LHS =  -6.391026013008847 RHS =  -12.563058390332246 t =  0.40960000000000013
-LHS =  -12.131764971208291 RHS =  -12.269483849052834 t =  0.32768000000000014
-LHS =  -14.477716665817944 RHS =  -12.034624216029304 t =  0.2621440000000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 3
-z =  [3.         0.90355257 3.         3.         3.         0.82357163]
-Prob =  0.6471738227202268
-Grad =  [-0.         -2.43427858 -0.         -0.         -0.         -3.27511931]
-Function value =  -14.477716665817944
-Reduced cost =  14.477716665817944
-Grad^2 =  16.652118748542488
-
-BACKTRACKING BEGINS HERE
-LHS =  8.594987008501803 RHS =  -16.142928540672195 t =  1
-LHS =  1.789459861326499 RHS =  -15.809886165701343 t =  0.8
-LHS =  -3.5572967882643027 RHS =  -15.543452265724664 t =  0.6400000000000001
-LHS =  -7.592805466565718 RHS =  -15.330305145743319 t =  0.5120000000000001
-LHS =  -10.5214509372496 RHS =  -15.159787449758245 t =  0.40960000000000013
-LHS =  -12.536582789817174 RHS =  -15.023373292970184 t =  0.32768000000000014
-LHS =  -13.842715462530066 RHS =  -14.914241967539736 t =  0.2621440000000001
-LHS =  -14.631775358859024 RHS =  -14.826936907195378 t =  0.2097152000000001
-LHS =  -15.064697360127752 RHS =  -14.757092858919892 t =  0.1677721600000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 4
-z =  [3.         1.31195674 3.         3.         3.         1.37304547]
-Prob =  0.8259508680933317
-Grad =  [-0.          1.15941428 -0.         -0.         -0.          1.59482446]
-Function value =  -15.064697360127752
-Reduced cost =  15.064697360127752
-Grad^2 =  3.8877065144029457
-
-BACKTRACKING BEGINS HERE
-LHS =  1.6320145710559473 RHS =  -15.453468011568047 t =  1
-LHS =  -5.8680146159652935 RHS =  -15.375713881279989 t =  0.8
-LHS =  -10.131755445843591 RHS =  -15.313510577049541 t =  0.6400000000000001
-LHS =  -12.541306569988798 RHS =  -15.263747933665183 t =  0.5120000000000001
-LHS =  -13.888747083061446 RHS =  -15.223937818957697 t =  0.40960000000000013
-LHS =  -14.627975880394594 RHS =  -15.192089727191709 t =  0.32768000000000014
-LHS =  -15.019712552068455 RHS =  -15.166611253778918 t =  0.2621440000000001
-LHS =  -15.214208215399694 RHS =  -15.146228475048684 t =  0.2097152000000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 5
-z =  [3.         1.06880995 3.         3.         3.         1.03858654]
-Prob =  0.7269352581036653
-Grad =  [-0.         -0.82654208 -0.         -0.         -0.         -1.09527648]
-Function value =  -15.214208215399694
-Reduced cost =  15.214208215399694
-Grad^2 =  1.8828023704601327
-
-BACKTRACKING BEGINS HERE
-LHS =  -10.698364336941271 RHS =  -15.402488452445708 t =  1
-LHS =  -12.35844102399571 RHS =  -15.364832405036504 t =  0.8
-LHS =  -13.48600548215687 RHS =  -15.334707567109142 t =  0.6400000000000001
-LHS =  -14.227416333773114 RHS =  -15.310607696767253 t =  0.5120000000000001
-LHS =  -14.699360203741112 RHS =  -15.291327800493741 t =  0.40960000000000013
-LHS =  -14.989303263100808 RHS =  -15.275903883474932 t =  0.32768000000000014
-LHS =  -15.159815994241605 RHS =  -15.263564749859883 t =  0.2621440000000001
-LHS =  -15.254078375707348 RHS =  -15.253693442967846 t =  0.2097152000000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 6
-z =  [3.         1.24214838 3.         3.         3.         1.26828267]
-Prob =  0.7991059212399361
-Grad =  [-0.          0.6349136  -0.         -0.         -0.          0.84250724]
-Function value =  -15.254078375707348
-Reduced cost =  15.254078375707348
-Grad^2 =  1.1129337325931767
-
-BACKTRACKING BEGINS HERE
-LHS =  -11.003377031655717 RHS =  -15.365371748966666 t =  1
-LHS =  -12.847778178969879 RHS =  -15.343113074314802 t =  0.8
-LHS =  -13.925825593523282 RHS =  -15.325306134593312 t =  0.6400000000000001
-LHS =  -14.552910348974343 RHS =  -15.311060582816118 t =  0.5120000000000001
-LHS =  -14.913899694312356 RHS =  -15.299664141394365 t =  0.40960000000000013
-LHS =  -15.117803572559971 RHS =  -15.290546988256962 t =  0.32768000000000014
-LHS =  -15.229244315419052 RHS =  -15.283253265747039 t =  0.2621440000000001
-LHS =  -15.286675154234914 RHS =  -15.277418287739101 t =  0.2097152000000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 7
-z =  [3.         1.10899735 3.         3.         3.         1.09159609]
-Prob =  0.7448337646114053
-Grad =  [-0.         -0.46730408 -0.         -0.         -0.         -0.61238453]
-Function value =  -15.286675154234914
-Reduced cost =  15.286675154234914
-Grad^2 =  0.5933879181109233
-
-BACKTRACKING BEGINS HERE
-LHS =  -13.673818430051643 RHS =  -15.346013946046005 t =  1
-LHS =  -14.3003900240479 RHS =  -15.334146187683787 t =  0.8
-LHS =  -14.706569211228825 RHS =  -15.324651980994012 t =  0.6400000000000001
-LHS =  -14.963853089162495 RHS =  -15.317056615642192 t =  0.5120000000000001
-LHS =  -15.122761964433952 RHS =  -15.310980323360736 t =  0.40960000000000013
-LHS =  -15.217964780665248 RHS =  -15.306119289535573 t =  0.32768000000000014
-LHS =  -15.272708685486094 RHS =  -15.30223046247544 t =  0.2621440000000001
-LHS =  -15.3022853006354 RHS =  -15.299119400827335 t =  0.2097152000000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 8
-z =  [3.         1.20699812 3.         3.         3.         1.22002244]
-Prob =  0.7853095322546025
-Grad =  [-0.          0.35700081 -0.         -0.         -0.          0.46854957]
-Function value =  -15.3022853006354
-Reduced cost =  15.3022853006354
-Grad^2 =  0.34698828211980126
-
 New approximation point found:  [[3.        ]
- [1.20699812]
+ [0.12128954]
  [3.        ]
  [3.        ]
  [3.        ]
- [1.22002244]]
-Reduced cost is:  [[15.3022853]]
+ [0.58954025]]
+Reduced cost is:  [[7.70632781]]
+LB =  0.01 UB =  30.347703281354278
 
 Solving master problem with 8 approximation points
 Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
 Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 30 rows, 19 columns and 122 nonzeros
-Model fingerprint: 0x82433939
+Model fingerprint: 0x93b0555f
 Coefficient statistics:
   Matrix range     [5e-03, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -300,12 +160,12 @@ Presolved: 12 rows, 17 columns, 81 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
        0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
-       9    1.6245776e+01   0.000000e+00   0.000000e+00      0s
+       9    2.8534294e+01   0.000000e+00   0.000000e+00      0s
 
 Solved in 9 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  1.624577626e+01
+Optimal objective  2.853429365e+01
 
- objective:  16.245776259089816
+ objective:  28.53429365100674
 
  Vars:
 Variable 0: 0.0
@@ -314,25 +174,25 @@ Variable 3: 0.001
 Variable 4: 30.001
 Variable 5: 30.002000000000002
 Variable 6: 40.002
-Variable 7: 38.08788017166602
-Variable 9: 76.24677625908981
+Variable 7: 43.937588472018916
+Variable 9: 88.53529365100674
 Variable c(0,9)_rl: 0.0
-Variable c(0,9)_ru: 16.245776259089816
-Variable lambda[0]: 0.07844307270372813
+Variable c(0,9)_ru: 28.53429365100674
+Variable lambda[0]: 0.7646856357160103
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
 Variable lambda[4]: 0.0
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
-Variable lambda[7]: 0.9215569272962718
-Variable phi[0]: 0.22314355131420968
+Variable lambda[7]: 0.23531436428398966
+Variable phi[0]: 0.22314355131420974
 New Dual Variables added:  {'u': array([[ 0.],
        [-6.],
        [ 0.],
        [ 0.],
        [ 0.],
-       [-6.]]), 'v': -90.73448632910619, 'nu': 36.49059176523716, 'mu': array([[ 0.],
+       [-6.]]), 'v': -34.29696426394549, 'nu': 36.185440056160076, 'mu': array([[ 0.],
        [-1.],
        [ 0.],
        [ 0.],
@@ -354,140 +214,45 @@ New Dual Variables added:  {'u': array([[ 0.],
        [ 0.]])}
 
 Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         1.20699812]
+ [3.         3.         0.         3.         3.         3.         3.         0.12128954]
  [3.         3.         3.         0.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         0.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         0.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         1.22002244]]
-Current objective is:  16.245776259089816
+ [3.         3.         3.         3.         3.         3.         0.         0.58954025]]
+Current objective is:  28.53429365100674
 
 Solving Column Generation
 
 ITERATION NUMBER: 0
-z =  [3.         1.3476467  3.         3.         3.         1.35964935]
-Prob =  0.8294133933042834
-Grad =  [ -0.         -10.02487695  -0.          -0.          -0.          -9.71222342]
-Function value =  -3.276147212396296
-Reduced cost =  3.276147212396296
+z =  [3.         2.32259808 3.         3.         3.         2.4327842 ]
+Grad =  [-0.          5.06848882 -0.         -0.         -0.          5.28603674]
+Function value =  -6.953585588912919
+Reduced cost =  6.953585588912919
 
 BACKTRACKING BEGINS HERE
-LHS =  98.54364764436974 RHS =  -22.758691374543147 t =  1
-LHS =  74.85912720044598 RHS =  -18.86218254211378 t =  0.8
-LHS =  55.91151084530734 RHS =  -15.744975476170282 t =  0.6400000000000001
-LHS =  40.753417765352005 RHS =  -13.251209823415486 t =  0.5120000000000001
-LHS =  28.626945533289252 RHS =  -11.25619730121165 t =  0.40960000000000013
-LHS =  18.925927764892684 RHS =  -9.660187283448579 t =  0.32768000000000014
-LHS =  11.168009187259223 RHS =  -8.383379269238123 t =  0.2621440000000001
-LHS =  4.981533864152794 RHS =  -7.361932857869757 t =  0.2097152000000001
-LHS =  0.10486713798835012 RHS =  -6.544775728775065 t =  0.1677721600000001
-LHS =  -3.4328643640755487 RHS =  -5.891050025499311 t =  0.13421772800000006
-LHS =  -5.843438562304417 RHS =  -5.368069462878708 t =  0.10737418240000006
 BACKTRACKING ENDS HERE
 
 ITERATION NUMBER: 1
-z =  [3.         2.42405966 3.         3.         3.         2.4024914 ]
-Prob =  0.9815699067477075
-Grad =  [-0.          4.06775904 -0.         -0.         -0.          3.96631338]
-Function value =  -5.843438562304417
-Reduced cost =  5.843438562304417
-Grad^2 =  32.27830547994012
-
-BACKTRACKING BEGINS HERE
-LHS =  477.3510469900436 RHS =  -9.071269110298429 t =  1
-LHS =  236.8301569762119 RHS =  -8.425703000699627 t =  0.8
-LHS =  112.27589022645614 RHS =  -7.909250113020585 t =  0.6400000000000001
-LHS =  49.37282819417056 RHS =  -7.496087802877351 t =  0.5120000000000001
-LHS =  18.42768259450291 RHS =  -7.1655579547627655 t =  0.40960000000000013
-LHS =  3.5541911315803887 RHS =  -6.901134076271095 t =  0.32768000000000014
-LHS =  -3.406215171689773 RHS =  -6.68959497347776 t =  0.2621440000000001
-LHS =  -6.516321400305454 RHS =  -6.520363691243091 t =  0.2097152000000001
-LHS =  -7.768079611026721 RHS =  -6.384978665455357 t =  0.1677721600000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 2
-z =  [3.         1.74160294 3.         3.         3.         1.73705443]
-Prob =  0.9171149810144662
-Grad =  [-0.         -2.28221327 -0.         -0.         -0.         -2.34019362]
-Function value =  -7.768079611026721
-Reduced cost =  7.768079611026721
-Grad^2 =  10.685003572880563
-
-BACKTRACKING BEGINS HERE
-LHS =  12.486256124423456 RHS =  -8.836579968314776 t =  1
-LHS =  6.953148452596146 RHS =  -8.622879896857166 t =  0.8
-LHS =  2.561229346307883 RHS =  -8.451919839691078 t =  0.6400000000000001
-LHS =  -0.857655022339813 RHS =  -8.315151793958206 t =  0.5120000000000001
-LHS =  -3.355032030380663 RHS =  -8.205737357371909 t =  0.40960000000000013
-LHS =  -5.1426383019791295 RHS =  -8.118205808102871 t =  0.32768000000000014
-LHS =  -6.36683083071831 RHS =  -8.048180568687641 t =  0.2621440000000001
-LHS =  -7.16576434450241 RHS =  -7.992160377155457 t =  0.2097152000000001
-LHS =  -7.65889759042291 RHS =  -7.94734422392971 t =  0.1677721600000001
-LHS =  -7.941850743008171 RHS =  -7.911491301349113 t =  0.13421772800000006
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 3
-z =  [3.         2.04791642 3.         3.         3.         2.0511499 ]
-Prob =  0.9573545469716153
-Grad =  [-0.          1.46176227 -0.         -0.         -0.          1.49855883]
-Function value =  -7.941850743008171
-Reduced cost =  7.941850743008171
-Grad^2 =  4.382427502793274
-
-BACKTRACKING BEGINS HERE
-LHS =  31.461410750225788 RHS =  -8.380093493287498 t =  1
-LHS =  13.209153991920019 RHS =  -8.292444943231633 t =  0.8
-LHS =  3.3784431153975234 RHS =  -8.22232610318694 t =  0.6400000000000001
-LHS =  -1.953322505273789 RHS =  -8.166231031151186 t =  0.5120000000000001
-LHS =  -4.861456515043443 RHS =  -8.121354973522584 t =  0.40960000000000013
-LHS =  -6.449290652174685 RHS =  -8.085454127419702 t =  0.32768000000000014
-LHS =  -7.310021240307709 RHS =  -8.056733450537395 t =  0.2621440000000001
-LHS =  -7.767114153135008 RHS =  -8.03375690903155 t =  0.2097152000000001
-LHS =  -7.999478059538262 RHS =  -8.015375675826874 t =  0.1677721600000001
-LHS =  -8.107280322572798 RHS =  -8.000670689263133 t =  0.13421772800000006
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 4
-z =  [3.         1.85172201 3.         3.         3.         1.85001674]
-Prob =  0.9342302651503083
-Grad =  [-0.         -0.7339619  -0.         -0.         -0.         -0.74697457]
-Function value =  -8.107280322572798
-Reduced cost =  8.107280322572798
-Grad^2 =  1.0966710778671387
-
-BACKTRACKING BEGINS HERE
-LHS =  -4.2785917973836405 RHS =  -8.216947430359513 t =  1
-LHS =  -5.5990985444754315 RHS =  -8.195014008802168 t =  0.8
-LHS =  -6.514129839582328 RHS =  -8.177467271556296 t =  0.6400000000000001
-LHS =  -7.13093522488845 RHS =  -8.163429881759596 t =  0.5120000000000001
-LHS =  -7.535824291978383 RHS =  -8.152199969922236 t =  0.40960000000000013
-LHS =  -7.794551231988741 RHS =  -8.143216040452348 t =  0.32768000000000014
-LHS =  -7.955070366373366 RHS =  -8.136028896876438 t =  0.2621440000000001
-LHS =  -8.051160095056748 RHS =  -8.13027918201571 t =  0.2097152000000001
-LHS =  -8.105951788926507 RHS =  -8.125679410127129 t =  0.1677721600000001
-LHS =  -8.134914447979366 RHS =  -8.121999592616262 t =  0.13421772800000006
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 5
-z =  [3.         1.95023271 3.         3.         3.         1.95027397]
-Prob =  0.9468791134202462
-Grad =  [-0.          0.45310927 -0.         -0.         -0.          0.46106686]
-Function value =  -8.134914447979366
-Reduced cost =  8.134914447979366
-Grad^2 =  0.4178906617807099
+z =  [3.         0.99392415 3.         3.         3.         1.04708138]
+Grad =  [-0.         -3.94372303 -0.         -0.         -0.         -3.26670981]
+Function value =  -12.370360546934123
+Reduced cost =  12.370360546934123
+Grad^2 =  26.224344296209075
 
 New approximation point found:  [[3.        ]
- [1.95023271]
+ [0.99392415]
  [3.        ]
  [3.        ]
  [3.        ]
- [1.95027397]]
-Reduced cost is:  [[8.13491445]]
+ [1.04708138]]
+Reduced cost is:  [[12.37036055]]
+LB =  0.01 UB =  28.53429365100674
 
 Solving master problem with 9 approximation points
 Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
 Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
 Optimize a model with 30 rows, 20 columns and 131 nonzeros
-Model fingerprint: 0x1ef45c59
+Model fingerprint: 0xb0b8190a
 Coefficient statistics:
   Matrix range     [5e-03, 3e+00]
   Objective range  [1e+00, 1e+00]
@@ -499,12 +264,12 @@ Presolved: 12 rows, 18 columns, 89 nonzeros
 
 Iteration    Objective       Primal Inf.    Dual Inf.      Time
        0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
-      10    1.5439919e+01   0.000000e+00   0.000000e+00      0s
+       9    2.0419271e+01   0.000000e+00   0.000000e+00      0s
 
-Solved in 10 iterations and 0.00 seconds (0.00 work units)
-Optimal objective  1.543991866e+01
+Solved in 9 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  2.041927125e+01
 
- objective:  15.439918657008995
+ objective:  20.419271254194605
 
  Vars:
 Variable 0: 0.0
@@ -513,26 +278,26 @@ Variable 3: 0.001
 Variable 4: 30.001
 Variable 5: 30.002000000000002
 Variable 6: 40.002
-Variable 7: 37.685744734842636
-Variable 9: 75.440918657009
+Variable 7: 40.106021341633756
+Variable 9: 80.4202712541946
 Variable c(0,9)_rl: 0.0
-Variable c(0,9)_ru: 15.439918657008995
-Variable lambda[0]: 0.0
+Variable c(0,9)_ru: 20.419271254194605
+Variable lambda[0]: 0.3439946745268166
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
 Variable lambda[3]: 0.0
 Variable lambda[4]: 0.0
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
-Variable lambda[7]: 0.9009384047940452
-Variable lambda[8]: 0.09906159520595481
-Variable phi[0]: 0.22314355131420968
+Variable lambda[7]: 0.0
+Variable lambda[8]: 0.6560053254731835
+Variable phi[0]: 0.2231435513142097
 New Dual Variables added:  {'u': array([[ 0.],
        [-6.],
        [ 0.],
        [ 0.],
        [ 0.],
-       [-6.]]), 'v': -47.25400660207335, 'nu': 25.982345504020753, 'mu': array([[ 0.],
+       [-6.]]), 'v': -71.5668594817863, 'nu': 36.38695443536541, 'mu': array([[ 0.],
        [-1.],
        [ 0.],
        [ 0.],
@@ -554,127 +319,74 @@ New Dual Variables added:  {'u': array([[ 0.],
        [ 0.]])}
 
 Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
- [3.         3.         0.         3.         3.         3.         3.         1.20699812 1.95023271]
+ [3.         3.         0.         3.         3.         3.         3.         0.12128954 0.99392415]
  [3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
  [3.         3.         3.         3.         3.         0.         3.         3.         3.        ]
- [3.         3.         3.         3.         3.         3.         0.         1.22002244 1.95027397]]
-Current objective is:  15.439918657008995
+ [3.         3.         3.         3.         3.         3.         0.         0.58954025 1.04708138]]
+Current objective is:  20.419271254194605
 
 Solving Column Generation
 
 ITERATION NUMBER: 0
-z =  [3.         1.28062412 3.         3.         3.         1.29236232]
-Prob =  0.8091185354452589
-Grad =  [-0.         -3.22845647 -0.         -0.         -0.         -3.05722118]
-Function value =  -0.5355627158826586
-Reduced cost =  0.5355627158826586
+z =  [3.         1.68400356 3.         3.         3.         1.71887499]
+Grad =  [-0.         -1.25007176 -0.         -0.         -0.         -0.79983349]
+Function value =  -9.2584156234517
+Reduced cost =  9.2584156234517
 
 BACKTRACKING BEGINS HERE
-LHS =  27.36137302020673 RHS =  -2.512515971888126 t =  1
-LHS =  19.82105151648366 RHS =  -2.1171253206870326 t =  0.8
-LHS =  13.803497893482625 RHS =  -1.8008127997261578 t =  0.6400000000000001
-LHS =  9.073255230327423 RHS =  -1.547762782957458 t =  0.5120000000000001
-LHS =  5.509608516544411 RHS =  -1.3453227695424983 t =  0.40960000000000013
-LHS =  2.9198165548850206 RHS =  -1.1833707588105304 t =  0.32768000000000014
-LHS =  1.1334325237562055 RHS =  -1.053809150224956 t =  0.2621440000000001
-LHS =  -0.027972483323264186 RHS =  -0.9501598633564965 t =  0.2097152000000001
-LHS =  -0.7312871379658894 RHS =  -0.867240433861729 t =  0.1677721600000001
-LHS =  -1.1170322177779148 RHS =  -0.8009048902659148 t =  0.13421772800000006
 BACKTRACKING ENDS HERE
 
 ITERATION NUMBER: 1
-z =  [3.         1.71394022 3.         3.         3.         1.7026956 ]
-Prob =  0.9117552724977747
-Grad =  [-0.          1.46376023 -0.         -0.         -0.          1.37698484]
-Function value =  -1.1170322177779148
-Reduced cost =  1.1170322177779148
-Grad^2 =  4.038681257598187
-
-BACKTRACKING BEGINS HERE
-LHS =  23.92392847499954 RHS =  -1.5209003435377335 t =  1
-LHS =  12.607111974412891 RHS =  -1.4401267183857698 t =  0.8
-LHS =  6.305943900308282 RHS =  -1.3755078182641989 t =  0.6400000000000001
-LHS =  2.7951617948423966 RHS =  -1.323812698166942 t =  0.5120000000000001
-LHS =  0.8432432028450734 RHS =  -1.2824566020891366 t =  0.40960000000000013
-LHS =  -0.23315805763671094 RHS =  -1.2493717252268923 t =  0.32768000000000014
-LHS =  -0.8157810841572264 RHS =  -1.2229038237370968 t =  0.2621440000000001
-LHS =  -1.1196951063229648 RHS =  -1.2017295025452603 t =  0.2097152000000001
-LHS =  -1.2670558372056533 RHS =  -1.1847900455917912 t =  0.1677721600000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 2
-z =  [3.         1.468362   3.         3.         3.         1.47167588]
-Prob =  0.8609455008642898
-Grad =  [-0.         -0.90543288 -0.         -0.         -0.         -0.85926805]
-Function value =  -1.2670558372056533
-Reduced cost =  1.2670558372056533
-Grad^2 =  1.5581502713781672
-
-BACKTRACKING BEGINS HERE
-LHS =  3.2618841586564287 RHS =  -1.42287086434347 t =  1
-LHS =  1.666536452316425 RHS =  -1.3917078589159066 t =  0.8
-LHS =  0.565551486494666 RHS =  -1.366777454573856 t =  0.6400000000000001
-LHS =  -0.17152744773344608 RHS =  -1.3468331311002155 t =  0.5120000000000001
-LHS =  -0.6506271393705312 RHS =  -1.3308776723213032 t =  0.40960000000000013
-LHS =  -0.9526404300320301 RHS =  -1.318113305298173 t =  0.32768000000000014
-LHS =  -1.1364719821805842 RHS =  -1.3079018116796692 t =  0.2621440000000001
-LHS =  -1.2434530801651853 RHS =  -1.299732616784866 t =  0.2097152000000001
-LHS =  -1.3017349050259703 RHS =  -1.2931972608690234 t =  0.1677721600000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 3
-z =  [3.         1.62026843 3.         3.         3.         1.61583714]
-Prob =  0.8945831003947052
-Grad =  [-0.          0.64484551 -0.         -0.         -0.          0.61088178]
-Function value =  -1.3017349050259703
-Reduced cost =  1.3017349050259703
-Grad^2 =  0.7890022790386564
-
-BACKTRACKING BEGINS HERE
-LHS =  2.6509336898047486 RHS =  -1.3806351329298359 t =  1
-LHS =  0.9634165734375735 RHS =  -1.3648550873490628 t =  0.8
-LHS =  -0.02211585320344156 RHS =  -1.3522310508844444 t =  0.6400000000000001
-LHS =  -0.5979017033011083 RHS =  -1.3421318217127496 t =  0.5120000000000001
-LHS =  -0.9328421303303429 RHS =  -1.3340524383753938 t =  0.40960000000000013
-LHS =  -1.1255852037983836 RHS =  -1.327588931705509 t =  0.32768000000000014
-LHS =  -1.2342761375822136 RHS =  -1.3224181263696013 t =  0.2621440000000001
-LHS =  -1.2934307482845497 RHS =  -1.318281482100875 t =  0.2097152000000001
-LHS =  -1.3236313467420082 RHS =  -1.3149721666858942 t =  0.1677721600000001
-BACKTRACKING ENDS HERE
-
-ITERATION NUMBER: 4
-z =  [3.         1.5120813  3.         3.         3.         1.51334818]
-Prob =  0.87137369648161
-Grad =  [-0.         -0.43004518 -0.         -0.         -0.         -0.40795418]
-Function value =  -1.3236313467420082
-Reduced cost =  1.3236313467420082
-Grad^2 =  0.35136546881904934
+z =  [3.         1.85178535 3.         3.         3.         1.82622682]
+Grad =  [-0.          0.689233   -0.         -0.         -0.          0.43034868]
+Function value =  -9.320472310186357
+Reduced cost =  9.320472310186357
+Grad^2 =  0.6602421124421821
 
 New approximation point found:  [[3.        ]
- [1.5120813 ]
+ [1.85178535]
  [3.        ]
  [3.        ]
  [3.        ]
- [1.51334818]]
-Reduced cost is:  [[1.32363135]]
+ [1.82622682]]
+Reduced cost is:  [[9.32047231]]
+LB =  0.01 UB =  20.419271254194605
 
-Final solution found: 
-Solution time:  1.77931809425354
-Optimality gap is:  [[2.62206525]]
-Final Probability is:  None
-Objective:  15.439918657008995
-Vars:
+Solving master problem with 10 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 30 rows, 21 columns and 140 nonzeros
+Model fingerprint: 0x515d7a5f
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 18 rows and 5 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 19 columns, 97 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      10    1.6440703e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 10 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.644070262e+01
+
+ objective:  16.440702623339554
+
+ Vars:
 Variable 0: 0.0
 Variable 1: 0.001
 Variable 3: 0.001
 Variable 4: 30.001
 Variable 5: 30.002000000000002
 Variable 6: 40.002
-Variable 7: 37.685744734842636
-Variable 9: 75.440918657009
+Variable 7: 38.162682249501636
+Variable 9: 76.44170262333955
 Variable c(0,9)_rl: 0.0
-Variable c(0,9)_ru: 15.439918657008995
+Variable c(0,9)_ru: 16.440702623339554
 Variable lambda[0]: 0.0
 Variable lambda[1]: 0.0
 Variable lambda[2]: 0.0
@@ -682,6 +394,557 @@ Variable lambda[3]: 0.0
 Variable lambda[4]: 0.0
 Variable lambda[5]: 0.0
 Variable lambda[6]: 0.0
-Variable lambda[7]: 0.9009384047940452
-Variable lambda[8]: 0.09906159520595481
-Variable phi[0]: 0.22314355131420968
+Variable lambda[7]: 0.0
+Variable lambda[8]: 0.5731365859531752
+Variable lambda[9]: 0.4268634140468248
+Variable phi[0]: 0.2231435513142097
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -36.7210186207714, 'nu': 24.6327611262537, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         0.12128954 0.99392415 1.85178535]
+ [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         0.58954025 1.04708138 1.82622682]]
+Current objective is:  16.440702623339554
+
+Solving Column Generation
+
+ITERATION NUMBER: 0
+z =  [3.         1.36011371 3.         3.         3.         1.37967006]
+Grad =  [-0.         -0.36294505 -0.         -0.         -0.         -0.16572587]
+Function value =  -1.5317897259518816
+Reduced cost =  1.5317897259518816
+
+BACKTRACKING BEGINS HERE
+BACKTRACKING ENDS HERE
+
+ITERATION NUMBER: 1
+z =  [3.         1.42100578 3.         3.         3.         1.40747425]
+Grad =  [-0.          0.2123024  -0.         -0.         -0.          0.09572118]
+Function value =  -1.5380934292216573
+Reduced cost =  1.5380934292216573
+Grad^2 =  0.05423485451405618
+
+New approximation point found:  [[3.        ]
+ [1.42100578]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.40747425]]
+Reduced cost is:  [[1.53809343]]
+LB =  0.01 UB =  16.440702623339554
+
+Solving master problem with 11 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 30 rows, 22 columns and 149 nonzeros
+Model fingerprint: 0x3b3a698e
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 18 rows and 5 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 20 columns, 105 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      13    1.5411040e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 13 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.541103974e+01
+
+ objective:  15.411039739130764
+
+ Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 37.68098076470067
+Variable 9: 75.41203973913076
+Variable c(0,9)_rl: 0.0
+Variable c(0,9)_ru: 15.411039739130764
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.0
+Variable lambda[8]: 0.33055894743023556
+Variable lambda[9]: 0.0
+Variable lambda[10]: 0.6694410525697645
+Variable phi[0]: 0.2231435513142097
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -27.702833355503778, 'nu': 21.59074835554362, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         0.12128954 0.99392415 1.85178535 1.42100578]
+ [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         0.58954025 1.04708138 1.82622682 1.40747425]]
+Current objective is:  15.411039739130764
+
+Solving Column Generation
+
+ITERATION NUMBER: 0
+z =  [3.         1.27983013 3.         3.         3.         1.28834316]
+Grad =  [-0.          0.58344009 -0.         -0.         -0.          0.65842534]
+Function value =  -0.28820883972832334
+Reduced cost =  0.28820883972832334
+
+BACKTRACKING BEGINS HERE
+BACKTRACKING ENDS HERE
+
+ITERATION NUMBER: 1
+z =  [3.         1.15747387 3.         3.         3.         1.15026136]
+Grad =  [-0.         -0.45449868 -0.         -0.         -0.         -0.51064273]
+Function value =  -0.30609977248615294
+Reduced cost =  0.30609977248615294
+Grad^2 =  0.4673250476702229
+
+New approximation point found:  [[3.        ]
+ [1.15747387]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.15026136]]
+Reduced cost is:  [[0.30609977]]
+LB =  0.01 UB =  15.411039739130764
+
+Solving master problem with 12 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 30 rows, 23 columns and 158 nonzeros
+Model fingerprint: 0x849b464e
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 18 rows and 5 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 21 columns, 113 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      12    1.5241410e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 12 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.524141007e+01
+
+ objective:  15.241410068226124
+
+ Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 37.65179430139754
+Variable 9: 75.24241006822612
+Variable c(0,9)_rl: 0.0
+Variable c(0,9)_ru: 15.241410068226124
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.0
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.0
+Variable lambda[10]: 0.4458353577759591
+Variable lambda[11]: 0.5541646422240409
+Variable phi[0]: 0.22314355131420974
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -30.71160577035893, 'nu': 22.09250684638598, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         0.12128954 0.99392415 1.85178535 1.42100578 1.15747387]
+ [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         0.58954025 1.04708138 1.82622682 1.40747425 1.15026136]]
+Current objective is:  15.241410068226124
+
+Solving Column Generation
+
+ITERATION NUMBER: 0
+z =  [3.         1.27496572 3.         3.         3.         1.26493596]
+Grad =  [-0.         -0.04805325 -0.         -0.         -0.         -0.12950249]
+Function value =  -0.14874115335539528
+Reduced cost =  0.14874115335539528
+
+BACKTRACKING BEGINS HERE
+BACKTRACKING ENDS HERE
+
+ITERATION NUMBER: 1
+z =  [3.         1.28504321 3.         3.         3.         1.2920946 ]
+Grad =  [-0.          0.04122665 -0.         -0.         -0.          0.11113694]
+Function value =  -0.1495330487463633
+Reduced cost =  0.1495330487463633
+Grad^2 =  0.014051055617443638
+
+New approximation point found:  [[3.        ]
+ [1.28504321]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.2920946 ]]
+Reduced cost is:  [[0.14953305]]
+LB =  0.01 UB =  15.241410068226124
+
+Solving master problem with 13 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 30 rows, 24 columns and 167 nonzeros
+Model fingerprint: 0x586ceae7
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 18 rows and 5 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 22 columns, 121 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      13    1.5123457e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 13 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.512345684e+01
+
+ objective:  15.123456836405829
+
+ Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 37.55061140999861
+Variable 9: 75.12445683640583
+Variable c(0,9)_rl: 0.0
+Variable c(0,9)_ru: 15.123456836405829
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.0
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.0
+Variable lambda[10]: 0.0
+Variable lambda[11]: 0.2111895476673974
+Variable lambda[12]: 0.7888104523326026
+Variable phi[0]: 0.2231435513142097
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -28.111076965652543, 'nu': 21.39426238178861, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         0.12128954 0.99392415 1.85178535 1.42100578 1.15747387 1.28504321]
+ [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         0.58954025 1.04708138 1.82622682 1.40747425 1.15026136 1.2920946 ]]
+Current objective is:  15.123456836405829
+
+Solving Column Generation
+
+ITERATION NUMBER: 0
+z =  [3.        1.2581019 3.        3.        3.        1.2621409]
+Grad =  [-0.          0.32548493 -0.         -0.         -0.          0.36651179]
+Function value =  -0.02574011906254725
+Reduced cost =  0.02574011906254725
+
+BACKTRACKING BEGINS HERE
+BACKTRACKING ENDS HERE
+
+ITERATION NUMBER: 1
+z =  [3.         1.20349459 3.         3.         3.         1.20065043]
+Grad =  [-0.         -0.13912106 -0.         -0.         -0.         -0.15565433]
+Function value =  -0.036162872867933515
+Reduced cost =  0.036162872867933515
+Grad^2 =  0.04358293951831569
+
+New approximation point found:  [[3.        ]
+ [1.20349459]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.20065043]]
+Reduced cost is:  [[0.03616287]]
+Difference between upper bounds =  15.123456836405829 - 15.241410068226124 / 15.241410068226124
+Next iteration to calculate lower bound
+LB =  0.01 UB =  15.123456836405829
+
+Solving master problem with 14 approximation points
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 20 physical cores, 40 logical processors, using up to 20 threads
+Optimize a model with 30 rows, 25 columns and 176 nonzeros
+Model fingerprint: 0x9c918333
+Coefficient statistics:
+  Matrix range     [5e-03, 3e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e-03, 1e+04]
+Presolve removed 18 rows and 5 columns
+Presolve time: 0.00s
+Presolved: 12 rows, 23 columns, 129 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.662322e+00   0.000000e+00      0s
+      14    1.5111134e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 14 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  1.511113402e+01
+
+ objective:  15.111134020256266
+
+ Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 37.545528828902334
+Variable 9: 75.11213402025626
+Variable c(0,9)_rl: 0.0
+Variable c(0,9)_ru: 15.111134020256266
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.0
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.0
+Variable lambda[10]: 0.0
+Variable lambda[11]: 0.0
+Variable lambda[12]: 0.6592412280246949
+Variable lambda[13]: 0.34075877197530513
+Variable phi[0]: 0.2231435513142097
+New Dual Variables added:  {'u': array([[ 0.],
+       [-6.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-6.]]), 'v': -29.125833904462297, 'nu': 21.60837603268578, 'mu': array([[ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [ 0.],
+       [-1.],
+       [ 0.],
+       [ 0.],
+       [ 0.]])}
+
+Current z points are:  [[3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         0.         3.         3.         3.         3.         0.12128954 0.99392415 1.85178535 1.42100578 1.15747387 1.28504321 1.20349459]
+ [3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         0.         3.         3.         3.         3.         3.         3.         3.         3.        ]
+ [3.         3.         3.         3.         3.         3.         0.         0.58954025 1.04708138 1.82622682 1.40747425 1.15026136 1.2920946  1.20065043]]
+Current objective is:  15.111134020256266
+
+Solving Column Generation
+
+ITERATION NUMBER: 0
+z =  [3.        1.2572548 3.        3.        3.        1.2609342]
+Grad =  [-0.          0.11337008 -0.         -0.         -0.          0.15284235]
+Function value =  -0.01461042817348357
+Reduced cost =  0.01461042817348357
+
+BACKTRACKING BEGINS HERE
+BACKTRACKING ENDS HERE
+
+ITERATION NUMBER: 1
+z =  [3.         1.23823446 3.         3.         3.         1.23529151]
+Grad =  [-0.         -0.05157982 -0.         -0.         -0.         -0.06915911]
+Function value =  -0.01572059200241327
+Reduced cost =  0.01572059200241327
+Grad^2 =  0.007443460250499975
+
+BACKTRACKING BEGINS HERE
+BACKTRACKING ENDS HERE
+
+ITERATION NUMBER: 2
+z =  [3.         1.24905153 3.         3.         3.         1.24979522]
+Grad =  [-0.          0.0426021  -0.         -0.         -0.          0.05708513]
+Function value =  -0.016177285535317054
+Reduced cost =  0.016177285535317054
+Grad^2 =  0.005073650040607556
+
+BACKTRACKING BEGINS HERE
+BACKTRACKING ENDS HERE
+
+ITERATION NUMBER: 3
+z =  [3.         1.24333358 3.         3.         3.         1.24213339]
+Grad =  [-0.         -0.00706019 -0.         -0.         -0.         -0.00938514]
+Function value =  -0.016291890017171795
+Reduced cost =  0.016291890017171795
+Grad^2 =  0.0001379270532588176
+
+New approximation point found:  [[3.        ]
+ [1.24333358]
+ [3.        ]
+ [3.        ]
+ [3.        ]
+ [1.24213339]]
+Reduced cost is:  [[0.01629189]]
+Difference between upper bounds =  15.111134020256266 - 15.123456836405829 / 15.123456836405829
+Next iteration to calculate lower bound
+LB =  [[15.07497115]] UB =  15.111134020256266
+
+Final solution found: 
+Solution time:  0.6173319816589355
+Optimality gap is:  [[0.23988685]]
+Final Probability is:  None
+objective:  15.111134020256266
+Vars:
+Variable 0: 0.0
+Variable 1: 0.001
+Variable 3: 0.001
+Variable 4: 30.001
+Variable 5: 30.002000000000002
+Variable 6: 40.002
+Variable 7: 37.545528828902334
+Variable 9: 75.11213402025626
+Variable c(0,9)_rl: 0.0
+Variable c(0,9)_ru: 15.111134020256266
+Variable lambda[0]: 0.0
+Variable lambda[1]: 0.0
+Variable lambda[2]: 0.0
+Variable lambda[3]: 0.0
+Variable lambda[4]: 0.0
+Variable lambda[5]: 0.0
+Variable lambda[6]: 0.0
+Variable lambda[7]: 0.0
+Variable lambda[8]: 0.0
+Variable lambda[9]: 0.0
+Variable lambda[10]: 0.0
+Variable lambda[11]: 0.0
+Variable lambda[12]: 0.6592412280246949
+Variable lambda[13]: 0.34075877197530513
+Variable phi[0]: 0.2231435513142097

@@ -261,18 +261,15 @@ Solving Column Generation
 
 ITERATION NUMBER: 0
 z =  [2.09271946 3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
-Prob =  0.9699176007415722
 Grad =  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
 Function value =  -0.0
 Reduced cost =  0.0
 
 BACKTRACKING BEGINS HERE
-LHS =  -0.0 RHS =  -0.0 t =  1
 BACKTRACKING ENDS HERE
 
 ITERATION NUMBER: 1
 z =  [2.09271946 3.         3.         3.         3.         3.         3.         3.         3.         3.         3.         3.        ]
-Prob =  0.9699176007415722
 Grad =  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
 Function value =  -0.0
 Reduced cost =  0.0
@@ -291,12 +288,13 @@ New approximation point found:  [[2.09271946]
  [3.        ]
  [3.        ]]
 Reduced cost is:  [[0.]]
+LB =  0.01 UB =  0.0020000000000095497
 
 Final solution found: 
-Solution time:  0.5027976036071777
-Optimality gap is:  [[0.]]
-Final Probability is:  0.8
-Objective:  0.0020000000000095497
+Solution time:  0.3960294723510742
+Optimality gap is:  -79.9999999999045
+Final Probability is:  None
+objective:  0.0020000000000095497
 Vars:
 Variable 0: 0.0
 Variable 1: 0.001

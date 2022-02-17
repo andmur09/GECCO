@@ -1,35 +1,12 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb 15 11:38:33 2021
 
-@author: kpb20194
-"""
+import numpy as np
+import os
 import gurobipy as gp
 from gurobipy import GRB
 import sys
 import numpy as np
-from numpy.lib.arraysetops import _intersect1d_dispatcher
-from numpy.lib.shape_base import get_array_prepare
-from scipy.stats.stats import pointbiserialr
-import scipy.stats as stats
-from matplotlib import pyplot as plt
-from matplotlib.font_manager import FontProperties
-
-np.seterr(divide='raise')
-np.set_printoptions(suppress=True)
-np.set_printoptions(precision=3)
-np.set_printoptions(threshold=sys.maxsize)
-np.set_printoptions(linewidth=np.inf)
-inf = sys.float_info.max
-
-gurobi_status = {1: "Loaded", 2: "Optimal", 3: "Infeasible", 4: "Inf or unb", 5: "Unbounded", 6: "Cutoff", 7: "Iteration Limit", 8: "Node Limit", 9: "Time Limit", 10: "Solution Limit", 11: "Interrupted", 12: "Numeric", 13: "Suboptimal", 14: "In Progress", 15: "User Obj Limit"}
-
-def check_nan(number):
-    if number != number:
-        return True
-    else:
-        return False
-
+import pickle as pkl
+from scipy import stats
 
 def linearProbability(constraint, m, n):
     '''
@@ -77,7 +54,7 @@ def linearProbability(constraint, m, n):
         
     return (partitions_l, partitions_u)
 
-def getMatricesLP(PSTN, name, budget = inf, pres = 15, folder=None, log=False):
+def getStandardForm(PSTN, name, pres = 15):
     '''
     Description:    Makes matrices in the form Ax <= b and c^Tx representing the PSTN, which are used as input to the optimisation solver. For strong controllability Linear program.
     Input:          PSTN - Instance of PSTN to be solved
@@ -88,16 +65,14 @@ def getMatricesLP(PSTN, name, budget = inf, pres = 15, folder=None, log=False):
                     weight - weight to apply to relaxation cost terms in objective
     Output:         m - A Gurobi model containing all variables, constraints and objectives
     '''
-    m = gp.Model(name + "_budget_" + "p".join('{:.3f}'.format(budget).split('.')))
-    print("Model Name = ", m.ModelName)
-    m.setParam('TimeLimit', 5*60)
+    m = gp.Model(name)
 
     controllables = PSTN.getControllables()
     requirements = PSTN.getRequirements()
     m.addVar(vtype=GRB.CONTINUOUS, name = "Risk")
 
     for i in controllables:
-        m.addVar(lb=0.0, ub=inf, vtype=GRB.CONTINUOUS, name=i.id)
+        m.addVar(vtype=GRB.CONTINUOUS, name=i.id)
 
     for requirement in requirements:
         if PSTN.isControllable(requirement) == True:
@@ -211,29 +186,13 @@ def getMatricesLP(PSTN, name, budget = inf, pres = 15, folder=None, log=False):
         m.write("{}/{}.mps".format(folder, m.ModelName))
     return m
 
-def LPSolve(m, folder = None, log = False):
-    '''
-    Description:    Solves gurobi model and returns results
-    Input:          m - unsolved gurobi model
-                    output - boolean variable for additional information
-    Output:         m - gurobi model after optimisation
-    '''
-    print("\n")
-    m.optimize()
-    print(m.status)
-    if m.status == GRB.OPTIMAL:
-        print('\n objective: ', m.objVal)
-        print('\n Vars:')
-        if log == True:
-            m.write("{}/{}.sol".format(folder, m.ModelName))
-        for v in m.getVars():
-            print("Variable {}: ".format(v.varName) + str(v.x))
-        return m
+def solveLP(PSTN):
+    m = getStandardForm(PSTN)
+    pass
 
-    elif m.status != GRB.OPTIMAL:
-        if log == True:
-            m.computeIIS()
-            m.write("{}/{}.ilp".format(folder, m.ModelName))
-        print('No solution')
-        print("\n")
-        return m
+path = "pstns/problems/woodworking/p01"
+
+with open( path, "rb") as f:
+    problem = pkl.load(f)
+    solveLP(problem)
+        
