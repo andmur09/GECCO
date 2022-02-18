@@ -258,7 +258,7 @@ Current z points are:  [[3. 0. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3.]
 Current objective is:  0.0020000000000095497
 
 Solving Column Generation
-Time taken:  0.0443875789642334
+Time taken:  0.044440269470214844
 
        fun: -0.0
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -298,7 +298,7 @@ Reduced cost is:  [[0.]]
 LB =  [[-0.498]] UB =  0.0020000000000095497
 
 Final solution found: 
-Solution time:  0.25130581855773926
+Solution time:  0.24907565116882324
 Optimality gap is:  [[-100.40160643]]
 Final Probability is:  None
 objective:  0.0020000000000095497

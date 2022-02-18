@@ -224,7 +224,7 @@ def masterProblem(JCCP):
     m.addConstr(lam.sum() == 1, name="sum_lam")
     m.addConstr(lam @ JCCP.phi == phi, 'phi')
     m.setObjective(JCCP.c @ x, GRB.MINIMIZE)
-    m.update
+    m.update()
     m.write("convex.lp")
     m.optimize()
 
@@ -364,6 +364,7 @@ def columnGeneration2(z, JCCP, tol):
     print("Time taken: ", end - start)
     print("\n", res)
     z = res.x
+    status = res.success
     #ftol = 2.220446049250313e-09
     #for i in range(len(res.x)):
         #tmp_i[i] = 1.0
@@ -374,10 +375,10 @@ def columnGeneration2(z, JCCP, tol):
         #print('x^{0} = {1:12.4e} ± {2:.1e}'.format(i, res.x[i], uncertainty_i))
         #print(z)
 
-    return np.c_[z]
+    return np.c_[z], status
 
 
-def solveJCCP2(PSTN, alpha, epsilon, log=False, max_iterations = 100, cg_tol = 0.01):
+def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 100, cg_tol = 0.5):
     '''
     Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
                     generation method.
@@ -390,9 +391,10 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, max_iterations = 100, cg_tol = 0
     Output:         m:          An instance of the Gurobi model class which solves the joint chance constrained PSTN
     '''
     n_iterations = 0
+    LB = 0.0001
     if log == True:
         saved_stdout = sys.stdout
-        sys.stdout = open("logs/log_{}.txt".format(PSTN.name), "w+")
+        sys.stdout = open("logs/{}.txt".format(logfile), "w+")
     
     # Translates the PSTN to the standard form of a JCCP and stores the matrices in an instance of the JCCP class
     start = time.time()
@@ -413,14 +415,15 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, max_iterations = 100, cg_tol = 0
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
-    z_d = columnGeneration2(z_m, problem, cg_tol)
+    z_d, status = columnGeneration2(z_m, problem, cg_tol)
     rho = problem.reducedCost(z_d)
     print("\nNew approximation point found: ", z_d)
     print("Reduced cost is: ", rho)
 
     # Calculates optimality gap
     UB = m.objVal
-    LB = m.objVal - rho - cg_tol
+    if status == True:
+        LB = m.objVal - rho - cg_tol
     print("LB = ", LB, "UB = ", UB)
     # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
     while (UB - LB)/LB > epsilon and rho >= 0 and n_iterations <= max_iterations:
@@ -435,14 +438,15 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, max_iterations = 100, cg_tol = 0
         print("Current objective is: ", m.objVal)
         
         print("\nSolving Column Generation")
-        z_d = columnGeneration2(z_m, problem, cg_tol)
+        z_d, status = columnGeneration2(z_m, problem, cg_tol)
         rho = problem.reducedCost(z_d)
         print("\nNew approximation point found: ", z_d)
         print("Reduced cost is: ", rho)
 
         UB = m.objVal
-        LB_k = m.objVal - rho - cg_tol
-        LB = max(LB, LB_k)
+        if status == True:
+            LB_k = m.objVal - rho - cg_tol
+            LB = max(LB, LB_k)
         print("LB = ", LB, "UB = ", UB)
 
     end = time.time()
@@ -480,7 +484,7 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, max_iterations = 100, iterations_
     calculate_lower_bound = False
     if log == True:
         saved_stdout = sys.stdout
-        sys.stdout = open("logs/log_{}.txt".format(PSTN.name), "w+")
+        sys.stdout = open("logs/{}.txt".format(PSTN.name), "w+")
     
     # Translates the PSTN to the standard form of a JCCP and stores the matrices in an instance of the JCCP class
     start = time.time()

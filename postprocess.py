@@ -4,6 +4,7 @@ Created on Thu Sep  2 12:09:54 2021
 
 @author: kpb20194
 """
+from itertools import combinations_with_replacement
 import pickle as pkl
 from matplotlib import pyplot as plt
 import os
@@ -22,15 +23,64 @@ def main():
     ####################################################################
     woodworking_path = "results"
     woodworking_files = sorted(os.listdir(woodworking_path))
-    print(woodworking_files)
+    #print(woodworking_files)
     #woodworking_sol = [f for f in woodworking_files if f[-3:] not in ["sol", "ilp", "mps"]]
-    
+
+    runtime_LP = []
+    no_uncontrollables_LP = []
+    cost_LP = []
+    risk_LP = []
+
+    runtime = []
+    no_uncontrollables = []
+    cost = []
+    risk = []
+
     for i in woodworking_files:
         print(i)
-        with open(woodworking_path + "/" + i, "rb") as f:
-            instance = pkl.load(f)
-            print(instance)
-            print(instance["Schedule"])
+        if i[-2:] == "LP":
+            with open(woodworking_path + "/" + i, "rb") as f:
+                instance = pkl.load(f)
+                runtime_LP.append(instance["LP"]["Runtime"])
+                no_uncontrollables_LP.append(instance["PSTN"].countUncontrollables())
+                cost_LP.append(instance["LP"]["Objective"])
+                risk_LP.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 100000))
+        else:
+            with open(woodworking_path + "/" + i, "rb") as f:
+                instance = pkl.load(f)
+                runtime.append(instance["JCCP"].solution_time)
+                no_uncontrollables.append(instance["PSTN"].countUncontrollables())
+                cost.append(instance["JCCP"].solution["Objective"])
+                risk.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 100000))
+
+    plt.figure()
+    plt.scatter(no_uncontrollables, runtime, label="JCCP")
+    plt.scatter(no_uncontrollables_LP, runtime_LP, label ="LP")
+    plt.legend()
+    plt.xlabel("No of uncontrollables")
+    plt.yscale('log')
+    plt.ylabel("Runtime")
+    plt.savefig("runtime.png")
+
+    plt.figure()
+    plt.scatter(no_uncontrollables, cost, label="JCCP")
+    plt.scatter(no_uncontrollables_LP, cost_LP, label="LP")
+    plt.legend()
+    plt.xlabel("No of uncontrollables")
+    plt.ylabel("Cost")
+    plt.savefig("cost.png")
+
+    plt.figure()
+    plt.scatter(no_uncontrollables, risk, label="JCCP")
+    plt.scatter(no_uncontrollables_LP, risk_LP, label="LP")
+    plt.legend()
+    plt.xlabel("No of uncontrollables")
+    plt.ylabel("Risk")
+    plt.savefig("risk.png")
+
+
+
+
          #   pstn, result = instance["PSTN"], instance["Result"]
          #   for k in result:
          #       result[k]["Probability"] = mc.monte_carlo_success(pstn, result[k]["Schedule"], result[k]["Relaxations"], 1000)

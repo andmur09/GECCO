@@ -342,6 +342,9 @@ class PSTN(object):
 
     def getUncontrollableConstraints(self):
         return [i for i in self.constraints if self.isControllable(i) == False and i.type != "pstc"]
+    
+    def getProbabilisticConstraints(self):
+        return [i for i in self.constraints if i.type == "pstc"]
 
     def getControllables(self):
         tc = [i for i in self.timePoints if i not in self.getUncontrollables()]

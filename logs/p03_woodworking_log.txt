@@ -210,7 +210,7 @@ Current z points are:  [[3. 0. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3
 Current objective is:  66.48811227068104
 
 Solving Column Generation
-Time taken:  0.49616193771362305
+Time taken:  0.4872117042541504
 
        fun: -30.627223246528686
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -427,7 +427,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  53.98720958245282
 
 Solving Column Generation
-Time taken:  0.48726725578308105
+Time taken:  0.4895298480987549
 
        fun: -16.933238206654252
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -645,7 +645,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  41.376190428749695
 
 Solving Column Generation
-Time taken:  0.2884194850921631
+Time taken:  0.2910137176513672
 
        fun: -2.7760040885846635
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -864,7 +864,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  39.48264270662388
 
 Solving Column Generation
-Time taken:  0.2944679260253906
+Time taken:  0.2901005744934082
 
        fun: -0.8543981097402451
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -932,7 +932,7 @@ Reduced cost is:  [[0.85439811]]
 LB =  [[38.1282446]] UB =  39.48264270662388
 
 Final solution found: 
-Solution time:  2.3046369552612305
+Solution time:  2.3008201122283936
 Optimality gap is:  [[3.55221732]]
 Final Probability is:  None
 objective:  39.48264270662388

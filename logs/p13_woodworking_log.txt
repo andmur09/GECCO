@@ -304,7 +304,7 @@ Current z points are:  [[3. 0. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3
 Current objective is:  45.49772575467125
 
 Solving Column Generation
-Time taken:  1.4696359634399414
+Time taken:  1.4577465057373047
 
        fun: -18.43781414375669
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -618,7 +618,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  34.36410143770661
 
 Solving Column Generation
-Time taken:  1.6382782459259033
+Time taken:  1.6286416053771973
 
        fun: -18.804316807778406
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -933,7 +933,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  33.94722326781698
 
 Solving Column Generation
-Time taken:  0.8316528797149658
+Time taken:  0.8312194347381592
 
        fun: -10.061913186828747
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -1249,7 +1249,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  29.661072677992507
 
 Solving Column Generation
-Time taken:  0.554398775100708
+Time taken:  0.548163652420044
 
        fun: -1.9586187540520967
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -1566,7 +1566,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  28.86338966814624
 
 Solving Column Generation
-Time taken:  0.8138890266418457
+Time taken:  0.820810079574585
 
        fun: -5.393634176623813
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -1884,7 +1884,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  28.506852781370668
 
 Solving Column Generation
-Time taken:  0.6203098297119141
+Time taken:  0.6089794635772705
 
        fun: -0.7799141345868392
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -1972,7 +1972,7 @@ Reduced cost is:  [[0.77991413]]
 LB =  [[27.22693865]] UB =  28.506852781370668
 
 Final solution found: 
-Solution time:  7.3389365673065186
+Solution time:  7.311088800430298
 Optimality gap is:  [[4.70091093]]
 Final Probability is:  None
 objective:  28.506852781370668

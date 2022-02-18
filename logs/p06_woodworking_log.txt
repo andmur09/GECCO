@@ -248,7 +248,7 @@ Current z points are:  [[3. 0. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3.]
 Current objective is:  48.417907776017685
 
 Solving Column Generation
-Time taken:  0.2841770648956299
+Time taken:  0.2820897102355957
 
        fun: -22.977437192066763
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -482,7 +482,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  35.155146630679155
 
 Solving Column Generation
-Time taken:  0.1434016227722168
+Time taken:  0.14090299606323242
 
        fun: -12.48404833415755
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -717,7 +717,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  28.349651935667552
 
 Solving Column Generation
-Time taken:  0.14213013648986816
+Time taken:  0.14241886138916016
 
        fun: -1.8573562080594144
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -953,7 +953,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  26.70348959782389
 
 Solving Column Generation
-Time taken:  0.14086365699768066
+Time taken:  0.14052939414978027
 
        fun: -0.3844397531013328
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -997,7 +997,7 @@ Reduced cost is:  [[0.38443975]]
 LB =  [[25.99229573]] UB =  26.70348959782389
 
 Final solution found: 
-Solution time:  1.013443946838379
+Solution time:  1.011960506439209
 Optimality gap is:  [[2.73617182]]
 Final Probability is:  None
 objective:  26.70348959782389

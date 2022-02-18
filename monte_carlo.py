@@ -48,8 +48,11 @@ def simulate_execution(PSTN, schedule, relaxation):
             start, end = schedule[constraint.source.id], schedule[constraint.sink.id]
             try:
                 if round(end - start, 10) < round(constraint.intervals["lb"] - relaxation[constraint.name]["Rl"], 10) or round(end - start, 10) > round(constraint.intervals["ub"] + relaxation[constraint.name]["Ru"], 10):
+                    #print("End = {} {}, start = {} {}".format(constraint.sink.id, end, constraint.source.id, start))
+                    #print("Condition not met: Value = {}, LB = {}, UB = {}".format(round(end - start, 10), round(constraint.intervals["lb"] - relaxation[constraint.name]["Rl"], 10), round(constraint.intervals["ub"] + relaxation[constraint.name]["Ru"], 10)))
                     return False
             except KeyError:
+                #print("Key error")
                 if round(end - start, 10) < round(constraint.intervals["lb"], 10) or round(end - start, 10) > round(constraint.intervals["ub"], 10):
                     return False
     return True

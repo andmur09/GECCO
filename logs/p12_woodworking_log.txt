@@ -202,7 +202,7 @@ Current z points are:  [[3. 0. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3. 3
 Current objective is:  42.76893024933466
 
 Solving Column Generation
-Time taken:  2.008263349533081
+Time taken:  1.9638278484344482
 
        fun: -19.581160098769438
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -413,7 +413,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  31.442000428191918
 
 Solving Column Generation
-Time taken:  0.654240608215332
+Time taken:  0.6548058986663818
 
        fun: -10.919229211272466
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -625,7 +625,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  25.479903818878313
 
 Solving Column Generation
-Time taken:  0.6589305400848389
+Time taken:  0.651991605758667
 
        fun: -1.5997959830161648
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -838,7 +838,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  24.05261453847656
 
 Solving Column Generation
-Time taken:  0.6630942821502686
+Time taken:  0.6654467582702637
 
        fun: -0.32722910402583594
  hess_inv: array([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -910,7 +910,7 @@ Reduced cost is:  [[0.3272291]]
 LB =  [[23.38010784]] UB =  24.05261453847656
 
 Final solution found: 
-Solution time:  4.955433130264282
+Solution time:  4.8765058517456055
 Optimality gap is:  [[2.87640548]]
 Final Probability is:  None
 objective:  24.05261453847656

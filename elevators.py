@@ -18,7 +18,7 @@ import pickle as pkl
 import numpy as np
 import logging
 import re
-inf = sys.float_info.max
+inf = 10000
 
 def main():
     # logging.basicConfig(filename='elevators_generation.log', level=logging.INFO)
@@ -39,7 +39,7 @@ def main():
     
     for i in range(len(deadlines)):
         if deadlines[i] != None:
-            deadlines[i] = 0.6 * deadlines[i]
+            deadlines[i] = deadlines[i]
 
     # For each PSTN, finds the start and last timePoint in the network and thus the constraint bounding the overall plan duration, creates additional instances of
     # each PSTN with varying deadlines.

@@ -134,7 +134,7 @@ Current z points are:  [[3. 0. 3. 3. 3. 3. 3.]
 Current objective is:  30.347703281354278
 
 Solving Column Generation
-Time taken:  0.019577503204345703
+Time taken:  0.017678499221801758
 
        fun: -15.322197472294864
  hess_inv: array([[1.        , 0.        , 0.        , 0.        , 0.        , 0.        ],
@@ -255,7 +255,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  17.29063137916676
 
 Solving Column Generation
-Time taken:  0.01253652572631836
+Time taken:  0.012077093124389648
 
        fun: -8.414113607987748
  hess_inv: array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,  0.        ],
@@ -377,7 +377,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  15.657751983605898
 
 Solving Column Generation
-Time taken:  0.009284734725952148
+Time taken:  0.008893728256225586
 
        fun: -1.1564472667053955
  hess_inv: array([[1, 0, 0, 0, 0, 0],
@@ -500,7 +500,7 @@ Current z points are:  [[3.         0.         3.         3.         3.         
 Current objective is:  15.28875243769243
 
 Solving Column Generation
-Time taken:  0.0032379627227783203
+Time taken:  0.0030183792114257812
 
        fun: -0.21124322619201052
  hess_inv: array([[1, 0, 0, 0, 0, 0],
@@ -528,7 +528,7 @@ Reduced cost is:  [[0.21124323]]
 LB =  [[14.57750921]] UB =  15.28875243769243
 
 Final solution found: 
-Solution time:  0.10010027885437012
+Solution time:  0.09514927864074707
 Optimality gap is:  [[4.87904494]]
 Final Probability is:  None
 objective:  15.28875243769243
