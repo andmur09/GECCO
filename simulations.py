@@ -157,23 +157,23 @@ def main():
             elevators.append(problem)
 
 
-    for i in range(len(elevators_files)):
+    for i in range(13, 14):
         print("\nSOLVING: ", elevators[i].name, "\n")
         tosave = {}
-        try:
-            m, results = convex.solveJCCP2(elevators[i], 0.2, 0.05, log=True, logfile=elevators[i].name + "_elevators_log")
-            print("SOLVED: ", elevators[i].name, "\n")
-            schedule = getSchedule(elevators[i], m)
-            relaxations = getRelaxations(elevators[i], m)
-            tosave["PSTN"] = elevators[i]
-            tosave["JCCP"] = results
-            tosave["Schedule"] = schedule
-            tosave["Relaxations"] = relaxations
-            #print(dill.detect.baditems(tosave))
-            with open("results/{}_elevators".format(elevators[i].name), "wb") as f:
-               pkl.dump(tosave, f)
-        except:
-           continue
+        #try:
+        m, results = convex.solveJCCP2(elevators[i], 0.2, 0.05, log=True, logfile=elevators[i].name + "_elevators_log")
+        print("SOLVED: ", elevators[i].name, "\n")
+        schedule = getSchedule(elevators[i], m)
+        relaxations = getRelaxations(elevators[i], m)
+        tosave["PSTN"] = elevators[i]
+        tosave["JCCP"] = results
+        tosave["Schedule"] = schedule
+        tosave["Relaxations"] = relaxations
+        #print(dill.detect.baditems(tosave))
+        with open("results/{}_elevators".format(elevators[i].name), "wb") as f:
+           pkl.dump(tosave, f)
+        #except:
+         #  continue
         # try:
         #     m, results = LP.solveLP(elevators[i], elevators[i].name, 0.2)
         #     tosave = {}
