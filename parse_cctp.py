@@ -23,7 +23,7 @@ def parse_cctp(filename, out):
     """
     e = xml.etree.ElementTree.parse(filename).getroot()
 
-    problem_name = e.find('NAME').text
+    problem_name = out.split("/")[-1]
 
     # In TPN format every node (or event in TPN terminology) has a non-unique name
     # and an unique id. Both of those are strings. For efficiency DC checking algorithms
@@ -38,19 +38,21 @@ def parse_cctp(filename, out):
 
     # parse the temporal constraints
     constraints = []
-    # if line below confuses you, that's expected... We need better automated code generation for parsing...
     for constraint_obj in e.findall('CONSTRAINT'):
         # duration can be one of three types - controllable, uncertain and probabilistic
         lower_bound = float(constraint_obj.find('LOWERBOUND').text)
-        upper_bound = float(constraint_obj.find('UPPERBOUND').text)
+        if constraint_obj.find('UPPERBOUND').text == "Infinity":
+            upper_bound = inf
+        else:
+            upper_bound = float(constraint_obj.find('UPPERBOUND').text)
 
         from_event = constraint_obj.find('START').text
         to_event = constraint_obj.find('END').text
         #constraint_id = constraint_obj.find('ID').text
         constraint_name = constraint_obj.find('NAME').text
 
-        #(self, description, source, sink, type, intervals, distribution = None, hard = True)
-        # check if the constraint is controllable and relaxable
+        
+        # Check if the constraint is probabilistic
         if constraint_obj.find('MEAN') is not None and constraint_obj.find('VARIANCE') is not None:
             dist = {"type": "gaussian", "mean": float(constraint_obj.find('MEAN').text), "variance": np.sqrt(float(constraint_obj.find('VARIANCE').text))}
             for timepoint in timepoints:
@@ -60,6 +62,7 @@ def parse_cctp(filename, out):
                     sink = timepoint
             constraints.append(PSTN.constraint(constraint_name, source, sink, "pstc", intervals = {"lb": 0, "ub": inf, "value": 1}, distribution=dist))
         
+        # Check if the constraint is relaxable
         else:
             for timepoint in timepoints:
                 if timepoint.id == from_event:
@@ -72,10 +75,21 @@ def parse_cctp(filename, out):
                     hard = False
                 else:
                     hard = True
-            constraints.append(PSTN.constraint(constraint_name, source, sink, "stc", intervals = {"lb": lower_bound, "ub": upper_bound, "value": 1}))
+            else:
+                hard = False
+            constraints.append(PSTN.constraint(constraint_name, source, sink, "stc", intervals = {"lb": lower_bound, "ub": upper_bound, "value": 1}, hard = hard))
     instance = PSTN.PSTN(problem_name, timepoints, constraints)
-    
-    print(out)
+
+    # Sets timepoint ids to integers
+    pstn_tps = instance.getTimePoints()
+    for i in range(len(pstn_tps)):
+        pstn_tps[i].id = str(i)
+
+    # Changes inf upper bounds to 10000
+    for i in instance.getConstraints():
+        if i.intervals["ub"] == inf or i.intervals["ub"] == 'inf':
+            i.intervals["ub"] = 10000
+
     with open(out, "wb") as f:
-            pkl.dump(instance, f)
+        pkl.dump(instance, f)
         

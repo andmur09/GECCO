@@ -148,30 +148,30 @@ def main():
          #   continue
 
         
-    elevators_path = "pstns/problems/elevators"
-    elevators_files = sorted(os.listdir(elevators_path))
-    elevators = []
-    for i in range(len(elevators_files)):
-         with open(elevators_path + "/" + elevators_files[i], "rb") as f:
-            problem = pkl.load(f)
-            elevators.append(problem)
+    # elevators_path = "pstns/problems/elevators"
+    # elevators_files = sorted(os.listdir(elevators_path))
+    # elevators = []
+    # for i in range(len(elevators_files)):
+    #      with open(elevators_path + "/" + elevators_files[i], "rb") as f:
+    #         problem = pkl.load(f)
+    #         elevators.append(problem)
 
 
-    for i in range(13, 14):
-        print("\nSOLVING: ", elevators[i].name, "\n")
-        tosave = {}
-        #try:
-        m, results = convex.solveJCCP2(elevators[i], 0.2, 0.05, log=True, logfile=elevators[i].name + "_elevators_log")
-        print("SOLVED: ", elevators[i].name, "\n")
-        schedule = getSchedule(elevators[i], m)
-        relaxations = getRelaxations(elevators[i], m)
-        tosave["PSTN"] = elevators[i]
-        tosave["JCCP"] = results
-        tosave["Schedule"] = schedule
-        tosave["Relaxations"] = relaxations
-        #print(dill.detect.baditems(tosave))
-        with open("results/{}_elevators".format(elevators[i].name), "wb") as f:
-           pkl.dump(tosave, f)
+    # for i in range(13, 14):
+    #     print("\nSOLVING: ", elevators[i].name, "\n")
+    #     tosave = {}
+    #     #try:
+    #     m, results = convex.solveJCCP2(elevators[i], 0.2, 0.05, log=True, logfile=elevators[i].name + "_elevators_log")
+    #     print("SOLVED: ", elevators[i].name, "\n")
+    #     schedule = getSchedule(elevators[i], m)
+    #     relaxations = getRelaxations(elevators[i], m)
+    #     tosave["PSTN"] = elevators[i]
+    #     tosave["JCCP"] = results
+    #     tosave["Schedule"] = schedule
+    #     tosave["Relaxations"] = relaxations
+    #     #print(dill.detect.baditems(tosave))
+    #     with open("results/{}_elevators".format(elevators[i].name), "wb") as f:
+    #        pkl.dump(tosave, f)
         #except:
          #  continue
         # try:
@@ -187,6 +187,53 @@ def main():
         #         pkl.dump(tosave, f)
         # except:
         #     continue
+
+    # print("Finished")
+
+
+        
+    cdru_path = "pstns/problems/cdru"
+    cdru_files = os.listdir(cdru_path)
+    cdru = []
+    for i in range(len(cdru_files)):
+         with open(cdru_path + "/" + cdru_files[i], "rb") as f:
+            problem = pkl.load(f)
+            cdru.append(problem)
+            #problem.printPSTN()
+
+
+    for i in range(len(cdru_files)):
+        if cdru_files[i][:3] == "AUV":
+            print("\nSOLVING: ", cdru[i].name, "\n")
+            tosave = {}
+            cdru[i].printPSTN()
+            try:
+                m, results = convex.solveJCCP2(cdru[i], 0.2, 0.05, log=True, logfile=cdru[i].name + "_log")
+                print("SOLVED: ", cdru[i].name, "\n")
+                schedule = getSchedule(cdru[i], m)
+                relaxations = getRelaxations(cdru[i], m)
+                tosave["PSTN"] = cdru[i]
+                tosave["JCCP"] = results
+                tosave["Schedule"] = schedule
+                tosave["Relaxations"] = relaxations
+            #print(dill.detect.baditems(tosave))
+                with open("results/{}".format(cdru[i].name), "wb") as f:
+                    pkl.dump(tosave, f)
+            except:
+                continue
+            try:
+                m, results = LP.solveLP(cdru[i], cdru[i].name, 0.2)
+                tosave = {}
+                schedule = getSchedule(cdru[i], m)
+                relaxations = getRelaxations(cdru[i], m)
+                tosave["PSTN"] = cdru[i]
+                tosave["LP"] = results
+                tosave["Schedule"] = schedule
+                tosave["Relaxations"] = relaxations
+                with open("results/{}_LP".format(cdru[i].name), "wb") as f:
+                    pkl.dump(tosave, f)
+            except:
+                continue
 
     print("Finished")
 

@@ -284,11 +284,11 @@ def columnGeneration(z, JCCP, iterations = 10, epsilon = 0.001, lb = False):
     start = time.time()
     def dualf(z):
         # Nested function to be optimised
-        return -np.dot(u, z) - v * -log(norm(mean, cov, allow_singular=True).cdf(z))- nu
+        return -np.dot(u, z) - v * -log(max(norm(mean, cov, allow_singular=True).cdf(z), sys.float_info.min))- nu
 
     def gradf(z):
         # Nested function to calculate gradients at particular points
-        return fn.flatten(v/norm(mean, cov, allow_singular=True).cdf(z) * fn.grad(np.c_[z], cb, mean, cov)) - u
+        return fn.flatten(v/max(norm(mean, cov, allow_singular=True).cdf(z), sys.float_info.min) * fn.grad(np.c_[z], cb, mean, cov)) - u
 
     def backtracking(z, grad, beta=0.8, alpha = 0.1):
         # Implementation of backtracking line search using Armijos condition
@@ -354,11 +354,11 @@ def columnGeneration2(z, JCCP, tol):
     start = time.time()
     def dualf(z):
         # Nested function to be optimised
-        return -np.dot(u, z) - v * -log(norm(mean, cov, allow_singular=True).cdf(z))- nu
+        return -np.dot(u, z) - v * -log(max(norm(mean, cov, allow_singular=True).cdf(z), sys.float_info.min))- nu
 
     def gradf(z):
         # Nested function to calculate gradients at particular points
-        return fn.flatten(v/norm(mean, cov, allow_singular=True).cdf(z) * fn.grad(np.c_[z], cb, mean, cov)) - u
+        return fn.flatten(v/max(norm(mean, cov, allow_singular=True).cdf(z), sys.float_info.min) * fn.grad(np.c_[z], cb, mean, cov)) - u
 
     res = optimize.minimize(dualf, z, jac = gradf, method = "BFGS", tol=tol)
     end = time.time()

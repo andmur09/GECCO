@@ -3,7 +3,8 @@ import numpy as np
 #from rpy2 import robjects as ro
 import numpy as np
 from scipy.stats import multivariate_normal as norm
-from math import sqrt, log
+from math import sqrt
+import sys
 #from sqlalchemy import true
 
 def flatten(column_vector):
@@ -38,7 +39,12 @@ def prob(z, mean, cov):
                     cov:    a covariance matrix
     Output          float:  Value of F(z) for N(mean, cov)
     '''
-    return norm(mean, cov, allow_singular=True).cdf(z)
+    prob = norm(mean, cov, allow_singular=True).cdf(z)
+    if prob == 0:
+        return sys.float_info.min
+    else:
+        return prob
+
 
 def grad(z, cb, mean, cov):
     '''
