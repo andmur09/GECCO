@@ -173,6 +173,7 @@ def Initialise(JCCP, box = 3):
 
     # Checks to see whether solution to z satisfies the chance constraint
     F0 = fn.prob(z_, JCCP.mean, JCCP.cov)
+    print(F0)
     phi = []
     # If chance constraint is satisfies adds p approximation points z^i = (z_1 = t,..,z_i = 0,..,z_p = t) for i = 1,2,..,p
     if F0 >= 1 - JCCP.alpha:
