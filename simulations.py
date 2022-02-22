@@ -191,9 +191,8 @@ def main():
     # print("Finished")
 
 
-        
     cdru_path = "pstns/problems/cdru"
-    cdru_files = os.listdir(cdru_path)
+    cdru_files = sorted(os.listdir(cdru_path))
     cdru = []
     for i in range(len(cdru_files)):
          with open(cdru_path + "/" + cdru_files[i], "rb") as f:
@@ -201,41 +200,42 @@ def main():
             cdru.append(problem)
             #problem.printPSTN()
 
+    print([p.name for p in cdru])
 
     for i in range(len(cdru_files)):
-        if cdru_files[i][:3] == "AUV":
-            print("\nSOLVING: ", cdru[i].name, "\n")
-            tosave = {}
-            cdru[i].printPSTN()
-            try:
-                m, results = convex.solveJCCP2(cdru[i], 0.2, 0.05, log=True, logfile=cdru[i].name + "_log")
-                print("SOLVED: ", cdru[i].name, "\n")
-                schedule = getSchedule(cdru[i], m)
-                relaxations = getRelaxations(cdru[i], m)
-                tosave["PSTN"] = cdru[i]
-                tosave["JCCP"] = results
-                tosave["Schedule"] = schedule
-                tosave["Relaxations"] = relaxations
-            #print(dill.detect.baditems(tosave))
-                with open("results/{}".format(cdru[i].name), "wb") as f:
-                    pkl.dump(tosave, f)
-            except:
-                continue
-            try:
-                m, results = LP.solveLP(cdru[i], cdru[i].name, 0.2)
-                tosave = {}
-                schedule = getSchedule(cdru[i], m)
-                relaxations = getRelaxations(cdru[i], m)
-                tosave["PSTN"] = cdru[i]
-                tosave["LP"] = results
-                tosave["Schedule"] = schedule
-                tosave["Relaxations"] = relaxations
-                with open("results/{}_LP".format(cdru[i].name), "wb") as f:
-                    pkl.dump(tosave, f)
-            except:
-                continue
+        if i in [1]:
+            cdru[i].plot()
+    #         print("\nSOLVING: ", cdru[i].name, "\n")
+    #         tosave = {}
+    #         try:
+    #             m, results = convex.solveJCCP2(cdru[i], 0.2, 0.05, log=True, logfile=cdru[i].name + "_log")
+    #             print("SOLVED: ", cdru[i].name, "\n")
+    #             schedule = getSchedule(cdru[i], m)
+    #             relaxations = getRelaxations(cdru[i], m)
+    #             tosave["PSTN"] = cdru[i]
+    #             tosave["JCCP"] = results
+    #             tosave["Schedule"] = schedule
+    #             tosave["Relaxations"] = relaxations
+    #         #print(dill.detect.baditems(tosave))
+    #             with open("results/{}".format(cdru[i].name), "wb") as f:
+    #                 pkl.dump(tosave, f)
+    #         except:
+    #             continue
+    #         try:
+    #             m, results = LP.solveLP(cdru[i], cdru[i].name, 0.2)
+    #             tosave = {}
+    #             schedule = getSchedule(cdru[i], m)
+    #             relaxations = getRelaxations(cdru[i], m)
+    #             tosave["PSTN"] = cdru[i]
+    #             tosave["LP"] = results
+    #             tosave["Schedule"] = schedule
+    #             tosave["Relaxations"] = relaxations
+    #             with open("results/{}_LP".format(cdru[i].name), "wb") as f:
+    #                 pkl.dump(tosave, f)
+    #         except:
+    #             continue
 
-    print("Finished")
+    # print("Finished")
 
 if __name__ == "__main__":
     main()

@@ -132,7 +132,7 @@ def getStandardForm(PSTN):
     cov_xi = R
     return A, vars, b, c, T, q, mu_xi, cov_xi
     
-def Initialise(JCCP, box = 3):
+def Initialise(JCCP, box = 6):
     '''
     Description:    Finds an initial feasible point such that the joint chance constraint is satisfied. Solves the following problem:
 
@@ -163,6 +163,7 @@ def Initialise(JCCP, box = 3):
     m.setObjective(t, GRB.MAXIMIZE)
     m.update()
     m.optimize()
+    print(m.status)
     # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
     if m.status == GRB.OPTIMAL:
         print('\n objective: ', m.objVal)
@@ -186,7 +187,7 @@ def Initialise(JCCP, box = 3):
             Fnew = fn.prob(znew, JCCP.mean, JCCP.cov)
             phi.append(-log(Fnew))
     else:
-        raise ValueError("No solution could be found with current risk budget. Try increasing allowable risk")
+        return None
     # Initialises the matrix z and vector phi within the instance of JCCP
     JCCP.setZ(z)
     JCCP.setPhi(np.array(phi))
@@ -235,7 +236,7 @@ def masterProblem(JCCP):
         print('\n Vars:')
         for v in m.getVars():
             print("Variable {}: ".format(v.varName) + str(v.x))
-    m.write("convex.sol")
+        m.write("convex.sol")
 
     # Queries Gurobi to get values of dual variables and cbasis
     constraints = m.getConstrs()
@@ -354,13 +355,19 @@ def columnGeneration2(z, JCCP, tol):
     start = time.time()
     def dualf(z):
         # Nested function to be optimised
-        return -np.dot(u, z) - v * -log(max(norm(mean, cov, allow_singular=True).cdf(z), sys.float_info.min))- nu
+        return -np.dot(u, z) - v * -log(norm(mean, cov, allow_singular=True).cdf(z))- nu
 
     def gradf(z):
         # Nested function to calculate gradients at particular points
-        return fn.flatten(v/max(norm(mean, cov, allow_singular=True).cdf(z), sys.float_info.min) * fn.grad(np.c_[z], cb, mean, cov)) - u
+        return fn.flatten(v/norm(mean, cov, allow_singular=True).cdf(z) * fn.grad(np.c_[z], cb, mean, cov)) - u
+    
+    # Adds bounds to prevent variables being non-negative
+    bounds = []
+    for i in range(len(z)):
+        bound = (0.00001, 6)
+        bounds.append(bound)
 
-    res = optimize.minimize(dualf, z, jac = gradf, method = "BFGS", tol=tol)
+    res = optimize.minimize(dualf, z, jac = gradf, method = "L-BFGS-B", tol=tol, bounds=bounds)
     end = time.time()
     print("Time taken: ", end - start)
     print("\n", res)
@@ -405,6 +412,12 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
     
     # Initialises the problem with k approximation points
     m = Initialise(problem)
+    if m == None:
+        print("No solution possible with current risk bound")
+        if log == True:
+            sys.stdout.close()
+            sys.stdout = saved_stdout
+            return None
     k = len(problem.phi)
 
     # Solves the master problem
@@ -413,6 +426,7 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
     problem.addSolution(m)
     print("\nCurrent z points are: ", problem.z)
     print("Current objective is: ", m.objVal)
+    UB = m.objVal
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
@@ -422,10 +436,10 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
     print("Reduced cost is: ", rho)
 
     # Calculates optimality gap
-    UB = m.objVal
     if status == True:
         LB = m.objVal - rho - cg_tol
     print("LB = ", LB, "UB = ", UB)
+
     # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
     while (UB - LB)/LB > epsilon and rho >= 0 and n_iterations <= max_iterations:
         n_iterations += 1
@@ -437,14 +451,17 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
         problem.addSolution(m)
         print("\nCurrent z points are: ", problem.z)
         print("Current objective is: ", m.objVal)
-        
+        UB = m.objVal
+
+        if (UB - LB)/LB <= epsilon:
+            break
+
         print("\nSolving Column Generation")
         z_d, status = columnGeneration2(z_m, problem, cg_tol)
         rho = problem.reducedCost(z_d)
         print("\nNew approximation point found: ", z_d)
         print("Reduced cost is: ", rho)
 
-        UB = m.objVal
         if status == True:
             LB_k = m.objVal - rho - cg_tol
             LB = max(LB, LB_k)
@@ -469,100 +486,3 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
         sys.stdout = saved_stdout
     return m, problem
 
-def solveJCCP(PSTN, alpha, epsilon, log=False, max_iterations = 100, iterations_grad_descent = 100):
-    '''
-    Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
-                    generation method.
-    
-    Input:          PSTN:       Instance of PSTN class
-                    alpha:      Allowable tolerance on risk:
-                                e.g. P(success) >= 1 - alpha
-                    epsilon:    An allowable upper bound on the distance between the current solution and the global optimum
-                                e.g. (UB - LB)/LB <= epsilon    
-    Output:         m:          An instance of the Gurobi model class which solves the joint chance constrained PSTN
-    '''
-    n_iterations = 0
-    calculate_lower_bound = False
-    if log == True:
-        saved_stdout = sys.stdout
-        sys.stdout = open("logs/{}.txt".format(PSTN.name), "w+")
-    
-    # Translates the PSTN to the standard form of a JCCP and stores the matrices in an instance of the JCCP class
-    start = time.time()
-    matrices = getStandardForm(PSTN)
-    A, vars, b, c, T, q, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7]
-    problem = JCCP(A, vars, b, c, T, q, mu, cov, alpha)
-    
-    # Initialises the problem with k approximation points
-    pi = problem.getPi()
-    m = Initialise(problem)
-    k = len(problem.phi)
-
-    # Solves the master problem
-    print("\nSolving master problem with {} approximation points".format(k))
-    m, z_m, phi_m = masterProblem(problem)
-    problem.addSolution(m)
-    print("\nCurrent z points are: ", problem.z)
-    print("Current objective is: ", m.objVal)
-
-    # Solves the column generation problem
-    print("\nSolving Column Generation")
-    z_d = columnGeneration(z_m, problem, iterations=iterations_grad_descent)
-    rho = problem.reducedCost(z_d)
-    print("\nNew approximation point found: ", z_d)
-    print("Reduced cost is: ", rho)
-
-    # Calculates optimality gap
-    UB = m.objVal
-    LB = 0.01
-    print("LB = ", LB, "UB = ", UB)
-    # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
-    while (UB - LB)/LB > epsilon and rho >= 0 and n_iterations <= max_iterations:
-        n_iterations += 1
-        k += 1
-        problem.addColumn(z_d)
-        print("\nSolving master problem with {} approximation points".format(k))
-        m, z_m, phi_m = masterProblem(problem)
-        problem.addSolution(m)
-        print("\nCurrent z points are: ", problem.z)
-        print("Current objective is: ", m.objVal)
-
-        print("\nSolving Column Generation")
-        z_d = columnGeneration(z_m, problem, lb = calculate_lower_bound)
-
-        # If the lower bound is set to be calculated (gradient descent solved to optimality) then we are able
-        # to update the lower bound and set the value of calculate lower bound back to false
-        if calculate_lower_bound == True:
-            LB_k = m.objVal - rho
-            LB = max(LB, LB_k)
-        calculate_lower_bound = False
-        rho = problem.reducedCost(z_d)
-        print("\nNew approximation point found: ", z_d)
-        print("Reduced cost is: ", rho)
-
-        # Checks to see the difference in convergence of optimal value, when this is small enough we calculate a new
-        # lower bound
-        UB_temp = m.objVal
-        if (UB - UB_temp)/UB <= 0.01:
-            print("Difference between upper bounds = ", UB_temp, "-", UB, "/", UB)
-            print("Next iteration to calculate lower bound")
-            calculate_lower_bound = True
-        UB = UB_temp
-        print("LB = ", LB, "UB = ", UB)
-    end = time.time()
-    solution_time = end - start
-    if n_iterations <= max_iterations:
-        problem.setSolved(True)
-    problem.setSolutionTime(solution_time)
-    print("\nFinal solution found: ")
-    print("Solution time: ", solution_time)
-    print("Optimality gap is: ", (UB - LB)/LB*100)
-    print("Final Probability is: ", problem.getCurrentProbability())
-    print('objective: ', m.objVal)
-    print('Vars:')
-    for v in m.getVars():
-        print("Variable {}: ".format(v.varName) + str(v.x))
-    if log == True:
-        sys.stdout.close()
-        sys.stdout = saved_stdout
-    return m, problem
