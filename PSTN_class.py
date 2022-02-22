@@ -88,6 +88,9 @@ class constraint(object):
         else:
             self.type = _type
 
+    def setName(self):
+        self.name = "c({},{})".format(str(self.source.id), str(self.sink.id))
+
     def getType(self):
         return self.type
         

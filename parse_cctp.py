@@ -85,6 +85,11 @@ def parse_cctp(filename, out):
     for i in range(len(pstn_tps)):
         pstn_tps[i].id = str(i)
 
+    pstn_ctrs = instance.getConstraints()
+    for constraint in pstn_ctrs:
+        constraint.setName()
+        
+    print([c.description for c in instance.getConstraints()])
     # Changes inf upper bounds to 10000
     for i in instance.getConstraints():
         if i.intervals["ub"] == inf or i.intervals["ub"] == 'inf':

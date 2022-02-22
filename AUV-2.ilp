@@ -1,0 +1,19 @@
+\ Model AUV-2_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Minimize
+ 
+Subject To
+ R157: - 9 + 10 - c(9,38)_u >= 0
+ R516: 10 - 70 - c(70,59)_l <= 6.54
+ R847: 9 - 69 - c(69,19)_u >= 74.61
+ R966: - 69 + 70 - c(69,50)_l <= 46.5696
+Bounds
+ 9 free
+ 10 free
+ 69 free
+ 70 free
+ c(9,38)_u >= 855.4755235199202
+ -infinity <= c(70,59)_l <= 417.3585264073213
+ c(69,19)_u >= 631.2763796727527
+ -infinity <= c(69,50)_l <= 192.0334661833595
+End

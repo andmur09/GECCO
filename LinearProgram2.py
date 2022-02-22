@@ -108,7 +108,7 @@ def solveLP(PSTN, name, budget, pres = 15):
             # Adds constraint of the form b_j - b_i - r_u_{ij} <= y_{ij}
             m.addConstr(end - start - relax_u <= c.intervals["ub"])
 
-            # Adds constraint of the form b_i - b_j - Gamma_l_{ij} * r_l_{ij} <= -x_{ij}
+            # Adds constraint of the form b_i - b_j -  r_l_{ij} <= -x_{ij}
             m.addConstr(end - start + relax_l >= c.intervals["lb"])
         
         else:
@@ -129,10 +129,18 @@ def solveLP(PSTN, name, budget, pres = 15):
             omega_l, omega_u = m.getVarByName(incoming.name + "_l"), m.getVarByName(incoming.name + "_u")
             F_l, F_u = m.getVarByName(c.name + "_Fl"), m.getVarByName(c.name + "_Fu")
 
-            # For constraint of the form bj - bi - l_i <= y_{ij}
-            m.addConstr(end - start - omega_l <= c.intervals["ub"])
-            # For constraint of the form bi - bj + u_i <= -x_{ij}
-            m.addConstr(end - start - omega_u >= c.intervals["lb"])
+            # If relaxable
+            if c.hard == False:
+                relax_l, relax_u = m.getVarByName(c.name + "_rl"), m.getVarByName(c.name + "_ru")
+                # For constraint of the form bj - bi - l_i <= y_{ij} +  r
+                m.addConstr(end - start - omega_l - relax_u<= c.intervals["ub"])
+                # For constraint of the form bi - bj + u_i <= -x_{ij} 
+                m.addConstr(end - start - omega_u + relax_l >= c.intervals["lb"])          
+            else:
+                # For constraint of the form bj - bi - l_i <= y_{ij}
+                m.addConstr(end - start - omega_l <= c.intervals["ub"])
+                # For constraint of the form bi - bj + u_i <= -x_{ij}
+                m.addConstr(end - start - omega_u >= c.intervals["lb"])
 
              # Adds piecewise linear constraints.
             partitions = linearProbability(incoming, pres, pres)
@@ -154,10 +162,17 @@ def solveLP(PSTN, name, budget, pres = 15):
             omega_l, omega_u = m.getVarByName(incoming.name + "_l"), m.getVarByName(incoming.name + "_u")
             F_l, F_u = m.getVarByName(c.name + "_Fl"), m.getVarByName(c.name + "_Fu")
 
-            # For constraint of the form b_j + u_{ij} - b_i <= y_{ij}      
-            m.addConstr(end - start + omega_u <= c.intervals["ub"])        
-            # For constraint of the form b_i - bj - l_{ij} <= -x_{ij}
-            m.addConstr(end - start + omega_l >= c.intervals["lb"])
+            if c.hard == False:
+                relax_l, relax_u = m.getVarByName(c.name + "_rl"), m.getVarByName(c.name + "_ru")
+                # For constraint of the form bj - bi - l_i <= y_{ij} +  r
+                m.addConstr(end - start + omega_u - relax_u <= c.intervals["ub"])
+                # For constraint of the form b_i - bj - l_{ij} -r_l<= -x_{ij}
+                m.addConstr(end - start + omega_l + relax_l >= c.intervals["lb"])          
+            else:
+                # For constraint of the form b_j + u_{ij} - b_i <= y_{ij}      
+                m.addConstr(end - start + omega_u <= c.intervals["ub"])        
+                # For constraint of the form b_i - bj - l_{ij} <= -x_{ij}
+                m.addConstr(end - start + omega_l >= c.intervals["lb"])
 
             # Adds piecewise linear constraints.
             partitions = linearProbability(incoming, pres, pres)
@@ -179,7 +194,7 @@ def solveLP(PSTN, name, budget, pres = 15):
     m.addConstr(risk <= budget, "risk_bound")
     
     m.update()
-    m.write("convex.lp")
+    m.write("{}.lp".format(PSTN.name))
     start = time.time()
     m.optimize()
     end = time.time()
@@ -194,5 +209,8 @@ def solveLP(PSTN, name, budget, pres = 15):
         for v in m.getVars():
             results[v.varName] = v.x
             print("Variable {}: ".format(v.varName) + str(v.x))
+    else:
+        m.computeIIS()
+        m.write("{}.ilp".format(PSTN.name))
     return m, results
         

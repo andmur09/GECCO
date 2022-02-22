@@ -14,6 +14,7 @@ def main():
     dir_out = "pstns/problems/cdru/"
     for file in os.listdir(dir_in):
         parse_cctp(dir_in + file, dir_out + file[:-5])
+        
 
 if __name__ == '__main__':
     main()

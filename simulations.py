@@ -200,12 +200,13 @@ def main():
             cdru.append(problem)
             #problem.printPSTN()
 
-    print([p.name for p in cdru])
+    #print([p.name for p in cdru])
 
     for i in range(len(cdru_files)):
-        if i in [1]:
+        if i in [1, 6, 8]:
+            #print([c.description for c in cdru[i].getConstraints()])
             cdru[i].plot()
-    #         print("\nSOLVING: ", cdru[i].name, "\n")
+            #print("\nSOLVING: ", cdru[i].name, "\n")
     #         tosave = {}
     #         try:
     #             m, results = convex.solveJCCP2(cdru[i], 0.2, 0.05, log=True, logfile=cdru[i].name + "_log")
@@ -221,21 +222,21 @@ def main():
     #                 pkl.dump(tosave, f)
     #         except:
     #             continue
-    #         try:
-    #             m, results = LP.solveLP(cdru[i], cdru[i].name, 0.2)
-    #             tosave = {}
-    #             schedule = getSchedule(cdru[i], m)
-    #             relaxations = getRelaxations(cdru[i], m)
-    #             tosave["PSTN"] = cdru[i]
-    #             tosave["LP"] = results
-    #             tosave["Schedule"] = schedule
-    #             tosave["Relaxations"] = relaxations
-    #             with open("results/{}_LP".format(cdru[i].name), "wb") as f:
-    #                 pkl.dump(tosave, f)
-    #         except:
-    #             continue
+            try:
+                m, results = LP.solveLP(cdru[i], cdru[i].name, 0.2)
+                tosave = {}
+                schedule = getSchedule(cdru[i], m)
+                relaxations = getRelaxations(cdru[i], m)
+                tosave["PSTN"] = cdru[i]
+                tosave["LP"] = results
+                tosave["Schedule"] = schedule
+                tosave["Relaxations"] = relaxations
+                with open("results/{}_LP".format(cdru[i].name), "wb") as f:
+                    pkl.dump(tosave, f)
+            except:
+                continue
 
-    # print("Finished")
+    print("Finished")
 
 if __name__ == "__main__":
     main()
