@@ -97,7 +97,7 @@ def solveLP(PSTN, name, budget, pres = 15):
         m.addVar(lb=0, ub=c.mu, vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_l")
         m.addVar(lb=c.mu, ub=inf, vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_u")
     m.update()
-    print([v.varName for v in m.getVars()])
+
     # Adds constraints
     for c in cc:
         # Collects indices of required variables in variable vector x
@@ -118,8 +118,6 @@ def solveLP(PSTN, name, budget, pres = 15):
             # Adds constraint of the form b_i - b_j -  r_l_{ij} <= -x_{ij}
             m.addConstr(end - start >= c.intervals["lb"])
                     
-
-    
     for c in cu:
         incoming = PSTN.incomingContingent(c)
         ## Start time-point in constraint is uncontrollable

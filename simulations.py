@@ -107,89 +107,21 @@ def getRelaxations(PSTN, solution):
         return None
 
 def main():
-    # epsilon = 0.01
-    # woodworking_path = "pstns/problems/woodworking"
-    # woodworking_files = sorted(os.listdir(woodworking_path))
-    # woodworking = []
-    # for i in range(len(woodworking_files)):
-    #    with open(woodworking_path + "/" + woodworking_files[i], "rb") as f:
-    #        problem = pkl.load(f)
-    #        woodworking.append(problem)
+    woodworking_path = "pstns/problems/woodworking"
+    woodworking_files = sorted(os.listdir(woodworking_path))
+    woodworking = []
+    for i in range(len(woodworking_files)):
+       with open(woodworking_path + "/" + woodworking_files[i], "rb") as f:
+           problem = pkl.load(f)
+           woodworking.append(problem)
 
-    # for i in range(len(woodworking_files)):
-    #     print("\nSOLVING: ", woodworking[i].name, "\n")
-    #     tosave = {}
-    #     try:
-    #         m, results = convex.solveJCCP2(woodworking[i], 0.2, 0.05, log=True, logfile=woodworking[i].name + "_woodworking_log")
-    #         print("SOLVED: ", woodworking[i].name, "\n")
-    #         schedule = getSchedule(woodworking[i], m)
-    #         relaxations = getRelaxations(woodworking[i], m)
-    #         tosave["PSTN"] = woodworking[i]
-    #         tosave["JCCP"] = results
-    #         tosave["Schedule"] = schedule
-    #         tosave["Relaxations"] = relaxations
-    #         #print(dill.detect.baditems(tosave))
-    #         with open("results/{}_woodworking".format(woodworking[i].name), "wb") as f:
-    #            pkl.dump(tosave, f)
-    #     except:
-    #        continue
-        #try:
-        #    m, results = LP.solveLP(woodworking[i], woodworking[i].name, 0.2)
-        #    tosave = {}
-        #    schedule = getSchedule(woodworking[i], m)
-         #   relaxations = getRelaxations(woodworking[i], m)
-          #  tosave["PSTN"] = woodworking[i]
-           # tosave["LP"] = results
-           # tosave["Schedule"] = schedule
-           # tosave["Relaxations"] = relaxations
-           # with open("results/{}_woodworking_LP".format(woodworking[i].name), "wb") as f:
-            #    pkl.dump(tosave, f)
-        #except:
-         #   continue
-
-        
-    # elevators_path = "pstns/problems/elevators"
-    # elevators_files = sorted(os.listdir(elevators_path))
-    # elevators = []
-    # for i in range(len(elevators_files)):
-    #      with open(elevators_path + "/" + elevators_files[i], "rb") as f:
-    #         problem = pkl.load(f)
-    #         elevators.append(problem)
-
-
-    # for i in range(13, 14):
-    #     print("\nSOLVING: ", elevators[i].name, "\n")
-    #     tosave = {}
-    #     #try:
-    #     m, results = convex.solveJCCP2(elevators[i], 0.2, 0.05, log=True, logfile=elevators[i].name + "_elevators_log")
-    #     print("SOLVED: ", elevators[i].name, "\n")
-    #     schedule = getSchedule(elevators[i], m)
-    #     relaxations = getRelaxations(elevators[i], m)
-    #     tosave["PSTN"] = elevators[i]
-    #     tosave["JCCP"] = results
-    #     tosave["Schedule"] = schedule
-    #     tosave["Relaxations"] = relaxations
-    #     #print(dill.detect.baditems(tosave))
-    #     with open("results/{}_elevators".format(elevators[i].name), "wb") as f:
-    #        pkl.dump(tosave, f)
-        #except:
-         #  continue
-        # try:
-        #     m, results = LP.solveLP(elevators[i], elevators[i].name, 0.2)
-        #     tosave = {}
-        #     schedule = getSchedule(elevators[i], m)
-        #     relaxations = getRelaxations(elevators[i], m)
-        #     tosave["PSTN"] = elevators[i]
-        #     tosave["LP"] = results
-        #     tosave["Schedule"] = schedule
-        #     tosave["Relaxations"] = relaxations
-        #     with open("results/{}_elevators_LP".format(elevators[i].name), "wb") as f:
-        #         pkl.dump(tosave, f)
-        # except:
-        #     continue
-
-    # print("Finished")
-
+    elevators_path = "pstns/problems/elevators"
+    elevators_files = sorted(os.listdir(elevators_path))
+    elevators = []
+    for i in range(len(elevators_files)):
+         with open(elevators_path + "/" + elevators_files[i], "rb") as f:
+            problem = pkl.load(f)
+            elevators.append(problem)
 
     cdru_path = "pstns/problems/cdru"
     cdru_files = sorted(os.listdir(cdru_path))
@@ -198,43 +130,103 @@ def main():
          with open(cdru_path + "/" + cdru_files[i], "rb") as f:
             problem = pkl.load(f)
             cdru.append(problem)
-            #problem.printPSTN()
 
-    #print([p.name for p in cdru])
+    risks = [0.05, 0.1, 0.15]
+    for risk in risks:
+        # for i in range(len(woodworking_files)):
+        #     print("\nSOLVING: ", woodworking[i].name, "\n")
+        #     tosave = {}
+        #     try:
+        #         m, results = convex.solveJCCP2(woodworking[i], risk, 0.05, log=True, logfile=woodworking[i].name + "_woodworking_log")
+        #         print("SOLVED: ", woodworking[i].name, "\n")
+        #         schedule = getSchedule(woodworking[i], m)
+        #         relaxations = getRelaxations(woodworking[i], m)
+        #         tosave["PSTN"] = woodworking[i]
+        #         tosave["JCCP"] = results
+        #         tosave["Schedule"] = schedule
+        #         tosave["Relaxations"] = relaxations
+        #     #print(dill.detect.baditems(tosave))
+        #         with open("results/{}_woodworking_{}".format(woodworking[i].name, risk), "wb") as f:
+        #             pkl.dump(tosave, f)
+        #     except:
+        #         continue
+        #     try:
+        #         m, results = LP.solveLP(woodworking[i], woodworking[i].name, risk)
+        #         tosave = {}
+        #         schedule = getSchedule(woodworking[i], m)
+        #         relaxations = getRelaxations(woodworking[i], m)
+        #         tosave["PSTN"] = woodworking[i]
+        #         tosave["LP"] = results
+        #         tosave["Schedule"] = schedule
+        #         tosave["Relaxations"] = relaxations
+        #         with open("results/{}_woodworking_LP_{}".format(woodworking[i].name, risk), "wb") as f:
+        #             pkl.dump(tosave, f)
+        #     except:
+        #         continue
 
-    for i in range(len(cdru_files)):
-        if i in [1, 6, 8]:
-            #print([c.description for c in cdru[i].getConstraints()])
-            cdru[i].plot()
-            #print("\nSOLVING: ", cdru[i].name, "\n")
-    #         tosave = {}
-    #         try:
-    #             m, results = convex.solveJCCP2(cdru[i], 0.2, 0.05, log=True, logfile=cdru[i].name + "_log")
-    #             print("SOLVED: ", cdru[i].name, "\n")
-    #             schedule = getSchedule(cdru[i], m)
-    #             relaxations = getRelaxations(cdru[i], m)
-    #             tosave["PSTN"] = cdru[i]
-    #             tosave["JCCP"] = results
-    #             tosave["Schedule"] = schedule
-    #             tosave["Relaxations"] = relaxations
-    #         #print(dill.detect.baditems(tosave))
-    #             with open("results/{}".format(cdru[i].name), "wb") as f:
-    #                 pkl.dump(tosave, f)
-    #         except:
-    #             continue
-            try:
-                m, results = LP.solveLP(cdru[i], cdru[i].name, 0.2)
+
+        # for i in range(len(elevators)):
+        #     print("\nSOLVING: ", elevators[i].name, "\n")
+        #     tosave = {}
+        #     try:
+        #         m, results = convex.solveJCCP2(elevators[i], risk, 0.05, log=True, logfile=elevators[i].name + "_elevators_log")
+        #         print("SOLVED: ", elevators[i].name, "\n")
+        #         schedule = getSchedule(elevators[i], m)
+        #         relaxations = getRelaxations(elevators[i], m)
+        #         tosave["PSTN"] = elevators[i]
+        #         tosave["JCCP"] = results
+        #         tosave["Schedule"] = schedule
+        #         tosave["Relaxations"] = relaxations
+        # #print(dill.detect.baditems(tosave))
+        #         with open("results/{}_elevators_{}".format(elevators[i].name, risk), "wb") as f:
+        #             pkl.dump(tosave, f)
+        #     except:
+        #         continue
+        #     try:
+        #         m, results = LP.solveLP(elevators[i], elevators[i].name, risk)
+        #         tosave = {}
+        #         schedule = getSchedule(elevators[i], m)
+        #         relaxations = getRelaxations(elevators[i], m)
+        #         tosave["PSTN"] = elevators[i]
+        #         tosave["LP"] = results
+        #         tosave["Schedule"] = schedule
+        #         tosave["Relaxations"] = relaxations
+        #         with open("results/{}_elevators_LP_{}".format(elevators[i].name, risk), "wb") as f:
+        #             pkl.dump(tosave, f)
+        #     except:
+        #         continue
+
+        for i in range(len(cdru_files)):
+            if "Zipcar" in cdru[i].name or "AUV" in cdru[i].name:
+                print("\nSOLVING: ", cdru[i].name, "\n")
                 tosave = {}
-                schedule = getSchedule(cdru[i], m)
-                relaxations = getRelaxations(cdru[i], m)
-                tosave["PSTN"] = cdru[i]
-                tosave["LP"] = results
-                tosave["Schedule"] = schedule
-                tosave["Relaxations"] = relaxations
-                with open("results/{}_LP".format(cdru[i].name), "wb") as f:
-                    pkl.dump(tosave, f)
-            except:
-                continue
+                try:
+                    m, results = convex.solveJCCP2(cdru[i], risk, 0.05, log=True, logfile=cdru[i].name + "_log")
+                    print("SOLVED: ", cdru[i].name, "\n")
+                    schedule = getSchedule(cdru[i], m)
+                    relaxations = getRelaxations(cdru[i], m)
+                    tosave["PSTN"] = cdru[i]
+                    tosave["JCCP"] = results
+                    tosave["Schedule"] = schedule
+                    tosave["Relaxations"] = relaxations
+            #print(dill.detect.baditems(tosave))
+                    with open("results/{}_{}".format(cdru[i].name, risk), "wb") as f:
+                        pkl.dump(tosave, f)
+                except:
+                    continue
+                try:
+                    m, results = LP.solveLP(cdru[i], cdru[i].name, risk)
+                    tosave = {}
+                    schedule = getSchedule(cdru[i], m)
+                    relaxations = getRelaxations(cdru[i], m)
+                    tosave["PSTN"] = cdru[i]
+                    tosave["LP"] = results
+                    tosave["Schedule"] = schedule
+                    tosave["Relaxations"] = relaxations
+                    with open("results/{}_LP_{}".format(cdru[i].name, risk), "wb") as f:
+                        pkl.dump(tosave, f)
+                except:
+                    continue
 
     print("Finished")
 

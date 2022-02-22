@@ -55,6 +55,9 @@ def parse_cctp(filename, out):
         # Check if the constraint is probabilistic
         if constraint_obj.find('MEAN') is not None and constraint_obj.find('VARIANCE') is not None:
             dist = {"type": "gaussian", "mean": float(constraint_obj.find('MEAN').text), "variance": np.sqrt(float(constraint_obj.find('VARIANCE').text))}
+            if dist["variance"] == 0 and dist["mean"] == 0:
+                dist["mean"] = (upper_bound - lower_bound)/2
+                dist["variance"] = 0.1*(upper_bound - lower_bound)/2
             for timepoint in timepoints:
                 if timepoint.id == from_event:
                     source = timepoint

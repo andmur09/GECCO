@@ -37,46 +37,52 @@ def main():
     risk = []
 
     for i in woodworking_files:
-        print(i)
-        if i[-2:] == "LP":
+        if i == "p05_elevators_0.2":
+        # if "LP" in i:
+        #     with open(woodworking_path + "/" + i, "rb") as f:
+        #         instance = pkl.load(f)
+        #         if "Objective" in instance["LP"].keys():
+        #             #print(i, instance["LP"]["Objective"])
+        #             cost_LP.append(instance["LP"]["Objective"])
+        #             runtime_LP.append(instance["LP"]["Runtime"])
+        #             no_uncontrollables_LP.append(instance["PSTN"].countUncontrollables())
+        #             #risk_LP.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1000))
+        #         else:
+        #             continue
+        # else:
             with open(woodworking_path + "/" + i, "rb") as f:
                 instance = pkl.load(f)
-                runtime_LP.append(instance["LP"]["Runtime"])
-                no_uncontrollables_LP.append(instance["PSTN"].countUncontrollables())
-                cost_LP.append(instance["LP"]["Objective"])
-                risk_LP.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 100000))
-        else:
-            with open(woodworking_path + "/" + i, "rb") as f:
-                instance = pkl.load(f)
+                print(i, instance["JCCP"].solution["Objective"])                
+                cost.append(instance["JCCP"].solution["Objective"])
                 runtime.append(instance["JCCP"].solution_time)
                 no_uncontrollables.append(instance["PSTN"].countUncontrollables())
-                cost.append(instance["JCCP"].solution["Objective"])
-                risk.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 100000))
+                    #risk.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1000))
 
-    plt.figure()
-    plt.scatter(no_uncontrollables, runtime, label="JCCP")
-    plt.scatter(no_uncontrollables_LP, runtime_LP, label ="LP")
-    plt.legend()
-    plt.xlabel("No of uncontrollables")
-    plt.yscale('log')
-    plt.ylabel("Runtime")
-    plt.savefig("runtime.png")
+    # plt.figure()
+    # plt.scatter(no_uncontrollables, runtime, label="JCCP")
+    # plt.scatter(no_uncontrollables_LP, runtime_LP, label ="LP")
+    # plt.legend()
+    # plt.xlabel("No of uncontrollables")
+    # plt.yscale('log')
+    # plt.ylabel("Runtime")
+    # plt.savefig("runtime.png")
 
-    plt.figure()
-    plt.scatter(no_uncontrollables, cost, label="JCCP")
-    plt.scatter(no_uncontrollables_LP, cost_LP, label="LP")
-    plt.legend()
-    plt.xlabel("No of uncontrollables")
-    plt.ylabel("Cost")
-    plt.savefig("cost.png")
+    # plt.figure()
+    # plt.scatter(no_uncontrollables, cost, label="JCCP")
+    # plt.scatter(no_uncontrollables_LP, cost_LP, label="LP")
+    # plt.legend()
+    # plt.xlabel("No of uncontrollables")
+    # plt.yscale('log')
+    # plt.ylabel("Cost")
+    # plt.savefig("cost.png")
 
-    plt.figure()
-    plt.scatter(no_uncontrollables, risk, label="JCCP")
-    plt.scatter(no_uncontrollables_LP, risk_LP, label="LP")
-    plt.legend()
-    plt.xlabel("No of uncontrollables")
-    plt.ylabel("Risk")
-    plt.savefig("risk.png")
+    # plt.figure()
+    # plt.scatter(no_uncontrollables, risk, label="JCCP")
+    # plt.scatter(no_uncontrollables_LP, risk_LP, label="LP")
+    # plt.legend()
+    # plt.xlabel("No of uncontrollables")
+    # plt.ylabel("Risk")
+    # plt.savefig("risk.png")
 
 
 

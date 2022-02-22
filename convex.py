@@ -424,7 +424,7 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
     print("\nSolving master problem with {} approximation points".format(k))
     m, z_m = masterProblem(problem)
     problem.addSolution(m)
-    print("\nCurrent z points are: ", problem.z)
+    #print("\nCurrent z points are: ", problem.z)
     print("Current objective is: ", m.objVal)
     UB = m.objVal
 
@@ -432,7 +432,7 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
     print("\nSolving Column Generation")
     z_d, status = columnGeneration2(z_m, problem, cg_tol)
     rho = problem.reducedCost(z_d)
-    print("\nNew approximation point found: ", z_d)
+    #print("\nNew approximation point found: ", z_d)
     print("Reduced cost is: ", rho)
 
     # Calculates optimality gap
@@ -449,7 +449,7 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
         print("\nSolving master problem with {} approximation points".format(k))
         m, z_m = masterProblem(problem)
         problem.addSolution(m)
-        print("\nCurrent z points are: ", problem.z)
+        #print("\nCurrent z points are: ", problem.z)
         print("Current objective is: ", m.objVal)
         UB = m.objVal
 
@@ -459,7 +459,7 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
         print("\nSolving Column Generation")
         z_d, status = columnGeneration2(z_m, problem, cg_tol)
         rho = problem.reducedCost(z_d)
-        print("\nNew approximation point found: ", z_d)
+        #print("\nNew approximation point found: ", z_d)
         print("Reduced cost is: ", rho)
 
         if status == True:
