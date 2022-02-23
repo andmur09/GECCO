@@ -65,7 +65,8 @@ def main():
                 # runtime.append(instance["JCCP"].solution_time)
                 # no_uncontrollables.append(instance["PSTN"].countUncontrollables())
                 #if "0.2" in i:
-                print(i, ( mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1), instance["JCCP"].getCurrentProbability()))
+                print("Schedule = ", instance["Schedule"], "\nRelaxation", instance["Relaxations"])
+                #print(i, ( mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1), instance["JCCP"].getCurrentProbability()))
                     #no_uncontrollables_risk.append(instance["PSTN"].countUncontrollables())
                     #risk.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1))
 

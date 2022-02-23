@@ -83,12 +83,12 @@ def solveLP(PSTN, name, budget, pres = 15):
 
     for c in cc:
         if c.hard == False:
-            m.addVar(vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_rl")
+            #m.addVar(vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_rl")
             m.addVar(vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_ru")
     
     for c in cu:
         if c.hard == False:
-            m.addVar(vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_rl")
+            #m.addVar(vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_rl")
             m.addVar(vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_ru")
         m.addVar(vtype=GRB.CONTINUOUS, name = c.name + "_Fl")
         m.addVar(vtype=GRB.CONTINUOUS, name = c.name + "_Fu")
@@ -104,12 +104,14 @@ def solveLP(PSTN, name, budget, pres = 15):
         start, end = m.getVarByName(c.source.id), m.getVarByName(c.sink.id)
 
         if c.hard == False:
-            relax_l, relax_u = m.getVarByName(c.name + "_rl"), m.getVarByName(c.name + "_ru")
+            #relax_l = m.getVarByName(c.name + "_rl")
+            relax_u = m.getVarByName(c.name + "_ru")
             # Adds constraint of the form b_j - b_i - r_u_{ij} <= y_{ij}
             m.addConstr(end - start - relax_u <= c.intervals["ub"])
 
             # Adds constraint of the form b_i - b_j -  r_l_{ij} <= -x_{ij}
-            m.addConstr(end - start + relax_l >= c.intervals["lb"])
+            #m.addConstr(end - start + relax_l >= c.intervals["lb"])
+            m.addConstr(end - start >= c.intervals["lb"])
         
         else:
             # Adds constraint of the form b_j - b_i - r_u_{ij} <= y_{ij}
@@ -129,11 +131,13 @@ def solveLP(PSTN, name, budget, pres = 15):
 
             # If relaxable
             if c.hard == False:
-                relax_l, relax_u = m.getVarByName(c.name + "_rl"), m.getVarByName(c.name + "_ru")
+                #relax_l = m.getVarByName(c.name + "_rl")
+                relax_u = m.getVarByName(c.name + "_ru")
                 # For constraint of the form bj - bi - l_i <= y_{ij} +  r
                 m.addConstr(end - start - omega_l - relax_u<= c.intervals["ub"])
-                # For constraint of the form bi - bj + u_i <= -x_{ij} 
-                m.addConstr(end - start - omega_u + relax_l >= c.intervals["lb"])          
+                # For constraint of the form bi - bj + u_i <= -x_{ij}
+                #m.addConstr(end - start - omega_u + relax_l >= c.intervals["lb"])    
+                m.addConstr(end - start - omega_u >= c.intervals["lb"])          
             else:
                 # For constraint of the form bj - bi - l_i <= y_{ij}
                 m.addConstr(end - start - omega_l <= c.intervals["ub"])
@@ -161,11 +165,13 @@ def solveLP(PSTN, name, budget, pres = 15):
             F_l, F_u = m.getVarByName(c.name + "_Fl"), m.getVarByName(c.name + "_Fu")
 
             if c.hard == False:
-                relax_l, relax_u = m.getVarByName(c.name + "_rl"), m.getVarByName(c.name + "_ru")
+                #relax_l = m.getVarByName(c.name + "_rl")
+                relax_u = m.getVarByName(c.name + "_ru")
                 # For constraint of the form bj - bi - l_i <= y_{ij} +  r
                 m.addConstr(end - start + omega_u - relax_u <= c.intervals["ub"])
                 # For constraint of the form b_i - bj - l_{ij} -r_l<= -x_{ij}
-                m.addConstr(end - start + omega_l + relax_l >= c.intervals["lb"])          
+                #m.addConstr(end - start + omega_l + relax_l >= c.intervals["lb"])    
+                m.addConstr(end - start + omega_l >= c.intervals["lb"])          
             else:
                 # For constraint of the form b_j + u_{ij} - b_i <= y_{ij}      
                 m.addConstr(end - start + omega_u <= c.intervals["ub"])        
@@ -184,7 +190,7 @@ def solveLP(PSTN, name, budget, pres = 15):
             for partition in partitions_u:
                 grad, const = partition[0], partition[1]
                 m.addConstr(F_u - grad*omega_u >= const)
-
+    m.addConstr(m.getVarByName(PSTN.getStartTimepointName()) == 0)
     m.update()
     risk = m.getVarByName("Risk")
     m.addConstr(gp.quicksum([v for v in m.getVars() if v.varName[-2:] in ["Fu", "Fl"]]) == risk, 'risk')

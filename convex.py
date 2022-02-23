@@ -47,7 +47,6 @@ def getStandardForm(PSTN):
     rvars = PSTN.getRandomVariables()
     cc = PSTN.getControllableConstraints()
     cu = PSTN.getUncontrollableConstraints()
-
     n = len(vars)
     m = 2 * len(cc)
     p = 2 * len(cu)
@@ -71,9 +70,9 @@ def getStandardForm(PSTN):
         A[lb, start_i], A[lb, end_i], b[lb] = 1, -1, -cc[i].intervals["lb"]
         if cc[i].hard == False:
             ru_i = vars.index(cc[i].name + "_ru")
-            rl_i = vars.index(cc[i].name + "_rl")
+            #rl_i = vars.index(cc[i].name + "_rl")
             A[ub, ru_i], c[ru_i] = -1, 1
-            A[lb, rl_i], c[rl_i] = -1, 1
+            #A[lb, rl_i], c[rl_i] = -1, inf
     
     # Gets matrices for joint chance constraint P(Psi omega <= T * vars + q) >= 1 - alpha
     for i in range(len(cu)):
@@ -89,9 +88,9 @@ def getStandardForm(PSTN):
             q[lb] = -cu[i].intervals["lb"]
             if cu[i].hard == False:
                 ru_i = vars.index(cu[i].name + "_ru")
-                rl_i = vars.index(cu[i].name + "_rl")
+                #rl_i = vars.index(cu[i].name + "_rl")
                 T[ub, ru_i], c[ru_i] = 1, 1
-                T[lb, rl_i], c[rl_i] = 1, 1
+                #T[lb, rl_i], c[rl_i] = 1, inf
             rvar_i = rvars.index("X" + "_" + incoming.source.id + "_" + incoming.sink.id)
             psi[ub, rvar_i] = -1
             psi[lb, rvar_i] = 1
@@ -106,9 +105,9 @@ def getStandardForm(PSTN):
             q[lb] = -cu[i].intervals["lb"]
             if cu[i].hard == False:
                 ru_i = vars.index(cu[i].name + "_ru")
-                rl_i = vars.index(cu[i].name + "_rl")
+                #rl_i = vars.index(cu[i].name + "_rl")
                 T[ub, ru_i], c[ru_i] = 1, 1
-                T[lb, rl_i], c[rl_i] = 1, 1
+                #T[lb, rl_i], c[rl_i] = 1, inf
             rvar_i = rvars.index("X" + "_" + incoming.source.id + "_" + incoming.sink.id)
             psi[ub, rvar_i] = 1
             psi[lb, rvar_i] = -1
@@ -152,29 +151,33 @@ def Initialise(JCCP, box = 6):
     # Sets up and solves Gurobi opimisation problem
     m = gp.Model("initialisation")
     x = m.addMVar(len(JCCP.vars), vtype=GRB.CONTINUOUS, name="vars")
-    t = m.addMVar(1, lb=-float(inf), name="t_l")
+    t = m.addMVar(1, name="t_l")
     p = JCCP.T.shape[0]
     z = m.addMVar(p, lb=-float(inf), name = "zl")
     m.addConstr(JCCP.A @ x <= JCCP.b)
     m.addConstr(z == np.ones((p, 1)) @ t)
     m.addConstr(z <= JCCP.T @ x + JCCP.q)
     m.addConstr(t <= box)
-    m.addConstr(x[0] == 0)
+    m.addConstr(x[JCCP.start_i] == 0)
     m.setObjective(t, GRB.MAXIMIZE)
     m.update()
+    m.write("convex.lp")
     m.optimize()
-    print(m.status)
+
     # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
     if m.status == GRB.OPTIMAL:
         print('\n objective: ', m.objVal)
         print('\n Vars:')
         for v in m.getVars():
             print("Variable {}: ".format(v.varName) + str(v.x))
+    else:
+        m.computeIIS()
+        m.write("convex.ilp")
+
     z_ = np.array(z.x)
 
     # Checks to see whether solution to z satisfies the chance constraint
     F0 = fn.prob(z_, JCCP.mean, JCCP.cov)
-    print(F0)
     phi = []
     # If chance constraint is satisfies adds p approximation points z^i = (z_1 = t,..,z_i = 0,..,z_p = t) for i = 1,2,..,p
     if F0 >= 1 - JCCP.alpha:
@@ -222,7 +225,7 @@ def masterProblem(JCCP):
     for i in range(p):
         m.addConstr(JCCP.z[i, :]@lam <= JCCP.T[i,:]@x + JCCP.q[i], name="z{}".format(i))
     m.addConstr(lam @ JCCP.phi <= JCCP.getPi(), name="cc")
-    m.addConstr(x[0] == 0, name="x0")
+    m.addConstr(x[JCCP.start_i] == 0, name="x0")
     m.addConstr(lam.sum() == 1, name="sum_lam")
     m.addConstr(lam @ JCCP.phi == phi, 'phi')
     m.setObjective(JCCP.c @ x, GRB.MINIMIZE)
@@ -259,84 +262,14 @@ def masterProblem(JCCP):
     # Sets the dual values and cbasis within the instance of JCCP to the optimal value for the current iteration
     JCCP.setDuals({"u": u, "v": v, "nu": nu, "mu": mu})
     JCCP.setCbasis(np.array(cb))
-    print("New Dual Variables added: ", JCCP.duals)
+    #print("New Dual Variables added: ", JCCP.duals)
 
     # Gets values for variables lambda and evaluates current value of sum_{i=0}^k{lambda^i z^i} and sum(i=0)^k{lambda^i phi^i}
     lam_sol = np.array(lam.x)
     z_sol = np.array(sum([lam_sol[i]*JCCP.z[:, i] for i in range(np.shape(JCCP.z)[1])]))
     return (m, np.c_[z_sol])
 
-def columnGeneration(z, JCCP, iterations = 10, epsilon = 0.001, lb = False):
-    '''
-    Description:    Solves the column generaion problem (below) via gradient descent with backtracking line search:
-
-                    min_z.  -u^Tz - v*phi(z) - nu    
-
-                    And returns a column z which optimises the reduced cost.
-    
-    Input:          JCCP:   Instance of JCCP class
-    Output:         m:      An instance of the Gurobi model class
-    '''
-    duals = JCCP.getDuals()
-    u, v, nu = fn.flatten(duals["u"]), duals["v"], duals["nu"]
-    mean, cov = JCCP.mean, JCCP.cov
-    cb = JCCP.cbasis
-    z = fn.flatten(z)
-    start = time.time()
-    def dualf(z):
-        # Nested function to be optimised
-        return -np.dot(u, z) - v * -log(max(norm(mean, cov, allow_singular=True).cdf(z), sys.float_info.min))- nu
-
-    def gradf(z):
-        # Nested function to calculate gradients at particular points
-        return fn.flatten(v/max(norm(mean, cov, allow_singular=True).cdf(z), sys.float_info.min) * fn.grad(np.c_[z], cb, mean, cov)) - u
-
-    def backtracking(z, grad, beta=0.8, alpha = 0.1):
-        # Implementation of backtracking line search using Armijos condition
-        t = 1
-        try:
-            dualf(z-t*grad)
-        except ValueError:
-            t *= beta
-        print("\nBACKTRACKING BEGINS HERE")
-        #print("LHS = ", dualf(z-t*grad), "RHS = ", dualf(z) - alpha * t * np.dot(gradf(z), gradf(z)), "t = ", t)
-        while dualf(z-t*grad) > dual - alpha * t * np.dot(gradf(z), gradf(z)):
-            t *= beta
-            #print("LHS = ", dualf(z-t*grad), "RHS = ", dualf(z) - alpha * t * np.dot(gradf(z), gradf(z)), "t = ", t)
-        print("BACKTRACKING ENDS HERE")
-        return t
-    
-    # Initialises values for the function and gradient.
-    dual, grad = dualf(z), gradf(z)
-    print("\nITERATION NUMBER: 0")
-    print("z = ", z)
-    #print("Prob = ", fn.prob(z, mean, cov))
-    print("Grad = ", grad)
-    print("Function value = ", dual)
-    print("Reduced cost = ", -dual)
-    # Calculates step size using backtracking lnie search and performs gradient descent iterations until the number of iterations limit
-    # is reached or the gradient is within an allowable tolerance.
-    for i in range(1,iterations+1):
-        t = backtracking(z, grad)
-        z = z - t * grad
-        dual, grad = dualf(z), gradf(z)
-        print("\nITERATION NUMBER: {}".format(i))
-        print("z = ", z)
-        #print("Prob = ", norm(mean, cov, allow_singular=True).cdf(z))
-        print("Grad = ", grad)
-        print("Function value = ", dual)
-        print("Reduced cost = ", -dual)
-        print("Grad^2 = ", grad.transpose() @ grad)
-        if lb == False and -dual > 0:
-            end = time.time()
-            print("Time taken: ", end - start)
-            return np.c_[z]
-        elif grad.transpose() @ grad < epsilon:
-            return np.c_[z]
-    print("Maximum number of iterations reached")
-    return np.c_[z]
-
-def columnGeneration2(z, JCCP, tol):
+def columnGeneration(z, JCCP, tol):
     '''
     Description:    Solves the column generaion problem (below) via gradient descent with backtracking line search:
 
@@ -373,20 +306,11 @@ def columnGeneration2(z, JCCP, tol):
     print("\n", res)
     z = res.x
     status = res.success
-    #ftol = 2.220446049250313e-09
-    #for i in range(len(res.x)):
-        #tmp_i[i] = 1.0
-        #print(res.hess_inv)
-     #   hess_inv_i = res.hess_inv[i][i]
-      #  uncertainty_i = np.sqrt(max(1, abs(res.fun)) * ftol * hess_inv_i)
-       # #tmp_i[i] = 0.0
-        #print('x^{0} = {1:12.4e} ± {2:.1e}'.format(i, res.x[i], uncertainty_i))
-        #print(z)
 
     return np.c_[z], status
 
 
-def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 100, cg_tol = 0.5):
+def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 100, cg_tol = 0.5):
     '''
     Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
                     generation method.
@@ -409,6 +333,7 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
     matrices = getStandardForm(PSTN)
     A, vars, b, c, T, q, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7]
     problem = JCCP(A, vars, b, c, T, q, mu, cov, alpha)
+    problem.start_i = problem.vars.index(PSTN.getStartTimepointName())
     
     # Initialises the problem with k approximation points
     m = Initialise(problem)
@@ -430,7 +355,7 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
-    z_d, status = columnGeneration2(z_m, problem, cg_tol)
+    z_d, status = columnGeneration(z_m, problem, cg_tol)
     rho = problem.reducedCost(z_d)
     #print("\nNew approximation point found: ", z_d)
     print("Reduced cost is: ", rho)
@@ -457,7 +382,7 @@ def solveJCCP2(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations =
             break
 
         print("\nSolving Column Generation")
-        z_d, status = columnGeneration2(z_m, problem, cg_tol)
+        z_d, status = columnGeneration(z_m, problem, cg_tol)
         rho = problem.reducedCost(z_d)
         #print("\nNew approximation point found: ", z_d)
         print("Reduced cost is: ", rho)

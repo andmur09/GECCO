@@ -286,6 +286,9 @@ class PSTN(object):
     
     def outgoingEdge(self, constraint):
         return [c for c in self.getConstraints() if c.source == constraint.sink]
+    
+    def incomingEdge(self, constraint):
+        return [c for c in self.getConstraints() if c.sink == constraint.source]
 
     def getConstraints(self):
         return self.constraints
@@ -478,7 +481,7 @@ class PSTN(object):
         vars = [i.id for i in self.getControllables()]
         for constraint in self.constraints:
             if constraint.hard == False:
-                vars.append(constraint.name + "_rl")
+                #vars.append(constraint.name + "_rl")
                 vars.append(constraint.name + "_ru")
         return vars
         
@@ -489,5 +492,12 @@ class PSTN(object):
                 name = "X" + "_" + constraint.source.id + "_" + constraint.sink.id
                 rvars.append(name)
         return rvars
+    
+    def getStartTimepointName(self):
+        for constraint in self.getConstraints():
+            incoming = self.incomingEdge(constraint)
+            if len(incoming) == 0:
+                return constraint.source.id
+
 
 

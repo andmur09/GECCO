@@ -1,0 +1,13 @@
+\ Model initialisation_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Maximize
+ 
+Subject To
+ R11: - t_l[0] + zl[5] = 0
+ R19: - 0.243737003971632 vars[0] + 0.243737003971632 vars[5] + zl[5]
+   <= -52.39015855919327
+ R23: vars[0] = 0
+Bounds
+ vars[0] free
+ zl[5] free
+End

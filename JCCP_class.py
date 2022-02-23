@@ -45,6 +45,7 @@ class JCCP(object):
         self.solved = False
         self.solution = []
         self.solution_time = None
+        self.start_i = None
 
     def setZ(self, z):
         # Sets z during initialisation
