@@ -105,8 +105,9 @@ class JCCP(object):
         self.solution_time = time
     
     def getCurrentProbability(self):
+        #print(self.solution.keys())
         for key in self.solution.keys():
-            if "phi" == key:
+            if "phi" in key:
                 return exp(-self.solution[key])
     
 

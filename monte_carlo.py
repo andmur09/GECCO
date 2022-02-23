@@ -47,7 +47,10 @@ def simulate_execution(PSTN, schedule, relaxation):
         if constraint.type != "pstc":
             start, end = schedule[constraint.source.id], schedule[constraint.sink.id]
             try:
+                print("\nEnd = {} {}, start = {} {}".format(constraint.sink.id, end, constraint.source.id, start))
+                print("Value = {}, LB = {}, UB = {}".format(round(end - start, 10), round(constraint.intervals["lb"] - relaxation[constraint.name]["Rl"], 10), round(constraint.intervals["ub"] + relaxation[constraint.name]["Ru"], 10)))
                 if round(end - start, 10) < round(constraint.intervals["lb"] - relaxation[constraint.name]["Rl"], 10) or round(end - start, 10) > round(constraint.intervals["ub"] + relaxation[constraint.name]["Ru"], 10):
+                    print("Condition not met")
                     #print("End = {} {}, start = {} {}".format(constraint.sink.id, end, constraint.source.id, start))
                     #print("Condition not met: Value = {}, LB = {}, UB = {}".format(round(end - start, 10), round(constraint.intervals["lb"] - relaxation[constraint.name]["Rl"], 10), round(constraint.intervals["ub"] + relaxation[constraint.name]["Ru"], 10)))
                     return False

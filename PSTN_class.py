@@ -423,7 +423,7 @@ class PSTN(object):
                 elif contingent.distribution["type"] == "uniform":
                     plot.edge(contingent.source.id, contingent.sink.id, label="{}: U({}, {})".format(contingent.description, round(contingent.dist_lb, dp), round(contingent.dist_ub, dp)), color="red", fontcolor="red")
         try:
-            plot.render('{}_plot.pdf'.format(self.name), view=True)
+            plot.render('{}_plot.png'.format(self.name), view=True)
         except subprocess.CalledProcessError:
             print("Please close the PDF and rerun the script")
 
