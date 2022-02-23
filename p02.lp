@@ -1989,7 +1989,7 @@ Subject To
    + c(68,69)_Fu + c(68,71)_Fl + c(68,71)_Fu + c(30,71)_Fl + c(30,71)_Fu
    + c(51,72)_Fl + c(51,72)_Fu + c(72,73)_Fl + c(72,73)_Fu + c(16,75)_Fl
    + c(16,75)_Fu = 0
- risk_bound: Risk <= 0.05
+ risk_bound: Risk <= 0.5
 Bounds
  c(5,6)_l <= 15
  c(5,6)_u >= 15

@@ -192,7 +192,7 @@ Subject To
  risk: - Risk + c(0,8)_Fl + c(0,8)_Fu + c(5,4)_Fl + c(5,4)_Fu + c(7,9)_Fl
    + c(7,9)_Fu + c(1,2)_Fl + c(1,2)_Fu + c(3,9)_Fl + c(3,9)_Fu + c(6,9)_Fl
    + c(6,9)_Fu = 0
- risk_bound: Risk <= 0.05
+ risk_bound: Risk <= 0.5
 Bounds
  c(10,1)_l <= 10.89
  c(10,1)_u >= 10.89
