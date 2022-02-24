@@ -134,7 +134,7 @@ Subject To
  R126: 6 = 0
  risk: - Risk + c(7,8)_Fl + c(7,8)_Fu + c(0,4)_Fl + c(0,4)_Fu + c(3,1)_Fl
    + c(3,1)_Fu + c(5,4)_Fl + c(5,4)_Fu = 0
- risk_bound: Risk <= 0.2
+ risk_bound: Risk <= 0.5
 Bounds
  c(1,0)_l <= 656.9824284195878
  c(1,0)_u >= 656.9824284195878

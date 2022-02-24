@@ -42,7 +42,7 @@ def simulate_execution(PSTN, schedule, relaxation):
     for probabilistic in contingents:
         mean, sd = probabilistic.mu, probabilistic.sigma
         schedule[probabilistic.sink.id] = schedule[probabilistic.source.id] + np.random.normal(mean, sd)
-
+        print(probabilistic.sink.id, schedule[probabilistic.sink.id])
     for constraint in PSTN.constraints:
         if constraint.type != "pstc":
             start, end = schedule[constraint.source.id], schedule[constraint.sink.id]

@@ -21,8 +21,8 @@ def main():
     ####################################################################
     ## ----------------------For woodworking cases--------------------##
     ####################################################################
-    woodworking_path = "results"
-    woodworking_files = sorted(os.listdir(woodworking_path))
+    results_path = "results"
+    files = sorted(os.listdir(results_path))
     #print(woodworking_files)
     #woodworking_sol = [f for f in woodworking_files if f[-3:] not in ["sol", "ilp", "mps"]]
 
@@ -40,53 +40,56 @@ def main():
     no_uncontrollables_risk = []
     risk = []
 
-    for i in woodworking_files:
-        if i == "AUV-3_0.2":
-            # continue
-            # with open(woodworking_path + "/" + i, "rb") as f:
-            #     instance = pkl.load(f)
-            #     if "Objective" in instance["LP"].keys():
-            #         # #print(i, instance["LP"]["Objective"])
-            #         # cost_LP.append(instance["LP"]["Objective"])
-            #         # runtime_LP.append(instance["LP"]["Runtime"])
-            #         # no_uncontrollables_LP.append(instance["PSTN"].countUncontrollables())
-                    
-            #         if "0.2" in i:
-            #             print(i)
-            #             no_uncontrollables_risk_LP.append(instance["PSTN"].countUncontrollables())
-            #             risk_LP.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1))
+    for i in files:
+        if "elevators" in i or "woodworking" in i:
+            if "LP" in i:
+                with open(results_path + "/" + i, "rb") as f:
+                    instance = pkl.load(f)
+                    try:
+                        if "Objective" in instance["LP"].keys():
+                            cost_LP.append(instance["LP"]["Objective"])
+                            runtime_LP.append(instance["LP"]["Runtime"])
+                            no_uncontrollables_LP.append(instance["PSTN"].countUncontrollables())
+                        # if "0.2" in i:
+                        #     no_uncontrollables_risk_LP.append(instance["PSTN"].countUncontrollables())
+                        #     risk_LP.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1000))
+                    except:
+                        continue
+            else:
+                with open(results_path + "/" + i, "rb") as f:
+                    instance = pkl.load(f)
+                    try:     
+                        cost.append(instance["JCCP"].solution["Objective"])
+                        runtime.append(instance["JCCP"].solution_time)
+                        no_uncontrollables.append(instance["PSTN"].countUncontrollables())
+                    # if "AUV-2_0.2" == i:
+                    #     print("\nInstance ", i)
+                    #     print("\n", instance["Schedule"])
+                    #     print("\n", instance["Relaxations"])
+                    #     print("Calculated risk = ", 1 - instance["JCCP"].getCurrentProbability())
+                    #     print("MC risk = ", 1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1))
+                        #no_uncontrollables_risk.append(instance["PSTN"].countUncontrollables())
+                        #risk.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1))
+                    except:
+                        continue
 
-        #else:
-            with open(woodworking_path + "/" + i, "rb") as f:
-                instance = pkl.load(f)
-                instance["PSTN"].plot()
-                # #print(i, instance["JCCP"].solution["Objective"])                
-                # cost.append(instance["JCCP"].solution["Objective"])
-                # runtime.append(instance["JCCP"].solution_time)
-                # no_uncontrollables.append(instance["PSTN"].countUncontrollables())
-                #if "0.2" in i:
-                print("Schedule = ", instance["Schedule"], "\nRelaxation", instance["Relaxations"])
-                #print(i, ( mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1), instance["JCCP"].getCurrentProbability()))
-                    #no_uncontrollables_risk.append(instance["PSTN"].countUncontrollables())
-                    #risk.append(1 - mc.monte_carlo_success(instance["PSTN"], instance["Schedule"], instance["Relaxations"], 1))
+    plt.figure()
+    plt.scatter(no_uncontrollables, runtime, label="JCCP")
+    plt.scatter(no_uncontrollables_LP, runtime_LP, label ="LP")
+    plt.legend()
+    plt.xlabel("No of uncontrollables")
+    plt.yscale('log')
+    plt.ylabel("Runtime")
+    plt.savefig("runtime.png")
 
-    # plt.figure()
-    # plt.scatter(no_uncontrollables, runtime, label="JCCP")
-    # plt.scatter(no_uncontrollables_LP, runtime_LP, label ="LP")
-    # plt.legend()
-    # plt.xlabel("No of uncontrollables")
-    # plt.yscale('log')
-    # plt.ylabel("Runtime")
-    # plt.savefig("runtime.png")
-
-    # plt.figure()
-    # plt.scatter(no_uncontrollables, cost, label="JCCP")
-    # plt.scatter(no_uncontrollables_LP, cost_LP, label="LP")
-    # plt.legend()
-    # plt.xlabel("No of uncontrollables")
-    # plt.yscale('log')
-    # plt.ylabel("Cost")
-    # plt.savefig("cost.png")
+    plt.figure()
+    plt.scatter(no_uncontrollables, cost, label="JCCP")
+    plt.scatter(no_uncontrollables_LP, cost_LP, label="LP")
+    plt.legend()
+    plt.xlabel("No of uncontrollables")
+    plt.yscale('log')
+    plt.ylabel("Cost")
+    plt.savefig("cost.png")
 
     # plt.figure()
     # plt.scatter(no_uncontrollables_risk, risk, label="JCCP")
