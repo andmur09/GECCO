@@ -1332,7 +1332,7 @@ Subject To
    + c(5,48)_Fl + c(5,48)_Fu + c(48,49)_Fl + c(48,49)_Fu + c(14,51)_Fl
    + c(14,51)_Fu + c(20,51)_Fl + c(20,51)_Fu + c(32,51)_Fl + c(32,51)_Fu
    + c(28,51)_Fl + c(28,51)_Fu = 0
- risk_bound: Risk <= 0.25
+ risk_bound: Risk <= 0.4
 Bounds
  c(1,2)_l <= 14
  c(1,2)_u >= 14

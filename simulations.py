@@ -131,7 +131,7 @@ def main():
             problem = pkl.load(f)
             cdru.append(problem)
 
-    risks = [0.15, 0.25, 0.4]
+    risks = [0.4]
     for risk in risks:
         for i in range(len(woodworking_files)):
             print("\nSOLVING: ", woodworking[i].name, "\n")
