@@ -41,7 +41,8 @@ def main():
     risk = []
 
     for i in files:
-        if "elevators" in i or "woodworking" in i:
+        if "woodworking" in i and "0.2" in i:
+        #if "elevators" in i or "woodworking" in i:
             if "LP" in i:
                 with open(results_path + "/" + i, "rb") as f:
                     instance = pkl.load(f)
@@ -74,19 +75,19 @@ def main():
                         continue
 
     plt.figure()
-    plt.scatter(no_uncontrollables, runtime, label="JCCP")
-    plt.scatter(no_uncontrollables_LP, runtime_LP, label ="LP")
+    plt.scatter(no_uncontrollables, runtime, label="Joint Chance Constrained")
+    plt.scatter(no_uncontrollables_LP, runtime_LP, label ="Boole's Inequality")
     plt.legend()
-    plt.xlabel("No of uncontrollables")
+    plt.xlabel("No of Uncontrollable Constraints")
     plt.yscale('log')
     plt.ylabel("Runtime")
     plt.savefig("runtime.png")
 
     plt.figure()
-    plt.scatter(no_uncontrollables, cost, label="JCCP")
-    plt.scatter(no_uncontrollables_LP, cost_LP, label="LP")
+    plt.scatter(no_uncontrollables, cost, label="Joint Chance Constrained")
+    plt.scatter(no_uncontrollables_LP, cost_LP, label="Boole's Inequality")
     plt.legend()
-    plt.xlabel("No of uncontrollables")
+    plt.xlabel("No of Uncontrollable Constraints")
     plt.yscale('log')
     plt.ylabel("Cost")
     plt.savefig("cost.png")

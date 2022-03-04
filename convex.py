@@ -269,7 +269,7 @@ def masterProblem(JCCP):
     z_sol = np.array(sum([lam_sol[i]*JCCP.z[:, i] for i in range(np.shape(JCCP.z)[1])]))
     return (m, np.c_[z_sol])
 
-def columnGeneration(z, JCCP, tol):
+def columnGeneration(z, JCCP, tol, maxiter=15000, maxls=20):
     '''
     Description:    Solves the column generaion problem (below) via gradient descent with backtracking line search:
 
@@ -280,15 +280,33 @@ def columnGeneration(z, JCCP, tol):
     Input:          JCCP:   Instance of JCCP class
     Output:         m:      An instance of the Gurobi model class
     '''
+    global new_cols
+    new_cols = []
+
+    global new_phis
+    new_phis = []
+ 
     duals = JCCP.getDuals()
     u, v, nu = fn.flatten(duals["u"]), duals["v"], duals["nu"]
     mean, cov = JCCP.mean, JCCP.cov
     cb = JCCP.cbasis
     z = fn.flatten(z)
     start = time.time()
+
     def dualf(z):
-        # Nested function to be optimised
-        return -np.dot(u, z) - v * -log(norm(mean, cov, allow_singular=True).cdf(z))- nu
+        #print("z = ", z)
+        phi = -log(norm(mean, cov, allow_singular=True).cdf(z))
+        #print("phi = ", phi)
+        f = -np.dot(u, z) - v * phi - nu
+        #print("f = ", f)
+        if f <= 0:
+            # Keeps track of new columns in global variable and adds all points that have positive
+            # reduced cost. This allows us to add multiple points at a time
+            global new_cols
+            new_cols.append(z)
+            global new_phis
+            new_phis.append(phi)
+        return f
 
     def gradf(z):
         # Nested function to calculate gradients at particular points
@@ -300,17 +318,23 @@ def columnGeneration(z, JCCP, tol):
         bound = (0.00001, 6)
         bounds.append(bound)
 
-    res = optimize.minimize(dualf, z, jac = gradf, method = "L-BFGS-B", tol=tol, bounds=bounds)
+    res = optimize.minimize(dualf, z, jac = gradf, method = "L-BFGS-B", bounds=bounds, options={'ftol': tol, 'maxiter': maxiter, 'maxls': maxls})
     end = time.time()
     print("Time taken: ", end - start)
     print("\n", res)
     z = res.x
+    f = res.fun
     status = res.success
 
-    return np.c_[z], status
+    columns = []
+    for z in new_cols:
+        columns.append(np.c_[z])
+    values = new_phis[:]
+
+    return columns, values, f, status
 
 
-def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 100, cg_tol = 0.5):
+def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 100, cg_tol = 0.05):
     '''
     Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
                     generation method.
@@ -324,6 +348,7 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
     '''
     n_iterations = 0
     LB = 0.0001
+    calculate_lb = False
     if log == True:
         saved_stdout = sys.stdout
         sys.stdout = open("logs/{}.txt".format(logfile), "w+")
@@ -348,6 +373,7 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
     # Solves the master problem
     print("\nSolving master problem with {} approximation points".format(k))
     m, z_m = masterProblem(problem)
+    problem.add_master_time(time.time() - start, m.objVal)
     problem.addSolution(m)
     #print("\nCurrent z points are: ", problem.z)
     print("Current objective is: ", m.objVal)
@@ -355,41 +381,73 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
-    z_d, status = columnGeneration(z_m, problem, cg_tol)
-    rho = problem.reducedCost(z_d)
-    #print("\nNew approximation point found: ", z_d)
-    print("Reduced cost is: ", rho)
-
-    # Calculates optimality gap
+    z_d, vals, f, status = columnGeneration(z_m, problem, cg_tol)
+    #print("Found new points:")
+    #print("Columns: ", z_d)
+    #print("Values: ", vals)
+    rho = -f
     if status == True:
-        LB = m.objVal - rho - cg_tol
-    print("LB = ", LB, "UB = ", UB)
-
+        print("Calculating new lower bound: ", "obj = ", m.objVal, "rho = ", rho, "rho(1 + cg_tol) = ", rho*(1 + cg_tol))
+        LB = m.objVal - rho*(1 + cg_tol)
+        problem.add_convergence_time(time.time() - start, (UB - LB)/LB)
+        print("lower bound is: ", LB)
     # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
-    while (UB - LB)/LB > epsilon and rho >= 0 and n_iterations <= max_iterations:
+    while (UB - LB)/LB > epsilon and n_iterations <= max_iterations and rho >= 0:
         n_iterations += 1
         k += 1
-        problem.addColumn(z_d)
+        
+        # Adds new points from column generation procedure
+        for i in range(len(vals)):
+            problem.addColumn(z_d[i], vals[i])
+        #print("curr z = ", problem.z)
+        #print("curr phi = ", problem.phi)
 
         print("\nSolving master problem with {} approximation points".format(k))
         m, z_m = masterProblem(problem)
+        problem.add_master_time(time.time() - start, m.objVal)
         problem.addSolution(m)
-        #print("\nCurrent z points are: ", problem.z)
         print("Current objective is: ", m.objVal)
-        UB = m.objVal
+        UB_temp = m.objVal
 
+        #Checks to see whether reduction in upper bound in subsequent iterations
+        #is below threshold. If it is then the next iteration we calculate a lower bound.
+        # if (UB - UB_temp)/UB <= 0.05:
+        #     print(UB_temp, UB)
+        #     calculate_lb = True
+        #     print("Next iteration to calculate lower bound", calculate_lb)
+        
+        # Checks to see if desired optimality gap is attained and if so it breaks and
+        # terminates the algorithm.
+        UB = UB_temp
         if (UB - LB)/LB <= epsilon:
             break
 
         print("\nSolving Column Generation")
-        z_d, status = columnGeneration(z_m, problem, cg_tol)
-        rho = problem.reducedCost(z_d)
+        # Checks if lower bound is to be calculated - if so it solves column generation
+        # to optimality. Otherwise performs one line search.
+        # if calculate_lb == True:
+        z_d, vals, f, status = columnGeneration(z_m, problem, cg_tol)
+        #print("Found new points:")
+        #print("Columns: ", z_d)
+        #print("Values: ", vals)
+        rho = -f
+        # else:
+        #     z_d, f, status = columnGeneration(z_m, problem, cg_tol, maxiter=1, maxls=2)
         #print("\nNew approximation point found: ", z_d)
-        print("Reduced cost is: ", rho)
+        #print("Reduced cost is: ", rho)
 
+        #If we have calculated a lower bound on this iteration then we set calculate lower bound back to false
+        #If the optimisation terminated successfully then we update the lower bound
+        #if calculate_lb == True:
+        #    calculate_lb = False
+        #print("Setting calculate lower bound back to False", calculate_lb)
         if status == True:
-            LB_k = m.objVal - rho - cg_tol
+            print("Calculating new lower bound: ", "obj = ", m.objVal, "rho = ", rho, "rho(1 + cg_tol) = ", rho*(1 + cg_tol))
+            LB_k = m.objVal - rho*(1 + cg_tol)
             LB = max(LB, LB_k)
+            problem.add_convergence_time(time.time() - start, (UB - LB)/LB)
+            print("lower bound is: ", LB)
+            
         print("LB = ", LB, "UB = ", UB)
 
     end = time.time()

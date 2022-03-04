@@ -46,6 +46,8 @@ class JCCP(object):
         self.solution = []
         self.solution_time = None
         self.start_i = None
+        self.convergence_time = []
+        self.master_time = []
 
     def setZ(self, z):
         # Sets z during initialisation
@@ -70,9 +72,8 @@ class JCCP(object):
         # Sets duals based on current solution to master problem
         self.cbasis = cbasis
     
-    def addColumn(self, z_k):
+    def addColumn(self, z_k, phi_k):
         # Adds a column z_k to matrix z and item phi_k to vector of phi values
-        phi_k = self.calculatePhi(z_k)
         try:
             self.z = np.hstack((self.z, z_k))
             self.phi = np.append(self.phi, phi_k)
@@ -110,6 +111,12 @@ class JCCP(object):
         for key in self.solution.keys():
             if "phi" in key:
                 return exp(-self.solution[key])
+    
+    def add_convergence_time(self, time, gap):
+        self.convergence_time.append((time, gap))
+    
+    def add_master_time(self, time, cost):
+        self.master_time.append((time, cost))
     
 
 

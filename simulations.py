@@ -123,15 +123,15 @@ def main():
             problem = pkl.load(f)
             elevators.append(problem)
 
-    cdru_path = "pstns/problems/cdru"
-    cdru_files = sorted(os.listdir(cdru_path))
-    cdru = []
-    for i in range(len(cdru_files)):
-         with open(cdru_path + "/" + cdru_files[i], "rb") as f:
-            problem = pkl.load(f)
-            cdru.append(problem)
+    # cdru_path = "pstns/problems/cdru"
+    # cdru_files = sorted(os.listdir(cdru_path))
+    # cdru = []
+    # for i in range(len(cdru_files)):
+    #      with open(cdru_path + "/" + cdru_files[i], "rb") as f:
+    #         problem = pkl.load(f)
+    #         cdru.append(problem)
 
-    risks = [0.4]
+    risks = [0.2]
     for risk in risks:
         for i in range(len(woodworking_files)):
             print("\nSOLVING: ", woodworking[i].name, "\n")
@@ -139,13 +139,14 @@ def main():
             try:
                 m, results = convex.solveJCCP(woodworking[i], risk, 0.05, log=True, logfile=woodworking[i].name + "_woodworking_log")
                 print("SOLVED: ", woodworking[i].name, "\n")
+                #print(results.master_time)
                 schedule = getSchedule(woodworking[i], m)
                 relaxations = getRelaxations(woodworking[i], m)
                 tosave["PSTN"] = woodworking[i]
                 tosave["JCCP"] = results
                 tosave["Schedule"] = schedule
                 tosave["Relaxations"] = relaxations
-            #print(dill.detect.baditems(tosave))
+                #print(dill.detect.baditems(tosave))
                 with open("results/{}_woodworking_{}".format(woodworking[i].name, risk), "wb") as f:
                     pkl.dump(tosave, f)
             except:
