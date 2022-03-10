@@ -131,7 +131,7 @@ def main():
     #         problem = pkl.load(f)
     #         cdru.append(problem)
 
-    risks = [0.1]
+    risks = [0.1, 0.2]
     for risk in risks:
         # for i in range(len(woodworking_files)):
         #     print("\nSOLVING: ", woodworking[i].name, "\n")
@@ -165,7 +165,7 @@ def main():
             # except:
             #     continue
 
-        for i in range(15):
+        for i in range(5, 11):
             print("\nSOLVING: ", elevators[i].name, "\n")
             tosave = {}
             try:
