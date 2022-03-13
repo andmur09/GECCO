@@ -392,7 +392,7 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
         problem.add_convergence_time(time.time() - start, (UB - LB)/LB)
         print("lower bound is: ", LB)
     # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
-    while (UB - LB)/LB > epsilon and n_iterations <= max_iterations and rho >= 0:
+    while abs((UB - LB)/LB) > epsilon and n_iterations <= max_iterations and rho >= 0:
         n_iterations += 1
         k += 1
         
@@ -419,7 +419,7 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
         # Checks to see if desired optimality gap is attained and if so it breaks and
         # terminates the algorithm.
         UB = UB_temp
-        if (UB - LB)/LB <= epsilon:
+        if abs((UB - LB)/LB) <= epsilon:
             break
 
         print("\nSolving Column Generation")
