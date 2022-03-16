@@ -67,25 +67,73 @@ def main():
                     except:
                         continue
 
-    #print(times)
+    for i in files:
+        if i == "p05_elevators_0.1":
+            with open(results_path + "/" + i, "rb") as f:
+                instance = pkl.load(f)
+            times = [i[0] for i in instance["JCCP"].master_time]
+            costs = [i[1] for i in instance["JCCP"].master_time]
+        if i == "p05_elevators_LP_0.1":
+            with open(results_path + "/" + i, "rb") as f:
+                instance = pkl.load(f)
+            LP_cost = instance["LP"]["Objective"]
+    cost_ratio = [i/LP_cost for i in costs]
+
+    plt.rc('font', size=12)
+    plt.rc('axes', titlesize=12)
+    plt.rc('axes', labelsize=12)
+    
+    plt.figure()
+    plt.plot(times, cost_ratio)
+    plt.xlabel("Time (s)")
+    plt.ylabel("JCC Cost/LP Cost")
+    plt.savefig("runtime_cost.png")
 
     plt.figure()
-    plt.scatter(no_uncontrollables, runtime, label="Joint Chance Constrained")
-    plt.scatter(no_uncontrollables_LP, runtime_LP, label ="Boole's Inequality")
+    plt.scatter(no_uncontrollables, runtime, label="JCC")
+    plt.scatter(no_uncontrollables_LP, runtime_LP, label ="LP")
     plt.legend()
     plt.xlabel("No of Uncontrollable Constraints")
     plt.yscale('log')
-    plt.ylabel("Runtime")
+    plt.ylabel("Runtime (s)")
     plt.savefig("runtime2.png")
 
     plt.figure()
-    plt.scatter(no_uncontrollables, cost, label="Joint Chance Constrained")
-    plt.scatter(no_uncontrollables_LP, cost_LP, label="Boole's Inequality")
+    plt.scatter(no_uncontrollables, cost, label="JCC")
+    plt.scatter(no_uncontrollables_LP, cost_LP, label="LP")
     plt.legend()
     plt.xlabel("No of Uncontrollable Constraints")
     plt.yscale('log')
     plt.ylabel("Cost")
     plt.savefig("cost2.png")
+
+
+    # delta = [(cost_LP[i] - cost[i])/cost[i] for i in range(len(cost_LP))]
+    # print(cost)
+    # print(cost_LP)
+    # print(delta)
+    # fig, ax1 = plt.subplots()
+    # ax2 = ax1.twinx()
+    # ax1.scatter(no_uncontrollables, cost, label="JCC")
+    # ax1.scatter(no_uncontrollables_LP, cost_LP, label="LP")
+    # ax2.scatter(no_uncontrollables, delta, label="LP-JCC")
+    # ax1.set_yscale('log')
+    # ax1.set_xlabel('No of Uncontrollable Constraints')
+    # ax1.set_ylabel('Relaxation Cost')
+    # ax2.set_ylabel('Cost Delta ((LP - JCC)/JCC)')
+    # plt.legend()
+    # plt.savefig("cost2.png", bbox_inches='tight')
+
+
+    # plt.figure()
+    # plt.scatter(no_uncontrollables, cost, label="JCC")
+    # plt.scatter(no_uncontrollables_LP, cost_LP, label="LP")
+    # plt.scatter(no_uncontrollables, delta, label="LP-JCC")
+    # plt.legend()
+    # plt.xlabel("No of Uncontrollable Constraints")
+    # plt.yscale('log')
+    # plt.ylabel("Relaxation Cost")
+    # plt.savefig("cost2.png")
 
     # plt.figure()
     # plt.scatter(no_uncontrollables_risk, risk, label="JCCP")
