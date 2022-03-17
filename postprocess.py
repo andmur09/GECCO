@@ -20,7 +20,7 @@ def main():
     ####################################################################
     ## ----------------------For woodworking cases--------------------##
     ####################################################################
-    results_path = "results2"
+    results_path = "results"
     files = sorted(os.listdir(results_path))
 
     runtime_LP = []

@@ -147,7 +147,7 @@ def main():
         #         tosave["Schedule"] = schedule
         #         tosave["Relaxations"] = relaxations
         #          #print(dill.detect.baditems(tosave))
-        #         with open("results2/{}_woodworking_{}".format(woodworking[i].name, risk), "wb") as f:
+        #         with open("results/{}_woodworking_{}".format(woodworking[i].name, risk), "wb") as f:
         #             pkl.dump(tosave, f)
         #     except:
         #         continue
@@ -177,7 +177,7 @@ def main():
             #     tosave["Schedule"] = schedule
             #     tosave["Relaxations"] = relaxations
             #     #print(dill.detect.baditems(tosave))
-            #     with open("results2/{}_elevators_{}".format(elevators[i].name, risk), "wb") as f:
+            #     with open("results/{}_elevators_{}".format(elevators[i].name, risk), "wb") as f:
             #        pkl.dump(tosave, f)
             # except:
             #     continue
@@ -190,7 +190,7 @@ def main():
                 tosave["LP"] = results
                 tosave["Schedule"] = schedule
                 tosave["Relaxations"] = relaxations
-                with open("results2/{}_elevators_LP_{}".format(elevators[i].name, risk), "wb") as f:
+                with open("results/{}_elevators_LP_{}".format(elevators[i].name, risk), "wb") as f:
                     pkl.dump(tosave, f)
             except:
                 continue
