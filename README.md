@@ -1,7 +1,7 @@
 # JCC-PSTN
 
 An implementation of the content from the paper "Joint Chance Constrained Probabilistic Temporal Networks
-via Column Generation" submitted to SOCS 2022. Included is a python implementation of the column generation method for solving Strong Controllability of Joint Chance-Constrained Probabilistic Simple Temporal Networks, along with some test cases and results
+via Column Generation" submitted to SOCS 2022. Included is a python implementation of the column generation method for solving Strong Controllability of Joint Chance-Constrained Probabilistic Simple Temporal Networks, along with some test cases and results.
 
 ## Quick Start
 To run the experiments, Gurobi optimiser is required along with the gurobi python API GurobiPy. For details see:
