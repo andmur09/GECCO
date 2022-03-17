@@ -27,6 +27,9 @@ class JCCP(object):
                 solved:         bool True if solution is optimal else False
                 solution:       dictionary {variable name: value,..,objective: objective value}
                 solution_time:  float time taken to reach solution
+                convergence_time List of tuples (time, gap) where time is current runtime and gap is (UB - LB)/UB     
+                master_time     List of tuples (time, obj) where time is current runtime and obj is current master problem objective
+
     """
     def __init__(self, A, vars, b, c, T, q, mean, cov, alpha):
         self.A = A
@@ -45,7 +48,6 @@ class JCCP(object):
         self.solved = False
         self.solution = []
         self.solution_time = None
-        self.start_i = None
         self.convergence_time = []
         self.master_time = []
 

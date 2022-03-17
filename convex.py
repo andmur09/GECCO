@@ -196,7 +196,6 @@ def Initialise(JCCP, box = 6):
     JCCP.setPhi(np.array(phi))
     return m
 
-#@timeout(30)
 def masterProblem(JCCP):
     '''
     Description:    Solves the restricted master problem:
@@ -213,6 +212,7 @@ def masterProblem(JCCP):
     
     Input:          JCCP:   Instance of JCCP class
     Output:         m:      An instance of the Gurobi model class
+                    zsol:   Result sum_{i=0}^k{lambda^i z^i}
     '''
     # Sets up and solves the restricted master problem
     k = np.shape(JCCP.z)[1]
@@ -271,14 +271,17 @@ def masterProblem(JCCP):
 
 def columnGeneration(z, JCCP, tol, maxiter=15000, maxls=20):
     '''
-    Description:    Solves the column generaion problem (below) via gradient descent with backtracking line search:
+    Description:    Solves the column generaion problem (below) via SciPy optimize:
 
                     min_z.  -u^Tz - v*phi(z) - nu    
 
-                    And returns a column z which optimises the reduced cost.
+                    Every time we evaluate phi(z) we save the result to new_cols and new_phis return all new
     
-    Input:          JCCP:   Instance of JCCP class
-    Output:         m:      An instance of the Gurobi model class
+    Input:          JCCP:       Instance of JCCP class
+    Output:         columns:    Matrix of new columns to be added
+                    values:     Vector of phi values to be added
+                    f:          Final function value (reduced cost)
+                    status:     Boolean stating whether the optimisation was successful
     '''
     global new_cols
     new_cols = []
@@ -294,11 +297,8 @@ def columnGeneration(z, JCCP, tol, maxiter=15000, maxls=20):
     start = time.time()
 
     def dualf(z):
-        #print("z = ", z)
         phi = -log(norm(mean, cov, allow_singular=True).cdf(z))
-        #print("phi = ", phi)
         f = -np.dot(u, z) - v * phi - nu
-        #print("f = ", f)
         if f <= 0:
             # Keeps track of new columns in global variable and adds all points that have positive
             # reduced cost. This allows us to add multiple points at a time
@@ -339,16 +339,21 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
     Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
                     generation method.
     
-    Input:          PSTN:       Instance of PSTN class
-                    alpha:      Allowable tolerance on risk:
-                                e.g. P(success) >= 1 - alpha
-                    epsilon:    An allowable upper bound on the distance between the current solution and the global optimum
-                                e.g. (UB - LB)/LB <= epsilon    
-    Output:         m:          An instance of the Gurobi model class which solves the joint chance constrained PSTN
+    Input:          PSTN:           Instance of PSTN class
+                    alpha:          Allowable tolerance on risk:
+                                    e.g. P(success) >= 1 - alpha
+                    epsilon:        An allowable upper bound on the distance between the current solution and the global optimum
+                                    e.g. (UB - LB)/LB <= epsilon    
+                    log:            Boolean, whether or not to print to log file
+                    logfile:        File to save log to
+                    max_iteraions:  Option to set maxmimum number of iterations
+                    cg_tol:         Tolerance to use with Column Generation optimisation (see: https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html)
+    Output:         m:              An instance of the Gurobi model class which solves the joint chance constrained PSTN
+                    problem:        An instance of the JCCP class containing problem results
     '''
     n_iterations = 0
     LB = 0.0001
-    calculate_lb = False
+
     if log == True:
         saved_stdout = sys.stdout
         sys.stdout = open("logs/{}.txt".format(logfile), "w+")
@@ -375,17 +380,15 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
     m, z_m = masterProblem(problem)
     problem.add_master_time(time.time() - start, m.objVal)
     problem.addSolution(m)
-    #print("\nCurrent z points are: ", problem.z)
     print("Current objective is: ", m.objVal)
     UB = m.objVal
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
     z_d, vals, f, status = columnGeneration(z_m, problem, cg_tol)
-    #print("Found new points:")
-    #print("Columns: ", z_d)
-    #print("Values: ", vals)
     rho = -f
+
+    # If column generation terminates succesfully, updates the lower bound
     if status == True:
         print("Calculating new lower bound: ", "obj = ", m.objVal, "rho = ", rho, "rho(1 + cg_tol) = ", rho*(1 + cg_tol))
         LB = m.objVal - rho*(1 + cg_tol)
@@ -399,8 +402,6 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
         # Adds new points from column generation procedure
         for i in range(len(vals)):
             problem.addColumn(z_d[i], vals[i])
-        #print("curr z = ", problem.z)
-        #print("curr phi = ", problem.phi)
 
         print("\nSolving master problem with {} approximation points".format(k))
         m, z_m = masterProblem(problem)
@@ -408,13 +409,6 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
         problem.addSolution(m)
         print("Current objective is: ", m.objVal)
         UB_temp = m.objVal
-
-        #Checks to see whether reduction in upper bound in subsequent iterations
-        #is below threshold. If it is then the next iteration we calculate a lower bound.
-        # if (UB - UB_temp)/UB <= 0.05:
-        #     print(UB_temp, UB)
-        #     calculate_lb = True
-        #     print("Next iteration to calculate lower bound", calculate_lb)
         
         # Checks to see if desired optimality gap is attained and if so it breaks and
         # terminates the algorithm.
@@ -423,24 +417,9 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
             break
 
         print("\nSolving Column Generation")
-        # Checks if lower bound is to be calculated - if so it solves column generation
-        # to optimality. Otherwise performs one line search.
-        # if calculate_lb == True:
         z_d, vals, f, status = columnGeneration(z_m, problem, cg_tol)
-        #print("Found new points:")
-        #print("Columns: ", z_d)
-        #print("Values: ", vals)
         rho = -f
-        # else:
-        #     z_d, f, status = columnGeneration(z_m, problem, cg_tol, maxiter=1, maxls=2)
-        #print("\nNew approximation point found: ", z_d)
-        #print("Reduced cost is: ", rho)
 
-        #If we have calculated a lower bound on this iteration then we set calculate lower bound back to false
-        #If the optimisation terminated successfully then we update the lower bound
-        #if calculate_lb == True:
-        #    calculate_lb = False
-        #print("Setting calculate lower bound back to False", calculate_lb)
         if status == True:
             print("Calculating new lower bound: ", "obj = ", m.objVal, "rho = ", rho, "rho(1 + cg_tol) = ", rho*(1 + cg_tol))
             LB_k = m.objVal - rho*(1 + cg_tol)

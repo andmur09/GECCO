@@ -27,20 +27,18 @@ def key_exists(dictionary, keys):
     return True 
 
 class timePoint(object):
-    # newName = itertools.count()
     ## Class representing a PSTN time-point
     def __init__(self, name, description, controllable = None):
         self.id = name
         self.description = description
         self.controllable = controllable
-        # self.id = next(timePoint.newName)
-        # self.name = "t({})".format(str(self.id))
         
     def setControllable(self, logic):
     ## Used to set attribute for timepoint. If logic == True, timepoint is controllable, if logic == False, timepoint is uncontrollable
         self.controllable = logic
     
     def isControllable(self):
+        # Checks if a time-point is conrtollable 
         if self.controllable == True:
             return True
         elif self.controllable == False:
@@ -62,10 +60,9 @@ class constraint(object):
         # \param description    String name describing constraint
         # \param soure          Start node in the constraint (instance of timePoint class)
         # \param sink           End node in the constraint (instance of timePoint class)
-        # \param intervals      Possible duration intervals for constraint, this should be a list of dictionaries in the form [{"lb": interval1_lb, "ub": interval1_ub, "value": interval1_value},...]
-        # \param type           Type of constraint: stc (requirement constraint), stcu (set-bounded contingent link), pstc (probabilistic constraint)
+        # \param intervals      Duration interval for constraint, this should be a dictionaries in the form {"lb": interval1_lb, "ub": interval1_ub, "value": interval1_value}
         # \param distribution   Dictionary of distribution properties: None if not probabilistic, {type: uniform or gaussian, mean: mu, variance: sigma}
-        # \param cost           Represents allowable relaxation of constraint. Defaults to 0 meaning constraints are hard constraints
+        # \param hard           Boolean defining if constraint is a hard constraint. If false permit relaxation.
     def __init__(self, description, source, sink, type, intervals, distribution = None, hard = True):
         self.description = description
         self.source = source
@@ -268,6 +265,7 @@ class PSTN(object):
             return False
     
     def incomingContingent(self, constraint):
+        # Checks to see if there are any incoming contingent links to the constraint (i.e. the constraint is uncontrollable)
         if self.isControllable(constraint) == True:
             raise AttributeError("Constraint has no incoming contingent links")
         if self.isControllable(constraint) == False:

@@ -9,17 +9,9 @@ from matplotlib import pyplot as plt
 import os
 import monte_carlo as mc
 
-def plot_pareto(x, y, x_label, y_label, title):
-    plt.figure()
-    plt.plot(x, y, linestyle = "-", marker ="x", markersize = 6, linewidth=0.1)
-    plt.xlabel(x_label)
-    plt.ylabel(y_label)
-    plt.savefig("{}.png".format(title), bbox_inches='tight')
-
 def main():
-    ####################################################################
-    ## ----------------------For woodworking cases--------------------##
-    ####################################################################
+    # Script used to generate plots of results
+    
     results_path = "results"
     files = sorted(os.listdir(results_path))
 
