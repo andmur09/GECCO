@@ -16,11 +16,11 @@ In order to solve a particular instance it is necessary to:
 * To Solve the problem using the LP do `LP.solveLP(problem, name, risk)`.
   - This returns a tuple (model, result) where model is a Gurobi `Model` object as above. Result is a dictionary `{"Runtime": float, "Objective": float, "Variable": value}`
 
-In order to return the schedule from the Gurobi model, you can use 'getSchedule(PSTN, model)' and to get the relaxations use 'getRelaxations(PSTN, model)'.
+In order to return the schedule from the Gurobi model, you can use `getSchedule(PSTN, model)` and to get the relaxations use `getRelaxations(PSTN, model)`.
 
 ## Examples
 
-In the folder "pstns/problems" there are a number of problem cases generated from the IPC planning domains. PDDL domain, problem and plan files are stored in the folder "pstns/domains/tfd-benchmarks". 
+In the folder `pstns/problems` there are a number of problem cases generated from the IPC planning domains. PDDL domain, problem and plan files are stored in the folder `pstns/domains/tfd-benchmarks`. 
 
 
 
