@@ -11,10 +11,10 @@ https://www.gurobi.com/documentation/9.5/quickstart_linux/index.html
 In order to solve a particular instance it is necessary to:
 
 * Load the problem using 'PSTN = pickle.load(f)'
-  - To Solve the JCC-PSTN problem via column generation 'convex.solveJCCP(PSTN, risk, gap, log, logfile, max_iterations, cg_tol)'
+* To Solve the JCC-PSTN problem via column generation 'convex.solveJCCP(PSTN, risk, gap, log, logfile, max_iterations, cg_tol)'
   - This should output a tuple (model, JCCP) where model is a Gurobi 'Model' object (for information on how to query parameters see https://www.gurobi.com/documentation/9.5/refman/py_model.html#pythonclass:Model) and 'JCCP' is an instance of 'JCCP' (for information on how to query parameters see 'JCCP_class.py')
-          3. To Solve the problem using the LP do 'LP.solveLP(problem, name, risk)'.
-            1. This returns a tuple (model, result) where model is a Gurobi 'Model' object as above. Result is a dictionary '{"Runtime": float, "Objective": float, "Variable": value}'
+* To Solve the problem using the LP do 'LP.solveLP(problem, name, risk)'.
+  - This returns a tuple (model, result) where model is a Gurobi 'Model' object as above. Result is a dictionary '{"Runtime": float, "Objective": float, "Variable": value}'
 
 In order to return the schedule from the Gurobi model, you can use 'getSchedule(PSTN, model)' and to get the relaxations use 'getRelaxations(PSTN, model)'.
 
