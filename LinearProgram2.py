@@ -94,8 +94,8 @@ def solveLP(PSTN, name, budget, pres = 15):
         m.addVar(vtype=GRB.CONTINUOUS, name = c.name + "_Fu")
 
     for c in cp:
-        m.addVar(lb=0, ub=c.mu, vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_l")
-        m.addVar(lb=c.mu, ub=inf, vtype=GRB.CONTINUOUS, obj = 1, name = c.name + "_u")
+        m.addVar(lb=0, ub=c.mu, vtype=GRB.CONTINUOUS, name = c.name + "_l")
+        m.addVar(lb=c.mu, ub=inf, vtype=GRB.CONTINUOUS, name = c.name + "_u")
     m.update()
 
     # Adds constraints

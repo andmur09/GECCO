@@ -16,6 +16,7 @@ import sys
 import convex
 import monte_carlo as mc
 import LinearProgram2 as LP
+from benchmark_cg import benchmark
 #import dill
 
 inf = 10000
@@ -92,20 +93,22 @@ def main():
     for risk in risks:
         for i in range(len(woodworking_files)):
             print("\nSOLVING: ", woodworking[i].name, "\n")
-            tosave = {}
-            try:
-                m, results = convex.solveJCCP(woodworking[i], risk, 0.1, log=True, logfile=woodworking[i].name + "_woodworking_log")
-                print("SOLVED: ", woodworking[i].name, "\n")
-                schedule = getSchedule(woodworking[i], m)
-                relaxations = getRelaxations(woodworking[i], m)
-                tosave["PSTN"] = woodworking[i]
-                tosave["JCCP"] = results
-                tosave["Schedule"] = schedule
-                tosave["Relaxations"] = relaxations
-                with open("results/{}_woodworking_{}".format(woodworking[i].name, risk), "wb") as f:
-                    pkl.dump(tosave, f)
-            except:
-                continue
+            #tosave = {}
+            #benchmark(woodworking[i], 0.25)
+            # try:
+            # m, results = convex.solveJCCP(woodworking[i], risk, 0.1, log=True, logfile=woodworking[i].name + "_woodworking_log_standard")
+            # m, results = convex.genetic_solveJCCP(woodworking[i], risk, 0.1, log=True, logfile=woodworking[i].name + "_woodworking_log_genetic")
+            # print("SOLVED: ", woodworking[i].name, "\n")
+            # schedule = getSchedule(woodworking[i], m)
+            # relaxations = getRelaxations(woodworking[i], m)
+            # tosave["PSTN"] = woodworking[i]
+            # tosave["JCCP"] = results
+            # tosave["Schedule"] = schedule
+            # tosave["Relaxations"] = relaxations
+            # with open("results/{}_woodworking_{}".format(woodworking[i].name, risk), "wb") as f:
+            #     pkl.dump(tosave, f)
+            # except:
+            #    continue
             try:
                 m, results = LP.solveLP(woodworking[i], woodworking[i].name, risk)
                 tosave = {}
@@ -121,20 +124,20 @@ def main():
                 continue
         for i in range(len(elevators_files)):
             print("\nSOLVING: ", elevators[i].name, "\n")
-            tosave = {}
-            try:
-                m, results = convex.solveJCCP(elevators[i], risk, 0.1, log=True, logfile=elevators[i].name + "_elevators_log")
-                print("SOLVED: ", elevators[i].name, "\n")
-                schedule = getSchedule(elevators[i], m)
-                relaxations = getRelaxations(elevators[i], m)
-                tosave["PSTN"] = elevators[i]
-                tosave["JCCP"] = results
-                tosave["Schedule"] = schedule
-                tosave["Relaxations"] = relaxations
-                with open("results/{}_elevators_{}".format(elevators[i].name, risk), "wb") as f:
-                   pkl.dump(tosave, f)
-            except:
-                continue
+            #tosave = {}
+            # try:
+            #     m, results = convex.solveJCCP(elevators[i], risk, 0.1, log=True, logfile=elevators[i].name + "_elevators_log")
+            #     print("SOLVED: ", elevators[i].name, "\n")
+            #     schedule = getSchedule(elevators[i], m)
+            #     relaxations = getRelaxations(elevators[i], m)
+            #     tosave["PSTN"] = elevators[i]
+            #     tosave["JCCP"] = results
+            #     tosave["Schedule"] = schedule
+            #     tosave["Relaxations"] = relaxations
+            #     with open("results/{}_elevators_{}".format(elevators[i].name, risk), "wb") as f:
+            #        pkl.dump(tosave, f)
+            # except:
+            #     continue
             try:
                 m, results = LP.solveLP(elevators[i], elevators[i].name, risk)
                 tosave = {}

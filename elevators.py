@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Sep  2 14:31:29 2021
-
-@author: kpb20194
-"""
-
-# -*- coding: utf-8 -*-
-"""
 Created on Tue Apr 27 09:20:02 2021
 
 @author: kpb20194

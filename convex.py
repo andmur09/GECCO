@@ -14,6 +14,7 @@ import additional_functions as fn
 from JCCP_class import JCCP
 import time
 from timeout import timeout
+import pygad
 #from scipy.optimize import line_search
 
 np.seterr(divide='raise')
@@ -333,7 +334,52 @@ def columnGeneration(z, JCCP, tol, maxiter=15000, maxls=20):
 
     return columns, values, f, status
 
+def genetic_column_generation(JCCP):
+    global new_cols_g
+    new_cols_g = []
 
+    global new_phis_g
+    new_phis_g = []
+
+    duals = JCCP.getDuals()
+    u, v, nu = fn.flatten(duals["u"]), duals["v"], duals["nu"]
+    mean, cov = JCCP.mean, JCCP.cov
+    cb = JCCP.cbasis
+
+    def genetic_dualf(z, solution_idx):
+        try:
+            phi = -log(norm(mean, cov, allow_singular=True).cdf(z))
+            f = np.dot(u, z) + v * phi + nu
+        except:
+            f = 0
+        if f > 0:
+           #  Keeps track of new columns in global variable and adds all points that have positive
+           # reduced cost. This allows us to add multiple points at a time
+           global new_cols_g
+           new_cols_g.append(z)
+           global new_phis_g
+           new_phis_g.append(phi)
+        return f
+    
+    ga = pygad.GA(num_generations=10,
+                    num_parents_mating=2,
+                    fitness_func=genetic_dualf,
+                    sol_per_pop=8,
+                    num_genes=len(u),
+                    init_range_low=0,
+                    init_range_high=6,
+                    save_best_solutions=True
+    )
+    ga.run()
+    obj = ga.best_solutions_fitness[-1]
+    print(ga.best_solutions_fitness)
+    print(ga.best_solutions)
+    columns = []
+    for z in new_cols_g:
+        columns.append(np.c_[z])
+    values = new_phis_g[:]
+    return columns, values, obj
+    
 def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 100, cg_tol = 0.05):
     '''
     Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
@@ -395,7 +441,8 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
         problem.add_convergence_time(time.time() - start, (UB - LB)/LB)
         print("lower bound is: ", LB)
     # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
-    while abs((UB - LB)/LB) > epsilon and n_iterations <= max_iterations and rho >= 0:
+    #while abs((UB - LB)/LB) > epsilon and n_iterations <= max_iterations and rho >= 0:
+    while n_iterations <= max_iterations and rho >= 0:
         n_iterations += 1
         k += 1
         
@@ -447,4 +494,90 @@ def solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 
         sys.stdout.close()
         sys.stdout = saved_stdout
     return m, problem
+
+def genetic_solveJCCP(PSTN, alpha, epsilon, log=False, logfile = None, max_iterations = 100):
+    '''
+    Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
+                    generation method.
+    
+    Input:          PSTN:           Instance of PSTN class
+                    alpha:          Allowable tolerance on risk:
+                                    e.g. P(success) >= 1 - alpha
+                    epsilon:        An allowable upper bound on the distance between the current solution and the global optimum
+                                    e.g. (UB - LB)/LB <= epsilon    
+                    log:            Boolean, whether or not to print to log file
+                    logfile:        File to save log to
+                    max_iteraions:  Option to set maxmimum number of iterations
+                    cg_tol:         Tolerance to use with Column Generation optimisation (see: https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html)
+    Output:         m:              An instance of the Gurobi model class which solves the joint chance constrained PSTN
+                    problem:        An instance of the JCCP class containing problem results
+    '''
+    n_iterations = 100
+    if log == True:
+        saved_stdout = sys.stdout
+        sys.stdout = open("logs/{}.txt".format(logfile), "w+")
+    
+    # Translates the PSTN to the standard form of a JCCP and stores the matrices in an instance of the JCCP class
+    start = time.time()
+    matrices = getStandardForm(PSTN)
+    A, vars, b, c, T, q, mu, cov = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7]
+    problem = JCCP(A, vars, b, c, T, q, mu, cov, alpha)
+    problem.start_i = problem.vars.index(PSTN.getStartTimepointName())
+    
+    # Initialises the problem with k approximation points
+    m = Initialise(problem)
+    if m == None:
+        print("No solution possible with current risk bound")
+        if log == True:
+            sys.stdout.close()
+            sys.stdout = saved_stdout
+            return None
+    k = len(problem.phi)
+
+    # Solves the master problem
+    print("\nSolving master problem with {} approximation points".format(k))
+    m, z_m = masterProblem(problem)
+    problem.add_master_time(time.time() - start, m.objVal)
+    problem.addSolution(m)
+    print("Current objective is: ", m.objVal)
+    UB = m.objVal
+
+    # Solves the column generation problem
+    print("\nSolving Column Generation")
+    z_d, vals, cg_obj = genetic_column_generation(problem)
+    # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
+    while n_iterations <= max_iterations and cg_obj > 0:
+        k += 1
+        # Adds new points from column generation procedure
+        for i in range(len(vals)):
+            problem.addColumn(z_d[i], vals[i])
+        
+        print("\nSolving master problem with {} approximation points".format(k))
+        m, z_m = masterProblem(problem)
+        problem.add_master_time(time.time() - start, m.objVal)
+        problem.addSolution(m)
+        print("Current objective is: ", m.objVal)
+        #UB_temp = m.objVal
+
+        print("\nSolving Column Generation")
+        z_d, vals, cg_obj = genetic_column_generation(problem)
+
+    end = time.time()
+    solution_time = end - start
+    if n_iterations <= max_iterations:
+        problem.setSolved(True)
+
+    problem.setSolutionTime(solution_time)
+    print("\nFinal solution found: ")
+    print("Solution time: ", solution_time)
+    print("Final Probability is: ", problem.getCurrentProbability())
+    print('objective: ', m.objVal)
+    print('Vars:')
+    for v in m.getVars():
+        print("Variable {}: ".format(v.varName) + str(v.x))
+    if log == True:
+        sys.stdout.close()
+        sys.stdout = saved_stdout
+    return m, problem
+
 
