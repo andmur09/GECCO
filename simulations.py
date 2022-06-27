@@ -13,7 +13,7 @@ from gurobipy import GRB
 import os
 import numpy as np
 import sys
-import convex
+import column_generation_norm
 import monte_carlo as mc
 import LinearProgram2 as LP
 from benchmark_cg import benchmark

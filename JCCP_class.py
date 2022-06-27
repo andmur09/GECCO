@@ -76,11 +76,11 @@ class JCCP(object):
     
     def addColumn(self, z_k, phi_k):
         # Adds a column z_k to matrix z and item phi_k to vector of phi values
-        try:
-            self.z = np.hstack((self.z, z_k))
-            self.phi = np.append(self.phi, phi_k)
-        except:
-            raise AttributeError("Matrix z and vector phi not yet initialised")
+        #try:
+        self.z = np.hstack((self.z, z_k))
+        self.phi = np.append(self.phi, phi_k)
+        #except:
+         #   raise AttributeError("Matrix z and vector phi not yet initialised")
 
     def getPi(self):
         # Returns value of -log(1-alpha) to be used in joint chance constraint

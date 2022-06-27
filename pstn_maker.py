@@ -9,7 +9,7 @@ import pickle as pkl
 from gurobipy import GRB
 import os
 import numpy as np
-import convex
+import column_generation_norm
 
 
 timepoints = []
@@ -39,7 +39,7 @@ risks = [0.6]
 for risk in risks:
     tosave = {}
     try:
-        m, results = convex.solveJCCP(problem, risk, 0.1, log=True, logfile=problem.name + "_log")
+        m, results = column_generation_norm.solveJCCP(problem, risk, 0.1, log=True, logfile=problem.name + "_log")
         print("SOLVED: ", problem.name, "\n")
         schedule = getSchedule(problem, m)
         relaxations = getRelaxations(problem, m)
