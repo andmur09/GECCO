@@ -36,13 +36,16 @@ def main():
 
     # For each PSTN, finds the start and last timePoint in the network and thus the constraint bounding the overall plan duration, creates additional instances of
     # each PSTN with varying deadlines.
+    factors = [1.0, 1.2, 1.4, 1.6, 1.8, 1.2]
     elevators_ud = []
     for i in range(len(elevators)):
-        problem = elevators[i]
-        deadline = deadlines[i]
-        if deadline != None:
-            problem.addDeadline(deadline)
-            elevators_ud.append(problem)
+        for j in factors:
+            numbers = str(j).split(".")
+            problem = elevators[i].makeCopy(elevators[i].name + "_" + numbers[0] + numbers[1])
+            deadline = deadlines[i]
+            if deadline != None:
+                problem.addDeadline(deadline*j)
+                elevators_ud.append(problem)
 
     # Changes move actions to be probabilistic in PSTN
     for instance in elevators_ud:

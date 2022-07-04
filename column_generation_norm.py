@@ -11,7 +11,7 @@ from gurobipy import GRB
 from math import sqrt, log
 import numpy as np
 import additional_functions as fn
-from JCCP_class import JCCP
+from gecco_class import JCCP
 import time
 from timeout import timeout
 import pygad

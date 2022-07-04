@@ -1,6 +1,6 @@
 import PSTN_class as PSTN
 from simulations import getSchedule, getRelaxations
-import LinearProgram2 as LP
+import LinearProgramParis as LP
 from tkinter import FALSE
 import gurobipy as gp
 from scipy.stats.stats import weightedtau

@@ -13,10 +13,11 @@ from gurobipy import GRB
 import os
 import numpy as np
 import sys
-import column_generation_norm
+#import column_generation_norm
+from gecco import gecco_algorithm
+from gecco_class import gecco
 import monte_carlo as mc
-import LinearProgram2 as LP
-from benchmark_cg import benchmark
+import LinearProgramParis as LP
 #import dill
 
 inf = 10000
@@ -89,65 +90,54 @@ def main():
             problem = pkl.load(f)
             elevators.append(problem)
 
-    risks = [0.25]
-    for risk in risks:
-        for i in range(len(woodworking_files)):
-            print("\nSOLVING: ", woodworking[i].name, "\n")
-            #tosave = {}
-            #benchmark(woodworking[i], 0.25)
-            # try:
-            # m, results = convex.solveJCCP(woodworking[i], risk, 0.1, log=True, logfile=woodworking[i].name + "_woodworking_log_standard")
-            # m, results = convex.genetic_solveJCCP(woodworking[i], risk, 0.1, log=True, logfile=woodworking[i].name + "_woodworking_log_genetic")
-            # print("SOLVED: ", woodworking[i].name, "\n")
-            # schedule = getSchedule(woodworking[i], m)
-            # relaxations = getRelaxations(woodworking[i], m)
-            # tosave["PSTN"] = woodworking[i]
-            # tosave["JCCP"] = results
-            # tosave["Schedule"] = schedule
-            # tosave["Relaxations"] = relaxations
-            # with open("results/{}_woodworking_{}".format(woodworking[i].name, risk), "wb") as f:
-            #     pkl.dump(tosave, f)
-            # except:
-            #    continue
-            try:
-                m, results = LP.solveLP(woodworking[i], woodworking[i].name, risk)
-                tosave = {}
-                schedule = getSchedule(woodworking[i], m)
-                relaxations = getRelaxations(woodworking[i], m)
-                tosave["PSTN"] = woodworking[i]
-                tosave["LP"] = results
-                tosave["Schedule"] = schedule
-                tosave["Relaxations"] = relaxations
-                with open("results/{}_woodworking_LP_{}".format(woodworking[i].name, risk), "wb") as f:
-                    pkl.dump(tosave, f)
-            except:
-                continue
+    for i in range(5):
+        print("\nSOLVING: ", woodworking[i].name, "\n")
+        tosave = {}
+        
+        m, results = gecco_algorithm(woodworking[i], tolog=True, logfile = woodworking[i].name + "_woodworking_log_genetic", max_iterations = 100)
+        print("SOLVED: ", woodworking[i].name, "\n")
+        schedule = getSchedule(woodworking[i], m)
+        tosave["PSTN"] = woodworking[i]
+        tosave["JCCP"] = results
+        tosave["Schedule"] = schedule
+        with open("results2/{}_woodworking".format(woodworking[i].name), "wb") as f:
+            pkl.dump(tosave, f)
+        #except:
+         #  continue
+        try:
+            m, results = LP.solveLP(woodworking[i], woodworking[i].name)
+            tosave = {}
+            schedule = getSchedule(woodworking[i], m)
+            relaxations = getRelaxations(woodworking[i], m)
+            tosave["PSTN"] = woodworking[i]
+            tosave["LP"] = results
+            tosave["Schedule"] = schedule
+            with open("results2/{}_woodworking_LP".format(woodworking[i].name), "wb") as f:
+                pkl.dump(tosave, f)
+        except:
+            continue
         for i in range(len(elevators_files)):
             print("\nSOLVING: ", elevators[i].name, "\n")
-            #tosave = {}
-            # try:
-            #     m, results = convex.solveJCCP(elevators[i], risk, 0.1, log=True, logfile=elevators[i].name + "_elevators_log")
-            #     print("SOLVED: ", elevators[i].name, "\n")
-            #     schedule = getSchedule(elevators[i], m)
-            #     relaxations = getRelaxations(elevators[i], m)
-            #     tosave["PSTN"] = elevators[i]
-            #     tosave["JCCP"] = results
-            #     tosave["Schedule"] = schedule
-            #     tosave["Relaxations"] = relaxations
-            #     with open("results/{}_elevators_{}".format(elevators[i].name, risk), "wb") as f:
-            #        pkl.dump(tosave, f)
-            # except:
-            #     continue
+            tosave = {}
             try:
-                m, results = LP.solveLP(elevators[i], elevators[i].name, risk)
+                m, results = gecco_algorithm(elevators[i], tolog=True, logfile = elevators[i].name + "elevators_log_genetic", max_iterations = 100)
+                print("SOLVED: ", elevators[i].name, "\n")
+                schedule = getSchedule(elevators[i], m)
+                tosave["PSTN"] = elevators[i]
+                tosave["JCCP"] = results
+                tosave["Schedule"] = schedule
+                with open("results/{}_elevators".format(elevators[i].name), "wb") as f:
+                   pkl.dump(tosave, f)
+            except:
+                continue
+            try:
+                m, results = LP.solveLP(elevators[i], elevators[i].name)
                 tosave = {}
                 schedule = getSchedule(elevators[i], m)
-                relaxations = getRelaxations(elevators[i], m)
                 tosave["PSTN"] = elevators[i]
                 tosave["LP"] = results
                 tosave["Schedule"] = schedule
-                tosave["Relaxations"] = relaxations
-                with open("results/{}_elevators_LP_{}".format(elevators[i].name, risk), "wb") as f:
+                with open("results/{}_elevators_LP".format(elevators[i].name), "wb") as f:
                     pkl.dump(tosave, f)
             except:
                 continue

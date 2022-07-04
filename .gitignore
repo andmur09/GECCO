@@ -1,3 +1,5 @@
 *.pdf
 *.png
+*.lp
+*.ilp
 logs

@@ -45,18 +45,20 @@ def main():
 
     # For each PSTN, finds the start and last timePoint in the network and thus the constraint bounding the overall plan duration, creates additional instances of
     # each PSTN with varying deadlines.
+    factors = [1.0, 1.2, 1.4, 1.6, 1.8, 1.2]
     woodworking_ud = []
     for i in range(len(woodworking)):
-        problem = woodworking[i]
-        deadline = deadlines[i]
-        if deadline != None:
-            problem.addDeadline(deadline)
-            woodworking_ud.append(problem)
+        for j in factors:
+            numbers = str(j).split(".")
+            problem = woodworking[i].makeCopy(woodworking[i].name + "_" + numbers[0] + numbers[1])
+            deadline = deadlines[i]
+            if deadline != None:
+                problem.addDeadline(deadline*j)
+                woodworking_ud.append(problem)
     
 
     # Changes below actions to be probabilistic in PSTN
     for instance in woodworking_ud:
-        print([constraint.intervals["ub"] for constraint in instance.constraints])
         constraints = instance.constraints
         for constraint in constraints:
             if "do-spray-varnish_start" in constraint.source.description and "do-spray-varnish_end" in constraint.sink.description:

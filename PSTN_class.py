@@ -317,7 +317,7 @@ class PSTN(object):
         end_tp_id = str((max([int(timepoint.id) for timepoint in self.getTimePoints()])) + 1)
         eot = timePoint(end_tp_id, "Dummy timepoint to enforce deadline")
         self.addTimePoint(eot)
-        self.addConstraint(start_tp_id + " -> " + end_tp_id, self.getTimePointByID(start_tp_id), eot, "stc", {"lb": 0, "ub": deadline, "value": 1}, hard = False)
+        self.addConstraint(start_tp_id + " -> " + end_tp_id, self.getTimePointByID(start_tp_id), eot, "stc", {"lb": 0, "ub": deadline, "value": 1})
         for tp in final_tps:
             self.addConstraint(tp.id + " -> " + end_tp_id, tp, eot, "stc", {"lb": 0.001, "ub": inf, "value": 1})
         print("Deadline {} added".format(deadline))
