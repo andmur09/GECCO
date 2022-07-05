@@ -45,7 +45,7 @@ def main():
 
     # For each PSTN, finds the start and last timePoint in the network and thus the constraint bounding the overall plan duration, creates additional instances of
     # each PSTN with varying deadlines.
-    factors = [1.0, 1.2, 1.4, 1.6, 1.8, 1.2]
+    factors = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
     woodworking_ud = []
     for i in range(len(woodworking)):
         for j in factors:
@@ -91,10 +91,19 @@ def main():
                     mean = (constraint.intervals["lb"] + constraint.intervals["ub"])/2
                     constraint.distribution = {"type": "gaussian", "mean": mean, "variance": 0.2 * mean}
                     constraint.intervals = {"lb": 0, "ub": inf, "value": 1}
+    # Varies correlation
+    woodworking_with_corr = []
+    correlation_coefficients = [-0.5, -0.4, -0.3, -0.2, 0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+    for instance in woodworking_ud:
+        for coeff in correlation_coefficients:
+            numbers = str(coeff).split(".")
+            problem = instance.makeCopy(instance.name + "_" +"corr_" + numbers[0] + numbers[1])
+            problem.correlation = coeff * np.identity(problem.countType("pstc"))
+            woodworking_with_corr.append(problem)
 
-    for i in range(len(woodworking_ud)):
-        with open("pstns/problems/woodworking/{}".format(woodworking_ud[i].name), "wb") as f:
-            pkl.dump(woodworking_ud[i], f)
+    for i in range(len(woodworking_with_corr)):
+        with open("pstns/problems/woodworking/{}".format(woodworking_with_corr[i].name), "wb") as f:
+            pkl.dump(woodworking_with_corr[i], f)
 
 if __name__ == "__main__":
     main()

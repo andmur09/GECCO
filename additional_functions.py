@@ -5,6 +5,8 @@ import numpy as np
 from scipy.stats import multivariate_normal as norm
 from math import sqrt
 import sys
+from gurobipy import GRB
+import gurobipy as gp
 #from sqlalchemy import true
 
 def flatten(column_vector):
@@ -46,7 +48,7 @@ def prob(z, mean, cov):
         return prob
 
 
-def grad(z, cb, mean, cov):
+def grad(z, mean, cov, psi):
     '''
     Description:    Calculates gradient vector of probability of singular multivariate normal distributions grad(F(z)) based on:
                     Henrion, R. and Möller, A., 2012. A gradient formula for linear chance constraints under Gaussian distribution.
@@ -57,9 +59,10 @@ def grad(z, cb, mean, cov):
     Output          numpy:  Column vector of partial derivatives of grad(F(z)). Each index is partial(F(z))/z_i
     '''
     n = int(np.shape(mean)[0])
+    I = get_active_indices(z, mean, psi)
     dz = []
-    for i in range(n):
-        if cb[i] != -1:
+    for i in range(len(I)):
+        if  I[i] != 0:
             dz.append(0)
         else:
             bar_mean = np.delete(mean, i)
@@ -69,3 +72,28 @@ def grad(z, cb, mean, cov):
             f = norm(mean[i], sqrt(cov[i, i])).pdf(z[i])
             dz.append(f * bar_F)
     return np.c_[np.array(dz)]
+
+def get_active_indices(z, mean, psi):
+    shape = np.shape(psi)
+    z = flatten(z)
+    print("Z: ", z)
+    m, s = shape[0], shape[1]
+    I = []
+    for i in range(m):
+        # Sets up and solves the LP from Henrion and Moller 2012 (proposition 4.1)
+        model = gp.Model("index_check_{}".format(i))
+        model.setParam('OutputFlag', 0)
+        u = model.addMVar(m)
+        x = model.addMVar(s)
+        model.addConstr(psi @ x + u == z - mean)
+        model.setObjective(u[i], GRB.MINIMIZE)
+        model.update()
+        model.optimize()
+        # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
+        if model.status != GRB.OPTIMAL:
+            model.computeIIS()
+            model.write("gurobi_files/active_indices.lp")
+            model.write("gurobi_files/active_indices.ilp")
+        I.append(model.objVal)
+    print("I = ", I)
+    return I

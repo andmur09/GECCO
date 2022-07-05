@@ -36,7 +36,7 @@ def main():
 
     # For each PSTN, finds the start and last timePoint in the network and thus the constraint bounding the overall plan duration, creates additional instances of
     # each PSTN with varying deadlines.
-    factors = [1.0, 1.2, 1.4, 1.6, 1.8, 1.2]
+    factors = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
     elevators_ud = []
     for i in range(len(elevators)):
         for j in factors:
@@ -75,10 +75,21 @@ def main():
                     mean = (constraint.intervals["lb"] + constraint.intervals["ub"])/2
                     constraint.distribution = {"type": "gaussian", "mean": mean, "variance": 0.2 * mean}
                     constraint.intervals = {"lb": 0, "ub": inf, "value": 1}
+    
+    # Varies correlation
+    elevators_with_corr = []
+    correlation_coefficients = [-0.5, -0.4, -0.3, -0.2, 0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+    for instance in elevators_ud:
+        for coeff in correlation_coefficients:
+            numbers = str(coeff).split(".")
+            print(numbers)
+            problem = instance.makeCopy(instance.name + "_" +"corr_" + numbers[0] + numbers[1])
+            problem.correlation = coeff * np.identity(problem.countType("pstc"))
+            elevators_with_corr.append(problem)
 
-    for i in range(len(elevators_ud)):
-        with open("pstns/problems/elevators/{}".format(elevators_ud[i].name), "wb") as f:
-            pkl.dump(elevators_ud[i], f)
+    for i in range(len(elevators_with_corr)):
+        with open("pstns/problems/elevators/{}".format(elevators_with_corr[i].name), "wb") as f:
+            pkl.dump(elevators_with_corr[i], f)
 
 if __name__ == '__main__':
     main()

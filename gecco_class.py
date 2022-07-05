@@ -28,7 +28,7 @@ class gecco(object):
                 master_time     List of tuples (time, obj) where time is current runtime and obj is current master problem objective
 
     """
-    def __init__(self, A, vars, b, c, T, q, mean, cov):
+    def __init__(self, A, vars, b, c, T, q, mean, cov, psi):
         self.A = A
         self.vars = vars
         self.b = b
@@ -37,6 +37,7 @@ class gecco(object):
         self.q = q
         self.mean = mean
         self.cov = cov
+        self.psi = psi
         self.z = None
         self.phi = None
         self.duals = None

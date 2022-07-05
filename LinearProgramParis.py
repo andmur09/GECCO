@@ -157,7 +157,7 @@ def solveLP(PSTN, name, pres = 15):
     m.addConstr(gp.quicksum([v for v in m.getVars() if v.varName[-2:] in ["Fu", "Fl"]]) == risk, 'risk')
     
     m.update()
-    m.write("{}.lp".format(PSTN.name))
+    m.write("gurobi_files/{}.lp".format(PSTN.name))
     start = time.time()
     m.optimize()
     end = time.time()
@@ -174,6 +174,6 @@ def solveLP(PSTN, name, pres = 15):
             print("Variable {}: ".format(v.varName) + str(v.x))
     else:
         m.computeIIS()
-        m.write("{}.ilp".format(PSTN.name))
+        m.write("gurobi_files/{}.ilp".format(PSTN.name))
     return m, results
         

@@ -9,6 +9,7 @@ from graphviz import Digraph
 import subprocess
 import copy
 import logging
+import numpy as np
 inf = 10000
 
 def key_exists(dictionary, keys):
@@ -158,7 +159,7 @@ class constraint(object):
     
 
 class PSTN(object):
-    def __init__(self, name, timePoints, constraints, adjList = None):
+    def __init__(self, name, timePoints, constraints, adjList = None, correlation = None):
         ## Class representing a PSTN
         # \param name               String name of PSTN
         # \param timePoints         List of instances of timePoint class
@@ -167,6 +168,10 @@ class PSTN(object):
         self.timePoints = timePoints
         self.constraints = constraints
         self.adjList = adjList
+        self.correlation = correlation
+        if self.correlation == None:
+            self.correlation = np.identity(self.countType("pstc"))
+
 
     def setName(self, name):
         self.name = name

@@ -1,6 +1,7 @@
 #from os import getrandom
 #from re import T
 from curses.panel import top_panel
+from locale import D_FMT
 import numpy as np
 #from scipy.stats.mvn import mvnun as rectangular
 from scipy.stats import multivariate_normal as norm
@@ -8,7 +9,7 @@ from scipy import optimize
 import sys
 import gurobipy as gp
 from gurobipy import GRB
-from math import sqrt, log
+from math import sqrt, log, exp
 import numpy as np
 import additional_functions as fn
 from gecco_class import gecco
@@ -26,7 +27,7 @@ np.set_printoptions(threshold=sys.maxsize)
 np.set_printoptions(linewidth=np.inf)
 inf = 10000
 
-def getStandardForm(PSTN, model):
+def getStandardForm(PSTN, model, correlation=0):
     '''
     Description:    Makes matrices in the standard form of a Joint Chance Constrained Optimisation problem:
 
@@ -56,13 +57,22 @@ def getStandardForm(PSTN, model):
     p = 2 * len(cu)
     r = len(rvars)
 
+    corr = np.zeros((r, r))
+    for i in len(r):
+        for j in len(r):
+            if i == j:
+                corr[i, j] = 1
+            else:
+                corr[i, j] = correlation
+
+
     c = np.zeros(n)
     A = np.zeros((m, n))
     b = np.zeros(m)
     T = np.zeros((p, n))
     q = np.zeros((p))
     mu_X = np.zeros((r))
-    cov_X = np.zeros((r, r))
+    D = np.zeros((r, r))
     psi = np.zeros((p, r))
     x0 = np.zeros((n))
 
@@ -73,13 +83,11 @@ def getStandardForm(PSTN, model):
         start_i, end_i = vars.index(cc[i].source.id), vars.index(cc[i].sink.id)
         A[ub, start_i], A[ub, end_i], b[ub] = -1, 1, cc[i].intervals["ub"]
         A[lb, start_i], A[lb, end_i], b[lb] = 1, -1, -cc[i].intervals["lb"]
-        x0[start_i], x0[end_i] = model.getVarByName(cc[i].source.id).x, model.getVarByName(cc[i].sink.id).x
-        if cc[i].hard == False:
-            ru_i = vars.index(cc[i].name + "_ru")
-            #rl_i = vars.index(cc[i].name + "_rl")
-            A[ub, ru_i], c[ru_i] = -1, 1
-            x0[ru_i] = model.getVarByName(cc[i].name + "_ru").x
-            #A[lb, rl_i], c[rl_i] = -1, inf
+
+    # Gets initial solution from schedule
+    tc = PSTN.getControllables()
+    for i in range(len(x0)):
+        x0[i] = model.getVarByName(tc[i].id).x
 
     # Gets matrices for joint chance constraint P(Psi omega <= T * vars + q) >= 1 - alpha
     for i in range(len(cu)):
@@ -93,16 +101,11 @@ def getStandardForm(PSTN, model):
             T[lb, start_i], T[lb, end_i] = -1, 1
             q[ub] = cu[i].intervals["ub"]
             q[lb] = -cu[i].intervals["lb"]
-            if cu[i].hard == False:
-                ru_i = vars.index(cu[i].name + "_ru")
-                #rl_i = vars.index(cu[i].name + "_rl")
-                T[ub, ru_i], c[ru_i] = 1, 1
-                #T[lb, rl_i], c[rl_i] = 1, inf
             rvar_i = rvars.index("X" + "_" + incoming.source.id + "_" + incoming.sink.id)
             psi[ub, rvar_i] = -1
             psi[lb, rvar_i] = 1
             mu_X[rvar_i] = incoming.mu
-            cov_X[rvar_i][rvar_i] = incoming.sigma**2
+            D[rvar_i][rvar_i] = incoming.sigma
         elif incoming["end"] != None:
             incoming = incoming["end"]
             start_i, end_i = vars.index(cu[i].source.id), vars.index(incoming.source.id)
@@ -110,22 +113,19 @@ def getStandardForm(PSTN, model):
             T[lb, start_i], T[lb, end_i] = -1, 1
             q[ub] = cu[i].intervals["ub"]
             q[lb] = -cu[i].intervals["lb"]
-            if cu[i].hard == False:
-                ru_i = vars.index(cu[i].name + "_ru")
-                #rl_i = vars.index(cu[i].name + "_rl")
-                T[ub, ru_i], c[ru_i] = 1, 1
-                #T[lb, rl_i], c[rl_i] = 1, inf
             rvar_i = rvars.index("X" + "_" + incoming.source.id + "_" + incoming.sink.id)
             psi[ub, rvar_i] = 1
             psi[lb, rvar_i] = -1
             mu_X[rvar_i] = incoming.mu
-            cov_X[rvar_i][rvar_i] = incoming.sigma**2
+            D[rvar_i][rvar_i] = incoming.sigma
         else:
             raise AttributeError("Not an uncontrollable constraint since no incoming pstc")
+    # Gets covariance matrix from correlation matrix
+    cov_X = D @ corr @ np.transpose(D)
 
     # Performs transformation of X into eta where eta = psi X such that eta is a p dimensional random variable
     mu_eta = psi @ mu_X
-    cov_eta = psi @ cov_X @ psi.transpose()
+    cov_eta = psi @ cov_X @ np.transpose(psi)
 
     # Translates random vector eta into standard form xi = N(0, R) where R = D.eta.D^T
     # D = np.zeros((p, p))
@@ -137,7 +137,7 @@ def getStandardForm(PSTN, model):
     # mu_xi = np.zeros((p))
     # cov_xi = R
     z0 = T @ x0 + q
-    return A, vars, b, c, T, q, mu_eta, cov_eta, z0
+    return A, vars, b, c, T, q, mu_eta, cov_eta, z0, x0, psi
     
 def Initialise(gecco, box = 6):
     '''
@@ -158,7 +158,7 @@ def Initialise(gecco, box = 6):
     '''
     # Sets up and solves Gurobi opimisation problem
     m = gp.Model("initialisation")
-    x = m.addMVar(len(gecco.vars), vtype=GRB.CONTINUOUS, name="vars")
+    x = m.addMVar(len(gecco.vars), name=gecco.vars)
     z = m.addMVar(gecco.T.shape[0], vtype=GRB.CONTINUOUS, name="z")
     m.addConstr(gecco.A @ x <= gecco.b)
     m.addConstr(z <= gecco.T @ x + gecco.q)
@@ -167,7 +167,7 @@ def Initialise(gecco, box = 6):
     m.addConstr(x[gecco.start_i] == 0)
     m.setObjective(gp.quicksum(z), GRB.MAXIMIZE)
     m.update()
-    m.write("convex.lp")
+    m.write("gurobi_files/initial.lp")
     m.optimize()
 
     # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
@@ -178,7 +178,7 @@ def Initialise(gecco, box = 6):
             print("Variable {}: ".format(v.varName) + str(v.x))
     else:
         m.computeIIS()
-        m.write("convex.ilp")
+        m.write("gurobi_files/initial.ilp")
 
     z_ = np.array(z.x)
 
@@ -225,23 +225,26 @@ def masterProblem(gecco):
     lam = m.addMVar(k, name="lambda")
     phi = m.addMVar(1, name = "phi")
     m.addConstr(gecco.A @ x <= gecco.b, name="cont")
+    #m.addConstr(x == x0, "fixed")
     for i in range(p):
         m.addConstr(gecco.z[i, :]@lam <= gecco.T[i,:]@x + gecco.q[i], name="z{}".format(i))
     m.addConstr(x[gecco.start_i] == 0, name="x0")
     m.addConstr(lam.sum() == 1, name="sum_lam")
-    m.setObjective(lam @ gecco.phi, GRB.MINIMIZE)
+    m.addConstr(lam @ gecco.phi == phi, name="phi")
+    m.setObjective(phi, GRB.MINIMIZE)
     m.update()
-    m.write("rmp.lp")
+    m.write("gurobi_files/rmp.lp")
     m.optimize()
 
     # Checks to see whether an optimal solution is found and if so it prints the solution and objective value
     if m.status == GRB.OPTIMAL:
         print('\n objective: ', m.objVal)
+        print("\n probability: ", exp(-m.objVal))
         print('\n Vars:')
         for v in m.getVars():
-            if v.x != 0:
-                print("Variable {}: ".format(v.varName) + str(v.x))
-        m.write("rmp.sol")
+            #if v.x != 0:
+            print("Variable {}: ".format(v.varName) + str(v.x))
+        m.write("gurobi_files/rmp.sol")
 
     # Queries Gurobi to get values of dual variables and cbasis
     constraints = m.getConstrs()
@@ -271,21 +274,22 @@ def genetic_column_generation(z, gecco):
     gecco.new_phis = []
 
     duals = gecco.getDuals()
-    u, v, nu = fn.flatten(duals["u"]), duals["v"], duals["nu"]
+    mu, nu = fn.flatten(duals["mu"]), duals["nu"]
     mean, cov = gecco.mean, gecco.cov
     z = fn.flatten(z)
-    others = np.random.rand(9,len(z))*6
+    others = np.random.rand(9,len(z))
+    for i in range(others.shape[0]):
+        for j in range(len(z)):
+            others[i, j] = others[i, j] * 6 * cov[j, j]
     initial = np.vstack((z, others))
-    print("Initial: ")
-    print(initial)
 
     def genetic_dualf(z, solution_idx):
         try:
             phi = -log(norm(mean, cov, allow_singular=True).cdf(z))
-            f = np.dot(u, z) + v * phi + nu
+            f = np.dot(mu, z) + nu - phi
         except:
             f = 0
-        if f > 0 and z not in gecco.new_cols:
+        if f > 0:
            #  Keeps track of new columns in global variable and adds all points that have positive
            # reduced cost. This allows us to add multiple points at a time
            gecco.new_cols.append(z)
@@ -293,14 +297,14 @@ def genetic_column_generation(z, gecco):
            gecco.new_phis.append(phi)
         return f
     
-    ga = pygad.GA(num_generations=50,
+    ga = pygad.GA(num_generations=100,
                     num_parents_mating=2,
                     fitness_func=genetic_dualf,
                     initial_population=initial,
                     save_best_solutions=True,
                     mutation_by_replacement=True,
                     random_mutation_min_val=0,
-                    random_mutation_max_val=6,
+                    stop_criteria =  "saturate_10"
                     #stop_criteria =  "reach_0"
     )
     ga.run()
@@ -333,20 +337,22 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 100):
     Output:         m:              An instance of the Gurobi model class which solves the joint chance constrained PSTN
                     problem:        An instance of the gecco class containing problem results
     '''
+
     n_iterations = 0
     if tolog == True:
         saved_stdout = sys.stdout
         sys.stdout = open("logs/{}.txt".format(logfile), "w+")
-    
+    print("\nProblem: ", PSTN.name)
     # Translates the PSTN to the standard form of a gecco and stores the matrices in an instance of the gecco class
     start = time.time()
     m, results = solveLP(PSTN, PSTN.name + "LP", pres = 15)
     # Gets the standard form by performing matrix manipulation
     matrices = getStandardForm(PSTN, m)
-    A, vars, b, c, T, q, mu, cov, z0 = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7], matrices[8]
-    problem = gecco(A, vars, b, c, T, q, mu, cov)
+    A, vars, b, c, T, q, mu, cov, z0, x0, psi = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7], matrices[8], matrices[9], matrices[10]
+    problem = gecco(A, vars, b, c, T, q, mu, cov, psi)
     problem.start_i = problem.vars.index(PSTN.getStartTimepointName())
-    
+    print("z0 = ", z0)
+
     # Initialises the problem with k approximation points
     m = Initialise(problem)
     if m == None:
@@ -355,14 +361,9 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 100):
             sys.stdout.close()
             sys.stdout = saved_stdout
             return None
-    
-    for i in range(len(z0)):
-        if z0[i] >= 6:
-            z0[i] = 6
     F0 = fn.prob(z0, problem.mean, problem.cov)
     phi0 = -log(F0)
     problem.addColumn(np.c_[z0], phi0)
-
     k = len(problem.phi)
 
     # Solves the master problem
@@ -371,11 +372,13 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 100):
     problem.add_master_time(time.time() - start, m.objVal)
     problem.addSolution(m)
     print("Current objective is: ", m.objVal)
+    print("Current probability is: ",  exp(-m.objVal))
     UB = m.objVal
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
     z_d, vals, cg_obj = genetic_column_generation(z_m, problem)
+
     # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
     while n_iterations <= max_iterations and cg_obj < 0:
         k += 1
@@ -388,7 +391,7 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 100):
         problem.add_master_time(time.time() - start, m.objVal)
         problem.addSolution(m)
         print("Current objective is: ", m.objVal)
-        #UB_temp = m.objVal
+        print("Current probability is: ",  exp(-m.objVal))
 
         print("\nSolving Column Generation")
         z_d, vals, cg_obj = genetic_column_generation(z_m, problem)
