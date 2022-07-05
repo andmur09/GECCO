@@ -57,13 +57,7 @@ def getStandardForm(PSTN, model, correlation=0):
     p = 2 * len(cu)
     r = len(rvars)
 
-    corr = np.zeros((r, r))
-    for i in len(r):
-        for j in len(r):
-            if i == j:
-                corr[i, j] = 1
-            else:
-                corr[i, j] = correlation
+    corr = PSTN.correlation
 
 
     c = np.zeros(n)
@@ -269,6 +263,7 @@ def masterProblem(gecco):
     return (m, np.c_[z_sol])
 
 def genetic_column_generation(z, gecco):
+    print("Solving CG")
     # Creates a new list of new columns to add so that we can add multiple columns at once
     gecco.new_cols = []
     gecco.new_phis = []
@@ -284,6 +279,7 @@ def genetic_column_generation(z, gecco):
     initial = np.vstack((z, others))
 
     def genetic_dualf(z, solution_idx):
+        print("Evaluating dual")
         try:
             phi = -log(norm(mean, cov, allow_singular=True).cdf(z))
             f = np.dot(mu, z) + nu - phi
@@ -297,7 +293,7 @@ def genetic_column_generation(z, gecco):
            gecco.new_phis.append(phi)
         return f
     
-    ga = pygad.GA(num_generations=100,
+    ga = pygad.GA(num_generations=20,
                     num_parents_mating=2,
                     fitness_func=genetic_dualf,
                     initial_population=initial,

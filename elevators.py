@@ -36,7 +36,7 @@ def main():
 
     # For each PSTN, finds the start and last timePoint in the network and thus the constraint bounding the overall plan duration, creates additional instances of
     # each PSTN with varying deadlines.
-    factors = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+    factors = [1.1, 1.2, 1.3]
     elevators_ud = []
     for i in range(len(elevators)):
         for j in factors:
@@ -78,13 +78,15 @@ def main():
     
     # Varies correlation
     elevators_with_corr = []
-    correlation_coefficients = [-0.5, -0.4, -0.3, -0.2, 0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+    correlation_coefficients = [0.0, 0.2, 0.4, 0.6]
     for instance in elevators_ud:
         for coeff in correlation_coefficients:
             numbers = str(coeff).split(".")
-            print(numbers)
             problem = instance.makeCopy(instance.name + "_" +"corr_" + numbers[0] + numbers[1])
-            problem.correlation = coeff * np.identity(problem.countType("pstc"))
+            for i in range(problem.countType("pstc")):
+                for j in range(problem.countType("pstc")):
+                    if i != j:
+                        problem.correlation[i, j] = coeff
             elevators_with_corr.append(problem)
 
     for i in range(len(elevators_with_corr)):

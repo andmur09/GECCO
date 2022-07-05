@@ -95,39 +95,27 @@ def main():
         print("\nSOLVING: ", woodworking[i].name, "\n")
         try:
             tosave = {}
-            m, results = solve(woodworking[i], 0.1, tolog=True, logfile = woodworking[i].name + "_woodworking_log_normal", max_iterations = 100, cg_tol = 0.05)
+            m, results = gecco_algorithm(woodworking[i], tolog=True, logfile = woodworking[i].name + "_woodworking_log_genetic", max_iterations = 100)
             print("SOLVED: ", woodworking[i].name, "\n")
             schedule = getSchedule(woodworking[i], m)
             tosave["PSTN"] = woodworking[i]
             tosave["Results"] = results
             tosave["Schedule"] = schedule
-            with open("results/{}_woodworking_normal".format(woodworking[i].name), "wb") as f:
-                pkl.dump(tosave, f)
+            with open("results/{}_woodworking".format(woodworking[i].name), "wb") as f:
+                pkl.dump(tosave, f) 
         except:
             continue
-        # try:
-        #     tosave = {}
-        #     m, results = gecco_algorithm(woodworking[i], tolog=True, logfile = woodworking[i].name + "_woodworking_log_genetic", max_iterations = 100)
-        #     print("SOLVED: ", woodworking[i].name, "\n")
-        #     schedule = getSchedule(woodworking[i], m)
-        #     tosave["PSTN"] = woodworking[i]
-        #     tosave["Results"] = results
-        #     tosave["Schedule"] = schedule
-        #     with open("results/{}_woodworking".format(woodworking[i].name), "wb") as f:
-        #         pkl.dump(tosave, f)
-        # except:
-        #     continue
-        # try:
-        #     m, results = LP.solveLP(woodworking[i], woodworking[i].name)
-        #     tosave = {}
-        #     schedule = getSchedule(woodworking[i], m)
-        #     tosave["PSTN"] = woodworking[i]
-        #     tosave["LP"] = results
-        #     tosave["Schedule"] = schedule
-        #     with open("results/{}_woodworking_LP".format(woodworking[i].name), "wb") as f:
-        #         pkl.dump(tosave, f)
-        # except:
-        #     continue
+            # try:
+            #     m, results = LP.solveLP(woodworking[i], woodworking[i].name)
+            #     tosave = {}
+            #     schedule = getSchedule(woodworking[i], m)
+            #     tosave["PSTN"] = woodworking[i]
+            #     tosave["LP"] = results
+            #     tosave["Schedule"] = schedule
+            #     with open("results/{}_woodworking_LP".format(woodworking[i].name), "wb") as f:
+            #         pkl.dump(tosave, f)
+            # except:
+            #     continue
     # for i in range(len(elevators_files)):
     #     print("\nSOLVING: ", elevators[i].name, "\n")
     #     tosave = {}
