@@ -6,7 +6,7 @@ Created on Tue Jul  6 08:43:53 2021
 """
 import numpy as np
     
-def monte_carlo_success(PSTN, schedule, relaxation, no_simulations):
+def monte_carlo_success(PSTN, schedule, no_simulations):
     '''
     Description:    For a given schedule and PSTN, simulates execution of schedule a set amount of times and return probability
                     of successfule execution (i.e. all constraints satisfied)
@@ -23,11 +23,11 @@ def monte_carlo_success(PSTN, schedule, relaxation, no_simulations):
     else:
         count = 0
         for i in range(no_simulations):
-            if simulate_execution(PSTN, schedule, relaxation) == True:
+            if simulate_execution(PSTN, schedule) == True:
                 count += 1
         return count/no_simulations
 
-def simulate_execution(PSTN, schedule, relaxation):
+def simulate_execution(PSTN, schedule):
     '''
     Description: For a given schedule and PSTN, simulates execution of schedule once and returns True if successful (all constraints met)
                  else returns False.
@@ -38,24 +38,25 @@ def simulate_execution(PSTN, schedule, relaxation):
     
     Output:     bool:           True if successfully executed else False
     '''
+    mean = PSTN.getMean()
+    cov = PSTN.getCovariance()
+    pts = np.random.multivariate_normal(mean, cov, size=1)[0]
     contingents = PSTN.getContingents()
-    for probabilistic in contingents:
-        mean, sd = probabilistic.mu, probabilistic.sigma
-        schedule[probabilistic.sink.id] = schedule[probabilistic.source.id] + np.random.normal(mean, sd)
-        print(probabilistic.sink.id, schedule[probabilistic.sink.id])
+    print([i.description for i in contingents])
+    print(mean)
+    print(cov)
+    print(pts)
+
+    for i in range(len(contingents)):
+        outcome = pts[i]
+        schedule[contingents[i].sink.id] = schedule[contingents[i].source.id] + outcome
+    print(schedule)
     for constraint in PSTN.constraints:
         if constraint.type != "pstc":
             start, end = schedule[constraint.source.id], schedule[constraint.sink.id]
-            try:
-                print("\nEnd = {} {}, start = {} {}".format(constraint.sink.id, end, constraint.source.id, start))
-                print("Value = {}, LB = {}, UB = {}".format(round(end - start, 10), round(constraint.intervals["lb"] - relaxation[constraint.name]["Rl"], 10), round(constraint.intervals["ub"] + relaxation[constraint.name]["Ru"], 10)))
-                if round(end - start, 10) < round(constraint.intervals["lb"] - relaxation[constraint.name]["Rl"], 10) or round(end - start, 10) > round(constraint.intervals["ub"] + relaxation[constraint.name]["Ru"], 10):
-                    print("Condition not met")
-                    #print("End = {} {}, start = {} {}".format(constraint.sink.id, end, constraint.source.id, start))
-                    #print("Condition not met: Value = {}, LB = {}, UB = {}".format(round(end - start, 10), round(constraint.intervals["lb"] - relaxation[constraint.name]["Rl"], 10), round(constraint.intervals["ub"] + relaxation[constraint.name]["Ru"], 10)))
-                    return False
-            except KeyError:
-                #print("Key error")
-                if round(end - start, 10) < round(constraint.intervals["lb"], 10) or round(end - start, 10) > round(constraint.intervals["ub"], 10):
-                    return False
+            print("\nEnd = {} {}, start = {} {}".format(constraint.sink.id, end, constraint.source.id, start))
+            print("Value = {}, LB = {}, UB = {}".format(round(end - start, 10), round(constraint.intervals["lb"], 10), round(constraint.intervals["ub"], 10)))
+            if round(end - start, 10) < round(constraint.intervals["lb"], 10) or round(end - start, 10) > round(constraint.intervals["ub"], 10):
+                #print("Condition not met")
+                return False
     return True

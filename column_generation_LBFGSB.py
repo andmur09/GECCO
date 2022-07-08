@@ -1,8 +1,6 @@
 #from os import getrandom
 #from re import T
 from curses.panel import top_panel
-from locale import D_FMT
-from statistics import median
 import numpy as np
 #from scipy.stats.mvn import mvnun as rectangular
 from scipy.stats import multivariate_normal as norm
@@ -13,12 +11,11 @@ from gurobipy import GRB
 from math import sqrt, log, exp
 import numpy as np
 import additional_functions as fn
-from gecco_class import gecco
 import time
 from timeout import timeout
 import pygad
 from LinearProgramParis import solveLP
-import re
+from gecco_class import gecco
 #from scipy.optimize import line_search
 
 np.seterr(divide='raise')
@@ -59,6 +56,7 @@ def getStandardForm(PSTN, model, correlation=0):
     r = len(rvars)
 
     corr = PSTN.correlation
+
 
     c = np.zeros(n)
     A = np.zeros((m, n))
@@ -182,21 +180,16 @@ def Initialise(gecco, box = 6):
     #Adds p approximation points z^i = (z_1 = t,..,z_i = 0,..,z_p = t) for i = 1,2,..,p
     phi.append(-log(F0))
     z = np.c_[z_]
-    # for i in range(len(z_)):
-    #     try:
-    #         znew = np.copy(z_)
-    #         znew[i] = 0
-    #         z = np.hstack((z, np.c_[znew]))
-    #         Fnew = norm.cdf(znew, gecco.mean, gecco.cov, allow_singular=True)
-    #         phi.append(-log(Fnew))
-    #     except:
-    #         continue
+    for i in range(len(z_)):
+        znew = np.copy(z_)
+        znew[i] = 0
+        z = np.hstack((z, np.c_[znew]))
+        Fnew = fn.prob(znew, gecco.mean, gecco.cov)
+        phi.append(-log(Fnew))
 
     # Initialises the matrix z and vector phi within the instance of gecco
     gecco.setZ(z)
     gecco.setPhi(np.array(phi))
-    print("Phi = ", gecco.phi)
-    print("Z", gecco.z)
     return m
 
 def masterProblem(gecco):
@@ -221,13 +214,12 @@ def masterProblem(gecco):
     p = len(gecco.q)
     m = gp.Model("iteration_" + str(k))
     x = m.addMVar(len(gecco.vars), name=gecco.vars)
-    bounds = m.addMVar(p, name="bounds")
     lam = m.addMVar(k, name="lambda")
     phi = m.addMVar(1, name = "phi")
     m.addConstr(gecco.A @ x <= gecco.b, name="cont")
+    #m.addConstr(x == x0, "fixed")
     for i in range(p):
         m.addConstr(gecco.z[i, :]@lam <= gecco.T[i,:]@x + gecco.q[i], name="z{}".format(i))
-    m.addConstr(bounds == gecco.T@x + gecco.q)
     m.addConstr(x[gecco.start_i] == 0, name="x0")
     m.addConstr(lam.sum() == 1, name="sum_lam")
     m.addConstr(lam @ gecco.phi == phi, name="phi")
@@ -275,87 +267,77 @@ def masterProblem(gecco):
         if "bounds" in v.varName:
             bounds.append(v.x)
     bounds = np.array(bounds)
-
     print(gecco.mean, gecco.cov)
     print("Evaluated probability: ", norm(gecco.mean, gecco.cov, allow_singular=True).cdf(bounds))
     return (m, np.c_[z_sol])
 
-def genetic_column_generation(z, gecco):
-    #print("Solving CG")
-    # Creates a new list of new columns to add so that we can add multiple columns at once
-    columns_to_add = []
+def columnGeneration(z, gecco):
+    '''
+    Description:    Solves the column generaion problem (below) via SciPy optimize:
 
+                    min_z.  -u^Tz - v*phi(z) - nu    
+
+                    Every time we evaluate phi(z) we save the result to new_cols and new_phis return all new
+    
+    Input:          JCCP:       Instance of JCCP class
+    Output:         columns:    Matrix of new columns to be added
+                    values:     Vector of phi values to be added
+                    f:          Final function value (reduced cost)
+                    status:     Boolean stating whether the optimisation was successful
+    '''
+    columns_to_add = []
+ 
     duals = gecco.getDuals()
     mu, nu = fn.flatten(duals["mu"]), duals["nu"]
     mean, cov = gecco.mean, gecco.cov
-    # print("Duals:", mu, nu)
+
+    z = fn.flatten(z)
+    start = time.time()
     # print("Mean: ", mean)
     # print("Covariance: ", cov)
+    # print("Duals:", mu, nu)
 
-    # Generates initial population
-    z = fn.flatten(z)
-    others = np.random.rand(9,len(z))
-    for i in range(others.shape[0]):
-        for j in range(len(z)):
-            others[i, j] = others[i, j] * 6 * cov[j, j]
-    initial = np.vstack((z, others))
-
-    def genetic_dualf(x, solution_idx):
-        # print("\n")
-        try:
-            prob = norm(mean, cov, allow_singular=True).cdf(x)
-            phi = -log(prob)
-            f = np.dot(mu, x) + nu - phi
-        except:
-            f = -inf
-        if f > 0:
-            #  Keeps track of new columns in global variable and adds all points that have positive
+    def dualf(z):
+        phi = -log(norm(mean, cov, allow_singular=True).cdf(z))
+        f = phi -np.dot(mu, z) - nu
+        if f < 0:
+            # Keeps track of new columns in global variable and adds all points that have positive
             # reduced cost. This allows us to add multiple points at a time
             included = True
-            for element in columns_to_add:
-                if np.array_equal(x, element):
+            for element in gecco.new_cols:
+                if np.array_equal(z, element):
                     included = False
             if included == True:
-                # print("Dual has negative reduced cost so adding point. ")
-                # print(x)
-                # print("Probability, ", norm(mean, cov, allow_singular=True).cdf(x))
-                # print("Phi to add", phi)
-                columns_to_add.append((np.copy(x), phi))
-                # for i in columns_to_add:
-                #     print(i)
-                # print(vals_to_add)
+                columns_to_add.append((np.copy(z), phi))
         return f
     
-    ga = pygad.GA(num_generations=200,
-                    num_parents_mating=2,
-                    fitness_func=genetic_dualf,
-                    initial_population=initial,
-                    save_best_solutions=True,
-                    mutation_by_replacement=True,
-                    random_mutation_min_val=0,
-                    mutation_percent_genes=20,
-                    stop_criteria =  "saturate_20"
-                    #stop_criteria =  "reach_0"
-    )
+    def gradf_approx(z):
+        return optimize.approx_fprime(z, dualf)
 
-    ga.run()
-    obj = -ga.best_solutions_fitness[-1]
-    print("Reduced Cost : ", )
-    print(obj)
-    print("Solution")
-    print(ga.best_solutions_fitness)
-    print(ga.best_solutions)
-    # print("\nNew columns to add : ")
-    # print("Here", columns_to_add)
+    # Adds bounds to prevent variables being non-negative
+    bounds = []
+    for i in range(len(z)):
+        bound = (0.00001, inf)
+        bounds.append(bound)
+
+    res = optimize.minimize(dualf, z, jac = gradf_approx, method = "L-BFGS-B", bounds=bounds)
+    end = time.time()
+    print("Time taken: ", end - start)
+    print("\n", res)
+    z = res.x
+    f = res.fun
+    status = res.success
+
     for i in range(len(columns_to_add)):
         # print("Adding column: ")
         # print(columns_to_add[i])
         gecco.addColumn(np.c_[columns_to_add[i][0]], columns_to_add[i][1])
-    return gecco, obj
 
-def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 50):
+    return gecco, f
+    
+def solve(PSTN, tolog=False, logfile = None, max_iterations = 50):
     '''
-    Description:    Solves the problem of PSTN strong controllability via primal-dual column
+    Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
                     generation method.
     
     Input:          PSTN:           Instance of PSTN class
@@ -363,31 +345,29 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 50):
                                     e.g. P(success) >= 1 - alpha
                     epsilon:        An allowable upper bound on the distance between the current solution and the global optimum
                                     e.g. (UB - LB)/LB <= epsilon    
-                    tolog:            Boolean, whether or not to print to log file
+                    log:            Boolean, whether or not to print to log file
                     logfile:        File to save log to
                     max_iteraions:  Option to set maxmimum number of iterations
                     cg_tol:         Tolerance to use with Column Generation optimisation (see: https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html)
     Output:         m:              An instance of the Gurobi model class which solves the joint chance constrained PSTN
-                    problem:        An instance of the gecco class containing problem results
+                    problem:        An instance of the JCCP class containing problem results
     '''
-
     n_iterations = 0
     if tolog == True:
         saved_stdout = sys.stdout
         sys.stdout = open("logs/{}.txt".format(logfile), "w+")
-
-    # Translates the PSTN to the standard form of a gecco and stores the matrices in an instance of the gecco class
+    
+    # Translates the PSTN to the standard form of a JCCP and stores the matrices in an instance of the JCCP class
     start = time.time()
     m, results = solveLP(PSTN, PSTN.name + "LP", pres = 15)
-    # Gets the standard form by performing matrix manipulation
     matrices = getStandardForm(PSTN, m)
-    A, vars, b, c, T, q, mean, cov, z0, x0, psi = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7], matrices[8], matrices[9], matrices[10]
-    problem = gecco(A, vars, b, c, T, q, mean, cov, psi)
+    A, vars, b, c, T, q, mu, cov, z0, x0, psi = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7], matrices[8], matrices[9], matrices[10]
+    problem = gecco(A, vars, b, c, T, q, mu, cov, psi)
     problem.start_i = problem.vars.index(PSTN.getStartTimepointName())
-
+    
     # Initialises the problem with k approximation points
     m = Initialise(problem)
-    F0 = norm(mean, cov, allow_singular=True).cdf(z0)
+    F0 = fn.prob(z0, problem.mean, problem.cov)
     phi0 = -log(F0)
     problem.addColumn(np.c_[z0], phi0)
     k = len(problem.phi)
@@ -402,10 +382,9 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 50):
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
-    problem, obj = genetic_column_generation(z_m, problem)
+    problem, obj = columnGeneration(z_m, problem)
     k = len(problem.phi)
 
-    # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
     while n_iterations <= max_iterations and obj < 0:
         n_iterations += 1
 
@@ -417,7 +396,7 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 50):
         print("Current probability is: ",  exp(-m.objVal))
 
         print("\nSolving Column Generation")
-        problem, obj = genetic_column_generation(z_m, problem)
+        problem, obj = columnGeneration(z_m, problem)
 
     end = time.time()
     solution_time = end - start
@@ -443,18 +422,13 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 50):
     # print(problem.z)
     # Fs, phis = [], []
     # for i in range(np.shape(problem.z)[1]):
-    #     print("\nEvaluating phi for point")
-    #     print(problem.z[:, i])
-    #     F = norm.cdf(fn.flatten(problem.z[:, i]), mean, cov, allow_singular=True)
+    #     F = fn.prob(problem.z[:, i], problem.mean, problem.cov)
     #     phi = -log(F)
-    #     print("F", F)
-    #     print("phi", phi)
     #     Fs.append(F)
     #     phis.append(phi)
     # print("\nProbabilities: ")
     # print(Fs)
     # print("\nPhis: ")
-    # print(problem.phi)
     # print(phis)
     # print([phis[i] - problem.phi[i] for i in range(len(phis))])
 
@@ -462,5 +436,3 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 50):
         sys.stdout.close()
         sys.stdout = saved_stdout
     return m, problem
-
-

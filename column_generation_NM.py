@@ -25,7 +25,7 @@ np.set_printoptions(threshold=sys.maxsize)
 np.set_printoptions(linewidth=np.inf)
 inf = 10000
 
-def getStandardForm(PSTN, model):
+def getStandardForm(PSTN, model, correlation=0):
     '''
     Description:    Makes matrices in the standard form of a Joint Chance Constrained Optimisation problem:
 
@@ -55,13 +55,16 @@ def getStandardForm(PSTN, model):
     p = 2 * len(cu)
     r = len(rvars)
 
+    corr = PSTN.correlation
+
+
     c = np.zeros(n)
     A = np.zeros((m, n))
     b = np.zeros(m)
     T = np.zeros((p, n))
     q = np.zeros((p))
     mu_X = np.zeros((r))
-    cov_X = np.zeros((r, r))
+    D = np.zeros((r, r))
     psi = np.zeros((p, r))
     x0 = np.zeros((n))
 
@@ -94,7 +97,7 @@ def getStandardForm(PSTN, model):
             psi[ub, rvar_i] = -1
             psi[lb, rvar_i] = 1
             mu_X[rvar_i] = incoming.mu
-            cov_X[rvar_i][rvar_i] = incoming.sigma**2
+            D[rvar_i][rvar_i] = incoming.sigma
         elif incoming["end"] != None:
             incoming = incoming["end"]
             start_i, end_i = vars.index(cu[i].source.id), vars.index(incoming.source.id)
@@ -106,13 +109,15 @@ def getStandardForm(PSTN, model):
             psi[ub, rvar_i] = 1
             psi[lb, rvar_i] = -1
             mu_X[rvar_i] = incoming.mu
-            cov_X[rvar_i][rvar_i] = incoming.sigma**2
+            D[rvar_i][rvar_i] = incoming.sigma
         else:
             raise AttributeError("Not an uncontrollable constraint since no incoming pstc")
+    # Gets covariance matrix from correlation matrix
+    cov_X = D @ corr @ np.transpose(D)
 
     # Performs transformation of X into eta where eta = psi X such that eta is a p dimensional random variable
     mu_eta = psi @ mu_X
-    cov_eta = psi @ cov_X @ psi.transpose()
+    cov_eta = psi @ cov_X @ np.transpose(psi)
 
     # Translates random vector eta into standard form xi = N(0, R) where R = D.eta.D^T
     # D = np.zeros((p, p))
@@ -209,12 +214,13 @@ def masterProblem(gecco):
     p = len(gecco.q)
     m = gp.Model("iteration_" + str(k))
     x = m.addMVar(len(gecco.vars), name=gecco.vars)
+    bounds = m.addMVar(p, name="bounds")
     lam = m.addMVar(k, name="lambda")
     phi = m.addMVar(1, name = "phi")
     m.addConstr(gecco.A @ x <= gecco.b, name="cont")
-    #m.addConstr(x == x0, "fixed")
     for i in range(p):
         m.addConstr(gecco.z[i, :]@lam <= gecco.T[i,:]@x + gecco.q[i], name="z{}".format(i))
+    m.addConstr(bounds == gecco.T@x + gecco.q)
     m.addConstr(x[gecco.start_i] == 0, name="x0")
     m.addConstr(lam.sum() == 1, name="sum_lam")
     m.addConstr(lam @ gecco.phi == phi, name="phi")
@@ -229,8 +235,10 @@ def masterProblem(gecco):
         print("\n probability: ", exp(-m.objVal))
         print('\n Vars:')
         for v in m.getVars():
-            #if v.x != 0:
-            print("Variable {}: ".format(v.varName) + str(v.x))
+            if "lambda" in v.varName and v.x == 0:
+                continue
+            else:
+                print("Variable {}: ".format(v.varName) + str(v.x))
         m.write("gurobi_files/rmp.sol")
 
     # Queries Gurobi to get values of dual variables and cbasis
@@ -253,9 +261,19 @@ def masterProblem(gecco):
     # Gets values for variables lambda and evaluates current value of sum_{i=0}^k{lambda^i z^i} and sum(i=0)^k{lambda^i phi^i}
     lam_sol = np.array(lam.x)
     z_sol = np.array(sum([lam_sol[i]*gecco.z[:, i] for i in range(np.shape(gecco.z)[1])]))
+
+    # Calculates the Probability using the bounds
+    bounds = []
+    for v in m.getVars():
+        if "bounds" in v.varName:
+            bounds.append(v.x)
+    bounds = np.array(bounds)
+    print(gecco.mean, gecco.cov)
+    print("Evaluated probability: ", norm(gecco.mean, gecco.cov, allow_singular=True).cdf(bounds))
     return (m, np.c_[z_sol])
 
-def columnGeneration(z, gecco, tol, maxiter=15000, maxls=20):
+    
+def columnGeneration(z, gecco):
     '''
     Description:    Solves the column generaion problem (below) via SciPy optimize:
 
@@ -269,17 +287,17 @@ def columnGeneration(z, gecco, tol, maxiter=15000, maxls=20):
                     f:          Final function value (reduced cost)
                     status:     Boolean stating whether the optimisation was successful
     '''
-    global new_cols
-    new_cols = []
-
-    global new_phis
-    new_phis = []
+    columns_to_add = []
  
     duals = gecco.getDuals()
     mu, nu = fn.flatten(duals["mu"]), duals["nu"]
-    mean, cov, psi = gecco.mean, gecco.cov, gecco.psi
+    mean, cov = gecco.mean, gecco.cov
+
     z = fn.flatten(z)
     start = time.time()
+    # print("Mean: ", mean)
+    # print("Covariance: ", cov)
+    # print("Duals:", mu, nu)
 
     def dualf(z):
         phi = -log(norm(mean, cov, allow_singular=True).cdf(z))
@@ -287,23 +305,21 @@ def columnGeneration(z, gecco, tol, maxiter=15000, maxls=20):
         if f < 0:
             # Keeps track of new columns in global variable and adds all points that have positive
             # reduced cost. This allows us to add multiple points at a time
-            global new_cols
-            new_cols.append(z)
-            global new_phis
-            new_phis.append(phi)
+            included = True
+            for element in gecco.new_cols:
+                if np.array_equal(z, element):
+                    included = False
+            if included == True:
+                columns_to_add.append((np.copy(z), phi))
         return f
 
-    def gradf(z):
-        # Nested function to calculate gradients at particular points
-        return -fn.flatten(fn.grad(np.c_[z], mean, cov, psi))/norm(mean, cov, allow_singular=True).cdf(z) - mu
-    
     # Adds bounds to prevent variables being non-negative
     bounds = []
     for i in range(len(z)):
         bound = (0.00001, inf)
         bounds.append(bound)
 
-    res = optimize.minimize(dualf, z, jac = gradf, method = "L-BFGS-B", bounds=bounds, options={'ftol': tol, 'maxiter': maxiter, 'maxls': maxls})
+    res = optimize.minimize(dualf, z, method = "Nelder-Mead", bounds=bounds)
     end = time.time()
     print("Time taken: ", end - start)
     print("\n", res)
@@ -311,14 +327,14 @@ def columnGeneration(z, gecco, tol, maxiter=15000, maxls=20):
     f = res.fun
     status = res.success
 
-    columns = []
-    for z in new_cols:
-        columns.append(np.c_[z])
-    values = new_phis[:]
-
-    return columns, values, f, status
+    for i in range(len(columns_to_add)):
+        # print("Adding column: ")
+        # print(columns_to_add[i])
+        gecco.addColumn(np.c_[columns_to_add[i][0]], columns_to_add[i][1])
     
-def solve(PSTN, epsilon, tolog=False, logfile = None, max_iterations = 100, cg_tol = 0.05):
+    return gecco, f
+    
+def solve(PSTN, tolog=False, logfile = None, max_iterations = 50):
     '''
     Description:    Solves the problem of a joint chance constrained PSTN strong controllability via primal-dual column
                     generation method.
@@ -336,8 +352,6 @@ def solve(PSTN, epsilon, tolog=False, logfile = None, max_iterations = 100, cg_t
                     problem:        An instance of the JCCP class containing problem results
     '''
     n_iterations = 0
-    LB = 0.0001
-
     if tolog == True:
         saved_stdout = sys.stdout
         sys.stdout = open("logs/{}.txt".format(logfile), "w+")
@@ -352,12 +366,6 @@ def solve(PSTN, epsilon, tolog=False, logfile = None, max_iterations = 100, cg_t
     
     # Initialises the problem with k approximation points
     m = Initialise(problem)
-    if m == None:
-        print("No solution possible with current risk bound")
-        if log == True:
-            sys.stdout.close()
-            sys.stdout = saved_stdout
-            return None
     F0 = fn.prob(z0, problem.mean, problem.cov)
     phi0 = -log(F0)
     problem.addColumn(np.c_[z0], phi0)
@@ -369,54 +377,25 @@ def solve(PSTN, epsilon, tolog=False, logfile = None, max_iterations = 100, cg_t
     problem.add_master_time(time.time() - start, m.objVal)
     problem.addSolution(m)
     print("Current objective is: ", m.objVal)
-    UB = m.objVal
+    print("Current probability is: ",  exp(-m.objVal))
 
     # Solves the column generation problem
     print("\nSolving Column Generation")
-    z_d, vals, f, status = columnGeneration(z_m, problem, cg_tol)
-    rho = -f
+    problem, obj = columnGeneration(z_m, problem)
+    k = len(problem.phi)
 
-    # If column generation terminates succesfully, updates the lower bound
-    if status == True:
-        print("Calculating new lower bound: ", "obj = ", m.objVal, "rho = ", rho, "rho(1 + cg_tol) = ", rho*(1 + cg_tol))
-        LB = m.objVal - rho*(1 + cg_tol)
-        problem.add_convergence_time(time.time() - start, (UB - LB)/LB)
-        print("lower bound is: ", LB)
-    # Adds column and Repeats process until acceptable tolerance on optimalty gap is attained
-    #while abs((UB - LB)/LB) > epsilon and n_iterations <= max_iterations and rho >= 0:
-    while n_iterations <= max_iterations and rho >= 0:
+    while n_iterations <= max_iterations and obj < 0:
         n_iterations += 1
-        k += 1
-        
-        # Adds new points from column generation procedure
-        for i in range(len(vals)):
-            problem.addColumn(z_d[i], vals[i])
 
         print("\nSolving master problem with {} approximation points".format(k))
         m, z_m = masterProblem(problem)
         problem.add_master_time(time.time() - start, m.objVal)
         problem.addSolution(m)
         print("Current objective is: ", m.objVal)
-        UB_temp = m.objVal
-        
-        # Checks to see if desired optimality gap is attained and if so it breaks and
-        # terminates the algorithm.
-        UB = UB_temp
-        if abs((UB - LB)/LB) <= epsilon:
-            break
+        print("Current probability is: ",  exp(-m.objVal))
 
         print("\nSolving Column Generation")
-        z_d, vals, f, status = columnGeneration(z_m, problem, cg_tol)
-        rho = -f
-
-        if status == True:
-            print("Calculating new lower bound: ", "obj = ", m.objVal, "rho = ", rho, "rho(1 + cg_tol) = ", rho*(1 + cg_tol))
-            LB_k = m.objVal - rho*(1 + cg_tol)
-            LB = max(LB, LB_k)
-            problem.add_convergence_time(time.time() - start, (UB - LB)/LB)
-            print("lower bound is: ", LB)
-            
-        print("LB = ", LB, "UB = ", UB)
+        problem, obj = columnGeneration(z_m, problem)
 
     end = time.time()
     solution_time = end - start
@@ -426,12 +405,32 @@ def solve(PSTN, epsilon, tolog=False, logfile = None, max_iterations = 100, cg_t
     problem.setSolutionTime(solution_time)
     print("\nFinal solution found: ")
     print("Solution time: ", solution_time)
-    print("Optimality gap is: ", (UB - LB)/LB*100)
     print("Final Probability is: ", problem.getCurrentProbability())
     print('objective: ', m.objVal)
     print('Vars:')
+    # lambdas = []
     for v in m.getVars():
+        # if "lambda" in v.varName and v.x == 0:
+        #     continue
+        # else:
         print("Variable {}: ".format(v.varName) + str(v.x))
+            # if "lambda" in v.varName:
+            #     m = re.search(r"\[([A-Za-z0-9_]+)\]", v.varName)
+            #     lambdas.append(int(m.group(1)))
+    # print("\nColumns: ")
+    # print(problem.z)
+    # Fs, phis = [], []
+    # for i in range(np.shape(problem.z)[1]):
+    #     F = fn.prob(problem.z[:, i], problem.mean, problem.cov)
+    #     phi = -log(F)
+    #     Fs.append(F)
+    #     phis.append(phi)
+    # print("\nProbabilities: ")
+    # print(Fs)
+    # print("\nPhis: ")
+    # print(phis)
+    # print([phis[i] - problem.phi[i] for i in range(len(phis))])
+
     if tolog == True:
         sys.stdout.close()
         sys.stdout = saved_stdout

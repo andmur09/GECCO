@@ -172,7 +172,6 @@ class PSTN(object):
         if self.correlation == None:
             self.correlation = np.identity(self.countType("pstc"))
 
-
     def setName(self, name):
         self.name = name
     
@@ -286,6 +285,23 @@ class PSTN(object):
                         return {"start": incoming_source[0], "end": None}
                     except IndexError:
                         return {"start": None, "end": incoming_sink[0]}
+    
+    def getCorrelation(self):
+        return self.correlation
+    
+    def getCovariance(self):
+        rvars = self.getContingents()
+        D = np.zeros((len(rvars), len(rvars)))
+        for i in range(len(rvars)):
+            D[i, i] = rvars[i].sigma
+        return D @ self.correlation @ np.transpose(D)
+    
+    def getMean(self):
+        rvars = self.getContingents()
+        mean = np.zeros(len(rvars))
+        for i in range(len(rvars)):
+            mean[i] = rvars[i].sigma
+        return mean
     
     def outgoingEdge(self, constraint):
         return [c for c in self.getConstraints() if c.source == constraint.sink]
