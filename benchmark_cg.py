@@ -10,12 +10,12 @@ from simulations import getSchedule
 
 def benchmark(PSTN):
     # Solves PSTN using a number of methods and compares results
-    m_ge, results_ge = gecco_algorithm(PSTN, tolog=True, logfile=PSTN.name + "_log_genetic")
-    print("Genetic: ", m_ge.objVal)
-    m_nm, results_nm = NM(PSTN, tolog=True, logfile = PSTN.name + "_log_nelder_mead")
-    print("Nelder Mead: ", m_nm.objVal)
-    # m_lb, results_lb = LBFGSB(PSTN, tolog=True, logfile = PSTN.name + "_log_l_bfgs_b")
-    # print("L-BFGS-B: ", m_lb.objVal)
+    # m_ge, results_ge = gecco_algorithm(PSTN, tolog=True, logfile=PSTN.name + "_log_genetic")
+    # print("Genetic: ", m_ge.objVal)
+    # m_nm, results_nm = NM(PSTN, tolog=True, logfile = PSTN.name + "_log_nelder_mead")
+    # print("Nelder Mead: ", m_nm.objVal)
+    m_lb, results_lb = LBFGSB(PSTN, tolog=True, logfile = PSTN.name + "_log_l_bfgs_b")
+    print("L-BFGS-B: ", m_lb.objVal)
 
 
     # # gets the schedule from the solution
