@@ -9,6 +9,7 @@ import pickle as pkl
 from scipy import stats
 from math import inf
 import time
+inf = np.inf
 
 def linearProbability(constraint, m, n):
     '''

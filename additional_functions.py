@@ -3,6 +3,7 @@ import numpy as np
 #from rpy2 import robjects as ro
 import numpy as np
 from scipy.stats import multivariate_normal as norm
+from scipy import stats
 from math import sqrt
 import sys
 from gurobipy import GRB
@@ -97,3 +98,24 @@ def get_active_indices(z, mean, psi):
         I.append(model.objVal)
     print("I = ", I)
     return I
+
+def generate_random_correlation(n, eta, size=1):
+    beta0 = eta - 1 + n/2
+    shape = n * (n-1) // 2
+    triu_ind = np.triu_indices(n, 1)
+    beta_ = np.array([beta0 - k/2 for k in triu_ind[0]])
+    # partial correlations sampled from beta dist.
+    P = np.ones((n, n) + (size,))
+    P[triu_ind] = stats.beta.rvs(a=beta_, b=beta_, size=(size,) + (shape,)).T
+    # scale partial correlation matrix to [-1, 1]
+    P = (P-.5)*2
+    
+    for k, i in zip(triu_ind[0], triu_ind[1]):
+        p = P[k, i]
+        for l in range(k-1, -1, -1):  # convert partial correlation to raw correlation
+            p = p * np.sqrt((1 - P[l, i]**2) *
+                            (1 - P[l, k]**2)) + P[l, i] * P[l, k]
+        P[k, i] = p
+        P[i, k] = p
+
+    return np.transpose(P, (2, 0 ,1))[0]

@@ -10,7 +10,7 @@ import subprocess
 import copy
 import logging
 import numpy as np
-inf = 10000
+inf = np.inf
 
 def key_exists(dictionary, keys):
     ## Check if *keys (nested) exists in `element` (dict).
@@ -108,11 +108,9 @@ class constraint(object):
     
     def __str__(self):
         if self.type == "stc" or self.type == "stcu":
-            result = "Edge {} --> {}: ".format(self.source, self.sink)
-            for i in self.intervals:
-                result.append("[{}, {}] ".format(i["lb"], i["ub"]))
+            result = self.description + ": " + "[{}, {}] ".format(self.intervals["lb"], self.intervals["ub"])
         elif self.type == "pstc":
-            result = "Edge {} --> {}: N({}, {})".format(self.source, self.sink, self.distribution["mean"], self.distribution["variance"])
+            result = self.description + ": " + "N({}, {})".format(self.distribution["mean"], self.distribution["variance"])
         return result
 
     def forJSON(self):
@@ -159,7 +157,7 @@ class constraint(object):
     
 
 class PSTN(object):
-    def __init__(self, name, timePoints, constraints, adjList = None, correlation = None):
+    def __init__(self, name, timePoints, constraints, adjList = None):
         ## Class representing a PSTN
         # \param name               String name of PSTN
         # \param timePoints         List of instances of timePoint class
@@ -168,15 +166,16 @@ class PSTN(object):
         self.timePoints = timePoints
         self.constraints = constraints
         self.adjList = adjList
-        self.correlation = correlation
-        if self.correlation == None:
-            self.correlation = np.identity(self.countType("pstc"))
 
     def setName(self, name):
         self.name = name
     
     def makeCopy(self, name):
         return PSTN(name,  self.timePoints[:], [constraint.copyConstraint() for constraint in self.constraints])
+    
+    def makeCopyWithCorrelation(self, name, correlation):
+        # Returns a copy of the PSTN as a Corr_PSTN object using given correlation matrix
+        return Corr_PSTN(name,  self.timePoints[:], [constraint.copyConstraint() for constraint in self.constraints], correlation)
 
     def isSTN(self):
         ## Checks to see if the instance is an STN, i.e. it only contains simple temporal constraints.
@@ -285,23 +284,6 @@ class PSTN(object):
                         return {"start": incoming_source[0], "end": None}
                     except IndexError:
                         return {"start": None, "end": incoming_sink[0]}
-    
-    def getCorrelation(self):
-        return self.correlation
-    
-    def getCovariance(self):
-        rvars = self.getContingents()
-        D = np.zeros((len(rvars), len(rvars)))
-        for i in range(len(rvars)):
-            D[i, i] = rvars[i].sigma
-        return D @ self.correlation @ np.transpose(D)
-    
-    def getMean(self):
-        rvars = self.getContingents()
-        mean = np.zeros(len(rvars))
-        for i in range(len(rvars)):
-            mean[i] = rvars[i].sigma
-        return mean
     
     def outgoingEdge(self, constraint):
         return [c for c in self.getConstraints() if c.source == constraint.sink]
@@ -518,5 +500,25 @@ class PSTN(object):
             if len(incoming) == 0:
                 return constraint.source.id
 
+class Corr_PSTN(PSTN):
+    def __init__(self, name, timePoints, constraints, correlation):
+        super().__init__(name, timePoints, constraints, adjList = None)
+        assert np.shape(correlation)[0] == len(self.getContingents()) and np.shape(correlation)[1] == len(self.getContingents()), "Incompatible correlation matrix dimensions. Matrix should be ({} x {})".format(len(self.getContingents()), len(self.getContingents()))
+        self.correlation = correlation
 
-
+    def getCorrelation(self):
+        return self.correlation
+    
+    def getCovariance(self):
+        rvars = self.getContingents()
+        D = np.zeros((len(rvars), len(rvars)))
+        for i in range(len(rvars)):
+            D[i, i] = rvars[i].sigma
+        return D @ self.correlation @ np.transpose(D)
+    
+    def getMean(self):
+        rvars = self.getContingents()
+        mean = np.zeros(len(rvars))
+        for i in range(len(rvars)):
+            mean[i] = rvars[i].sigma
+        return mean

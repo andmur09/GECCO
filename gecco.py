@@ -26,7 +26,7 @@ np.set_printoptions(suppress=True)
 np.set_printoptions(precision=8)
 np.set_printoptions(threshold=sys.maxsize)
 np.set_printoptions(linewidth=np.inf)
-inf = 10000
+inf = np.inf
 
 def getStandardForm(PSTN, model, correlation=0):
     '''
@@ -116,6 +116,8 @@ def getStandardForm(PSTN, model, correlation=0):
             raise AttributeError("Not an uncontrollable constraint since no incoming pstc")
     # Gets covariance matrix from correlation matrix
     cov_X = D @ corr @ np.transpose(D)
+    print(cov_X)
+    print(PSTN.getCovariance())
 
     # Performs transformation of X into eta where eta = psi X such that eta is a p dimensional random variable
     mu_eta = psi @ mu_X
@@ -131,6 +133,8 @@ def getStandardForm(PSTN, model, correlation=0):
     # mu_xi = np.zeros((p))
     # cov_xi = R
     z0 = T @ x0 + q
+    print(corr)
+    print(cov_eta)
     return A, vars, b, c, T, q, mu_eta, cov_eta, z0, x0, psi
     
 def Initialise(gecco, box = 6):
@@ -177,7 +181,7 @@ def Initialise(gecco, box = 6):
     z_ = np.array(z.x)
 
     # Checks to see whether solution to z satisfies the chance constraint
-    F0 = fn.prob(z_, gecco.mean, gecco.cov)
+    F0 = norm(gecco.mean, gecco.cov, allow_singular=True).cdf(z_)
     phi = []
     #Adds p approximation points z^i = (z_1 = t,..,z_i = 0,..,z_p = t) for i = 1,2,..,p
     phi.append(-log(F0))
@@ -225,6 +229,9 @@ def masterProblem(gecco):
     lam = m.addMVar(k, name="lambda")
     phi = m.addMVar(1, name = "phi")
     m.addConstr(gecco.A @ x <= gecco.b, name="cont")
+    print(gecco.z)
+    print(gecco.T)
+    print(gecco.q)
     for i in range(p):
         m.addConstr(gecco.z[i, :]@lam <= gecco.T[i,:]@x + gecco.q[i], name="z{}".format(i))
     m.addConstr(bounds == gecco.T@x + gecco.q)
@@ -370,7 +377,8 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 50):
     Output:         m:              An instance of the Gurobi model class which solves the joint chance constrained PSTN
                     problem:        An instance of the gecco class containing problem results
     '''
-
+    for constraint in PSTN.constraints:
+        print(constraint.intervals)
     n_iterations = 0
     if tolog == True:
         saved_stdout = sys.stdout
@@ -379,6 +387,7 @@ def gecco_algorithm(PSTN, tolog=False, logfile = None, max_iterations = 50):
     # Translates the PSTN to the standard form of a gecco and stores the matrices in an instance of the gecco class
     start = time.time()
     m, results = solveLP(PSTN, PSTN.name + "LP", pres = 15)
+
     # Gets the standard form by performing matrix manipulation
     matrices = getStandardForm(PSTN, m)
     A, vars, b, c, T, q, mean, cov, z0, x0, psi = matrices[0], matrices[1], matrices[2], matrices[3], matrices[4], matrices[5], matrices[6], matrices[7], matrices[8], matrices[9], matrices[10]
